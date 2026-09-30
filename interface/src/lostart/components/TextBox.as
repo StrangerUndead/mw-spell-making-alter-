@@ -10,7 +10,6 @@
 import lostart.Theme;
 import lostart.util.Draw;
 import lostart.util.Text;
-import lostart.util.Translator;
 
 class lostart.components.TextBox
 {

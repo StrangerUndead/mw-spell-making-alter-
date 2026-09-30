@@ -68,7 +68,7 @@ class lostart.components.ItemCard
 			_emptyTf._x = pad;
 			_emptyTf._width = _w - 2 * pad;
 			_emptyTf._y = _h / 2 - 16;
-			Text.set(_emptyTf, "$LA_UI_CardEmpty");
+			_emptyTf.text = "";
 			return;
 		}
 		var color: Number = Theme.schoolColor(_entry.school);
@@ -88,7 +88,7 @@ class lostart.components.ItemCard
 
 		var dot: String = "  " + String.fromCharCode(183) + "  ";
 		var meta: String = Translator.tr(String(_entry.schoolName)) + dot +
-			Translator.format("$LA_UI_BaseCost", [formatNumber(Number(_entry.baseCost))]);
+			Translator.tr("$LA_UI_BaseCost") + " " + formatNumber(Number(_entry.baseCost));
 		if (_entry.ranges != undefined && String(_entry.ranges).length > 0)
 			meta += dot + Translator.tr(String(_entry.ranges));
 		_metaTf._x = pad;
@@ -105,7 +105,7 @@ class lostart.components.ItemCard
 		_unitTf._width = _w - 2 * pad;
 		_unitTf._height = 30;
 		if (_unitTf._visible) {
-			Text.setFit(_unitTf, Translator.format("$LA_UI_UnitLine", [unit]));
+			Text.setFit(_unitTf, Translator.tr("$LA_UI_Unit") + ": " + unit);
 			y += 30;
 		}
 
@@ -116,6 +116,6 @@ class lostart.components.ItemCard
 		_noteTf._width = _w - 2 * pad;
 		_noteTf._height = Math.max(24, _h - y - 6 - pad + 6);
 		if (_noteTf._visible)
-			_noteTf.text = Translator.format("$LA_UI_InSkyrim", [card]);
+			_noteTf.text = Translator.tr("$LA_UI_InSkyrim") + " " + card;
 	}
 }

@@ -48,7 +48,7 @@ class lostart.components.ListPopup
 		_list.setFocused(true);
 		_okBtn = new Button(clip, "ok", 5, 44);
 		_cancelBtn = new Button(clip, "cancel", 6, 44);
-		_okBtn.setLabel("$LA_UI_Select");
+		_okBtn.setLabel("$LA_UI_OK");
 		_cancelBtn.setLabel("$LA_UI_Cancel");
 		_okBtn.onPress = function(): Void { self.pick(); };
 		_cancelBtn.onPress = function(): Void { self.onCancel(); };

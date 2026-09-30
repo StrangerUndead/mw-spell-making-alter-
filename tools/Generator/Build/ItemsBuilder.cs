@@ -60,6 +60,8 @@ public sealed class ItemsBuilder(BuildContext ctx)
 
     public static string? TomePascal(JsonObject t)
     {
+        var title = t.Str("title");
+        if (title is not null && title.StartsWith("$LA_Tome_")) return title["$LA_Tome_".Length..];
         var edid = t.Str("editorId", "bookEditorId");
         if (edid is not null && edid.StartsWith("LA_Tome_")) return edid["LA_Tome_".Length..];
         var id = t.Str("id", "pascal", "key");
@@ -70,70 +72,89 @@ public sealed class ItemsBuilder(BuildContext ctx)
         return Naming.ToPascal(name);
     }
 
+    /// <summary>Linked sub-spells of mixed-range tomes: primary spell EditorID -> sub-spell EditorIDs (cast by the DLL on release).</summary>
+    public SortedDictionary<string, List<string>> LinkedSpells { get; } = new(StringComparer.Ordinal);
+
+    private static readonly string[] RangeOrder = { "target", "touch", "self" }; // farthest first
+
     private void BuildTome(string pascal, JsonObject t)
     {
         var context = $"tomes:{pascal}";
         var effects = t.Arr("effects") ?? new JsonArray();
         if (effects.Count == 0) { Log.Error($"{context}: no effects"); return; }
 
-        var spellEffects = new ExtendedList<Effect>();
-        TargetType? delivery = null;
+        // Group effects by range: Skyrim spells have one delivery, so a mixed-range tome gets a
+        // primary spell (farthest range, carries the cost) plus linked zero-cost sub-spells,
+        // exactly like the DLL compiles mixed-range custom spells (OUTLINE "Mixed-range spells").
+        var byRange = new Dictionary<string, ExtendedList<Effect>>();
         string? school = t.Str("school");
-        var costliest = -1.0;
         foreach (var node in effects)
         {
             if (node is not JsonObject fx) continue;
-            var effectId = fx.Str("effect", "id", "effectId");
+            var effectId = fx.Str("id", "effect", "effectId");
             if (effectId is null || !ctx.Data.EffectsById.TryGetValue(effectId, out var e)) { Log.Error($"{context}: unknown effect '{effectId}'"); continue; }
             var range = (fx.Str("range") ?? e.Ranges.FirstOrDefault() ?? "self").ToLowerInvariant();
             if (!e.Ranges.Contains(range)) Log.Error($"{context}: {effectId} does not allow range '{range}'");
             var sub = SubFor(fx, e, context);
-            var targetName = TargetNameForSub(e, sub);
-            var variantId = EffectBuilder.VariantEditorId(e, range, targetName);
-            var d = range == "self" ? TargetType.Self : TargetType.Aimed;
-            if (delivery is not null && delivery != d) Log.Error($"{context}: mixes Self and Touch/Target effects; a spell has one delivery (split it into two tomes)");
-            delivery ??= d;
-
+            var variantId = EffectBuilder.VariantEditorId(e, range, TargetNameForSub(e, sub));
             var min = fx.Num("min", "minMag", "magnitude") ?? 0;
             var max = fx.Num("max", "maxMag", "magnitude") ?? min;
-            var mag = e.HasMagnitude ? (float)Math.Round((min + max) / 2.0) : 0f;
+            var mag = e.HasMagnitude ? (float)Math.Round((min + max) / 2.0, MidpointRounding.AwayFromZero) : 0f;
             var dur = e.HasDuration ? (int)(fx.Num("duration") ?? 0) : 0;
             var area = e.HasArea && range != "self" ? (int)(fx.Num("area") ?? 0) : 0;
-            spellEffects.Add(new Effect
+            if (!byRange.TryGetValue(range, out var list)) byRange[range] = list = new ExtendedList<Effect>();
+            list.Add(new Effect
             {
                 BaseEffect = new FormLinkNullable<IMagicEffectGetter>(ctx.ContentLink(variantId)),
                 Data = new EffectData { Magnitude = mag, Duration = dur, Area = area },
             });
-            var weight = e.BaseCost * Math.Max(1, mag) * Math.Max(1, dur);
-            if (weight > costliest) { costliest = weight; school ??= e.School; if (t.Str("school") is null) school = e.School; }
+            school ??= e.School;
         }
-        if (spellEffects.Count == 0) return;
+        if (byRange.Count == 0) return;
         school ??= "Alteration";
 
         var spellName = ctx.Tr.Resolve(t.Str("spellName", "name", "spell"), EffectBuilder.SplitPascal(pascal));
-        var rank = RankPerk(t.Str("rank"), school, t.Num("level"));
-        var cost = t.Num("cost");
-        var spell = ctx.C($"LA_TomeSpell_{pascal}", fk => new Spell(fk, BuildContext.Release)
+        var rank = t.Str("rank") ?? "Novice";
+        var perk = RankPerk(rank, school, t.Num("level"));
+        var cost = t.Num("skyrimCost", "cost");
+        var ranges = RangeOrder.Where(byRange.ContainsKey).ToList();
+        var primaryId = $"LA_TomeSpell_{pascal}";
+        Spell? primary = null;
+        foreach (var range in ranges)
         {
-            ObjectBounds = new ObjectBounds(),
-            Name = spellName,
-            EquipmentType = new FormLinkNullable<IEquipTypeGetter>(ctx.Vanilla_("EquipType", "EitherHand")),
-            Description = "",
-            BaseCost = cost is null ? 0u : (uint)Math.Round(cost.Value),
-            Flags = cost is null ? 0 : SpellDataFlag.ManualCostCalc,
-            Type = SpellType.Spell,
-            ChargeTime = 0.5f,
-            CastType = CastType.FireAndForget,
-            TargetType = delivery ?? TargetType.Self,
-            CastDuration = 0f,
-            Range = 0f,
-            HalfCostPerk = new FormLink<IPerkGetter>(ctx.Vanilla_("Perk", rank)),
-            Effects = spellEffects,
-        });
+            var isPrimary = range == ranges[0];
+            var edid = isPrimary ? primaryId : $"{primaryId}_{Naming.RangeName(range)}";
+            var spell = ctx.C(edid, fk => new Spell(fk, BuildContext.Release)
+            {
+                ObjectBounds = new ObjectBounds(),
+                Name = spellName,
+                EquipmentType = new FormLinkNullable<IEquipTypeGetter>(ctx.Vanilla_("EquipType", "EitherHand")),
+                Description = "",
+                // The catalog's Skyrim-balanced cost is applied as a cost override on the primary spell.
+                BaseCost = !isPrimary ? 0u : cost is null ? 0u : (uint)Math.Round(cost.Value),
+                Flags = !isPrimary || cost is not null ? SpellDataFlag.ManualCostCalc : 0,
+                Type = SpellType.Spell,
+                ChargeTime = 0.5f,
+                CastType = CastType.FireAndForget,
+                TargetType = range == "self" ? TargetType.Self : TargetType.Aimed,
+                CastDuration = 0f,
+                Range = 0f,
+                HalfCostPerk = new FormLink<IPerkGetter>(ctx.Vanilla_("Perk", perk)),
+                Effects = byRange[range],
+            });
+            if (isPrimary) primary = spell;
+            else
+            {
+                if (!LinkedSpells.TryGetValue(primaryId, out var l)) LinkedSpells[primaryId] = l = new List<string>();
+                l.Add(edid);
+            }
+        }
+        if (ranges.Count > 1)
+            ctx.Verify($"SPEL {primaryId}: mixed-range tome split into {string.Join(" + ", ranges)}; the DLL must cast the linked sub-spell(s) listed in data/generated/variants.json \"linkedSpells\" when the primary is released");
 
         var bookTitle = ctx.Tr.Resolve(t.Str("title", "bookName", "tomeName"), $"Spell Tome: {spellName}");
-        var level = (short)(t.Num("level", "lootLevel") ?? 1);
-        var value = (uint)(t.Num("value", "price", "gold") ?? DefaultValue(rank));
+        var level = (short)(t.Num("level", "lootLevel") ?? RankLevel(rank));
+        var value = (uint)(t.Num("value", "price", "gold") ?? DefaultValue(perk));
         var book = ctx.C($"LA_Tome_{pascal}", fk => new Book(fk, BuildContext.Release)
         {
             ObjectBounds = new ObjectBounds(),
@@ -145,14 +166,24 @@ public sealed class ItemsBuilder(BuildContext ctx)
             Keywords = Links.Keywords(new[] { ctx.Vanilla_("Keyword", "VendorItemSpellTome") }),
             Flags = 0,
             Type = Book.BookType.BookOrTome,
-            Teaches = new BookSpell { Spell = new FormLink<ISpellGetter>(spell.FormKey) },
+            Teaches = new BookSpell { Spell = new FormLink<ISpellGetter>(primary!.FormKey) },
             Value = value,
             Weight = 1f,
             InventoryArt = new FormLinkNullable<IStaticGetter>(ctx.Vanilla_("Static", $"HighPoly{school}Book")),
             Description = "",
         });
-        Tomes.Add((book, spell, school, level, t));
+        Tomes.Add((book, primary, school, level, t));
     }
+
+    /// <summary>Leveled-list level for a tome rank (vanilla tome lists gate by level the same way).</summary>
+    public static short RankLevel(string rank) => rank switch
+    {
+        "Apprentice" => 5,
+        "Adept" => 10,
+        "Expert" => 20,
+        "Master" => 30,
+        _ => 1,
+    };
 
     private static int SubFor(JsonObject fx, EffectDef e, string context)
     {
@@ -263,34 +294,68 @@ public sealed class ItemsBuilder(BuildContext ctx)
     // Leveled lists (the DLL injects them into vanilla lists / vendor chests at runtime)
     // ------------------------------------------------------------------------------------
 
+    /// <summary>Generated LVLI EditorID -> vanilla leveled list the DLL adds it to at data load (no vanilla record is edited).</summary>
+    public SortedDictionary<string, string> LootInjection { get; } = new(StringComparer.Ordinal);
+
+    /// <summary>
+    /// LA_TomeLoot: every loot tome, levelled by rank. LA_TomeLoot_&lt;vanilla list&gt;: the tomes that
+    /// tomes.json assigns to that vanilla list (lootLists). LA_VendorTomes_&lt;School&gt;: the tomes a
+    /// spellmaker with that specialty sells (tomes.json "vendors", Morrowind schools incl. Mysticism).
+    /// </summary>
     public void BuildLeveledLists()
     {
-        var loot = ctx.Data.ContentFile("tomes").Obj("loot");
-        var chanceNone = (byte)(loot.Num("chanceNone") ?? 0);
+        var root = ctx.Data.ContentFile("tomes");
+        var chanceNone = (byte)(root.Obj("loot").Num("chanceNone") ?? 0);
+        var loot = Tomes.Where(t => t.Entry.Bool("loot") != false).ToList();
         ctx.C(TomeLoot, fk => new LeveledItem(fk, BuildContext.Release)
         {
             ObjectBounds = new ObjectBounds(),
             ChanceNone = new Noggog.Percent(chanceNone / 100.0),
             Flags = LeveledItem.Flag.CalculateFromAllLevelsLessThanOrEqualPlayer,
-            Entries = Tomes.Where(t => t.Entry.Bool("loot") != false)
-                .OrderBy(t => t.Level).ThenBy(t => t.Book.EditorID, StringComparer.Ordinal)
-                .Select(t => Entry(t.Book.FormKey, t.Level)).ToExtendedList(),
+            Entries = Sorted(loot).Select(t => Entry(t.Book.FormKey, t.Level)).ToExtendedList(),
         });
 
-        foreach (var school in Mappings.Schools)
+        var byList = new SortedDictionary<string, (FormKey List, List<(Book Book, Spell Spell, string School, short Level, JsonObject Entry)> Tomes)>(StringComparer.Ordinal);
+        foreach (var t in loot)
+            foreach (var reference in t.Entry.Strings("lootLists"))
+            {
+                var fk = ctx.Resolve(reference, $"tomes:{t.Book.EditorID} lootLists", "LeveledItem");
+                if (fk is null) continue;
+                var label = ctx.Vanilla.Describe(fk.Value)?.EditorId ?? $"{fk.Value.ModKey.Name}_{fk.Value.ID:X6}";
+                var edid = $"{TomeLoot}_{label}";
+                if (!byList.TryGetValue(edid, out var entry)) byList[edid] = entry = (fk.Value, new());
+                entry.Tomes.Add(t);
+            }
+        foreach (var (edid, (list, tomes)) in byList)
         {
-            var tomes = Tomes.Where(t => t.School == school && t.Entry.Bool("vendor") != false).ToList();
-            if (tomes.Count == 0) continue;
+            // The vanilla list is already rank-gated, so entries sit at level 1 inside it.
+            ctx.C(edid, fk => new LeveledItem(fk, BuildContext.Release)
+            {
+                ObjectBounds = new ObjectBounds(),
+                ChanceNone = new Noggog.Percent(0),
+                Flags = LeveledItem.Flag.CalculateFromAllLevelsLessThanOrEqualPlayer,
+                Entries = Sorted(tomes).Select(t => Entry(t.Book.FormKey, 1)).ToExtendedList(),
+            });
+            LootInjection[edid] = VanillaIndex.Format(list);
+        }
+
+        var vendorSchools = new SortedSet<string>(StringComparer.Ordinal);
+        foreach (var t in Tomes) foreach (var v in t.Entry.Strings("vendors")) vendorSchools.Add(v);
+        foreach (var school in vendorSchools)
+        {
+            var tomes = Tomes.Where(t => t.Entry.Strings("vendors").Contains(school)).ToList();
             ctx.C($"LA_VendorTomes_{school}", fk => new LeveledItem(fk, BuildContext.Release)
             {
                 ObjectBounds = new ObjectBounds(),
                 ChanceNone = new Noggog.Percent(0),
                 Flags = LeveledItem.Flag.CalculateFromAllLevelsLessThanOrEqualPlayer | LeveledItem.Flag.UseAll,
-                Entries = tomes.OrderBy(t => t.Level).ThenBy(t => t.Book.EditorID, StringComparer.Ordinal)
-                    .Select(t => Entry(t.Book.FormKey, t.Level)).ToExtendedList(),
+                Entries = Sorted(tomes).Select(t => Entry(t.Book.FormKey, t.Level)).ToExtendedList(),
             });
         }
     }
+
+    private static IEnumerable<(Book Book, Spell Spell, string School, short Level, JsonObject Entry)> Sorted(IEnumerable<(Book Book, Spell Spell, string School, short Level, JsonObject Entry)> tomes) =>
+        tomes.OrderBy(t => t.Level).ThenBy(t => t.Book.EditorID, StringComparer.Ordinal);
 
     private static LeveledItemEntry Entry(FormKey item, short level) => new()
     {
@@ -308,7 +373,7 @@ public sealed class ItemsBuilder(BuildContext ctx)
         {
             var entry = altars.FirstOrDefault(a => (a.Str("editorId", "furniture", "id") ?? "").Contains(key, StringComparison.OrdinalIgnoreCase)
                                                    || (a.Str("editorId", "furniture") ?? "") == edid);
-            var name = ctx.Tr.Resolve(entry?.Str("name"), ctx.Tr.Resolve($"${edid}", fallbackName));
+            var name = ctx.Tr.Resolve(entry?.Str("nameKey", "name"), fallbackName);
             var model = entry?.Str("model") ?? @"Furniture\Workstations\EnchantingWorkbench01.nif";
             ctx.C(edid, fk => new Furniture(fk, BuildContext.Release)
             {

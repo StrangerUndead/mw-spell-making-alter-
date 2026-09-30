@@ -125,7 +125,7 @@ public sealed class EffectBuilder(BuildContext ctx)
     public static List<(string Name, int Index)> SpecialMorrowindSkills(DataSet data)
     {
         var result = new List<(string, int)>();
-        var entries = data.ContentList("skills", "skills", "morrowind", "mappings");
+        var entries = data.ContentList("skills", "morrowindSkills", "morrowind", "mappings");
         var skyrim = new HashSet<string>(Mappings.SkyrimSkills, StringComparer.OrdinalIgnoreCase);
         foreach (var o in entries)
         {

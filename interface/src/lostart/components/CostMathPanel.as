@@ -31,7 +31,7 @@ class lostart.components.CostMathPanel
 		_headShare = Text.create(clip, "hs", 3, 0, 0, 120, 26, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_MEDIUM, "right");
 		_headRun = Text.create(clip, "hr", 4, 0, 0, 120, 26, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_MEDIUM, "right");
 		Text.set(_headShare, "$LA_UI_CostShare");
-		Text.set(_headRun, "$LA_UI_CostRunning");
+		Text.set(_headRun, "$LA_UI_CostMathRunning");
 		_rows = [];
 		for (var i: Number = 0; i < MAX_ROWS; i++) {
 			var t: TextField = Text.create(clip, "t" + i, 10 + i * 3, 0, 0, 100, 26, Theme.FS_SMALL, Theme.TEXT_SOFT, Theme.FONT_REGULAR, "left");
@@ -56,7 +56,7 @@ class lostart.components.CostMathPanel
 			return;
 		var pad: Number = 20;
 		Draw.panel(_bg, _w, _h, Theme.MODAL_ALPHA, true);
-		var title: String = Translator.tr("$LA_UI_CostMath");
+		var title: String = Translator.tr("$LA_UI_CostMathTitle");
 		if (a_modelName != undefined && a_modelName.length > 0)
 			title += "  (" + Translator.tr(a_modelName) + ")";
 		_titleTf._x = pad;
@@ -100,7 +100,7 @@ class lostart.components.CostMathPanel
 		_totalTf._x = pad;
 		_totalTf._y = _h - pad - 30;
 		_totalTf._width = _w - 2 * pad;
-		_totalTf.text = Translator.format("$LA_UI_CostTotal", [a_costText == undefined ? "" : a_costText]);
+		_totalTf.text = Translator.tr("$LA_UI_MagickaCost") + "  " + (a_costText == undefined ? "" : a_costText);
 	}
 
 	private static function fmt(a_v: Object): String

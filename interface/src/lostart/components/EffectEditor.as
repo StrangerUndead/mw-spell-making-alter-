@@ -84,7 +84,7 @@ class lostart.components.EffectEditor
 		_rangeBox.useHandCursor = false;
 
 		_sliders = {};
-		var labels: Object = {min: "$LA_UI_Magnitude", max: "$LA_UI_MagnitudeTo", duration: "$LA_UI_Duration", area: "$LA_UI_Area"};
+		var labels: Object = {min: "$LA_UI_Magnitude", max: "$LA_UI_To", duration: "$LA_UI_Duration", area: "$LA_UI_Area"};
 		for (var i: Number = 0; i < FIELDS.length; i++) {
 			var f: String = FIELDS[i];
 			var s: Slider = new Slider(clip, "slider_" + f, 20 + i);
@@ -442,7 +442,7 @@ class lostart.components.EffectEditor
 
 		// preview
 		_lineTf.text = Translator.tr(StateUtil.str(_ed.lineText));
-		_costTf.text = Translator.format("$LA_UI_EffectCost", [String(StateUtil.num(_ed.effectCost, 0))]);
+		_costTf.text = Translator.tr("$LA_UI_EffectCost") + " " + String(StateUtil.num(_ed.effectCost, 0));
 
 		// buttons
 		var btns: Array = buttonList();

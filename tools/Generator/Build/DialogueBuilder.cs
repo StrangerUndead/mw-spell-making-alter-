@@ -1,5 +1,6 @@
 using System.Text.Json.Nodes;
 using LostArt.Generator.Core;
+using LostArt.Generator.Data;
 using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Skyrim;
 using Noggog;
@@ -23,7 +24,9 @@ public sealed class DialogueBuilder(BuildContext ctx)
 
     private Log Log => ctx.Log;
 
-    public List<(string Id, FormKey Npc)> Spellmakers { get; } = new();
+    public sealed record Spellmaker(string Id, FormKey Npc, int RefusalCode, string? RefusalLine);
+
+    public List<Spellmaker> Spellmakers { get; } = new();
 
     public void Build()
     {
@@ -76,23 +79,42 @@ public sealed class DialogueBuilder(BuildContext ctx)
                 .ToExtendedList(),
         });
 
-        // Refuse: same speakers, service on, LA_ServiceRefusal > 0 (the DLL shows the reason).
-        var refuse = ctx.C(InfoRefuse, fk => new DialogResponses(fk, BuildContext.Release)
+        // Refuse, per spellmaker: their own line (tomes.json refusalLine) for their own gate
+        // (reasons 1-3: College membership, wanted in the hold, quest not done).
+        var infos = new List<DialogResponses> { serve };
+        foreach (var sm in Spellmakers)
+        {
+            var line = ctx.Tr.Resolve(sm.RefusalLine, "I'm afraid I can't help you with that.");
+            infos.Add(ctx.C($"{InfoRefuse}_{Naming.SnakeToPascal(sm.Id)}", fk => new DialogResponses(fk, BuildContext.Release)
+            {
+                Flags = new DialogResponseFlags { Flags = 0 },
+                Topic = new FormLinkNullable<IDialogTopicGetter>(topic.FormKey),
+                Responses = new ExtendedList<DialogResponse> { Line(line, 1) },
+                Conditions = new[] { IsId(sm.Npc, last: true) }
+                    .Append(GlobalCond(enabled, CompareOperator.EqualTo, 1f))
+                    .Append(GlobalCond(refusal, CompareOperator.GreaterThan, 0f))
+                    .Append(GlobalCond(refusal, CompareOperator.LessThan, 4f))
+                    .ToExtendedList(),
+            }));
+        }
+
+        // Refuse, shared: the universal reasons (4 stage-4 vampire, 5 relationship below Acquaintance).
+        infos.Add(ctx.C(InfoRefuse, fk => new DialogResponses(fk, BuildContext.Release)
         {
             Flags = new DialogResponseFlags { Flags = 0 },
             Topic = new FormLinkNullable<IDialogTopicGetter>(topic.FormKey),
             Responses = new ExtendedList<DialogResponse>
             {
-                Line(ctx.Tr.Resolve("$LA_Dlg_Refuse", "I'm afraid I can't help you with that."), 1),
+                Line(ctx.Tr.Resolve("$LA_Refuse_Generic", "I'm afraid I can't help you with that."), 1),
             },
             Conditions = SpeakerConditions()
                 .Append(GlobalCond(enabled, CompareOperator.EqualTo, 1f))
-                .Append(GlobalCond(refusal, CompareOperator.GreaterThan, 0f))
+                .Append(GlobalCond(refusal, CompareOperator.GreaterThanOrEqualTo, 4f))
                 .ToExtendedList(),
-        });
+        }));
 
-        // INFO order follows the EditorID sort (conditions are mutually exclusive, so order is irrelevant in-game).
-        foreach (var info in new[] { serve, refuse }.OrderBy(i => BuildContext.SortKey(i.EditorID!), StringComparer.Ordinal))
+        // INFO order follows the EditorID sort; the conditions are mutually exclusive, so order is irrelevant in-game.
+        foreach (var info in infos.OrderBy(i => BuildContext.SortKey(i.EditorID!), StringComparer.Ordinal))
             topic.Responses.Add(info);
 
         ctx.Verify("DIAL/INFO LA_Topic_MakeSpell: responses are new silent lines (no voice files) - check subtitle timing in-game, or point ResponseData at each NPC's shared merchant/trainer lines in CK; " +
@@ -165,18 +187,21 @@ public sealed class DialogueBuilder(BuildContext ctx)
             yield break;
         }
         for (var i = 0; i < Spellmakers.Count; i++)
+            yield return IsId(Spellmakers[i].Npc, last: i == Spellmakers.Count - 1);
+    }
+
+    /// <summary>GetIsID speaker == npc; OR-flagged unless it closes the OR group.</summary>
+    private static Condition IsId(FormKey npc, bool last)
+    {
+        var data = new GetIsIDConditionData { RunOnType = Condition.RunOnType.Subject };
+        data.Object.Link.SetTo(npc);
+        return new ConditionFloat
         {
-            var last = i == Spellmakers.Count - 1;
-            var data = new GetIsIDConditionData { RunOnType = Condition.RunOnType.Subject };
-            data.Object.Link.SetTo(Spellmakers[i].Npc);
-            yield return new ConditionFloat
-            {
-                CompareOperator = CompareOperator.EqualTo,
-                ComparisonValue = 1f,
-                Flags = last ? 0 : Condition.Flag.OR,
-                Data = data,
-            };
-        }
+            CompareOperator = CompareOperator.EqualTo,
+            ComparisonValue = 1f,
+            Flags = last ? 0 : Condition.Flag.OR,
+            Data = data,
+        };
     }
 
     private static Condition GlobalCond(FormKey global, CompareOperator op, float value)
@@ -194,7 +219,10 @@ public sealed class DialogueBuilder(BuildContext ctx)
             var npcRef = o.Str("npc", "actor", "base", "formKey", "form", "baseId", "actorBase");
             var fk = ctx.Resolve(npcRef ?? o.Str("editorId"), $"spellmakers:{id}", "Npc");
             if (fk is null) continue;
-            Spellmakers.Add((id, fk.Value));
+            var refusal = o.Str("refusal") ?? "";
+            var code = refusal.StartsWith("college") ? 1 : refusal.StartsWith("wanted") ? 2 : refusal.StartsWith("quest") ? 3 : 0;
+            if (code == 0) Log.Warn($"spellmakers:{id}: unknown refusal '{refusal}'");
+            Spellmakers.Add(new Spellmaker(id, fk.Value, code, o.Str("refusalLine")));
         }
         // Stable order: by FormKey (plugin order, then id).
         Spellmakers.Sort((a, b) =>

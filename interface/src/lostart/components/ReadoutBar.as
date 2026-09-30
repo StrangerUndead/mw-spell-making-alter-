@@ -40,11 +40,11 @@ class lostart.components.ReadoutBar
 			var value: TextField = Text.create(mc, "value", 2, 0, 22, 200, 40, Theme.FS_TITLE, Theme.TEXT, Theme.FONT_MEDIUM, "left");
 			_cells[n] = {mc: mc, label: label, value: value};
 		}
-		Text.set(_cells.magicka.label, "$LA_UI_Magicka");
+		Text.set(_cells.magicka.label, "$LA_UI_MagickaCost");
 		Text.set(_cells.rank.label, "$LA_UI_Rank");
-		Text.set(_cells.chance.label, "$LA_UI_Chance");
+		Text.set(_cells.chance.label, "$LA_UI_SpellChance");
 		Text.set(_cells.price.label, "$LA_UI_Price");
-		Text.set(_cells.gold.label, "$LA_UI_Gold");
+		Text.set(_cells.gold.label, "$LA_UI_YourGold");
 		_modelTf = Text.create(clip, "model", 30, 0, 0, 300, 24, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_REGULAR, "left");
 	}
 
@@ -91,7 +91,7 @@ class lostart.components.ReadoutBar
 		_cells.gold.value.text = String(StateUtil.num(a_state.gold, 0));
 
 		var model: String = StateUtil.str(a_state.modelName);
-		_modelTf.text = model.length > 0 ? "(" + Translator.tr(model) + ")" : "";
+		_modelTf.text = model.length > 0 ? Translator.format("$LA_UI_CostModelFmt", [Translator.tr(model)]) : "";
 		layout();
 	}
 

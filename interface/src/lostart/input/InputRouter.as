@@ -14,6 +14,7 @@ class lostart.input.InputRouter
 	private var _shiftKeys: Object;
 	private var _lastMouseX: Number;
 	private var _lastMouseY: Number;
+	private var _lastCode: Number;
 
 	public var lastDevice: String = "kbm";
 	public var onDeviceChange: Function;   // fn(device)
@@ -57,8 +58,12 @@ class lostart.input.InputRouter
 			_shiftKeys["k" + code] = true;
 			return;
 		}
-		var value: String = _held["k" + code] ? "keyHold" : "keyDown";
+		// Auto-repeat only ever repeats the most recent key. Checking that guards against key-ups
+		// that never arrive (e.g. swallowed while a TextField had focus), which would otherwise
+		// turn every later press of that key into a "keyHold".
+		var value: String = (_held["k" + code] && _lastCode == code) ? "keyHold" : "keyDown";
 		_held["k" + code] = true;
+		_lastCode = code;
 		dispatch(code, value, skseCode, control);
 	}
 
@@ -116,5 +121,6 @@ class lostart.input.InputRouter
 	public function reset(): Void
 	{
 		_held = {};
+		_lastCode = undefined;
 	}
 }

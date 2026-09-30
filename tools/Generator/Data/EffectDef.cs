@@ -26,6 +26,7 @@ public sealed class EffectDef
     public string? Resist { get; init; }
     public string? VanillaEffect { get; init; }
     public string? Projectile { get; init; }
+    /// <summary>skyrim.creature / skyrim.weapon / skyrim.armor: the vanilla actor or item this effect binds or models on.</summary>
     public string? Association { get; init; }
     public List<string> Flags { get; init; } = new();
     public bool FlagsSpecified { get; init; }
@@ -83,7 +84,7 @@ public sealed class EffectDef
             Resist = sk.Str("resist", "resistValue"),
             VanillaEffect = sk.Str("vanillaEffect"),
             Projectile = sk.Str("projectile"),
-            Association = sk.Str("association", "summon", "creature", "bound", "light"),
+            Association = sk.Str("association", "creature", "weapon", "armor", "light", "spell"),
             Flags = sk.Strings("flags"),
             FlagsSpecified = flagsNode is not null,
             Ranges = o.Strings("ranges").Select(r => r.ToLowerInvariant()).ToList(),

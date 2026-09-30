@@ -51,6 +51,26 @@ public sealed class ActorsBuilder(BuildContext ctx)
         ["BoundShield"] = new("Shield", "DaedricShieldAA", "ArmorDaedricShield", @"Armor\Daedric\DaedricShieldGND.nif", BipedObjectFlag.Shield, 36f, "ArmorShield"),
     };
 
+    /// <summary>
+    /// Associations the effect schema has no field for (cloak spell, light) or that the catalog
+    /// leaves empty; each use is reported as a warning so the data can take them over.
+    /// </summary>
+    private static readonly Dictionary<string, (string Type, string EditorId)> FallbackAssociations = new(StringComparer.Ordinal)
+    {
+        ["sk.conjure_ash_spawn"] = ("Npc", "DLC2SummonAshSpawn01"),
+        ["sk.flame_cloak"] = ("Spell", "FlameCloakDmg"),
+        ["sk.frost_cloak"] = ("Spell", "FrostCloakDmg"),
+        ["sk.lightning_cloak"] = ("Spell", "LightningCloakDmg"),
+        ["mw.light"] = ("Light", "MagicLightLightSpell01"),
+        ["sk.magelight"] = ("Light", "LightSpellLightStatic"),
+    };
+
+    /// <summary>New actors for native summons without a vanilla creature (OUTLINE: "New Dunmer ancestor ghost built from vanilla ghost assets").</summary>
+    private static readonly Dictionary<string, (string EditorId, string TemplateType, string Template)> FallbackActors = new(StringComparer.Ordinal)
+    {
+        ["mw.summon_ancestral_ghost"] = ("LA_StandIn_SummonAncestralGhost", "Npc", "LvlBanditGhostMelee1HMale"),
+    };
+
     public void Build()
     {
         BuildStandIns();
@@ -59,25 +79,33 @@ public sealed class ActorsBuilder(BuildContext ctx)
 
     public FormKey? AssociationFor(EffectDef e)
     {
-        if (!string.IsNullOrWhiteSpace(e.Association))
-            return ctx.Resolve(e.Association, $"{e.Id} skyrim.association", "Npc", "LeveledNpc", "Weapon", "Armor", "Light", "Keyword", "Spell");
         if (_associations.TryGetValue(e.Id, out var fk)) return fk;
+        if (!string.IsNullOrWhiteSpace(e.Association))
+            return ctx.Resolve(e.Association, $"{e.Id} skyrim.creature/weapon/armor", "Npc", "LeveledNpc", "Weapon", "Armor", "Light", "Keyword", "Spell");
+        if (FallbackAssociations.TryGetValue(e.Id, out var fb))
+        {
+            ctx.Log.Warn($"{e.Id}: no association in data; using built-in fallback {fb.Type} {fb.EditorId}");
+            ctx.Verify($"MGEF {e.Pascal}: association {fb.Type} {fb.EditorId} is a generator fallback (no schema field) - confirm it matches the vanilla effect {e.VanillaEffect}");
+            return ctx.Vanilla_(fb.Type, fb.EditorId);
+        }
         if (VanillaBound.TryGetValue(e.Pascal, out var vb)) return ctx.Vanilla_("Weapon", vb);
         return null;
     }
+
+    /// <summary>Map of effect id -> generated association EditorID (for variants.json).</summary>
+    public IReadOnlyDictionary<string, string> GeneratedAssociations =>
+        _associations.ToDictionary(kv => kv.Key, kv => ctx.Records.Values.First(r => r.FormKey == kv.Value).EditorID!);
 
     // ------------------------------------------------------------------------------------
     // Stand-in actors
     // ------------------------------------------------------------------------------------
 
-    public static string StandInPascal(JsonObject entry, EffectDef? e)
+    public static string StandInEditorId(JsonObject entry, EffectDef? e)
     {
-        var explicitId = entry.Str("editorId", "editorID", "edid");
-        if (explicitId is not null && explicitId.StartsWith("LA_StandIn_")) return explicitId["LA_StandIn_".Length..];
-        var credit = entry.Str("credit");
-        if (credit is not null && credit.StartsWith("$LA_StandIn_")) return credit["$LA_StandIn_".Length..];
+        var explicitId = entry.Str("actor", "editorId", "editorID", "edid");
+        if (explicitId is not null && explicitId.StartsWith("LA_StandIn_")) return explicitId;
         var p = e?.Pascal ?? Naming.SnakeToPascal((entry.Str("effect") ?? "unknown").Split('.').Last());
-        return p.StartsWith("Summon") ? p["Summon".Length..] : p;
+        return "LA_StandIn_" + p;
     }
 
     private void BuildStandIns()
@@ -89,64 +117,63 @@ public sealed class ActorsBuilder(BuildContext ctx)
             ctx.Data.EffectsById.TryGetValue(effectId, out var e);
             if (e is null) { Log.Warn($"standins: {effectId} is not in the effect catalog; skipped"); continue; }
             var context = $"standins:{effectId}";
+            var kind = entry.Str("kind") ?? (entry.Str("creature") is not null ? "creature" : "weapon");
+            if (kind != "creature") continue; // weapon stand-ins (Bound Spear) are built with the bound items
 
-            if (e.Pascal.StartsWith("Bound", StringComparison.Ordinal))
-            {
-                // Weapon stand-ins (Bound Spear) are built from the bound-item table; data may override the model.
-                continue;
-            }
-
-            var creatureRef = entry.Str("creature", "npc", "actor", "template", "base");
-            var template = ctx.Resolve(creatureRef, $"{context} creature", "Npc", "LeveledNpc");
+            var template = ctx.Resolve(entry.Str("creature", "npc", "template"), $"{context} creature", "Npc", "LeveledNpc");
             if (template is null) continue;
-
-            var pascal = StandInPascal(entry, e);
-            var edid = $"LA_StandIn_{pascal}";
-            var name = ctx.Tr.Resolve(entry.Str("name", "displayName"), "");
-            if (name.Length == 0)
-            {
-                var effName = ctx.Tr.Get(e.NameKey) ?? EffectBuilder.SplitPascal(e.Pascal);
-                name = effName.StartsWith("Summon ", StringComparison.Ordinal) ? effName["Summon ".Length..] : effName;
-            }
-            var raceRef = entry.Str("race");
-            var race = raceRef is null ? ctx.Vanilla_("Race", "DefaultRace") : ctx.Resolve(raceRef, $"{context} race", "Race") ?? ctx.Vanilla_("Race", "DefaultRace");
-            var levelScale = entry.Num("levelScale", "levelMult") ?? 1.0;
-
-            var npc = ctx.C(edid, fk => new Npc(fk, BuildContext.Release)
-            {
-                ObjectBounds = new ObjectBounds(),
-                Name = name,
-                Race = new FormLink<IRaceGetter>(race),
-                Template = new FormLinkNullable<INpcSpawnGetter>(template.Value),
-                Height = (float)(entry.Num("scale", "height") ?? 1.0),
-                Weight = 50f,
-                Configuration = new NpcConfiguration
-                {
-                    Flags = NpcConfiguration.Flag.Summonable | NpcConfiguration.Flag.AutoCalcStats,
-                    // Everything but Base Data comes from the vanilla creature, so the stand-in keeps
-                    // its own name while model, stats, AI, spells and inventory follow the template.
-                    TemplateFlags = NpcConfiguration.TemplateFlag.Traits | NpcConfiguration.TemplateFlag.Stats | NpcConfiguration.TemplateFlag.Factions
-                                    | NpcConfiguration.TemplateFlag.SpellList | NpcConfiguration.TemplateFlag.AIData | NpcConfiguration.TemplateFlag.AIPackages
-                                    | NpcConfiguration.TemplateFlag.ModelAnimation | NpcConfiguration.TemplateFlag.Inventory | NpcConfiguration.TemplateFlag.Script
-                                    | NpcConfiguration.TemplateFlag.DefPackList | NpcConfiguration.TemplateFlag.AttackData | NpcConfiguration.TemplateFlag.Keywords,
-                    Level = new PcLevelMult { LevelMult = (float)levelScale },
-                    CalcMinLevel = 1,
-                    CalcMaxLevel = 0,
-                    SpeedMultiplier = 100,
-                    DispositionBase = 35,
-                    HealthOffset = 0,
-                    MagickaOffset = 0,
-                    StaminaOffset = 0,
-                },
-                AIData = new AIData { Aggression = Aggression.Unaggressive, Confidence = Confidence.Average, EnergyLevel = 50, Responsibility = Responsibility.NoCrime, Mood = Mood.Neutral, Assistance = Assistance.HelpsAllies },
-                PlayerSkills = new PlayerSkills(),
-            });
+            var nameKey = entry.Str("nameKey", "name");
+            var npc = MakeActor(StandInEditorId(entry, e), e, template.Value, nameKey, entry.Str("race"), entry.Num("levelScale", "levelMult") ?? 1.0, entry.Num("scale", "height"), context);
             _associations[e.Id] = npc.FormKey;
         }
+
+        foreach (var (effectId, fb) in FallbackActors)
+        {
+            if (!ctx.Data.EffectsById.TryGetValue(effectId, out var e) || _associations.ContainsKey(effectId) || !string.IsNullOrWhiteSpace(e.Association)) continue;
+            ctx.Log.Warn($"{effectId}: no skyrim.creature; generating {fb.EditorId} templated on {fb.Template}");
+            ctx.Verify($"NPC_ {fb.EditorId}: new actor templated on vanilla {fb.Template} (generator fallback) - pick/retune the ghost template and add the ghost look in CK");
+            var npc = MakeActor(fb.EditorId, e, ctx.Vanilla_(fb.TemplateType, fb.Template), e.NameKey, null, 1.0, null, effectId);
+            _associations[e.Id] = npc.FormKey;
+        }
+
         if (_associations.Count > 0)
-            ctx.Verify("NPC_ LA_StandIn_*: templated on the vanilla creature with every template flag except Base Data; Race is a placeholder " +
-                       "(DefaultRace unless standins.json gives one) because Traits come from the template - open once in CK to confirm no template warnings, " +
-                       "check Summonable/ghost flags and whether levelScale (stored as PC level mult, ignored while Stats are templated) needs DLL-side scaling");
+            ctx.Verify("NPC_ LA_StandIn_*: templated on the vanilla creature with every template flag except Base Data (so the stand-in keeps its own name); " +
+                       "Race is DefaultRace as a placeholder (Traits come from the template) - open once in CK to confirm no template warnings; " +
+                       "levelScale is stored as PC level mult but ignored while Stats are templated - scale in the DLL or untick Stats in CK (Lurker 0.6, Death Hound 0.8)");
+    }
+
+    private Npc MakeActor(string edid, EffectDef e, FormKey template, string? nameKey, string? raceRef, double levelScale, double? height, string context)
+    {
+        var name = ctx.Tr.Resolve(nameKey, "");
+        if (name.Length == 0) name = ctx.Tr.Get(e.NameKey) ?? EffectBuilder.SplitPascal(e.Pascal);
+        if (name.StartsWith("Summon ", StringComparison.Ordinal)) name = name["Summon ".Length..];
+        var race = raceRef is null ? ctx.Vanilla_("Race", "DefaultRace") : ctx.Resolve(raceRef, $"{context} race", "Race") ?? ctx.Vanilla_("Race", "DefaultRace");
+        return ctx.C(edid, fk => new Npc(fk, BuildContext.Release)
+        {
+            ObjectBounds = new ObjectBounds(),
+            Name = name,
+            Race = new FormLink<IRaceGetter>(race),
+            Template = new FormLinkNullable<INpcSpawnGetter>(template),
+            Height = (float)(height ?? 1.0),
+            Weight = 50f,
+            Configuration = new NpcConfiguration
+            {
+                Flags = NpcConfiguration.Flag.Summonable | NpcConfiguration.Flag.AutoCalcStats,
+                // Everything but Base Data comes from the vanilla creature, so the stand-in keeps
+                // its own name while model, stats, AI, spells and inventory follow the template.
+                TemplateFlags = NpcConfiguration.TemplateFlag.Traits | NpcConfiguration.TemplateFlag.Stats | NpcConfiguration.TemplateFlag.Factions
+                                | NpcConfiguration.TemplateFlag.SpellList | NpcConfiguration.TemplateFlag.AIData | NpcConfiguration.TemplateFlag.AIPackages
+                                | NpcConfiguration.TemplateFlag.ModelAnimation | NpcConfiguration.TemplateFlag.Inventory | NpcConfiguration.TemplateFlag.Script
+                                | NpcConfiguration.TemplateFlag.DefPackList | NpcConfiguration.TemplateFlag.AttackData | NpcConfiguration.TemplateFlag.Keywords,
+                Level = new PcLevelMult { LevelMult = (float)levelScale },
+                CalcMinLevel = 1,
+                CalcMaxLevel = 0,
+                SpeedMultiplier = 100,
+                DispositionBase = 35,
+            },
+            AIData = new AIData { Aggression = Aggression.Unaggressive, Confidence = Confidence.Average, EnergyLevel = 50, Responsibility = Responsibility.NoCrime, Mood = Mood.Neutral, Assistance = Assistance.HelpsAllies },
+            PlayerSkills = new PlayerSkills(),
+        });
     }
 
     // ------------------------------------------------------------------------------------
@@ -155,14 +182,22 @@ public sealed class ActorsBuilder(BuildContext ctx)
 
     private void BuildBoundItems()
     {
-        var wanted = ctx.Data.Effects.Where(e => string.IsNullOrWhiteSpace(e.Association)).ToDictionary(e => e.Pascal, e => e, StringComparer.Ordinal);
+        var byPascal = ctx.Data.Effects.GroupBy(e => e.Pascal).ToDictionary(g => g.Key, g => g.First(), StringComparer.Ordinal);
+        var anyWeapon = false;
         foreach (var (pascal, spec) in BoundWeapons)
         {
-            if (!wanted.TryGetValue(pascal, out var e)) continue;
+            if (!byPascal.TryGetValue(pascal, out var e)) continue;
+            // skyrim.weapon is either a vanilla bound weapon (used directly, e.g. Dragonborn's
+            // DLC2BoundWeaponDagger) or the Daedric weapon the new bound item is modelled on.
+            var template = string.IsNullOrWhiteSpace(e.Association) ? ctx.Vanilla_("Weapon", spec.Template) : ctx.Resolve(e.Association, $"{e.Id} skyrim.weapon", "Weapon");
+            if (template is null) continue;
+            if (ctx.Vanilla.Describe(template.Value) is { } d && d.EditorId.Contains("Bound", StringComparison.OrdinalIgnoreCase)) continue;
+            anyWeapon = true;
             var over = ctx.Data.StandIns.FirstOrDefault(s => s.Str("effect") == e.Id);
             var model = over?.Str("model") ?? spec.Model;
-            var name = ctx.Tr.Resolve($"$LA_Bound_{spec.Item}", "Bound " + spec.Item);
-            var w = ctx.C($"LA_Bound_{spec.Item}", fk => new Weapon(fk, BuildContext.Release)
+            var edid = over?.Str("item") is { } item && item.StartsWith("LA_Bound_") ? item : $"LA_Bound_{spec.Item}";
+            var name = ctx.Tr.Resolve(over?.Str("nameKey"), ctx.Tr.Resolve(e.NameKey, "Bound " + spec.Item));
+            var w = ctx.C(edid, fk => new Weapon(fk, BuildContext.Release)
             {
                 ObjectBounds = new ObjectBounds(),
                 Name = name,
@@ -200,20 +235,21 @@ public sealed class ActorsBuilder(BuildContext ctx)
                 },
                 Critical = new CriticalData { Damage = spec.Crit, PercentMult = 1f, Flags = 0 },
                 DetectionSoundLevel = SoundLevel.Normal,
-                Template = new FormLinkNullable<IWeaponGetter>(ctx.Vanilla_("Weapon", spec.Template)),
+                Template = new FormLinkNullable<IWeaponGetter>(template.Value),
             });
             _associations[e.Id] = w.FormKey;
         }
-        if (_associations.Values.Any(v => ctx.Records.Values.OfType<Weapon>().Any(w => w.FormKey == v)))
+        if (anyWeapon)
             ctx.Verify("WEAP LA_Bound_Dagger/Mace/Spear: Daedric mesh paths typed by hand (verify they exist and consider the bound-weapon shader/.nif used by BoundWeaponSword); " +
                        "damage scaled to ~0.65x Daedric like vanilla Bound Sword; Template (CNAM) points at the vanilla Daedric weapon; no swing/draw sounds set - copy from the Daedric weapon in CK");
 
         var anyArmor = false;
         foreach (var (pascal, spec) in BoundArmor)
         {
-            if (!wanted.TryGetValue(pascal, out var e)) continue;
+            if (!byPascal.TryGetValue(pascal, out var e)) continue;
             anyArmor = true;
-            var name = ctx.Tr.Resolve($"$LA_Bound_{spec.Item}", "Bound " + spec.Item);
+            var template = string.IsNullOrWhiteSpace(e.Association) ? ctx.Vanilla_("Armor", spec.Template) : ctx.Resolve(e.Association, $"{e.Id} skyrim.armor", "Armor") ?? ctx.Vanilla_("Armor", spec.Template);
+            var name = ctx.Tr.Resolve(e.NameKey, "Bound " + spec.Item);
             var isShield = spec.Slots.HasFlag(BipedObjectFlag.Shield);
             var a = ctx.C($"LA_Bound_{spec.Item}", fk => new Armor(fk, BuildContext.Release)
             {
@@ -233,7 +269,7 @@ public sealed class ActorsBuilder(BuildContext ctx)
                 Value = 0,
                 Weight = 0f,
                 ArmorRating = spec.Rating,
-                TemplateArmor = new FormLinkNullable<IArmorGetter>(ctx.Vanilla_("Armor", spec.Template)),
+                TemplateArmor = new FormLinkNullable<IArmorGetter>(template),
                 MajorFlags = isShield ? Armor.MajorFlag.Shield : 0,
             });
             _associations[e.Id] = a.FormKey;

@@ -217,7 +217,7 @@ class LostArtSpellmakingMenu extends MovieClip
 		if (a_state.picker != undefined && a_state.picker != null) {
 			var wasOpen: Boolean = _picker.isOpen;
 			var accent: Number = Theme.schoolColor(knownSchool(String(a_state.picker.effectId)));
-			_picker.open(StateUtil.str(a_state.picker.title), a_state.picker.options, "$LA_UI_NoOptions", accent);
+			_picker.open(StateUtil.str(a_state.picker.title), a_state.picker.options, "", accent);
 			if (!wasOpen)
 				playSound(Sounds.OK);
 		} else if (_picker.isOpen) {
@@ -296,7 +296,7 @@ class LostArtSpellmakingMenu extends MovieClip
 		_nameLabelTf = Text.create(_content, "nameLabel", 10, 0, 0, 120, 40, Theme.FS_HEADER, Theme.TEXT_SOFT, Theme.FONT_MEDIUM, "left");
 		Text.set(_nameLabelTf, "$LA_UI_Name");
 		_nameBox = new TextBox(_content, "nameBox", 11, Theme.FS_HEADER, NAME_MAX_CHARS, false);
-		_nameBox.setPlaceholder("$LA_UI_NamePrompt");
+		_nameBox.setPlaceholder("$LA_UI_NameHint");
 		_nameBox.onChange = function(t: String): Void { self.send("LA_SetName", [t]); };
 		_nameBox.onStart = function(): Void { self.onTextStart("name"); };
 		_nameBox.onEnd = function(t: String, accepted: Boolean): Void { self.onNameEnd(t, accepted); };
@@ -805,15 +805,19 @@ class LostArtSpellmakingMenu extends MovieClip
 		layoutBar();
 
 		_searchGlyph.setKey(KeyMap.caption(KeyMap.SEARCH, KeyMap.CTX_KNOWN, _device), _device);
+		_searchBox.setPlaceholder(_device == "kbm" ? "$LA_UI_SearchHint" : "$LA_UI_Search");
 
-		if (_nameBox.active) {
-			_nameGlyph.setKey(KeyMap.caption(KeyMap.ACCEPT, KeyMap.CTX_TEXT, _device), _device);
+		if (_nameBox.active && _device == "kbm") {
+			_nameGlyph.setKey(undefined, _device);          // the string itself says "Enter creates"
 			Text.set(_nameHintTf, "$LA_UI_EnterCreates");
+		} else if (_nameBox.active) {
+			_nameGlyph.setKey(KeyMap.caption(KeyMap.ACCEPT, KeyMap.CTX_TEXT, _device), _device);
+			Text.set(_nameHintTf, "$LA_UI_OK");
 		} else {
 			_nameGlyph.setKey(KeyMap.caption(KeyMap.RENAME, KeyMap.CTX_KNOWN, _device), _device);
-			Text.set(_nameHintTf, "$LA_UI_Rename");
+			Text.set(_nameHintTf, "$LA_UI_Controls_Rename");
 		}
-		_nameHintTf._x = _nameGlyph.clip._x + _nameGlyph.width + 8;
+		_nameHintTf._x = _nameGlyph.clip._x + (_nameGlyph.width > 0 ? _nameGlyph.width + 8 : 0);
 
 		var a: String = KeyMap.caption(KeyMap.MOVE_UP, KeyMap.CTX_EFFECTS, _device);
 		var b: String = KeyMap.caption(KeyMap.MOVE_DOWN, KeyMap.CTX_EFFECTS, _device);
@@ -821,7 +825,7 @@ class LostArtSpellmakingMenu extends MovieClip
 		_reorderGlyphB.setKey(b, _device);
 		_reorderGlyphB.clip._x = _reorderGlyphA.clip._x + _reorderGlyphA.width + 4;
 		_reorderTf._x = _reorderGlyphB.clip._x + _reorderGlyphB.width + 8;
-		Text.set(_reorderTf, "$LA_UI_Reorder");
+		Text.set(_reorderTf, "$LA_UI_Controls_Reorder");
 	}
 
 	/* ================================================================================
@@ -1017,6 +1021,7 @@ class LostArtSpellmakingMenu extends MovieClip
 
 	public function onNameEnd(a_text: String, a_accepted: Boolean): Void
 	{
+		_input.reset();
 		send("LA_SetName", [a_text]);
 		updateHints();
 		if (a_accepted)
@@ -1025,6 +1030,7 @@ class LostArtSpellmakingMenu extends MovieClip
 
 	public function onSearchEnd(a_text: String, a_accepted: Boolean): Void
 	{
+		_input.reset();
 		applyFilter(currentKnownId());
 		updateHints();
 	}
