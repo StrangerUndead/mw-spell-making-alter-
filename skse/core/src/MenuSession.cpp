@@ -474,7 +474,7 @@ namespace LA
 
 	CostResult MenuSession::PreviewCost() const
 	{
-		return Cost::Compute(_catalog, _effects, _settings);
+		return Cost::Compute(_catalog, _effects, _settings, _settings.costModel, _baseCost);
 	}
 
 	std::uint32_t MenuSession::PreviewPrice(const PurchaseContext* a_ctx) const

@@ -506,3 +506,20 @@ TEST_CASE("Only known effects can be added", "[menu][parity]")
 	CHECK_FALSE(session.AddEffect("mw.frost_damage").changed);
 	CHECK(session.AddEffect("mw.fire_damage").changed);
 }
+
+TEST_CASE("The live base-cost override feeds the readout and the purchase", "[menu][price]")
+{
+	Harness h;
+	h.Add("mw.fire_damage");
+	h.session.SetName("Hot");
+	const auto before = h.session.PreviewCost().cost;
+	h.session.SetBaseCostOverride([](const EffectDef& a_def) -> std::optional<double> {
+		return a_def.id == "mw.fire_damage" ? std::optional<double>(a_def.skBaseCost * 2) : std::nullopt;
+	});
+	const auto after = h.session.PreviewCost().cost;
+	CHECK(after > before);
+	Outcome o;
+	auto    p = h.session.TryCreate(h.Rich(), o);
+	REQUIRE(p);
+	CHECK(p->def.cost == after);
+}

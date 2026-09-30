@@ -64,6 +64,7 @@ public static class PluginGenerator
         var dialogue = new DialogueBuilder(ctx);
         dialogue.Build();
         dialogue.BuildMcmQuest();
+        new ExtrasBuilder(ctx).Build();
 
         handMade.Merge();
         ctx.Commit();

@@ -128,7 +128,10 @@ async function pumpFrame(page) {
   await page.screenshot({ clip: { x: 0, y: 0, width: 1, height: 1 } });
   await page.waitForTimeout(30);
 }
-async function settle(page, ms = 250) { await page.waitForTimeout(ms); }
+async function settle(page, ms = 250) {
+  await page.waitForTimeout(ms);
+  await pumpFrame(page);
+}
 function hasCall(log, name, ...args) {
   return log.some((c) => c[0] === name && args.every((a, i) => JSON.stringify(c[i + 1]) === JSON.stringify(a)));
 }
@@ -362,6 +365,8 @@ async function scenario(browser) {
   await clearLog(page);
   await pad(page, 3);   // Y: rename -> keyboard request (mock answers LA_KeyboardResult)
   await settle(page, 500);
+  for (let i = 0; i < 20 && !(await page.evaluate(() => window.LA_LOG.some((c) => c[0] === "LA_SetName" && c[1] === "Pad Named Spell"))); i++)
+    await settle(page, 100);
   log = await calls(page);
   check("pad Y -> LA_RequestKeyboard(name, current, 40)", hasCall(log, "LA_RequestKeyboard", "name", "Stormcrow's Kiss", 40), log);
   check("keyboard result -> LA_SetName", hasCall(log, "LA_SetName", "Pad Named Spell"), log);

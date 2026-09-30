@@ -160,6 +160,9 @@ namespace LA
 		// Starting range for a new effect (parity row 13).
 		Range StartingRange(const EffectDef& a_def) const;
 
+		// Live Skyrim-balanced base costs (the plugin's refit from vanilla spells).
+		void SetBaseCostOverride(Cost::BaseCostOverride a_fn) { _baseCost = std::move(a_fn); }
+
 		const Catalog&  GetCatalog() const { return _catalog; }
 		const Settings& GetSettings() const { return _settings; }
 
@@ -174,6 +177,7 @@ namespace LA
 		Provider                   _provider;
 		std::set<std::string>      _known;
 		RiderLookup                _riders;
+		Cost::BaseCostOverride     _baseCost;
 		std::string                _name;
 		std::vector<SpellEffect>   _effects;
 		std::optional<EditorState> _editor;

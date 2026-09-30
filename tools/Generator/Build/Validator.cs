@@ -117,7 +117,7 @@ public sealed class Validator(BuildContext ctx)
                 IExplosionGetter => "EXPL", IBookGetter => "BOOK", IGlobalGetter => "GLOB", INpcGetter => "NPC_", IWeaponGetter => "WEAP",
                 IArmorGetter => "ARMO", IFurnitureGetter => "FURN", IQuestGetter => "QUST", IDialogBranchGetter => "DLBR",
                 IDialogTopicGetter => "DIAL", IDialogResponsesGetter => "INFO", ILeveledItemGetter => "LVLI", IFormListGetter => "FLST",
-                IMessageGetter => "MESG", _ => r.GetType().Name,
+                IMessageGetter => "MESG", IPerkGetter => "PERK", IPackageGetter => "PACK", IEffectShaderGetter => "EFSH", _ => r.GetType().Name,
             };
             d[t] = d.TryGetValue(t, out var c) ? c + 1 : 1;
         }

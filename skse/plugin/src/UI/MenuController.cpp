@@ -373,6 +373,8 @@ namespace LA::UI
 		}
 
 		_session = std::make_unique<MenuSession>(state.catalog, _settings, _provider, std::move(usable), state.content.Riders());
+		// Readouts, price and the bought spell all use the live-refit base costs.
+		_session->SetBaseCostOverride(BaseCost());
 
 		const auto ms = std::chrono::duration<double, std::milli>(std::chrono::steady_clock::now() - start).count();
 		logger::debug("spellmaking menu: session ready ({} known, {} usable) in {:.2f} ms"sv, known.size(), _knownSorted.size(), ms);
@@ -783,10 +785,6 @@ namespace LA::UI
 			ShowMessages(outcome, true);
 			PushState();
 			return;
-		}
-		// The magicka cost the readout showed (live-refit base costs) is the one the spell gets.
-		if (!State::Get().liveBaseCost.empty()) {
-			purchase->def.cost = Cost::Compute(State::Get().catalog, purchase->def.effects, _settings, _settings.costModel, BaseCost()).cost;
 		}
 		if (_overrides.dryRunPurchase) {
 			_lastDryRun = purchase;

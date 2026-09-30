@@ -767,3 +767,11 @@ $LA_Refuse_Neloth	Telvanni don't share their craft with strangers. Make yourself
 $LA_Refuse_TalvasFathryon	Telvanni don't share their craft with strangers. Make yourself useful first.
 $LA_Refuse_ElderOthreloth	The Temple's tomb is still full of ash spawn. Help us first.
 $LA_Msg_NeedSoulGem	You need a filled soul gem to use this altar.
+$LA_Msg_SpellFizzled	Your spell fizzled.
+$LA_Msg_Silenced	You have been silenced and cannot cast spells.
+$LA_Msg_NoMark	You have not set a Mark.
+$LA_Msg_RecallBlocked	Something prevents you from being recalled.
+$LA_Msg_NoTemple	There is no temple close enough to reach you here.
+$LA_Msg_ItemRuined	Your {0} is ruined.
+$LA_Msg_ArmorRepaired	Your armor has been repaired.
+$LA_Msg_WeaponsRepaired	Your weapons have been repaired.
