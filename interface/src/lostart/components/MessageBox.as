@@ -28,7 +28,7 @@ class lostart.components.MessageBox
 		clip = a_parent.createEmptyMovieClip(a_name, a_depth);
 		_shade = clip.createEmptyMovieClip("shade", 1);
 		_bg = clip.createEmptyMovieClip("bg", 2);
-		_tf = Text.multiline(Text.create(clip, "text", 3, 0, 0, 600, 100, Theme.FS_BODY, Theme.TEXT, Theme.FONT_REGULAR, "center"));
+		_tf = Text.multiline(Text.create(clip, "text", 3, 0, 0, 600, 100, Theme.FS_HEADER, Theme.TEXT, Theme.FONT_REGULAR, "center"));
 		_ok = new Button(clip, "ok", 4, 44);
 		_ok.setLabel("$LA_UI_OK");
 		_ok.onPress = function(): Void { self.dismiss(); };
@@ -109,7 +109,7 @@ class lostart.components.MessageBox
 		_bg.clear();
 		_bg._x = x;
 		_bg._y = y;
-		Draw.panel(_bg, w, h, 92, true);
+		Draw.modalPanel(_bg, w, h);
 		_tf._x = x + pad;
 		_tf._y = y + pad;
 		_ok.setMinWidth(160);

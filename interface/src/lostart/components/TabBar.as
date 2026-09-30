@@ -1,9 +1,12 @@
 /*
- * School tabs for Effects Known: All, Alteration, Conjuration, Destruction, Illusion,
- * Restoration (SkyUI category bar look: dim captions, the active one bright with a coloured
- * underline). Clicking a tab selects it; A/D and LB/RB are routed here by the menu.
+ * School filter for Effects Known, drawn as SkyUI's category icon bar: a row of magic-category
+ * icons (SkyUI's mag_all / mag_alteration ... from icons_category_psychosteve.swf) where the
+ * active one is fully opaque, the others at 50 % and empty ones at 15 % (CategoryListEntry
+ * alphas), with the active category's name in grey capitals under a fading rule.
+ * Clicking an icon selects it; A/D and LB/RB are routed here by the menu.
  */
 import lostart.Theme;
+import lostart.components.SkyIcon;
 import lostart.util.Draw;
 import lostart.util.Text;
 
@@ -13,26 +16,30 @@ class lostart.components.TabBar
 	public var onChange: Function;   // fn(index)
 
 	private var _tabs: Array;
+	private var _lineMc: MovieClip;
+	private var _captionTf: TextField;
 	private var _sel: Number = 0;
 	private var _hover: Number = -1;
 	private var _w: Number = 0;
-	private var _h: Number = 40;
-	private var _labels: Array;
-	private var _colors: Array;
+	private var _h: Number = 70;
+	private var _captions: Array;
 	private var _counts: Array;
 
+	/* a_labels: tooltip/caption keys per tab; a_colors: unused (Skyrim draws icons white). */
 	public function TabBar(a_parent: MovieClip, a_name: String, a_depth: Number, a_labels: Array, a_colors: Array)
 	{
 		clip = a_parent.createEmptyMovieClip(a_name, a_depth);
-		_labels = a_labels;
-		_colors = a_colors;
+		_lineMc = clip.createEmptyMovieClip("line", 1);
+		_captionTf = Text.label(clip, "caption", 2, 300, "left");
+		_captions = ["$LA_UI_TabAll", "$LA_School_Alteration", "$LA_School_Conjuration",
+			"$LA_School_Destruction", "$LA_School_Illusion", "$LA_School_Restoration"];
 		_tabs = [];
-		var self: TabBar = this;
 		for (var i: Number = 0; i < a_labels.length; i++) {
-			var mc: MovieClip = clip.createEmptyMovieClip("tab" + i, i + 1);
-			var tf: TextField = Text.create(mc, "tf", 2, 0, 0, 50, _h, Theme.FS_SMALL, Theme.TEXT_HINT, Theme.FONT_MEDIUM, "center");
-			var hit: MovieClip = mc.createEmptyMovieClip("hit", 3);
-			var tab: Object = {mc: mc, tf: tf, hit: hit, index: i};
+			var mc: MovieClip = clip.createEmptyMovieClip("tab" + i, 10 + i);
+			var hit: MovieClip = mc.createEmptyMovieClip("hit", 1);
+			var icon: SkyIcon = new SkyIcon(mc, "icon", 2, Theme.ICONS_CATEGORY, Theme.TAB_ICON_SIZE);
+			icon.show(Theme.TAB_ICON_LABELS[i], 0xFFFFFF);
+			var tab: Object = {mc: mc, hit: hit, icon: icon, index: i};
 			_tabs.push(tab);
 			bindTab(hit, i);
 		}
@@ -98,32 +105,30 @@ class lostart.components.TabBar
 		var n: Number = _tabs.length;
 		if (n == 0 || _w <= 0)
 			return;
-		var tw: Number = _w / n;
+		var s: Number = Theme.TAB_ICON_SIZE;
+		var cell: Number = Math.min(Math.floor(_w / n), s + 34);
 		for (var i: Number = 0; i < n; i++) {
 			var t: Object = _tabs[i];
 			var mc: MovieClip = t.mc;
-			var tf: TextField = t.tf;
-			var hit: MovieClip = t.hit;
-			mc._x = Math.round(i * tw);
+			mc._x = Math.round(i * cell);
 			mc._y = 0;
-			mc.clear();
-			hit.clear();
-			Draw.rect(hit, 0, 0, tw - 2, _h, 0, 0);
+			t.hit.clear();
+			Draw.rect(t.hit, 0, 0, cell, s + 8, 0, 0);
+			var icon: SkyIcon = t.icon;
+			icon.clip._x = Math.round((cell - s) / 2);
+			icon.clip._y = 4;
 			var active: Boolean = i == _sel;
 			var empty: Boolean = _counts != undefined && _counts[i] == 0;
-			var color: Number = _colors[i] == undefined ? Theme.ACCENT : _colors[i];
-			if (active) {
-				Draw.rect(mc, 0, 0, tw - 2, _h, color, 14);
-				Draw.rect(mc, 0, _h - 3, tw - 2, 3, color, 100);
-			} else if (i == _hover) {
-				Draw.rect(mc, 0, 0, tw - 2, _h, 0xFFFFFF, 6);
-			}
-			Draw.rect(mc, 0, _h - 1, tw - 2, 1, Theme.BORDER, 20);
-			tf._width = tw - 2;
-			tf._height = _h;
-			Text.set(tf, _labels[i]);
-			tf._y = Math.round((_h - tf.textHeight) / 2) - 3;
-			Text.setColor(tf, active ? Theme.TEXT : (empty ? Theme.TEXT_DIM : Theme.TEXT_HINT));
+			icon.clip._alpha = active ? 100 : (empty ? 15 : (i == _hover ? 80 : 50));
 		}
+		_lineMc.clear();
+		var lineY: Number = s + 14;
+		Draw.divider(_lineMc, 0, lineY, _w, Theme.BORDER_ALPHA);
+		// a short bright tick under the active icon, like the vanilla category marker
+		Draw.hfade(_lineMc, _sel * cell, lineY - 1, cell, 2, 0xFFFFFF, 90, 0.5);
+		_captionTf._x = 2;
+		_captionTf._y = lineY + 6;
+		_captionTf._width = _w;
+		Text.setCaps(_captionTf, _captions[_sel] == undefined ? "" : _captions[_sel]);
 	}
 }

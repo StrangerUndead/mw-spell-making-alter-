@@ -27,11 +27,11 @@ class lostart.components.CostMathPanel
 	{
 		clip = a_parent.createEmptyMovieClip(a_name, a_depth);
 		_bg = clip.createEmptyMovieClip("bg", 1);
-		_titleTf = Text.create(clip, "title", 2, 0, 0, 300, 34, Theme.FS_HEADER, Theme.TEXT, Theme.FONT_MEDIUM, "left");
-		_headShare = Text.create(clip, "hs", 3, 0, 0, 120, 26, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_MEDIUM, "right");
-		_headRun = Text.create(clip, "hr", 4, 0, 0, 120, 26, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_MEDIUM, "right");
-		Text.set(_headShare, "$LA_UI_CostShare");
-		Text.set(_headRun, "$LA_UI_CostMathRunning");
+		_titleTf = Text.spacing(Text.create(clip, "title", 2, 0, 0, 300, 34, Theme.FS_HEADER, Theme.TEXT, Theme.FONT_MEDIUM, "left"), Theme.LETTER_SPACING);
+		_headShare = Text.label(clip, "hs", 3, 150, "right");
+		_headRun = Text.label(clip, "hr", 4, 150, "right");
+		Text.setCaps(_headShare, "$LA_UI_CostShare");
+		Text.setCaps(_headRun, "$LA_UI_CostMathRunning");
 		_rows = [];
 		for (var i: Number = 0; i < MAX_ROWS; i++) {
 			var t: TextField = Text.create(clip, "t" + i, 10 + i * 3, 0, 0, 100, 26, Theme.FS_SMALL, Theme.TEXT_SOFT, Theme.FONT_REGULAR, "left");
@@ -55,15 +55,15 @@ class lostart.components.CostMathPanel
 		if (!a_visible)
 			return;
 		var pad: Number = 20;
-		Draw.panel(_bg, _w, _h, 97, true);
-		var title: String = Translator.tr("$LA_UI_CostMathTitle");
+		Draw.modalPanel(_bg, _w, _h);
+		var title: String = Translator.tr("$LA_UI_CostMathTitle").toUpperCase();
 		if (a_modelName != undefined && a_modelName.length > 0)
 			title += "  (" + Translator.tr(a_modelName) + ")";
 		_titleTf._x = pad;
 		_titleTf._y = pad - 4;
 		_titleTf._width = _w - 2 * pad;
 		Text.setFit(_titleTf, title);
-		var colW: Number = 120;
+		var colW: Number = 150;
 		var y: Number = pad + 38;
 		_headShare._x = _w - pad - 2 * colW - 10;
 		_headShare._y = y;

@@ -167,14 +167,16 @@ class lostart.components.TextBox
 	{
 		_bg.clear();
 		_icon.clear();
+		// SkyUI search-box look: no box, the text sits on a fading underline that brightens
+		// while typing.
 		var focus: Boolean = _active || _focusedLook;
-		Draw.rect(_bg, 0, 0, _w, _h, 0x000000, _active ? 75 : 50);
-		Draw.frame(_bg, 0, 0, _w, _h, 1, Theme.BORDER, focus ? 70 : 28);
+		Draw.rect(_bg, 0, 0, _w, _h, 0, 0);
 		if (_active)
-			Draw.rect(_bg, 1, _h - 3, _w - 2, 2, Theme.ACCENT, 90);
+			Draw.gradient(_bg, 0, 0, _w, _h, 0xFFFFFF, [0, 6, 6, 0], [0, 30, 225, 255], false);
+		Draw.hfade(_bg, -_w * 0.5, _h - 1, _w * 1.5, 1, 0xFFFFFF, focus ? 70 : 40, 0.5);
 		var x0: Number = 10;
 		if (_hasIcon) {
-			Draw.magnifier(_icon, _h / 2, _h / 2, _h * 0.55, Theme.TEXT_SOFT, 80);
+			Draw.magnifier(_icon, _h / 2, _h / 2, _h * 0.5, Theme.TEXT_HINT, 90);
 			x0 = _h;
 		}
 		_tf._x = x0;

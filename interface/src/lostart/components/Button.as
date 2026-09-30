@@ -32,7 +32,7 @@ class lostart.components.Button
 		_bg = clip.createEmptyMovieClip("bg", 1);
 		_h = a_h == undefined ? 44 : a_h;
 		_glyph = new KeyGlyph(clip, "glyph", 2, Math.round(_h * 0.6));
-		_tf = Text.create(clip, "label", 3, 0, 0, 200, _h, Theme.FS_BODY, Theme.TEXT, Theme.FONT_MEDIUM, "left");
+		_tf = Text.create(clip, "label", 3, 0, 0, 200, _h, Theme.FS_HINT, Theme.TEXT, Theme.FONT_MEDIUM, "left");
 		_bg.onRollOver = function(): Void { self.setHover(true); };
 		_bg.onRollOut = _bg.onDragOut = function(): Void { self.setHover(false); };
 		_bg.onRelease = function(): Void {
@@ -105,10 +105,14 @@ class lostart.components.Button
 		return _h;
 	}
 
+	/*
+	 * SkyUI button-panel entry: key art + label, no box. Hover or focus brightens it and puts
+	 * the list selection band behind it (the vanilla message-box button look).
+	 */
 	private function redraw(): Void
 	{
 		Text.set(_tf, _label);
-		var pad: Number = 14;
+		var pad: Number = 10;
 		var gw: Number = _glyph.width;
 		var tw: Number = _tf.textWidth + 6;
 		var w: Number = Math.max(_minW, pad + (gw > 0 ? gw + 8 : 0) + tw + pad);
@@ -123,11 +127,10 @@ class lostart.components.Button
 
 		_bg.clear();
 		var hot: Boolean = _enabled && (_hover || _focused);
-		Draw.rect(_bg, 0, 0, _w, _h, 0x000000, hot ? 70 : 45);
-		Draw.frame(_bg, 0, 0, _w, _h, 1, _accent != undefined && hot ? _accent : Theme.BORDER, hot ? 75 : 30);
+		Draw.rect(_bg, 0, 0, _w, _h, 0, 0);   // hit area
 		if (hot)
-			Draw.rect(_bg, 1, _h - 3, _w - 2, 2, _accent != undefined ? _accent : Theme.ACCENT, 90);
-		clip._alpha = _enabled ? 100 : 45;
-		Text.setColor(_tf, _enabled ? Theme.TEXT : Theme.TEXT_DIM);
+			Draw.selectBar(_bg, 0, 2, _w, _h - 4, _focused);
+		clip._alpha = _enabled ? 100 : 40;
+		Text.setColor(_tf, _enabled ? (hot ? Theme.TEXT : Theme.TEXT_SOFT) : Theme.TEXT_DIM);
 	}
 }

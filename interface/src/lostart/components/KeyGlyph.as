@@ -63,9 +63,11 @@ class lostart.components.KeyGlyph
 			Draw.roundFrame(bg, 0, 0, w, s, s / 2, 1, 0xFFFFFF, 40);
 			Text.setColor(_tf, Theme.TEXT);
 		} else {
+			// Skyrim's PC key art: a dark keycap with a light rim and a white legend.
 			w = Math.max(s, textW + 10);
-			Draw.roundRect(bg, 0, 0, w, s, 4, 0x000000, 40);
-			Draw.roundFrame(bg, 0, 0, w, s, 4, 1, 0xFFFFFF, 70);
+			Draw.roundRect(bg, 0, 0, w, s, 3, 0x1C1C1C, 92);
+			Draw.roundFrame(bg, 0, 0, w, s, 3, 1, 0xDDDDDD, 80);
+			Draw.rect(bg, 2, s - 3, w - 4, 1, 0xFFFFFF, 12);
 			Text.setColor(_tf, Theme.TEXT);
 		}
 		_tf._x = 0;

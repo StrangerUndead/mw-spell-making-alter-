@@ -1,12 +1,12 @@
 /*
- * Bottom readouts: Magicka cost (counts up/down on change), Rank badge in the school colour,
- * Spell Chance (only when the casting-failure module is on, chance >= 0), Price (red when the
- * player cannot afford it) and Your Gold, plus the active cost model name.
+ * Bottom readouts in SkyUI's bottom-bar style: grey upper-case labels with white values on one
+ * line, right-aligned: Magicka cost (counts up/down on change), Rank, Spell Chance (only when the
+ * casting-failure module is on, chance >= 0), Price (red when the player cannot afford it) and
+ * Gold, with the active cost model in small grey text underneath.
  * Pure rendering of state fields; no rule is evaluated here.
  */
 import lostart.Theme;
 import lostart.model.StateUtil;
-import lostart.util.Draw;
 import lostart.util.Text;
 import lostart.util.Translator;
 import lostart.util.Tween;
@@ -36,16 +36,17 @@ class lostart.components.ReadoutBar
 		for (var i: Number = 0; i < names.length; i++) {
 			var n: String = names[i];
 			var mc: MovieClip = clip.createEmptyMovieClip("cell_" + n, 10 + i);
-			var label: TextField = Text.create(mc, "label", 1, 0, 0, 160, 24, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_MEDIUM, "left");
-			var value: TextField = Text.create(mc, "value", 2, 0, 22, 200, 40, Theme.FS_TITLE, Theme.TEXT, Theme.FONT_MEDIUM, "left");
+			var label: TextField = Text.label(mc, "label", 1, 160, "left");
+			var value: TextField = Text.create(mc, "value", 2, 0, 0, 200, 36, Theme.FS_HEADER, Theme.TEXT, Theme.FONT_MEDIUM, "left");
+			value.autoSize = "left";   // the magicka value counts up; never clip it
 			_cells[n] = {mc: mc, label: label, value: value};
 		}
-		Text.set(_cells.magicka.label, "$LA_UI_MagickaCost");
-		Text.set(_cells.rank.label, "$LA_UI_Rank");
-		Text.set(_cells.chance.label, "$LA_UI_SpellChance");
-		Text.set(_cells.price.label, "$LA_UI_Price");
-		Text.set(_cells.gold.label, "$LA_UI_YourGold");
-		_modelTf = Text.create(clip, "model", 30, 0, 0, 300, 24, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_REGULAR, "left");
+		Text.setCaps(_cells.magicka.label, "$LA_UI_Magicka");
+		Text.setCaps(_cells.rank.label, "$LA_UI_Rank");
+		Text.setCaps(_cells.chance.label, "$LA_UI_Chance");
+		Text.setCaps(_cells.price.label, "$LA_UI_Price");
+		Text.setCaps(_cells.gold.label, "$LA_UI_Gold");
+		_modelTf = Text.create(clip, "model", 30, 0, 0, 300, 24, Theme.FS_LABEL, Theme.TEXT_HINT, Theme.FONT_REGULAR, "right");
 	}
 
 	public function setSize(a_w: Number, a_h: Number): Void
@@ -107,37 +108,43 @@ class lostart.components.ReadoutBar
 
 	private function layout(): Void
 	{
-		var x: Number = 0;
-		var gap: Number = 44;
+		// Measure, then place the cells right to left so the gold ends at the bar's edge.
+		var gap: Number = 38;
 		var order: Array = ["magicka", "rank", "chance", "price", "gold"];
+		var widths: Array = [];
+		var total: Number = 0;
 		for (var i: Number = 0; i < order.length; i++) {
 			var c: Object = _cells[order[i]];
-			var mc: MovieClip = c.mc;
-			if (!mc._visible)
+			if (!c.mc._visible) {
+				widths.push(0);
 				continue;
-			mc._x = x;
-			mc._y = Math.round((_h - 62) / 2);
-			var vw: Number = Math.max(c.value.textWidth, c.label.textWidth) + 8;
-			if (order[i] == "rank")
-				vw += 24;
-			c.value._width = vw + 4;
-			c.label._width = vw + 4;
-			if (order[i] == "rank") {
-				c.value._x = 12;
-				drawBadge(mc._x, mc._y + 24, c.value.textWidth + 24, 36);
 			}
-			x += vw + gap;
+			var lw: Number = c.label.textWidth + 4;
+			var vw: Number = c.value.textWidth + 4;
+			c.label._width = lw + 4;
+			if (order[i] == "magicka")
+				vw = Math.max(vw, 64);   // room for the count-up without moving the other cells
+			c.label._x = 0;
+			c.value._x = lw + 8;
+			var w: Number = lw + 8 + vw;
+			widths.push(w);
+			total += w + (total > 0 ? gap : 0);
 		}
-		_modelTf._x = x;
-		_modelTf._width = Math.max(20, _w - x);
-		_modelTf._y = Math.round((_h - 62) / 2) + 34;
-	}
-
-	private function drawBadge(a_x: Number, a_y: Number, a_w: Number, a_h: Number): Void
-	{
+		var lineY: Number = Math.round((_h - 36) / 2) - 8;
+		var x: Number = Math.max(0, _w - total);
+		for (var j: Number = 0; j < order.length; j++) {
+			var cell: Object = _cells[order[j]];
+			if (!cell.mc._visible)
+				continue;
+			cell.mc._x = x;
+			cell.mc._y = lineY;
+			cell.label._y = Math.round((36 - cell.label.textHeight) / 2) + 1;
+			cell.value._y = Math.round((36 - cell.value.textHeight) / 2) - 3;
+			x += widths[j] + gap;
+		}
 		_badge.clear();
-		var c: Number = _schoolColor == undefined ? Theme.NEUTRAL : _schoolColor;
-		Draw.roundRect(_badge, a_x, a_y, a_w, a_h, 6, c, 30);
-		Draw.roundFrame(_badge, a_x, a_y, a_w, a_h, 6, 2, c, 100);
+		_modelTf._x = 0;
+		_modelTf._width = _w;
+		_modelTf._y = lineY + 36;
 	}
 }

@@ -1,9 +1,13 @@
 /*
- * SkyUI-style item card for the focused effect: name, school, Morrowind base cost, allowed
- * ranges, magnitude unit and the one-line "In Skyrim" note.
- * Entry = one element of LA_SetKnown: {id, text, school, schoolName, baseCost, ranges, unit, card}.
+ * Item card for the focused effect, laid out like Skyrim's own item card (and SkyUI's
+ * ItemCard): the name centred in large type, a fading rule, one centred line of grey
+ * upper-case labels with white values (school, Morrowind base cost, ranges, unit), and the
+ * one-line "In Skyrim" note centred underneath. The body is the dark band the vanilla card sits
+ * on, with no box or colour.
+ * Entry = one element of LA_SetKnown: {id, text, school, schoolName, baseCost, ranges, unit, card, icon, iconColor}.
  */
 import lostart.Theme;
+import lostart.components.SkyIcon;
 import lostart.util.Draw;
 import lostart.util.Text;
 import lostart.util.Translator;
@@ -13,12 +17,10 @@ class lostart.components.ItemCard
 	public var clip: MovieClip;
 
 	private var _bg: MovieClip;
-	private var _orb: MovieClip;
+	private var _icon: SkyIcon;
 	private var _titleTf: TextField;
-	private var _metaTf: TextField;
-	private var _unitTf: TextField;
+	private var _statsTf: TextField;
 	private var _noteTf: TextField;
-	private var _emptyTf: TextField;
 	private var _w: Number = 400;
 	private var _h: Number = 200;
 	private var _entry: Object;
@@ -27,12 +29,11 @@ class lostart.components.ItemCard
 	{
 		clip = a_parent.createEmptyMovieClip(a_name, a_depth);
 		_bg = clip.createEmptyMovieClip("bg", 1);
-		_orb = clip.createEmptyMovieClip("orb", 2);
-		_titleTf = Text.create(clip, "title", 3, 0, 0, 100, 40, Theme.FS_HEADER, Theme.TEXT, Theme.FONT_MEDIUM, "left");
-		_metaTf = Text.create(clip, "meta", 4, 0, 0, 100, 30, Theme.FS_SMALL, Theme.TEXT_SOFT, Theme.FONT_REGULAR, "left");
-		_unitTf = Text.create(clip, "unit", 5, 0, 0, 100, 30, Theme.FS_SMALL, Theme.TEXT_SOFT, Theme.FONT_REGULAR, "left");
-		_noteTf = Text.multiline(Text.create(clip, "note", 6, 0, 0, 100, 60, Theme.FS_SMALL, Theme.TEXT, Theme.FONT_REGULAR, "left"));
-		_emptyTf = Text.create(clip, "empty", 7, 0, 0, 100, 30, Theme.FS_SMALL, Theme.TEXT_HINT, Theme.FONT_REGULAR, "center");
+		_icon = new SkyIcon(clip, "icon", 2, Theme.ICONS_ITEM, 30);
+		_titleTf = Text.create(clip, "title", 3, 0, 0, 100, 44, Theme.FS_TITLE, Theme.TEXT, Theme.FONT_MEDIUM, "center");
+		_statsTf = Text.create(clip, "stats", 4, 0, 0, 100, 30, Theme.FS_SMALL, Theme.TEXT, Theme.FONT_MEDIUM, "center");
+		_statsTf.html = true;
+		_noteTf = Text.multiline(Text.create(clip, "note", 5, 0, 0, 100, 60, Theme.FS_SMALL, Theme.TEXT_SOFT, Theme.FONT_REGULAR, "center"));
 	}
 
 	public function setSize(a_w: Number, a_h: Number): Void
@@ -56,65 +57,82 @@ class lostart.components.ItemCard
 		return String(r);
 	}
 
+	private static function esc(a_s: String): String
+	{
+		var out: String = "";
+		for (var i: Number = 0; i < a_s.length; i++) {
+			var c: String = a_s.charAt(i);
+			if (c == "<")
+				out += "&lt;";
+			else if (c == ">")
+				out += "&gt;";
+			else if (c == "&")
+				out += "&amp;";
+			else
+				out += c;
+		}
+		return out;
+	}
+
+	/* One "LABEL value" pair in the stats line. */
+	private static function pair(a_labelKey: String, a_value: String): String
+	{
+		var label: String = esc(Translator.tr(a_labelKey).toUpperCase());
+		return "<font color=\"#999999\" size=\"" + Theme.FS_LABEL + "\">" + label + "</font> " + esc(a_value);
+	}
+
 	private function render(): Void
 	{
-		Draw.panel(_bg, _w, _h, Theme.PANEL_ALPHA, false);
-		_orb.clear();
+		_bg.clear();
 		var has: Boolean = _entry != undefined;
-		_titleTf._visible = _metaTf._visible = _unitTf._visible = _noteTf._visible = has;
-		_emptyTf._visible = !has;
-		var pad: Number = 22;
-		if (!has) {
-			_emptyTf._x = pad;
-			_emptyTf._width = _w - 2 * pad;
-			_emptyTf._y = _h / 2 - 16;
-			_emptyTf.text = "";
+		_titleTf._visible = _statsTf._visible = _noteTf._visible = has;
+		_icon.clip._visible = has;
+		if (!has)
 			return;
-		}
-		var color: Number = Theme.schoolColor(_entry.school);
-		Draw.circle(_orb, pad + 11, pad + 17, 11, color, 30);
-		Draw.circle(_orb, pad + 11, pad + 17, 7, color, 100);
 
-		var x: Number = pad + 32;
-		var y: Number = pad;
-		_titleTf._x = x;
+		// the dark band behind the card: strongest in the middle, fading to the sides and edges
+		Draw.gradient(_bg, 0, 0, _w, _h, 0x000000, [0, Theme.PANEL_ALPHA, Theme.PANEL_ALPHA, 0], [0, 50, 205, 255], false);
+		Draw.divider(_bg, 0, 0, _w, Theme.BORDER_ALPHA);
+		Draw.divider(_bg, 0, _h - 1, _w, Theme.BORDER_ALPHA);
+
+		var pad: Number = 24;
+		var y: Number = pad - 4;
+		_titleTf._x = pad;
 		_titleTf._y = y;
-		_titleTf._width = _w - x - pad;
-		_titleTf._height = 40;
+		_titleTf._width = _w - 2 * pad;
+		_titleTf._height = 44;
 		Text.setFit(_titleTf, String(_entry.text));
-		y += 42;
-		Draw.divider(_bg, pad, y, _w - 2 * pad, 35);
-		y += 10;
+		// icon just left of the centred title
+		var tw: Number = Math.min(_titleTf.textWidth, _w - 2 * pad);
+		_icon.clip._x = Math.round(_w / 2 - tw / 2 - 42);
+		_icon.clip._y = y + 5;
+		_icon.show(_entry.icon == undefined || String(_entry.icon) == "" ? Theme.schoolIcon(Number(_entry.school)) : String(_entry.icon),
+			_entry.iconColor == undefined ? 0xFFFFFF : Number(_entry.iconColor));
+		y += 46;
+		Draw.divider(_bg, _w * 0.15, y, _w * 0.7, 45);
+		y += 12;
 
-		var dot: String = "  " + String.fromCharCode(183) + "  ";
-		var meta: String = Translator.tr(String(_entry.schoolName)) + dot +
-			Translator.tr("$LA_UI_BaseCost") + " " + formatNumber(Number(_entry.baseCost));
+		var gap: String = "      ";
+		var stats: String = pair("$LA_UI_School", Translator.tr(String(_entry.schoolName)));
+		stats += gap + pair("$LA_UI_BaseCost", formatNumber(Number(_entry.baseCost)));
 		if (_entry.ranges != undefined && String(_entry.ranges).length > 0)
-			meta += dot + Translator.tr(String(_entry.ranges));
-		_metaTf._x = pad;
-		_metaTf._y = y;
-		_metaTf._width = _w - 2 * pad;
-		_metaTf._height = 30;
-		Text.setFit(_metaTf, meta);
-		y += 30;
-
+			stats += gap + pair("$LA_UI_Ranges", Translator.tr(String(_entry.ranges)));
 		var unit: String = _entry.unit == undefined ? "" : Translator.tr(String(_entry.unit));
-		_unitTf._visible = unit.length > 0 && unit != "none";
-		_unitTf._x = pad;
-		_unitTf._y = y;
-		_unitTf._width = _w - 2 * pad;
-		_unitTf._height = 30;
-		if (_unitTf._visible) {
-			Text.setFit(_unitTf, Translator.tr("$LA_UI_Unit") + ": " + unit);
-			y += 30;
-		}
+		if (unit.length > 0 && unit != "none")
+			stats += gap + pair("$LA_UI_Unit", unit);
+		_statsTf._x = pad;
+		_statsTf._y = y;
+		_statsTf._width = _w - 2 * pad;
+		_statsTf._height = 30;
+		_statsTf.htmlText = stats;
+		y += 36;
 
 		var card: String = _entry.card == undefined ? "" : Translator.tr(String(_entry.card));
 		_noteTf._visible = card.length > 0;
-		_noteTf._x = pad;
-		_noteTf._y = y + 6;
-		_noteTf._width = _w - 2 * pad;
-		_noteTf._height = Math.max(24, _h - y - 6 - pad + 6);
+		_noteTf._x = pad * 2;
+		_noteTf._y = y;
+		_noteTf._width = _w - 4 * pad;
+		_noteTf._height = Math.max(24, _h - y - pad + 8);
 		if (_noteTf._visible)
 			_noteTf.text = Translator.tr("$LA_UI_InSkyrim") + " " + card;
 	}

@@ -28,6 +28,7 @@ import lostart.components.KeyGlyph;
 import lostart.components.ListPopup;
 import lostart.components.MessageBox;
 import lostart.components.ReadoutBar;
+import lostart.components.SkyIcon;
 import lostart.components.TabBar;
 import lostart.components.TextBox;
 import lostart.components.VirtualList;
@@ -51,6 +52,10 @@ class LostArtSpellmakingMenu extends MovieClip
 	private var _overlay: MovieClip;
 	private var _fadeMc: MovieClip;
 
+	/* ---- header ---- */
+	private var _titleTf: TextField;
+	private var _headerLine: MovieClip;
+
 	/* ---- name row ---- */
 	private var _nameLabelTf: TextField;
 	private var _nameBox: TextBox;
@@ -60,6 +65,7 @@ class LostArtSpellmakingMenu extends MovieClip
 	/* ---- Effects Known ---- */
 	private var _knownPanel: MovieClip;
 	private var _knownTitleTf: TextField;
+	private var _knownCostTf: TextField;
 	private var _searchBox: TextBox;
 	private var _searchGlyph: KeyGlyph;
 	private var _tabs: TabBar;
@@ -127,6 +133,7 @@ class LostArtSpellmakingMenu extends MovieClip
 		_overlay = _content.createEmptyMovieClip("overlay", 1);
 		_fadeMc = createEmptyMovieClip("fade", 2);
 		buildNameRow();
+		Text.setCaps(_titleTf, "$LA_UI_AltarTitle");
 		buildKnownPane();
 		buildEffectsPane();
 		buildCardAndBar();
@@ -172,6 +179,13 @@ class LostArtSpellmakingMenu extends MovieClip
 		var prev: Object = _state;
 		_state = a_state;
 
+		// menu title: the altar, or the spellmaker's name (vanilla crafting menus title the station)
+		var providerName: String = StateUtil.str(a_state.providerName);
+		if (a_state.mode == "npc")
+			Text.setCaps(_titleTf, providerName.length > 0 ? providerName : "$LA_UI_SpellmakerTitle");
+		else
+			Text.setCaps(_titleTf, "$LA_UI_AltarTitle");
+
 		// name (never overwrite while the player types)
 		_nameBox.setText(StateUtil.str(a_state.name));
 
@@ -203,7 +217,7 @@ class LostArtSpellmakingMenu extends MovieClip
 			}
 		}
 		_counterTf.text = String(StateUtil.num(a_state.count, effects.length)) + "/" + String(StateUtil.num(a_state.maxEffects, 8));
-		Text.setColor(_counterTf, effects.length >= StateUtil.num(a_state.maxEffects, 8) ? Theme.ACCENT : Theme.TEXT_SOFT);
+		Text.setColor(_counterTf, effects.length >= StateUtil.num(a_state.maxEffects, 8) ? Theme.TEXT : Theme.TEXT_SOFT);
 
 		// readouts + buttons
 		_readout.setState(a_state, spellSchoolColor(a_state), prev != undefined);
@@ -228,6 +242,11 @@ class LostArtSpellmakingMenu extends MovieClip
 		if (ed != undefined && ed != null) {
 			if (ed.schoolName == undefined)
 				ed.schoolName = knownSchoolName(String(ed.id));
+			var edKnown: Object = _knownById[String(ed.id)];
+			if (ed.icon == undefined && edKnown != undefined) {
+				ed.icon = edKnown.icon;
+				ed.iconColor = edKnown.iconColor;
+			}
 			var opening: Boolean = !_editor.isOpen;
 			_editor.setData(ed);
 			if (opening)
@@ -293,15 +312,18 @@ class LostArtSpellmakingMenu extends MovieClip
 	private function buildNameRow(): Void
 	{
 		var self: LostArtSpellmakingMenu = this;
-		_nameLabelTf = Text.create(_content, "nameLabel", 10, 0, 0, 120, 40, Theme.FS_HEADER, Theme.TEXT_SOFT, Theme.FONT_MEDIUM, "left");
-		Text.set(_nameLabelTf, "$LA_UI_Name");
-		_nameBox = new TextBox(_content, "nameBox", 11, Theme.FS_HEADER, NAME_MAX_CHARS, false);
+		// Menu title, top left (vanilla crafting menus: "ENCHANTING", "SMITHING").
+		_titleTf = Text.spacing(Text.create(_content, "menuTitle", 8, 0, 0, 600, 44, Theme.FS_MENU_TITLE, Theme.TEXT, Theme.FONT_MEDIUM, "left"), 3);
+		_headerLine = _content.createEmptyMovieClip("headerLine", 9);
+		_nameLabelTf = Text.label(_content, "nameLabel", 10, 300, "left");
+		Text.setCaps(_nameLabelTf, "$LA_UI_Name");
+		_nameBox = new TextBox(_content, "nameBox", 11, Theme.FS_HEADER + 4, NAME_MAX_CHARS, false);
 		_nameBox.setPlaceholder("$LA_UI_NameHint");
 		_nameBox.onChange = function(t: String): Void { self.send("LA_SetName", [t]); };
 		_nameBox.onStart = function(): Void { self.onTextStart("name"); };
 		_nameBox.onEnd = function(t: String, accepted: Boolean): Void { self.onNameEnd(t, accepted); };
 		_nameGlyph = new KeyGlyph(_content, "nameGlyph", 12, 26);
-		_nameHintTf = Text.create(_content, "nameHint", 13, 0, 0, 300, 30, Theme.FS_SMALL, Theme.TEXT_HINT, Theme.FONT_REGULAR, "left");
+		_nameHintTf = Text.create(_content, "nameHint", 13, 0, 0, 300, 30, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_MEDIUM, "left");
 	}
 
 	private function buildKnownPane(): Void
@@ -310,8 +332,11 @@ class LostArtSpellmakingMenu extends MovieClip
 		_knownPanel = _content.createEmptyMovieClip("knownPanel", 20);
 		var p: MovieClip = _knownPanel;
 		p.createEmptyMovieClip("bg", 1);
-		_knownTitleTf = Text.create(p, "title", 2, 0, 0, 300, 40, Theme.FS_HEADER, Theme.TEXT, Theme.FONT_MEDIUM, "left");
-		Text.set(_knownTitleTf, "$LA_UI_EffectsKnown");
+		// SkyUI column header: grey capitals over a fading rule ("EFFECTS KNOWN ... BASE COST").
+		_knownTitleTf = Text.label(p, "title", 2, 300, "left");
+		Text.setCaps(_knownTitleTf, "$LA_UI_EffectsKnown");
+		_knownCostTf = Text.label(p, "costHead", 7, 200, "right");
+		Text.setCaps(_knownCostTf, "$LA_UI_BaseCost");
 		_searchBox = new TextBox(p, "search", 3, Theme.FS_SMALL, 40, true);
 		_searchBox.setPlaceholder("$LA_UI_Search");
 		_searchBox.onChange = function(t: String): Void { self.applyFilter(self.currentKnownId()); };
@@ -321,8 +346,7 @@ class LostArtSpellmakingMenu extends MovieClip
 
 		var labels: Array = ["$LA_UI_TabAll", "$LA_UI_TabAlteration", "$LA_UI_TabConjuration",
 			"$LA_UI_TabDestruction", "$LA_UI_TabIllusion", "$LA_UI_TabRestoration"];
-		var colors: Array = [Theme.ACCENT].concat(Theme.SCHOOL_COLORS);
-		_tabs = new TabBar(p, "tabs", 5, labels, colors);
+		_tabs = new TabBar(p, "tabs", 5, labels, undefined);
 		_tabs.onChange = function(i: Number): Void {
 			self.playSound(Sounds.TAB);
 			self.applyFilter(self.currentKnownId());
@@ -341,9 +365,9 @@ class LostArtSpellmakingMenu extends MovieClip
 		_effectsPanel = _content.createEmptyMovieClip("effectsPanel", 30);
 		var p: MovieClip = _effectsPanel;
 		p.createEmptyMovieClip("bg", 1);
-		_effectsTitleTf = Text.create(p, "title", 2, 0, 0, 300, 40, Theme.FS_HEADER, Theme.TEXT, Theme.FONT_MEDIUM, "left");
-		Text.set(_effectsTitleTf, "$LA_UI_SpellEffects");
-		_counterTf = Text.create(p, "counter", 3, 0, 0, 120, 40, Theme.FS_HEADER, Theme.TEXT_SOFT, Theme.FONT_MEDIUM, "right");
+		_effectsTitleTf = Text.label(p, "title", 2, 300, "left");
+		Text.setCaps(_effectsTitleTf, "$LA_UI_SpellEffects");
+		_counterTf = Text.spacing(Text.create(p, "counter", 3, 0, 0, 120, 30, Theme.FS_BODY, Theme.TEXT, Theme.FONT_MEDIUM, "right"), Theme.LETTER_SPACING);
 		_effectsList = new VirtualList(p, "list", 4, Theme.ROW_H_EFFECT);
 		_effectsList.hoverSelects = true;
 		_effectsList.createRow = function(mc: MovieClip, w: Number, h: Number): Object { return self.createEffectRow(mc, w, h); };
@@ -353,7 +377,7 @@ class LostArtSpellmakingMenu extends MovieClip
 		_effectsList.emptyText = "$LA_UI_NoEffects";
 		_reorderGlyphA = new KeyGlyph(p, "rgA", 5, 22);
 		_reorderGlyphB = new KeyGlyph(p, "rgB", 6, 22);
-		_reorderTf = Text.create(p, "reorder", 7, 0, 0, 400, 26, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_REGULAR, "left");
+		_reorderTf = Text.create(p, "reorder", 7, 0, 0, 400, 26, Theme.FS_HINT, Theme.TEXT_HINT, Theme.FONT_MEDIUM, "left");
 	}
 
 	private function buildCardAndBar(): Void
@@ -436,47 +460,58 @@ class LostArtSpellmakingMenu extends MovieClip
 		_content._y = f.y;
 		_content._xscale = _content._yscale = f.scale * 100;
 
-		_overlay.clear();
-		Draw.rect(_overlay, 0, 0, f.width, f.height, Theme.OVERLAY, Theme.OVERLAY_ALPHA);
-		// soft vignette at the top and bottom, like the crafting menus
-		for (var i: Number = 0; i < 6; i++) {
-			Draw.rect(_overlay, 0, i * 20, f.width, 20, 0x000000, 30 - i * 5);
-			Draw.rect(_overlay, 0, f.height - (i + 1) * 20, f.width, 20, 0x000000, 30 - i * 5);
-		}
-
 		var X: Number = f.contentX;
 		var Y: Number = f.contentY;
 		var W: Number = f.contentW;
 		var H: Number = f.contentH;
 		var gap: Number = Theme.GAP;
-		var nameH: Number = 56;
-		var barH: Number = 88;
+		var barH: Number = 96;
+		var headH: Number = 64;
+		var leftW: Number = Math.round(W * 0.37);
+		var rightX: Number = X + leftW + gap * 3;
+		var rightW: Number = X + W - rightX;
 
-		// name row
-		_nameLabelTf._x = X;
-		_nameLabelTf._y = Y + 10;
-		_nameLabelTf._width = 120;
-		var hintW: Number = 300;
-		_nameBox.clip._x = X + 120;
-		_nameBox.clip._y = Y;
-		_nameBox.setSize(W - 120 - hintW - gap, nameH);
-		_nameGlyph.clip._x = X + W - hintW + 6;
-		_nameGlyph.clip._y = Y + Math.round((nameH - 26) / 2);
-		_nameHintTf._y = Y + Math.round((nameH - 30) / 2);
+		// Backdrop, as the vanilla crafting menus: the scene is dimmed, the list side sits on a
+		// black gradient that fades out towards the middle, and the bottom bar on a black band.
+		_overlay.clear();
+		Draw.rect(_overlay, 0, 0, f.width, f.height, Theme.OVERLAY, Theme.OVERLAY_ALPHA);
+		// One full-width gradient (no internal edges): opaque behind the known list, a lighter
+		// dip between the columns, darker again behind the spell and the card.
+		var r1: Number = Math.round(255 * (X + leftW + gap) / f.width);
+		var r2: Number = Math.round(255 * (rightX - gap) / f.width);
+		Draw.gradient(_overlay, 0, 0, f.width, f.height, 0x000000,
+			[Theme.BACKDROP_ALPHA, Theme.BACKDROP_ALPHA, 45, 50], [0, Math.max(0, r1 - 30), r2, 255], false);
+		Draw.gradient(_overlay, 0, f.height - barH - 70, f.width, barH + 70, 0x000000, [0, 85, 92], [0, 120, 255], true);
+		Draw.divider(_overlay, 0, f.height - barH - 8, f.width, 26);
+
+		// header: menu title over a fading rule
+		_titleTf._x = X;
+		_titleTf._y = Y;
+		_titleTf._width = leftW;
+		_headerLine.clear();
+		Draw.divider(_headerLine, X - 20, Y + 48, leftW + 40, 40);
+
+		// name (top of the right column): label, then the name on an underline
+		_nameLabelTf._x = rightX;
+		_nameLabelTf._y = Y + 2;
+		var hintW: Number = 260;
+		_nameBox.clip._x = rightX;
+		_nameBox.clip._y = Y + 20;
+		_nameBox.setSize(rightW - hintW - gap, 44);
+		_nameGlyph.clip._x = rightX + rightW - hintW + 6;
+		_nameGlyph.clip._y = Y + 20 + Math.round((44 - 26) / 2);
+		_nameHintTf._y = Y + 20 + Math.round((44 - 26) / 2) - 1;
 		_nameHintTf._width = hintW - 40;
 
-		var mainY: Number = Y + nameH + gap;
-		var mainH: Number = H - nameH - barH - 2 * gap;
-		var leftW: Number = Math.round(W * 0.38);
-		var rightX: Number = X + leftW + gap;
-		var rightW: Number = W - leftW - gap;
+		var mainY: Number = Y + headH + gap;
+		var mainH: Number = H - headH - barH - 2 * gap + 8;
 
 		layoutKnown(X, mainY, leftW, mainH);
 
-		var effH: Number = Math.round(mainH * 0.56);
+		var cardH: Number = Math.max(190, Math.round(mainH * 0.34));
+		var effH: Number = mainH - cardH - gap;
 		layoutEffects(rightX, mainY, rightW, effH);
 		var cardY: Number = mainY + effH + gap;
-		var cardH: Number = mainH - effH - gap;
 		_card.clip._x = rightX;
 		_card.clip._y = cardY;
 		_card.setSize(rightW, cardH);
@@ -485,9 +520,9 @@ class LostArtSpellmakingMenu extends MovieClip
 		_layoutLeftLow = {x: X, y: mainY + mainH - cardH, w: leftW, h: cardH};
 
 		_barPanel._x = X;
-		_barPanel._y = Y + H - barH;
+		_barPanel._y = f.height - barH;
 		_barPanel["w"] = W;
-		_barPanel["h"] = barH;
+		_barPanel["h"] = barH - 8;
 		layoutBar();
 
 		_editor.setBounds(rightX, mainY, rightW, mainH);
@@ -529,22 +564,33 @@ class LostArtSpellmakingMenu extends MovieClip
 		p._y = a_y;
 		p["w"] = a_w;
 		p["h"] = a_h;
-		var pad: Number = 18;
-		_knownTitleTf._x = pad;
-		_knownTitleTf._y = pad - 4;
-		_knownTitleTf._width = a_w * 0.5;
-		var sw: Number = Math.round(a_w * 0.46);
-		_searchBox.clip._x = a_w - pad - sw;
-		_searchBox.clip._y = pad - 2;
-		_searchBox.setSize(sw - 34, 38);
-		_searchGlyph.clip._x = a_w - pad - 28;
-		_searchGlyph.clip._y = pad + 5;
-		_tabs.clip._x = pad;
-		_tabs.clip._y = pad + 48;
-		_tabs.setSize(a_w - 2 * pad, 40);
-		_knownList.clip._x = pad;
-		_knownList.clip._y = pad + 48 + 40 + 10;
-		_knownList.setSize(a_w - 2 * pad, a_h - (pad + 48 + 40 + 10) - pad);
+		// school icon bar with the active school's name under its rule
+		var tabsH: Number = Theme.TAB_ICON_SIZE + 44;
+		_tabs.clip._x = 0;
+		_tabs.clip._y = 0;
+		_tabs.setSize(a_w, tabsH);
+		// search box on the caption line, right-aligned (SkyUI puts it over the list)
+		var sw: Number = Math.round(a_w * 0.5);
+		_searchBox.clip._x = a_w - sw;
+		_searchBox.clip._y = Theme.TAB_ICON_SIZE + 16;
+		_searchBox.setSize(sw - 34, 30);
+		_searchGlyph.clip._x = a_w - 28;
+		_searchGlyph.clip._y = Theme.TAB_ICON_SIZE + 19;
+		// column header
+		var headY: Number = tabsH + 12;
+		_knownTitleTf._x = 0;
+		_knownTitleTf._y = headY;
+		_knownTitleTf._width = a_w * 0.6;
+		_knownCostTf._x = a_w - 214;
+		_knownCostTf._y = headY;
+		_knownCostTf._width = 200;
+		var bg: MovieClip = p.bg;
+		bg.clear();
+		Draw.divider(bg, -10, headY + 26, a_w + 20, Theme.BORDER_ALPHA + 10);
+		var listY: Number = headY + 32;
+		_knownList.clip._x = 0;
+		_knownList.clip._y = listY;
+		_knownList.setSize(a_w, a_h - listY);
 	}
 
 	private function layoutEffects(a_x: Number, a_y: Number, a_w: Number, a_h: Number): Void
@@ -554,18 +600,20 @@ class LostArtSpellmakingMenu extends MovieClip
 		p._y = a_y;
 		p["w"] = a_w;
 		p["h"] = a_h;
-		var pad: Number = 18;
-		_effectsTitleTf._x = pad;
-		_effectsTitleTf._y = pad - 4;
+		_effectsTitleTf._x = 0;
+		_effectsTitleTf._y = 2;
 		_effectsTitleTf._width = a_w * 0.6;
-		_counterTf._x = a_w - pad - 120;
-		_counterTf._y = pad - 4;
+		_counterTf._x = a_w - 134;
+		_counterTf._y = -2;
+		var bg: MovieClip = p.bg;
+		bg.clear();
+		Draw.divider(bg, -10, 28, a_w + 20, Theme.BORDER_ALPHA + 10);
 		var hintH: Number = 30;
-		_effectsList.clip._x = pad;
-		_effectsList.clip._y = pad + 50;
-		_effectsList.setSize(a_w - 2 * pad, a_h - (pad + 50) - hintH - pad);
-		var hy: Number = a_h - pad - hintH + 4;
-		_reorderGlyphA.clip._x = pad;
+		_effectsList.clip._x = 0;
+		_effectsList.clip._y = 34;
+		_effectsList.setSize(a_w, a_h - 34 - hintH - 4);
+		var hy: Number = a_h - hintH + 2;
+		_reorderGlyphA.clip._x = 0;
 		_reorderGlyphA.clip._y = hy;
 		_reorderGlyphB.clip._y = hy;
 		_reorderTf._y = hy - 1;
@@ -573,27 +621,24 @@ class LostArtSpellmakingMenu extends MovieClip
 
 	private function layoutBar(): Void
 	{
+		// SkyUI bottom bar: button hints on the left, the readouts on the right.
 		var p: MovieClip = _barPanel;
 		var w: Number = p["w"];
 		var h: Number = p["h"];
 		if (w == undefined)
 			return;
-		var bg: MovieClip = p.bg == undefined ? p.createEmptyMovieClip("bg", 1) : p.bg;
-		Draw.panel(bg, w, h, Theme.PANEL_ALPHA, false);
-		var pad: Number = 18;
 		var btns: Array = [_createBtn, _loadBtn, _clearBtn, _exitBtn];
-		var bx: Number = w - pad;
-		for (var i: Number = btns.length - 1; i >= 0; i--) {
+		var bx: Number = 0;
+		for (var i: Number = 0; i < btns.length; i++) {
 			var b: Button = btns[i];
-			b.setMinWidth(130);
-			bx -= b.width;
+			b.setMinWidth(0);
 			b.clip._x = bx;
 			b.clip._y = Math.round((h - b.height) / 2);
-			bx -= 10;
+			bx += b.width + 14;
 		}
-		_readout.clip._x = pad + 6;
+		_readout.clip._x = bx + 20;
 		_readout.clip._y = 0;
-		_readout.setSize(bx - pad - 20, h);
+		_readout.setSize(w - bx - 20, h);
 	}
 
 	/* ================================================================================
@@ -603,51 +648,59 @@ class LostArtSpellmakingMenu extends MovieClip
 	private function createKnownRow(a_mc: MovieClip, a_w: Number, a_h: Number): Object
 	{
 		var bg: MovieClip = a_mc.createEmptyMovieClip("bg", 1);
-		var orb: MovieClip = a_mc.createEmptyMovieClip("orb", 2);
-		var tf: TextField = Text.create(a_mc, "name", 3, 34, 0, a_w - 44, a_h, Theme.FS_BODY, Theme.TEXT, Theme.FONT_REGULAR, "left");
-		var row: Object = {bg: bg, orb: orb, tf: tf};
-		row.resize = function(w: Number, h: Number): Void { tf._width = w - 44; };
+		var icon: SkyIcon = new SkyIcon(a_mc, "icon", 2, Theme.ICONS_ITEM, Theme.ICON_SIZE);
+		var tf: TextField = Text.create(a_mc, "name", 3, 44, 0, a_w - 44 - 90, a_h, Theme.FS_BODY, Theme.TEXT, Theme.FONT_MEDIUM, "left");
+		var cost: TextField = Text.create(a_mc, "cost", 4, a_w - 90, 0, 76, a_h, Theme.FS_BODY, Theme.TEXT, Theme.FONT_MEDIUM, "right");
+		Text.spacing(tf, 0.6);
+		var row: Object = {bg: bg, icon: icon, tf: tf, cost: cost};
+		row.resize = function(w: Number, h: Number): Void {
+			tf._width = w - 44 - 90;
+			cost._x = w - 90;
+		};
 		return row;
 	}
 
 	private function renderKnownRow(a_row: Object, a_e: Object, a_i: Number, a_sel: Boolean, a_focused: Boolean): Void
 	{
 		var bg: MovieClip = a_row.bg;
-		var orb: MovieClip = a_row.orb;
 		var tf: TextField = a_row.tf;
+		var cost: TextField = a_row.cost;
 		var h: Number = a_row.height;
-		var color: Number = Theme.schoolColor(a_e.school);
 		var dimmed: Boolean = _dim[String(a_e.id)] == true;
 		bg.clear();
-		if (a_sel) {
-			Draw.rect(bg, 0, 1, a_row.width, h - 2, Theme.ROW_SELECT, a_focused ? Theme.ROW_SELECT_FOCUS_ALPHA : Theme.ROW_SELECT_ALPHA);
-			if (a_focused)
-				Draw.rect(bg, 0, 1, 3, h - 2, color, 100);
-		}
-		orb.clear();
-		Draw.circle(orb, 18, h / 2, 5, color, dimmed ? 35 : 100);
+		if (a_sel)
+			Draw.selectBar(bg, -6, 1, a_row.width + 12, h - 2, a_focused);
+		var icon: SkyIcon = a_row.icon;
+		icon.clip._x = 10;
+		icon.clip._y = Math.round((h - Theme.ICON_SIZE) / 2);
+		icon.show(iconLabel(a_e), iconColor(a_e));
+		icon.clip._alpha = dimmed ? 30 : 100;
 		Text.setFit(tf, String(a_e.text));
 		tf._y = Math.round((h - tf.textHeight) / 2) - 3;
-		Text.setColor(tf, dimmed ? Theme.TEXT_DIM : (a_sel && a_focused ? Theme.TEXT : Theme.TEXT_SOFT));
+		cost.text = a_e.baseCost == undefined ? "" : ItemCard.formatNumber(Number(a_e.baseCost));
+		cost._y = tf._y;
+		var c: Number = dimmed ? Theme.TEXT_DIM : (a_sel && a_focused ? Theme.TEXT : Theme.TEXT_SOFT);
+		Text.setColor(tf, c);
+		Text.setColor(cost, dimmed ? Theme.TEXT_DIM : Theme.TEXT_HINT);
 	}
 
 	private function createEffectRow(a_mc: MovieClip, a_w: Number, a_h: Number): Object
 	{
 		var self: LostArtSpellmakingMenu = this;
 		var bg: MovieClip = a_mc.createEmptyMovieClip("bg", 1);
-		var orb: MovieClip = a_mc.createEmptyMovieClip("orb", 2);
-		var tf: TextField = Text.multiline(Text.create(a_mc, "line", 3, 34, 2, a_w - 44 - 110, a_h - 4, Theme.FS_BODY, Theme.TEXT, Theme.FONT_REGULAR, "left"));
+		var icon: SkyIcon = new SkyIcon(a_mc, "icon", 2, Theme.ICONS_ITEM, Theme.ICON_SIZE + 4);
+		var tf: TextField = Text.multiline(Text.create(a_mc, "line", 3, 48, 2, a_w - 48 - 110, a_h - 4, Theme.FS_BODY, Theme.TEXT, Theme.FONT_REGULAR, "left"));
 		var tools: MovieClip = a_mc.createEmptyMovieClip("tools", 4);
 		var up: MovieClip = tools.createEmptyMovieClip("up", 1);
 		var down: MovieClip = tools.createEmptyMovieClip("down", 2);
 		var del: MovieClip = tools.createEmptyMovieClip("del", 3);
-		var row: Object = {bg: bg, orb: orb, tf: tf, tools: tools, up: up, down: down, del: del};
+		var row: Object = {bg: bg, icon: icon, tf: tf, tools: tools, up: up, down: down, del: del};
 		up.onRelease = function(): Void { self.moveRow(row.index, -1); };
 		down.onRelease = function(): Void { self.moveRow(row.index, 1); };
 		del.onRelease = function(): Void { self.removeRow(row.index); };
 		up.useHandCursor = down.useHandCursor = del.useHandCursor = false;
 		row.resize = function(w: Number, h: Number): Void {
-			tf._width = w - 44 - 110;
+			tf._width = w - 48 - 110;
 			tools._x = w - 104;
 		};
 		row.resize(a_w, a_h);
@@ -657,19 +710,18 @@ class LostArtSpellmakingMenu extends MovieClip
 	private function renderEffectRow(a_row: Object, a_e: Object, a_i: Number, a_sel: Boolean, a_focused: Boolean): Void
 	{
 		var bg: MovieClip = a_row.bg;
-		var orb: MovieClip = a_row.orb;
 		var tf: TextField = a_row.tf;
 		var h: Number = a_row.height;
-		var color: Number = Theme.schoolColor(a_e.school);
 		bg.clear();
-		if (a_sel) {
-			Draw.rect(bg, 0, 1, a_row.width, h - 2, Theme.ROW_SELECT, a_focused ? Theme.ROW_SELECT_FOCUS_ALPHA : Theme.ROW_SELECT_ALPHA);
-			if (a_focused)
-				Draw.rect(bg, 0, 1, 3, h - 2, color, 100);
-		}
-		Draw.rect(bg, 0, h - 1, a_row.width, 1, Theme.BORDER, 10);
-		orb.clear();
-		Draw.circle(orb, 18, 20, 6, color, 100);
+		if (a_sel)
+			Draw.selectBar(bg, -6, 1, a_row.width + 12, h - 2, a_focused);
+		else
+			Draw.divider(bg, 0, h - 1, a_row.width, 12);
+		var icon: SkyIcon = a_row.icon;
+		icon.clip._x = 8;
+		icon.clip._y = 12;
+		var known: Object = _knownById[String(a_e.id)];
+		icon.show(iconLabel(known != undefined ? known : a_e), iconColor(known != undefined ? known : a_e));
 		tf.text = Translator.tr(String(a_e.text));
 		tf._y = tf.textHeight > 32 ? 1 : Math.round((h - tf.textHeight) / 2) - 3;
 		Text.setColor(tf, a_e.canEdit == false ? Theme.TEXT_SOFT : (a_sel ? Theme.TEXT : Theme.TEXT_SOFT));
@@ -690,16 +742,31 @@ class LostArtSpellmakingMenu extends MovieClip
 		a_mc.clear();
 		var s: Number = 30;
 		var y: Number = Math.round((a_h - s) / 2);
-		Draw.rect(a_mc, a_x, y, s, s, 0x000000, 55);
-		Draw.frame(a_mc, a_x, y, s, s, 1, Theme.BORDER, a_enabled ? 45 : 15);
+		Draw.rect(a_mc, a_x, y, s, s, 0, 0);   // hit area
 		var c: Number = a_enabled ? Theme.TEXT : Theme.TEXT_DIM;
+		var a: Number = a_enabled ? 85 : 40;
 		if (a_kind == "up")
-			Draw.triangle(a_mc, a_x + s / 2, y + s / 2, 14, -1, c, 100);
+			Draw.triangle(a_mc, a_x + s / 2, y + s / 2, 14, -1, c, a);
 		else if (a_kind == "down")
-			Draw.triangle(a_mc, a_x + s / 2, y + s / 2, 14, 1, c, 100);
+			Draw.triangle(a_mc, a_x + s / 2, y + s / 2, 14, 1, c, a);
 		else
-			Draw.cross(a_mc, a_x + s / 2, y + s / 2, 11, 2, a_enabled ? Theme.TEXT_RED : Theme.TEXT_DIM, 100);
+			Draw.cross(a_mc, a_x + s / 2, y + s / 2, 11, 2, c, a);
 		a_mc.enabled = a_enabled;
+	}
+
+	/* SkyUI item-icon label for an effect (the DLL sends it; the school's default otherwise). */
+	private static function iconLabel(a_e: Object): String
+	{
+		if (a_e != undefined && a_e.icon != undefined && String(a_e.icon).length > 0)
+			return String(a_e.icon);
+		return Theme.schoolIcon(a_e == undefined ? -1 : Number(a_e.school));
+	}
+
+	private static function iconColor(a_e: Object): Number
+	{
+		if (a_e != undefined && a_e.iconColor != undefined)
+			return Number(a_e.iconColor);
+		return 0xFFFFFF;
 	}
 
 	/* ================================================================================
@@ -760,11 +827,11 @@ class LostArtSpellmakingMenu extends MovieClip
 	private function updatePaneLook(): Void
 	{
 		var kp: MovieClip = _knownPanel;
-		var ep: MovieClip = _effectsPanel;
 		if (kp["w"] == undefined)
 			return;
-		Draw.panel(kp.bg, kp["w"], kp["h"], Theme.PANEL_ALPHA, _pane == "known");
-		Draw.panel(ep.bg, ep["w"], ep["h"], Theme.PANEL_ALPHA, _pane == "effects");
+		// Skyrim has no pane frames: the focused column's header turns white.
+		Text.setColor(_knownTitleTf, _pane == "known" ? Theme.TEXT : Theme.TEXT_HINT);
+		Text.setColor(_effectsTitleTf, _pane == "effects" ? Theme.TEXT : Theme.TEXT_HINT);
 		_knownList.setFocused(_pane == "known");
 		_effectsList.setFocused(_pane == "effects");
 		_searchBox.setFocusedLook(false);

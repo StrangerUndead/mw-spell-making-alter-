@@ -75,11 +75,17 @@ async function openPage(browser, w, h, query = "") {
   page.on("pageerror", (e) => errors.push(String(e.message)));
   page.on("console", (m) => {
     const t = m.text();
-    if (m.type() === "error") errors.push(t);
+    // SkyUI's icon libraries (skyui/icons_*.swf) exist only in a game install; offline the
+    // movie falls back to drawn icons, so their 404s are expected.
+    const where = (m.location && m.location().url) || "";
+    const expected = where.includes("/skyui/") && t.includes("404");
+    if (m.type() === "error" && !expected) errors.push(t);
     const i = t.indexOf("[LostArt]");
     if (i >= 0) traceLines.push(t.slice(i).replace(/ ?color: whitesmoke.*$/, ""));
   });
-  await page.goto(`http://127.0.0.1:${PORT}/test/harness/index.html${query}${query ? "&" : "?"}log=info`);
+  // LA_HARNESS_QUERY adds page parameters, e.g. "renderer=canvas" to compare Ruffle's renderers.
+  const extra = process.env.LA_HARNESS_QUERY ? "&" + process.env.LA_HARNESS_QUERY : "";
+  await page.goto(`http://127.0.0.1:${PORT}/test/harness/index.html${query}${query ? "&" : "?"}log=info${extra}`);
   await page.waitForFunction(() => window.LA_HARNESS_READY === true, null, { timeout: 30000 });
   await page.waitForFunction(() => window.LA_LAST_STATE !== undefined, null, { timeout: 10000 });
   await page.waitForTimeout(400);

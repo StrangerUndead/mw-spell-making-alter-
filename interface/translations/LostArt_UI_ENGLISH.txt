@@ -58,3 +58,15 @@ $LA_UI_YourGold	Your Gold
 $LA_Unit_ft	ft
 $LA_Unit_sec	sec
 $LA_Unit_secs	secs
+$LA_UI_AltarTitle	Altar of Spellmaking
+$LA_UI_Chance	Chance
+$LA_UI_Gold	Gold
+$LA_UI_Magicka	Magicka
+$LA_UI_Ranges	Ranges
+$LA_UI_School	School
+$LA_UI_SpellmakerTitle	Spellmaking
+$LA_School_Alteration	Alteration
+$LA_School_Conjuration	Conjuration
+$LA_School_Destruction	Destruction
+$LA_School_Illusion	Illusion
+$LA_School_Restoration	Restoration

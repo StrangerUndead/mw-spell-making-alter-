@@ -246,9 +246,28 @@ namespace LA::UI
 			return strings.Get("$LA_UI_CostModel_SkyrimBalanced");
 		}
 
-		std::string SchoolIcon(School a_school)
+		// SkyUI item-icon frame label and tint for an effect, as SkyUI's MagicIconSetter picks them
+		// for spells: default_<school>, with the elemental icons (and their colours) for fire, frost
+		// and shock (Interface/skyui/icons_item_psychosteve.swf; the SWF loads it at run time).
+		struct SkyUIIcon
 		{
-			return ToLower(ToString(a_school));
+			std::string label;
+			std::uint32_t color{ 0xFFFFFF };
+		};
+
+		SkyUIIcon IconFor(const EffectDef& a_def)
+		{
+			const auto has = [&](std::string_view a_word) { return a_def.pascalName.find(a_word) != std::string::npos; };
+			const auto keyword = [&](std::string_view a_kw) {
+				return std::ranges::any_of(a_def.keywords, [&](const std::string& k) { return IEquals(k, a_kw); });
+			};
+			if (keyword("MagicDamageFire") || has("Fire"))
+				return { "magic_fire", 0xC73636 };
+			if (keyword("MagicDamageFrost") || has("Frost"))
+				return { "magic_frost", 0x1FFBFF };
+			if (keyword("MagicDamageShock") || has("Shock") || has("Lightning"))
+				return { "magic_shock", 0xEAAB00 };
+			return { "default_" + ToLower(ToString(a_def.school)), 0xFFFFFF };
 		}
 
 		double Round2(double a_value) { return std::round(a_value * 100.0) / 100.0; }
@@ -470,7 +489,9 @@ namespace LA::UI
 			entry.Set("ranges", Val::Str(RangesText(*def)));
 			entry.Set("unit", Val::Str(def->hasMagnitude ? UnitText(def->unit) : std::string{}));
 			entry.Set("card", Val::Str(def->itemCardKey.empty() ? std::string{} : state.strings.Get(def->itemCardKey)));
-			entry.Set("icon", Val::Str(SchoolIcon(def->school)));
+			const auto icon = IconFor(*def);
+			entry.Set("icon", Val::Str(icon.label));
+			entry.Set("iconColor", Val::Num(static_cast<double>(icon.color)));
 			entry.Set("target", Val::Num(static_cast<double>(def->target)));
 			list.Push(std::move(entry));
 		}
@@ -595,7 +616,9 @@ namespace LA::UI
 			e.Set("title", Val::Str(fmt.EffectName(*def, draft.sub)));
 			e.Set("school", Val::Num(static_cast<double>(def->school)));
 			e.Set("schoolName", Val::Str(fmt.SchoolName(def->school)));
-			e.Set("icon", Val::Str(SchoolIcon(def->school)));
+			const auto icon = IconFor(*def);
+			e.Set("icon", Val::Str(icon.label));
+			e.Set("iconColor", Val::Num(static_cast<double>(icon.color)));
 			e.Set("range", Val::Num(static_cast<double>(draft.range)));
 			e.Set("rangeText", Val::Str(fmt.RangeName(draft.range)));
 			e.Set("canCycleRange", Val::Bool(def->AllowedRanges().size() > 1));

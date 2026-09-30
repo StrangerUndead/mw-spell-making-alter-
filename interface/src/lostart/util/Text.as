@@ -80,4 +80,29 @@ class lostart.util.Text
 		}
 		a_tf.text = s.substr(0, lo) + "...";
 	}
+
+	/* Letter spacing (GFx/Flash 8 TextFormat.letterSpacing), kept for later text. */
+	public static function spacing(a_tf: TextField, a_value: Number): TextField
+	{
+		var fmt: TextFormat = a_tf.getNewTextFormat();
+		fmt["letterSpacing"] = a_value;
+		a_tf.setNewTextFormat(fmt);
+		a_tf.setTextFormat(fmt);
+		return a_tf;
+	}
+
+	/* Sets translated text in upper case (Skyrim's labels and headers). */
+	public static function setCaps(a_tf: TextField, a_str: String): Void
+	{
+		var s: String = Translator.tr(a_str).toUpperCase();
+		if (a_tf.text != s)
+			a_tf.text = s;
+	}
+
+	/* A grey upper-case, letter-spaced label (SkyUI column header / stat label). */
+	public static function label(a_parent: MovieClip, a_name: String, a_depth: Number, a_w: Number, a_align: String): TextField
+	{
+		var tf: TextField = create(a_parent, a_name, a_depth, 0, 0, a_w, 24, Theme.FS_LABEL, Theme.TEXT_HINT, Theme.FONT_MEDIUM, a_align);
+		return spacing(tf, Theme.LETTER_SPACING);
+	}
 }

@@ -36,7 +36,7 @@ class lostart.components.ListPopup
 		clip = a_parent.createEmptyMovieClip(a_name, a_depth);
 		_shade = clip.createEmptyMovieClip("shade", 1);
 		_bg = clip.createEmptyMovieClip("bg", 2);
-		_titleTf = Text.create(clip, "title", 3, 0, 0, 100, 40, Theme.FS_TITLE, Theme.TEXT, Theme.FONT_MEDIUM, "left");
+		_titleTf = Text.spacing(Text.create(clip, "title", 3, 0, 0, 100, 40, Theme.FS_HEADER, Theme.TEXT, Theme.FONT_MEDIUM, "center"), Theme.LETTER_SPACING);
 		_list = new VirtualList(clip, "list", 4, _twoLine ? Theme.ROW_H_EFFECT : Theme.ROW_H + 4);
 		_list.createRow = function(mc: MovieClip, w: Number, h: Number): Object { return self.createRow(mc, w, h); };
 		_list.renderRow = function(row: Object, e: Object, i: Number, sel: Boolean, foc: Boolean): Void { self.renderRow(row, e, i, sel, foc); };
@@ -78,12 +78,12 @@ class lostart.components.ListPopup
 		var y: Number = Math.round((a_frameH - a_h) / 2);
 		_bg._x = x;
 		_bg._y = y;
-		Draw.panel(_bg, a_w, a_h, Theme.MODAL_ALPHA, true);
+		Draw.modalPanel(_bg, a_w, a_h);
 		var pad: Number = 26;
 		_titleTf._x = x + pad;
 		_titleTf._y = y + pad - 4;
 		_titleTf._width = a_w - 2 * pad;
-		Draw.divider(_bg, pad, pad + 46, a_w - 2 * pad, 45);
+		Draw.divider(_bg, 0, pad + 46, a_w, 45);
 		_list.clip._x = x + pad;
 		_list.clip._y = y + pad + 58;
 		_list.setSize(a_w - 2 * pad, a_h - 2 * pad - 58 - 60);
@@ -105,7 +105,7 @@ class lostart.components.ListPopup
 	public function open(a_title: String, a_entries: Array, a_emptyKey: String, a_accent: Number): Void
 	{
 		_accent = a_accent;
-		Text.setFit(_titleTf, Translator.tr(a_title));
+		Text.setFit(_titleTf, Translator.tr(a_title).toUpperCase());
 		var wasOpen: Boolean = clip._visible;
 		clip._visible = true;
 		_list.emptyText = a_emptyKey == undefined ? "" : a_emptyKey;
@@ -175,8 +175,7 @@ class lostart.components.ListPopup
 		bg.clear();
 		var h: Number = a_row.height;
 		if (a_sel) {
-			Draw.rect(bg, 0, 1, a_row.width, h - 2, Theme.ROW_SELECT, Theme.ROW_SELECT_FOCUS_ALPHA);
-			Draw.rect(bg, 0, 1, 3, h - 2, _accent == undefined ? Theme.ACCENT : _accent, 100);
+			Draw.selectBar(bg, 0, 1, a_row.width, h - 2, true);
 		}
 		if (_twoLine) {
 			Text.setFit(main, a_entry.name == undefined ? String(a_entry.text) : String(a_entry.name));

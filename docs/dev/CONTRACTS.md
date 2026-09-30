@@ -235,7 +235,7 @@ DLL -> SWF (Invoke on `_root.Menu_mc`):
 
 | Function | Payload |
 | --- | --- |
-| `LA_SetKnown(arr)` | array of `{id, text, school(0-4), schoolName, baseCost, ranges:"Self/Touch/Target", unit, card, icon, target(0 none,1 attribute,2 skill)}` sorted by name |
+| `LA_SetKnown(arr)` | array of `{id, text, school(0-4), schoolName, baseCost, ranges:"Self/Touch/Target", unit, card, icon, iconColor, target(0 none,1 attribute,2 skill)}` sorted by name. `icon` is a SkyUI item-icon frame label (`default_<school>`, or `magic_fire`/`magic_frost`/`magic_shock`), `iconColor` its tint (0xRRGGBB; white except the elemental icons) |
 | `LA_SetState(obj)` | see below |
 | `LA_SetLoadList(arr)` | `[{slot, name, text}]` |
 | `LA_ShowMessage(text)` | Morrowind message box text |
@@ -249,7 +249,7 @@ State object:
   cost, costText, price, gold, canAfford, chance(-1 when module off), rank(0-4), rankName,
   modelName, showCostMath, costMath:[{text, share, runningTotal}],
   picker: null | {effectId, title, options:[{sub, text}]},
-  editor: null | {index(-1 new), id, title, school, icon, range, rangeText, canCycleRange,
+  editor: null | {index(-1 new), id, title, school, icon, iconColor, range, rangeText, canCycleRange,
                   hasMagnitude, min, max, magCap, hasDuration, duration, durCap,
                   hasArea, area, areaCap, unit, lineText, effectCost},
   buttons:{createLabel:"$LA_UI_Create"|"$LA_UI_Buy"} }

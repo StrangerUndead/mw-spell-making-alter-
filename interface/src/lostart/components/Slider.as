@@ -36,7 +36,7 @@ class lostart.components.Slider
 		var self: Slider = this;
 		clip = a_parent.createEmptyMovieClip(a_name, a_depth);
 		_focusMc = clip.createEmptyMovieClip("focus", 1);
-		_labelTf = Text.create(clip, "label", 2, 0, 0, 100, 30, Theme.FS_BODY, Theme.TEXT_SOFT, Theme.FONT_MEDIUM, "left");
+		_labelTf = Text.label(clip, "label", 2, 100, "left");
 		_track = clip.createEmptyMovieClip("track", 3);
 		_thumb = clip.createEmptyMovieClip("thumb", 4);
 		_valueTf = Text.create(clip, "value", 5, 0, 0, 100, 30, Theme.FS_BODY, Theme.TEXT, Theme.FONT_MEDIUM, "right");
@@ -62,7 +62,7 @@ class lostart.components.Slider
 
 	public function setLabel(a_key: String): Void
 	{
-		Text.set(_labelTf, a_key);
+		Text.setCaps(_labelTf, a_key);
 	}
 
 	public function setColor(a_color: Number): Void
@@ -163,14 +163,13 @@ class lostart.components.Slider
 		_focusMc.clear();
 		_track.clear();
 		_thumb.clear();
-		if (_focused) {
-			Draw.rect(_focusMc, -10, 0, _w + 20, _h, 0xFFFFFF, 9);
-			Draw.rect(_focusMc, -10, 0, 3, _h, _color, 100);
-		}
+		if (_focused)
+			Draw.selectBar(_focusMc, -14, 0, _w + 28, _h, true);
 		_labelTf._x = 0;
 		_labelTf._width = _labelW - 8;
 		_labelTf._height = _h;
-		_labelTf._y = Math.round((_h - _labelTf.textHeight) / 2) - 3;
+		_labelTf._y = Math.round((_h - _labelTf.textHeight) / 2) - 1;
+		Text.setColor(_labelTf, _focused ? Theme.TEXT : Theme.TEXT_HINT);
 
 		var tx: Number = trackX();
 		var tw: Number = trackW();
@@ -178,13 +177,15 @@ class lostart.components.Slider
 		var range: Number = _max - _min;
 		var t: Number = range > 0 ? (_value - _min) / range : 0;
 		t = Math.max(0, Math.min(1, t));
+		// Skyrim's settings slider: a hairline track, the filled part brighter, a white notch.
 		Draw.rect(_track, tx, 0, tw, _h, 0, 0);   // hit area
-		Draw.rect(_track, tx, cy - 2, tw, 4, 0xFFFFFF, 22);
-		Draw.rect(_track, tx, cy - 2, tw * t, 4, _color, 85);
+		Draw.rect(_track, tx, cy - 1, tw, 2, 0xFFFFFF, 22);
+		Draw.rect(_track, tx, cy - 1, tw * t, 2, 0xFFFFFF, _focused ? 85 : 60);
+		Draw.rect(_track, tx, cy - 6, 1, 12, 0xFFFFFF, 35);
+		Draw.rect(_track, tx + tw - 1, cy - 6, 1, 12, 0xFFFFFF, 35);
 		var thx: Number = tx + tw * t;
-		Draw.rect(_thumb, thx - 5, cy - 12, 10, 24, 0x000000, 80);
-		Draw.frame(_thumb, thx - 5, cy - 12, 10, 24, 1, 0xFFFFFF, _focused ? 100 : 70);
-		Draw.rect(_thumb, thx - 2, cy - 8, 4, 16, _focused ? 0xFFFFFF : _color, 100);
+		Draw.rect(_thumb, thx - 3, cy - 11, 6, 22, 0x000000, 70);
+		Draw.rect(_thumb, thx - 2, cy - 10, 4, 20, 0xFFFFFF, _focused ? 100 : 75);
 
 		_valueTf._x = _w - _valueW;
 		_valueTf._width = _valueW;

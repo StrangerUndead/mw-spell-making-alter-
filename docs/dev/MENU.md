@@ -21,7 +21,7 @@ interface/
     skse.as                    intrinsic declarations of _global.skse (AllowTextInput, GetLastKeycode, ...)
     gfx/io/GameDelegate.as     clean-room implementation of the GameDelegate wire protocol
     gfx/ui/NavigationCode.as   navEquivalent string constants (same values as Skyrim's menus)
-    lostart/Theme.as           sizes, colours (school colours), font names
+    lostart/Theme.as           sizes, the Skyrim palette, font names, SkyUI icon paths and frame labels
     lostart/Sounds.as          UI sound -> vanilla SoundDescriptor EditorID table
     lostart/util/              Translator ($key -> text), Text (TextField factory), Draw (procedural art),
                                Layout (visibleRect/safeRect -> design frame), Tween
@@ -29,7 +29,7 @@ interface/
     lostart/model/             EffectFilter (school tab + case-insensitive search), StateUtil (diff helpers)
     lostart/components/        VirtualList, TabBar, TextBox, Button, KeyGlyph (button art), Slider,
                                ItemCard, ReadoutBar, EffectEditor, ListPopup (picker + load list),
-                               MessageBox, CostMathPanel
+                               MessageBox, CostMathPanel, SkyIcon (runtime SkyUI icon loader)
   translations/LostArt_UI_ENGLISH.txt   every $LA_ key the SWF uses (UTF-8 list; see "Strings")
   test/swfcheck.py             dependency-free SWF structural verifier
   test/harness/                offline harness: Ruffle + Playwright + mock DLL
@@ -42,6 +42,27 @@ with the MovieClip drawing API and `createTextField`, using the fontconfig names
 `$EverywhereFont`, `$EverywhereMediumFont`, `$EverywhereBoldFont` (Skyrim's
 `Interface/fontconfig.txt` maps them per language, so localised glyphs come for free).
 Button art (keycaps and Xbox-layout face buttons) is drawn by `KeyGlyph`.
+
+### Look
+
+The menu copies Skyrim's own menu language as SkyUI draws it: white text on a darkened scene,
+grey upper-case labels with letter spacing, hairline rules that fade out at both ends, gradient
+bands instead of boxed panels, and no colour accents except SkyUI's elemental icon tints. The
+layout echoes the vanilla crafting menus: the menu title top left, the category icon bar over
+Effects Known, the spell's effects and a centred item card on the right, and a bottom bar with
+button hints on the left and the readouts (MAGICKA, RANK, CHANCE, PRICE, GOLD) on the right.
+Popups (editor, picker, load list, message box, cost math) sit on an opaque dark base
+(`Draw.modalPanel`) so the list behind never shows through.
+
+**Icons.** `SkyIcon` loads SkyUI's icon libraries from the player's install at run time with
+`MovieClipLoader` and shows a frame by label: the tab bar uses `skyui/icons_category_psychosteve.swf`
+(`mag_all`, `mag_alteration`, …) and effect rows, the editor and the item card use
+`skyui/icons_item_psychosteve.swf` with the label and tint the DLL sends (`icon`, `iconColor`,
+CONTRACTS §7). Nothing from SkyUI is shipped. When a library is missing (SkyUI not installed, or the
+offline harness) `SkyIcon` draws a simple fallback glyph instead, so the menu works without SkyUI.
+
+**Drawing note.** Clear a line style with `lineStyle()` (no arguments), never `lineStyle(undefined)`:
+Ruffle turns an undefined thickness into a black hairline around every fill.
 
 ### Relation to SkyUI
 
@@ -136,9 +157,9 @@ Field names for the editor calls are `"min"`, `"max"`, `"duration"`, `"area"`.
    are no-ops); the player can still press B to leave the field.
 2. **Cancelling the picker.** No call exists for it; the SWF sends `LA_EditorCancel`, treating the
    picker as the first step of the pending add. The DLL must clear `state.picker` on it.
-3. **Rank badge colour.** The outline wants the badge in the spell's school colour, but the state
-   has no spell school. The SWF uses optional `state.school` (0–4) when present, otherwise the
-   school of `effects[0]`. The DLL should add `school` (it already decides the spell's school).
+3. **Rank colour.** The outline wants the rank in the spell's school colour. The Skyrim look
+   draws all text white, so `Theme.SCHOOL_COLORS` are all white. The SWF still reads optional
+   `state.school` (else the school of `effects[0]`), so a colour theme only has to edit that table.
 4. **Editor school name.** `editor` has `school` but no `schoolName`; the SWF looks it up in the
    known list by `editor.id`, and uses `editor.schoolName` if the DLL adds it.
 

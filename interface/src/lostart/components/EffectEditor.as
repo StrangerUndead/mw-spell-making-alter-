@@ -13,6 +13,7 @@
 import lostart.Theme;
 import lostart.components.Button;
 import lostart.components.KeyGlyph;
+import lostart.components.SkyIcon;
 import lostart.components.Slider;
 import lostart.input.KeyMap;
 import lostart.model.StateUtil;
@@ -34,7 +35,7 @@ class lostart.components.EffectEditor
 	public var onFocusMove: Function; // fn() - for the focus sound
 
 	private var _bg: MovieClip;
-	private var _orb: MovieClip;
+	private var _icon: SkyIcon;
 	private var _titleTf: TextField;
 	private var _schoolTf: TextField;
 	private var _rangeRow: MovieClip;
@@ -66,16 +67,16 @@ class lostart.components.EffectEditor
 		var self: EffectEditor = this;
 		clip = a_parent.createEmptyMovieClip(a_name, a_depth);
 		_bg = clip.createEmptyMovieClip("bg", 1);
-		_orb = clip.createEmptyMovieClip("orb", 2);
+		_icon = new SkyIcon(clip, "icon", 2, Theme.ICONS_ITEM, 32);
 		_titleTf = Text.create(clip, "title", 3, 0, 0, 100, 44, Theme.FS_TITLE, Theme.TEXT, Theme.FONT_MEDIUM, "left");
-		_schoolTf = Text.create(clip, "school", 4, 0, 0, 100, 30, Theme.FS_SMALL, Theme.TEXT_SOFT, Theme.FONT_MEDIUM, "right");
+		_schoolTf = Text.label(clip, "school", 4, 100, "right");
 
 		_rangeRow = clip.createEmptyMovieClip("rangeRow", 10);
-		_rangeLabelTf = Text.create(_rangeRow, "label", 2, 0, 0, 160, 30, Theme.FS_BODY, Theme.TEXT_SOFT, Theme.FONT_MEDIUM, "left");
+		_rangeLabelTf = Text.label(_rangeRow, "label", 2, 160, "left");
 		_rangeBox = _rangeRow.createEmptyMovieClip("box", 3);
 		_rangeTf = Text.create(_rangeRow, "value", 4, 0, 0, 160, 30, Theme.FS_BODY, Theme.TEXT, Theme.FONT_MEDIUM, "center");
 		_rangeGlyph = new KeyGlyph(_rangeRow, "glyph", 5, 24);
-		Text.set(_rangeLabelTf, "$LA_UI_Range");
+		Text.setCaps(_rangeLabelTf, "$LA_UI_Range");
 		_rangeBox.onRelease = function(): Void {
 			self.focus("range");
 			if (self.canCycle())
@@ -94,8 +95,8 @@ class lostart.components.EffectEditor
 		}
 
 		_previewBg = clip.createEmptyMovieClip("preview", 30);
-		_lineTf = Text.multiline(Text.create(clip, "line", 31, 0, 0, 100, 60, Theme.FS_BODY, Theme.TEXT, Theme.FONT_REGULAR, "left"));
-		_costTf = Text.create(clip, "cost", 32, 0, 0, 100, 30, Theme.FS_SMALL, Theme.TEXT_SOFT, Theme.FONT_MEDIUM, "right");
+		_lineTf = Text.multiline(Text.create(clip, "line", 31, 0, 0, 100, 60, Theme.FS_BODY, Theme.TEXT, Theme.FONT_REGULAR, "center"));
+		_costTf = Text.label(clip, "cost", 32, 100, "center");
 
 		_okBtn = new Button(clip, "ok", 40, 46);
 		_cancelBtn = new Button(clip, "cancel", 41, 46);
@@ -322,20 +323,22 @@ class lostart.components.EffectEditor
 
 	private function layout(): Void
 	{
-		Draw.panel(_bg, _w, _h, Theme.MODAL_ALPHA, true);
+		Draw.modalPanel(_bg, _w, _h);
 		var pad: Number = 28;
 		var labelW: Number = Math.min(200, Math.round(_w * 0.22));
 		var rowH: Number = 50;
 		var y: Number = pad;
 
-		_titleTf._x = pad + 34;
+		_icon.clip._x = pad;
+		_icon.clip._y = y + 4;
+		_titleTf._x = pad + 44;
 		_titleTf._y = y - 2;
-		_titleTf._width = _w - 2 * pad - 34 - 200;
+		_titleTf._width = _w - 2 * pad - 44 - 200;
 		_schoolTf._x = _w - pad - 200;
-		_schoolTf._y = y + 6;
+		_schoolTf._y = y + 12;
 		_schoolTf._width = 200;
 		y += 52;
-		Draw.divider(_bg, pad, y, _w - 2 * pad, 45);
+		Draw.divider(_bg, 0, y, _w, 45);
 		y += 18;
 
 		_rangeRow._x = pad;
@@ -363,14 +366,15 @@ class lostart.components.EffectEditor
 		_previewBg.clear();
 		_previewBg._x = pad;
 		_previewBg._y = y;
-		Draw.rect(_previewBg, 0, 0, _w - 2 * pad, pvH, 0xFFFFFF, 6);
-		Draw.frame(_previewBg, 0, 0, _w - 2 * pad, pvH, 1, Theme.BORDER, 22);
+		Draw.gradient(_previewBg, 0, 0, _w - 2 * pad, pvH, 0xFFFFFF, [0, 5, 5, 0], [0, 50, 205, 255], false);
+		Draw.divider(_previewBg, 0, 0, _w - 2 * pad, Theme.BORDER_ALPHA);
+		Draw.divider(_previewBg, 0, pvH - 1, _w - 2 * pad, Theme.BORDER_ALPHA);
 		_lineTf._x = pad + 14;
-		_lineTf._y = y + 8;
+		_lineTf._y = y + 10;
 		_lineTf._width = _w - 2 * pad - 28;
 		_lineTf._height = pvH - 40;
 		_costTf._x = pad + 14;
-		_costTf._y = y + pvH - 34;
+		_costTf._y = y + pvH - 30;
 		_costTf._width = _w - 2 * pad - 28;
 
 		_deleteBtn.clip._visible = _ed != undefined && _ed.index >= 0;
@@ -400,13 +404,11 @@ class lostart.components.EffectEditor
 	{
 		if (_ed == undefined)
 			return;
-		var color: Number = Theme.schoolColor(_ed.school);
-		_orb.clear();
-		Draw.circle(_orb, 28 + 13, 28 + 20, 13, color, 30);
-		Draw.circle(_orb, 28 + 13, 28 + 20, 8, color, 100);
+		var color: Number = Theme.ACCENT;
+		_icon.show(_ed.icon == undefined || String(_ed.icon) == "" ? Theme.schoolIcon(Number(_ed.school)) : String(_ed.icon),
+			_ed.iconColor == undefined ? 0xFFFFFF : Number(_ed.iconColor));
 		Text.setFit(_titleTf, StateUtil.str(_ed.title));
-		Text.set(_schoolTf, StateUtil.str(_ed.schoolName));
-		Text.setColor(_schoolTf, color);
+		Text.setCaps(_schoolTf, StateUtil.str(_ed.schoolName));
 
 		// range row
 		var labelW: Number = Math.min(200, Math.round(_w * 0.22));
@@ -415,14 +417,18 @@ class lostart.components.EffectEditor
 		var focusedRange: Boolean = _focusId == "range";
 		var rr: MovieClip = _rangeRow;
 		rr.clear();
-		if (focusedRange) {
-			Draw.rect(rr, -10, 0, _w - 56 + 20, rowH, 0xFFFFFF, 9);
-			Draw.rect(rr, -10, 0, 3, rowH, color, 100);
-		}
+		if (focusedRange)
+			Draw.selectBar(rr, -14, 0, _w - 56 + 28, rowH, true);
+		_rangeLabelTf._y = Math.round((rowH - _rangeLabelTf.textHeight) / 2) - 1;
+		Text.setColor(_rangeLabelTf, focusedRange ? Theme.TEXT : Theme.TEXT_HINT);
+		// Skyrim option selector: "<  Self  >" with chevrons only when the range can change
 		_rangeBox.clear();
 		var can: Boolean = canCycle();
-		Draw.rect(_rangeBox, labelW, 5, boxW, rowH - 10, 0x000000, can ? 60 : 30);
-		Draw.frame(_rangeBox, labelW, 5, boxW, rowH - 10, 1, focusedRange ? color : Theme.BORDER, can ? 80 : 25);
+		Draw.rect(_rangeBox, labelW, 5, boxW, rowH - 10, 0, 0);   // hit area
+		if (can) {
+			Draw.chevron(_rangeBox, labelW + 14, rowH / 2, 16, -1, 0xFFFFFF, focusedRange ? 90 : 50);
+			Draw.chevron(_rangeBox, labelW + boxW - 14, rowH / 2, 16, 1, 0xFFFFFF, focusedRange ? 90 : 50);
+		}
 		_rangeTf._x = labelW;
 		_rangeTf._width = boxW;
 		_rangeTf._y = Math.round((rowH - 30) / 2) - 2;

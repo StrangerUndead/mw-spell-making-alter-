@@ -319,10 +319,10 @@ class lostart.components.VirtualList
 		if (_data.length <= _count || _count <= 0)
 			return;
 		var x: Number = _w - BAR_W;
-		Draw.rect(_barMc, x + 2, 0, 2, _h, Theme.BORDER, 18);
+		Draw.vdivider(_barMc, x + 2, 0, _h, 30);
 		var th: Number = Math.max(24, _h * _count / _data.length);
 		var ty: Number = (_h - th) * _top / (_data.length - _count);
-		Draw.roundRect(_thumbMc, x, ty, BAR_W, th, 3, Theme.ACCENT, 60);
+		Draw.rect(_thumbMc, x + 1, ty, 3, th, 0xFFFFFF, 55);
 	}
 
 	private function initThumbDrag(): Void

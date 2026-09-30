@@ -24,7 +24,10 @@
 <script>
   window.RufflePlayer = window.RufflePlayer || {};
   window.RufflePlayer.config = { autoplay: "on", unmuteOverlay: "hidden", splashScreen: false,
-    allowScriptAccess: true, letterbox: "off", wmode: "transparent", logLevel: (new URLSearchParams(location.search).get("log") || "warn"), contextMenu: "off" };
+    allowScriptAccess: true, letterbox: "off", wmode: "transparent", logLevel: (new URLSearchParams(location.search).get("log") || "warn"), contextMenu: "off",
+    // ?renderer=canvas|webgl|wgpu-webgl and ?quality=low|medium|high|best, for render comparisons
+    preferredRenderer: new URLSearchParams(location.search).get("renderer") || undefined,
+    quality: new URLSearchParams(location.search).get("quality") || "high" };
 </script>
 <script src="/.tools/node_modules/@ruffle-rs/ruffle/ruffle.js"></script>
 <script src="mock_dll.js"></script>
