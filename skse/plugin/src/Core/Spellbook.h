@@ -51,4 +51,33 @@ namespace LA::Spellbook
 
 	// Menu-facing list of custom spells for Load.
 	std::vector<const CustomSpell*> List();
+
+	// --- Foundation additions -----------------------------------------------------------------
+	// Plan for a definition under the current settings (content riders). Re-registers any
+	// pass-through effect the definition uses first.
+	CompilePlan PlanFor(const SpellDef& a_def);
+
+	// Writes a_plan.spells[a_index] into a_record: index 0 is the equipped spell (cost override
+	// a_def.cost, casting perk, name), others are linked sub-spells (cost 0, no perk). Used by
+	// Compile and by the in-game compiler tests (scratch sub slots). Returns false on error.
+	bool CompileInto(RE::SpellItem* a_record, const SpellDef& a_def, const CompilePlan& a_plan, std::size_t a_index,
+		std::string* a_error = nullptr);
+
+	// True when a slot record holds only the placeholder (as LostArt_Slots.esp ships it).
+	bool IsBlank(const RE::SpellItem* a_record);
+
+	// Re-registers a pass-through catalog entry ("pt.<plugin>|0x<id>") from its MGEF; false when
+	// the MGEF's plugin is gone. Catalog entries are returned as is.
+	bool EnsureEffect(std::string_view a_effectId);
+
+	// Rebuilds the spellbook from saved definitions (co-save load, early restore): claims slots,
+	// recompiles every definition, drops definitions whose slots are invalid. Returns spells built.
+	int Restore(std::vector<SpellDef> a_defs);
+
+	// Removes these spells from the player and every loaded actor and dispels their effects.
+	void RemoveEverywhere(const std::vector<RE::SpellItem*>& a_spells);
+
+	// Discovery view of one magic effect / spell type (also used by `la discover`).
+	EffectDescriptor Describe(const RE::EffectSetting* a_effect);
+	std::string      SpellTypeName(RE::MagicSystem::SpellType a_type);
 }

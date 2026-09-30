@@ -224,33 +224,36 @@ async function scenario(browser) {
   await shot(page, "09_cost_math");
   await press(page, "F1");
 
-  // --- name: T, type, Enter creates (mock gold too low -> message)
-  await page.evaluate(() => { window.LA_LOG.length = 0; });
+  // --- F1 again inside the editor: cost math moves beside it
+  await press(page, "Enter");            // edit row 0
+  await settle(page, 300);
+  await press(page, "F1");
+  await settle(page, 300);
+  await shot(page, "10_editor_with_cost_math");
+  await press(page, "F1");
+  await press(page, "Escape");
+  await settle(page, 300);
+
+  // --- name: T, type, Enter creates (mock: succeeds, gold drops, spell resets)
+  await clearLog(page);
+  const goldBefore = (await state(page)).gold;
   await press(page, "t");
   await settle(page, 150);
   await page.keyboard.type("Stormcrow", { delay: 30 });
   await settle(page, 150);
-  await shot(page, "10_name_typing");
+  await shot(page, "11_name_typing");
   await press(page, "Enter");
   await settle(page, 400);
   log = await calls(page);
   const names = log.filter((c) => c[0] === "LA_SetName").map((c) => c[1]);
-  check("typing sends LA_SetName (no swallowed 't' hotkey char)", names.includes("Stormcrow"), names.slice(-3));
+  check("typing sends LA_SetName (hotkey 't' not typed)", names.includes("Stormcrow"), names.slice(-3));
   check("Enter in name field -> LA_Create", hasCall(log, "LA_Create"));
   st = await state(page);
-  await shot(page, "11_after_create");
+  check("create charged gold (mock) and reset", st.gold < goldBefore && st.effects.length === 0, [goldBefore, st.gold]);
 
-  // --- Delete on a spell-effect row; Create button by mouse; message box
-  await press(page, "ArrowRight");
+  // --- R with no effects -> Morrowind message box + error sound; Enter dismisses
   await clearLog(page);
-  await press(page, "Delete");
-  await settle(page, 300);
-  log = await calls(page);
-  check("Delete -> LA_RemoveEffect", log.some((c) => c[0] === "LA_RemoveEffect"), log);
-  await press(page, "c");     // Clear
-  await settle(page, 300);
-  await clearLog(page);
-  await press(page, "r");     // Create with no effects -> message
+  await press(page, "r");
   await settle(page, 400);
   log = await calls(page);
   check("R -> LA_Create", hasCall(log, "LA_Create"));
@@ -275,7 +278,16 @@ async function scenario(browser) {
   check("loaded spell rendered", st.effects.length === 2 && st.name === "Stormcrow's Kiss");
   await shot(page, "14_loaded");
 
-  // --- mouse: click the first known row adds it; wheel scrolls
+  // --- Delete on a Spell Effects row
+  await press(page, "ArrowRight");
+  await clearLog(page);
+  await press(page, "Delete");
+  await settle(page, 300);
+  log = await calls(page);
+  check("Delete -> LA_RemoveEffect", log.some((c) => c[0] === "LA_RemoveEffect"), log);
+
+  // --- mouse: wheel over Effects Known, click a row adds it; click Clear button
+  await press(page, "ArrowLeft");
   await clearLog(page);
   const box = await page.evaluate(() => {
     const r = document.querySelector("ruffle-player").getBoundingClientRect();
@@ -291,32 +303,53 @@ async function scenario(browser) {
   await press(page, "Escape");
   await settle(page, 300);
 
-  // --- "gamepad" through the numpad (GFx pad codes 96..107): Y rename -> keyboard request
+  // --- "gamepad" through the numpad (GFx pad codes 96..107)
   await clearLog(page);
-  await press(page, "Numpad3");   // Y
-  await settle(page, 400);
+  await press(page, "Numpad3");   // Y: rename -> keyboard request (mock answers LA_KeyboardResult)
+  await settle(page, 500);
   log = await calls(page);
-  check("pad Y -> LA_RequestKeyboard(name)", hasCall(log, "LA_RequestKeyboard", "name", "Stormcrow's Kiss", 40), log);
-  st = await state(page);
-  await settle(page, 300);
-  log = await calls(page);
+  check("pad Y -> LA_RequestKeyboard(name, current, 40)", hasCall(log, "LA_RequestKeyboard", "name", "Stormcrow's Kiss", 40), log);
   check("keyboard result -> LA_SetName", hasCall(log, "LA_SetName", "Pad Named Spell"), log);
   await shot(page, "15_gamepad_glyphs");
   await clearLog(page);
-  await press(page, "Numpad4");   // LB on Effects Known -> previous tab
+  await press(page, "Numpad7");   // RB on Effects Known -> next tab
+  await press(page, "Numpad4");   // LB -> previous tab
+  check("pad LB/RB switch tabs", (await sounds(page)).filter((x) => x === "UIMenuPrevNext").length >= 2);
+  await press(page, "Numpad6");   // LS click -> cost math
+  await settle(page, 200);
+  log = await calls(page);
+  check("pad LS -> LA_ToggleCostMath", hasCall(log, "LA_ToggleCostMath"));
+  await press(page, "Numpad6");
+  await press(page, "ArrowRight");
+  await clearLog(page);
+  await press(page, "Numpad0");   // A on a spell effect -> edit
+  await settle(page, 300);
+  await press(page, "Numpad8");   // RT in editor -> big step
+  await press(page, "Numpad3");   // Y in editor -> range
+  await settle(page, 300);
+  log = await calls(page);
+  check("pad A -> LA_EditEffect, RT -> big step, Y -> range",
+    hasCall(log, "LA_EditEffect", 0) && log.some((c) => c[0] === "LA_EditorStep" && c[3] === true) && hasCall(log, "LA_EditorRange"), log);
+  await shot(page, "16_gamepad_editor");
+  await press(page, "Numpad2");   // X in editor -> delete
+  await settle(page, 300);
+  log = await calls(page);
+  check("pad X in editor -> LA_EditorDelete", hasCall(log, "LA_EditorDelete"));
+  await clearLog(page);
   await press(page, "Numpad2");   // X -> create
   await settle(page, 300);
   log = await calls(page);
   check("pad X -> LA_Create", hasCall(log, "LA_Create"));
-  await press(page, "Numpad0");   // A dismisses the message
-  await settle(page, 200);
+  if (await page.evaluate(() => window.LA_LOG.some((c) => c[0] === "LA_Create"))) {
+    await press(page, "Numpad0");   // A dismisses a message if one opened
+    await settle(page, 200);
+  }
   await clearLog(page);
   await press(page, "Numpad1");   // B -> exit
   await settle(page, 500);
   log = await calls(page);
   check("pad B -> LA_Exit", hasCall(log, "LA_Exit"));
-  const alpha = await page.evaluate(() => 0);
-  await shot(page, "16_closed");
+  await shot(page, "17_closed");
 
   check("no page errors", errors.length === 0, errors.slice(0, 5));
   await page.close();

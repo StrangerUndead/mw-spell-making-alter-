@@ -1,53 +1,60 @@
-# Lost Art of Spellmaking - spellmaking menu strings (English), owned by interface/.
-# Merge into data/translations/LostArt_ENGLISH.txt (UTF-16 LE with BOM, key<TAB>value).
-# build.sh checks that every "$LA_..." literal in interface/src is listed here (or is a
-# contract family key: $LA_Unit_*, $LA_Range_*, $LA_School_*, $LA_Rank_*).
-# {0}, {1} are substituted by the SWF (lostart.util.Translator.format).
-$LA_UI_Name	Name
-$LA_UI_NamePrompt	Name your spell
-$LA_UI_Rename	Rename
-$LA_UI_EnterCreates	creates the spell
-$LA_UI_EffectsKnown	Effects Known
-$LA_UI_Search	Search
-$LA_UI_TabAll	All
-$LA_UI_TabAlteration	Alt
-$LA_UI_TabConjuration	Conj
-$LA_UI_TabDestruction	Dest
-$LA_UI_TabIllusion	Illu
-$LA_UI_TabRestoration	Rest
-$LA_UI_NoKnown	You know no effects that can be used in spellmaking.
-$LA_UI_NoMatches	No effect matches.
-$LA_UI_SpellEffects	Spell Effects
-$LA_UI_NoEffects	Choose effects from Effects Known.
-$LA_UI_Reorder	reorder (order matters in Classic cost mode)
-$LA_UI_CardEmpty	No effect selected.
-$LA_UI_BaseCost	base cost {0}
-$LA_UI_UnitLine	Magnitude in {0}
-$LA_UI_InSkyrim	In Skyrim: {0}
-$LA_UI_Magicka	MAGICKA
-$LA_UI_Rank	RANK
-$LA_UI_Chance	CHANCE
-$LA_UI_Price	PRICE
-$LA_UI_Gold	YOUR GOLD
-$LA_UI_Create	Create
-$LA_UI_Buy	Buy
-$LA_UI_Load	Load
-$LA_UI_Clear	Clear
-$LA_UI_Exit	Exit
-$LA_UI_Range	Range
-$LA_UI_Magnitude	Magnitude
-$LA_UI_MagnitudeTo	to
-$LA_UI_Duration	Duration
+# Lost Art of Spellmaking - strings used by the spellmaking menu SWF (English).
+# Canonical file: data/translations/LostArt_ENGLISH.txt (UTF-16 LE + BOM). This UTF-8 list is
+# what interface/build.sh checks the SWF sources against, and what the offline harness loads.
+# Keys marked NEW are not in the canonical file yet and must be merged into every language.
+# $LA_Unit_*, $LA_Range_*, $LA_School_*, $LA_Rank_* are contract families (CONTRACTS.md 6).
+# {0} is substituted by the SWF (lostart.util.Translator.format).
+
 $LA_UI_Area	Area
-$LA_UI_EffectCost	Effect cost {0}
-$LA_UI_OK	OK
+$LA_UI_BaseCost	base cost
+$LA_UI_Buy	Buy
 $LA_UI_Cancel	Cancel
+$LA_UI_Clear	Clear
+$LA_UI_Controls_Rename	Rename
+$LA_UI_Controls_Reorder	Reorder
+$LA_UI_CostMathRunning	running total
+$LA_UI_CostMathTitle	Cost math
+$LA_UI_CostModelFmt	({0} cost model)
+# NEW
+$LA_UI_CostShare	share
+$LA_UI_Create	Create
 $LA_UI_Delete	Delete
-$LA_UI_Select	Select
-$LA_UI_NoOptions	Nothing to choose.
-$LA_UI_LoadTitle	Load a custom spell
-$LA_UI_LoadEmpty	You have no custom spells.
-$LA_UI_CostMath	Cost math
-$LA_UI_CostShare	Share
-$LA_UI_CostRunning	Running
-$LA_UI_CostTotal	Total {0}
+$LA_UI_Duration	Duration
+$LA_UI_EffectCost	Effect cost
+$LA_UI_EffectsKnown	Effects Known
+$LA_UI_EnterCreates	Enter creates
+$LA_UI_Exit	Exit
+$LA_UI_InSkyrim	In Skyrim:
+$LA_UI_Load	Load
+$LA_UI_LoadEmpty	You have no custom spells yet.
+$LA_UI_LoadTitle	Start from a custom spell
+$LA_UI_MagickaCost	Magicka Cost
+$LA_UI_Magnitude	Magnitude
+$LA_UI_Name	Name
+$LA_UI_NameHint	Name your spell
+# NEW
+$LA_UI_NoEffects	Choose effects from Effects Known.
+# NEW
+$LA_UI_NoKnown	You know no effects that can be used in spellmaking.
+# NEW
+$LA_UI_NoMatches	No effect matches the search.
+$LA_UI_OK	OK
+$LA_UI_Price	Price
+$LA_UI_Range	Range
+$LA_UI_Rank	Rank
+$LA_UI_Search	Search
+$LA_UI_SearchHint	press / to search
+$LA_UI_SpellChance	Spell Chance
+$LA_UI_SpellEffects	Spell Effects
+$LA_UI_TabAll	All
+$LA_UI_TabAlteration	A
+$LA_UI_TabConjuration	C
+$LA_UI_TabDestruction	D
+$LA_UI_TabIllusion	I
+$LA_UI_TabRestoration	R
+$LA_UI_To	to
+$LA_UI_Unit	Unit
+$LA_UI_YourGold	Your Gold
+$LA_Unit_ft	ft
+$LA_Unit_sec	sec
+$LA_Unit_secs	secs

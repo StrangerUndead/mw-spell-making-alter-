@@ -52,7 +52,7 @@ namespace LA
 	std::string EffectFormatter::EffectName(const EffectDef& a_def) const
 	{
 		if (_skyrimNames) {
-			const auto key = "$LA_EffectSk_" + a_def.pascal;
+			const auto key = "$LA_EffectSk_" + a_def.pascalName;
 			if (_strings.Has(key)) {
 				return _strings.Get(key);
 			}
@@ -90,7 +90,7 @@ namespace LA
 			return EffectName(a_def);
 		}
 		const auto target = TargetName(a_def.target, a_sub);
-		const auto fmtKey = "$LA_EffectFmt_" + a_def.pascal;
+		const auto fmtKey = "$LA_EffectFmt_" + a_def.pascalName;
 		if (_strings.Has(fmtKey)) {
 			return FormatPattern(_strings.Get(fmtKey), { target });
 		}

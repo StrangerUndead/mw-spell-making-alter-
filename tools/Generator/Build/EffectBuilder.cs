@@ -244,7 +244,7 @@ public sealed class EffectBuilder(BuildContext ctx)
         if (v.Range == "touch") mgef.Projectile.SetTo(ctx.ContentLink(TouchProjectile));
         else if (v.Range == "target") mgef.Projectile.SetTo(TargetProjectile(e, ctxName));
 
-        var impact = ImpactSetFor(e);
+        var impact = v.Range == "self" ? null : ImpactSetFor(e); // impact data only matters where a projectile hits
         if (impact is not null) mgef.ImpactData.SetTo(ctx.Vanilla_("ImpactDataSet", impact));
 
         var kws = KeywordsFor(e, v, custom, ctxName).ToList();

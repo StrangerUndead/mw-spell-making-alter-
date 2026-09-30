@@ -104,6 +104,8 @@ class LostArtSpellmakingMenu extends MovieClip
 	private var _closing: Boolean = false;
 	private var _lastSound: Object;
 	private var _layoutRight: Object;
+	private var _layoutCard: Object;
+	private var _layoutLeftLow: Object;
 
 	public var devMode: Boolean = false;
 
@@ -210,9 +212,6 @@ class LostArtSpellmakingMenu extends MovieClip
 		_createBtn.setLabel(createLabel);
 		layoutBar();
 
-		// cost math
-		_costMath.setData(a_state.showCostMath == true, a_state.costMath, StateUtil.str(a_state.modelName), Translator.tr(StateUtil.str(a_state.costText)));
-
 		// picker
 		if (a_state.picker != undefined && a_state.picker != null) {
 			var wasOpen: Boolean = _picker.isOpen;
@@ -239,6 +238,7 @@ class LostArtSpellmakingMenu extends MovieClip
 
 		updatePaneLook();
 		updateCard();
+		updateOverlays();
 	}
 
 	public function LA_SetLoadList(a_list: Array): Void
@@ -480,10 +480,9 @@ class LostArtSpellmakingMenu extends MovieClip
 		_card.clip._x = rightX;
 		_card.clip._y = cardY;
 		_card.setSize(rightW, cardH);
-		_costMath.clip._x = rightX;
-		_costMath.clip._y = cardY;
-		_costMath.setSize(rightW, cardH);
 		_layoutRight = {x: rightX, y: mainY, w: rightW, h: mainH};
+		_layoutCard = {x: rightX, y: cardY, w: rightW, h: cardH};
+		_layoutLeftLow = {x: X, y: mainY + mainH - cardH, w: leftW, h: cardH};
 
 		_barPanel._x = X;
 		_barPanel._y = Y + H - barH;
@@ -498,12 +497,29 @@ class LostArtSpellmakingMenu extends MovieClip
 		_loadPopup.setBounds(f.width, f.height, Math.min(900, Math.round(W * 0.6)), popH);
 		_msg.setFrame(f.width, f.height);
 
-		if (_state != undefined) {
-			_costMath.setData(_state.showCostMath == true, _state.costMath, StateUtil.str(_state.modelName), Translator.tr(StateUtil.str(_state.costText)));
-		}
 		updatePaneLook();
-		updateCard();
+		updateOverlays();
 		updateHints();
+	}
+
+	/*
+	 * The editor covers the whole right column, so the Spell Effects pane and the card are
+	 * hidden under it (no bleed-through). Cost math normally replaces the item card; while the
+	 * editor is open it moves over the lower part of Effects Known so it stays visible.
+	 */
+	private function updateOverlays(): Void
+	{
+		if (_layoutCard == undefined)
+			return;
+		var editing: Boolean = _editor.isOpen;
+		_effectsPanel._visible = !editing;
+		var g: Object = editing ? _layoutLeftLow : _layoutCard;
+		_costMath.clip._x = g.x;
+		_costMath.clip._y = g.y;
+		_costMath.setSize(g.w, g.h);
+		if (_state != undefined)
+			_costMath.setData(_state.showCostMath == true, _state.costMath, StateUtil.str(_state.modelName), Translator.tr(StateUtil.str(_state.costText)));
+		_card.clip._visible = !editing && !_costMath.clip._visible;
 	}
 
 	private function layoutKnown(a_x: Number, a_y: Number, a_w: Number, a_h: Number): Void
@@ -777,7 +793,7 @@ class LostArtSpellmakingMenu extends MovieClip
 			entry = _knownList.selectedEntry;
 		}
 		_card.setEntry(entry);
-		_card.clip._visible = !_costMath.clip._visible;
+		_card.clip._visible = !_editor.isOpen && !_costMath.clip._visible;
 	}
 
 	/* ================================================================================

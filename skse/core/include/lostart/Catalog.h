@@ -3,6 +3,7 @@
 #include "lostart/Types.h"
 #include "lostart/Util.h"
 
+#include <deque>
 #include <filesystem>
 #include <map>
 #include <optional>
@@ -26,7 +27,7 @@ namespace LA
 	{
 		std::string id;
 		std::string nameKey;
-		std::string pascal;  // derived from id when not given
+		std::string pascalName;  // derived from id when not given ("pascal" is a Windows macro)
 		EffectSet   set{ EffectSet::kMorrowind };
 		Tier        tier{ Tier::kNative };
 
@@ -107,7 +108,8 @@ namespace LA
 
 		void Add(EffectDef a_def);
 		const EffectDef* Find(std::string_view a_id) const;
-		const std::vector<EffectDef>& All() const { return _effects; }
+		// Entries live in a deque: pointers from Find() stay valid when pass-through effects are added.
+		const std::deque<EffectDef>& All() const { return _effects; }
 		std::size_t Size() const { return _effects.size(); }
 
 		const std::vector<AttributeDef>& Attributes() const { return _attributes; }
@@ -118,7 +120,7 @@ namespace LA
 		static std::string_view AttributeName(int a_index);
 
 	private:
-		std::vector<EffectDef>                       _effects;
+		std::deque<EffectDef>                        _effects;
 		std::unordered_map<std::string, std::size_t> _index;
 		std::vector<AttributeDef>                    _attributes;
 		std::vector<MwSkillDef>                      _mwSkills;

@@ -1,0 +1,45 @@
+PASS LA_Ready sent on load
+PASS Down arrows play UIMenuFocus
+PASS E adds the focused effect - [["LA_AddEffect","mw.fire_damage"]]
+PASS editor open for new effect
+PASS Right -> LA_EditorStep(min,+1,false) - [["LA_EditorStep","min",1,false],["LA_EditorStep","min",1,false],["LA_EditorStep","min",1,false]]
+PASS Shift+Right -> LA_EditorStep(min,+1,true)
+PASS Down then Right -> LA_EditorStep(max,+1,false)
+PASS F -> LA_EditorRange
+PASS editor shows DLL values (min 15, max 17) - [15,17]
+PASS Enter in editor -> LA_EditorOk
+PASS effect row added
+PASS add plays the add sound
+PASS D switches school tabs (UIMenuPrevNext)
+PASS Enter adds Fortify Attribute - [["LA_AddEffect","mw.fortify_attribute"]]
+PASS picker open with 8 attributes
+PASS picker Enter -> LA_PickTarget(1) - [["LA_PickTarget",1]]
+PASS editor title after pick - Fortify Intelligence
+PASS Shift+Up -> LA_MoveEffect(1,-1) - [["LA_MoveEffect",1,-1]]
+PASS moved row now first
+PASS Enter on a spell effect -> LA_EditEffect(0) - [["LA_EditEffect",0]]
+PASS editor in edit mode shows Delete
+PASS Esc in editor -> LA_EditorCancel
+PASS F1 -> LA_ToggleCostMath
+PASS typing sends LA_SetName (hotkey 't' not typed) - ["Stormcro","Stormcrow","Stormcrow"]
+PASS Enter in name field -> LA_Create
+PASS create charged gold (mock) and reset - [1250,1223]
+PASS R -> LA_Create
+PASS message box plays UIMenuCancel
+PASS L -> LA_LoadList
+PASS load pick -> LA_Load(3) - [["LA_LoadList"],["LA_Load",3]]
+PASS loaded spell rendered
+PASS Delete -> LA_RemoveEffect - [["LA_RemoveEffect",1]]
+FAIL mouse click on a known row -> LA_AddEffect - []
+FAIL pad Y -> LA_RequestKeyboard(name, current, 40) - []
+FAIL keyboard result -> LA_SetName - []
+FAIL pad LB/RB switch tabs
+FAIL pad LS -> LA_ToggleCostMath
+FAIL pad A -> LA_EditEffect, RT -> big step, Y -> range - []
+FAIL pad X in editor -> LA_EditorDelete
+FAIL pad X -> LA_Create
+FAIL pad B -> LA_Exit
+PASS no page errors - []
+PASS layout 720p renders without errors - []
+PASS layout 1080p renders without errors - []
+PASS layout 1440p renders without errors - []

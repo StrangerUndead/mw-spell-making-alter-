@@ -1,5 +1,6 @@
 using LostArt.Generator.Core;
 using LostArt.Generator.Data;
+using Mutagen.Bethesda;
 using Mutagen.Bethesda.Plugins;
 using Mutagen.Bethesda.Plugins.Records;
 using Mutagen.Bethesda.Skyrim;
@@ -78,6 +79,14 @@ public sealed class BuildContext
         return rec;
     }
 
+    /// <summary>Adds a record that already has its FormKey (hand-made record kept from a base plugin).</summary>
+    public void AddExisting(ModKey plugin, ISkyrimMajorRecord rec)
+    {
+        if (Records.ContainsKey(rec.EditorID!)) throw new GeneratorException($"duplicate EditorID {rec.EditorID}");
+        Records[rec.EditorID!] = rec;
+        _pending.Add((plugin, rec));
+    }
+
     public T C<T>(string editorId, Func<FormKey, T> factory) where T : ISkyrimMajorRecord => Create(ContentKey, editorId, factory);
 
     /// <summary>
@@ -113,7 +122,10 @@ public sealed class BuildContext
                 case FormList r: mod.FormLists.Add(r); break;
                 case Message r: mod.Messages.Add(r); break;
                 case DialogResponses: break; // lives inside its DialogTopic
-                default: throw new GeneratorException($"no group mapping for {rec.GetType().Name}");
+                default:
+                    // Hand-made records of other types (kept from --base) go to their top-level group.
+                    mod.GetTopLevelGroup(rec.GetType()).AddUntyped(rec);
+                    break;
             }
         }
         _pending.Clear();

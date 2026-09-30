@@ -42,6 +42,8 @@ namespace LA
 		std::unordered_map<std::string, Entry>        _ids;
 		mutable std::unordered_map<RE::FormID, std::string> _reverse;
 		mutable std::once_flag                        _reverseBuilt;
+		// Resolved once in Load() (kDataLoaded): EditorID -> form. Read-only afterwards.
+		std::unordered_map<std::string, RE::TESForm*> _forms;
 	};
 
 	// One custom spell as it lives in the game: its definition and the records it occupies.
@@ -97,9 +99,46 @@ namespace LA
 
 		void ReloadSettings();
 
+		// --- Foundation additions (Core/*.cpp) ------------------------------------------------
+		// Effects whose LA_ variants (or rider MGEFs) are missing from the load order: hidden from
+		// the menu, compiled as the inert placeholder. Filled at kDataLoaded, read-only after.
+		std::unordered_set<std::string> hiddenEffects;
+		bool EffectUsable(std::string_view a_effectId) const;
+
+		RE::EffectSetting* blankEffect{ nullptr };       // LA_BlankEffect (LostArt_Slots.esp)
+		RE::TESGlobal*     altarsEnabled{ nullptr };     // LA_AltarsEnabled
+		RE::TESGlobal*     spellmakersEnabled{ nullptr };// LA_SpellmakersEnabled
+		// Half-cost perks (ranks.json), [school][rank]; nullptr when unresolved.
+		std::array<std::array<RE::BGSPerk*, 5>, kSchoolCount> castingPerks{};
+		RE::BGSPerk* CastingPerk(School a_school, Rank a_rank) const;
+
+		// Pass-through effects discovered at runtime are added to `catalog` here (main thread,
+		// never while a menu session is open: Catalog::Find pointers stay valid between menu
+		// openings because entries are only ever appended once per id).
+		void AddPassThrough(EffectDef a_def);
+
+		// Summary of the kDataLoaded pass (for `la slots`, tests and the log).
+		std::vector<std::string> loadWarnings;
+
+		// Settings side effects: log level and the LA_AltarsEnabled / LA_SpellmakersEnabled globals.
+		void ApplySettings();
+
+		// Slot record -> index (kSubFlag set for sub slots). Built at kDataLoaded, read-only after.
+		static constexpr std::uint16_t kSubFlag = 0x8000;
+		std::unordered_map<const RE::SpellItem*, std::uint16_t> slotIndex;
+		// Sub slot -> owning primary slot (kNoSlot when unused). Per-save, guarded by lock.
+		std::vector<std::uint16_t> subOwner;
+
+		static bool IsMainThread();
+		static void MarkMainThread();  // called once from SKSEPluginLoad (the main thread)
+
 	private:
 		State() = default;
 	};
+
+	// kDataLoaded: reads every data file, resolves records, verifies variants, refits base costs.
+	// Returns false when the plugin cannot work at all (no slots); the rest degrades with warnings.
+	bool LoadData();
 
 	// Runs a_task on the main thread (SKSE task interface); immediately if already there.
 	void RunOnMainThread(std::function<void()> a_task);

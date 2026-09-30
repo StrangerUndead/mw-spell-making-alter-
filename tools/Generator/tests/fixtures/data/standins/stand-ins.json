@@ -1,1 +1,23 @@
-[ { "effect": "mw.summon_scamp", "creature": "Skyrim.esm|0x0640B5", "levelScale": 1.0, "credit": "$LA_StandIn_Scamp" } ]
+{
+ "standins": [
+  {
+   "effect": "mw.bound_spear",
+   "kind": "weapon",
+   "creature": null,
+   "weapon": "Skyrim.esm|0x0139B7",
+   "nameKey": "$LA_EffectSk_BoundSpear",
+   "levelScale": 1.0,
+   "credit": "$LA_StandIn_BoundSpear",
+   "item": "LA_Bound_Spear"
+  },
+  {
+   "effect": "mw.summon_scamp",
+   "kind": "creature",
+   "creature": "Skyrim.esm|0x0640B5",
+   "nameKey": "$LA_EffectSk_SummonScamp",
+   "levelScale": 1.0,
+   "credit": "$LA_StandIn_Scamp",
+   "actor": "LA_StandIn_SummonScamp"
+  }
+ ]
+}

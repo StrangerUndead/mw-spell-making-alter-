@@ -109,7 +109,7 @@ namespace LA
 				return false;
 			}
 			a_def.nameKey = Get<std::string>(a_obj, "name", "");
-			a_def.pascal = Get<std::string>(a_obj, "pascal", Catalog::PascalFromId(a_def.id));
+			a_def.pascalName = Get<std::string>(a_obj, "pascal", Catalog::PascalFromId(a_def.id));
 			a_def.set = ParseSet(Get<std::string>(a_obj, "set", ""), a_def.id);
 			a_def.tier = ParseTier(Get<std::string>(a_obj, "tier", "native"));
 

@@ -26,6 +26,7 @@ for (var i = 0; i < args.Length; i++)
         case "--formmap": opt.FormMapPath = Next(); break;
         case "--generated": opt.GeneratedDir = Next(); break;
         case "--prune": opt.Prune = true; break;
+        case "--base": opt.BaseDir = Next(); break;
         case "--no-formmap-write": opt.WriteFormMap = false; break;
         case "--quiet": opt.Quiet = true; break;
         case "-h":
@@ -39,6 +40,8 @@ for (var i = 0; i < args.Length; i++)
                   --out <dir>           where LostArt.esp and LostArt_Slots.esp are written
                   --formmap <file>      EditorID -> local FormID allocation (read, merged, written back)
                   --generated <dir>     where variants.json goes (default: the formmap's folder)
+                  --base <dir>          previous LostArt.esp/LostArt_Slots.esp (e.g. Spriggit-deserialized from plugin/,
+                                        edited in CK): records the generator does not produce are kept unchanged
                   --prune               retire formmap entries whose records are no longer generated
                   --no-formmap-write    do not write formmap.json / variants.json (dry run for ids)
                   --quiet               only print errors and the summary

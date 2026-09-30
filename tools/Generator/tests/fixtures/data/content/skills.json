@@ -1,5 +1,55 @@
-[
-  { "morrowind": "Acrobatics", "index": 20, "targets": [ { "special": "Jump" } ] },
-  { "morrowind": "Long Blade", "index": 5, "targets": [ { "skill": "OneHanded", "weight": 0.5 }, { "skill": "TwoHanded", "weight": 0.5 } ] },
-  { "morrowind": "Hand-to-Hand", "index": 26, "targets": [ { "special": "UnarmedDamage" } ] }
-]
+{
+ "skyrimSkills": [
+  {
+   "index": 0,
+   "name": "OneHanded",
+   "actorValue": "OneHanded"
+  }
+ ],
+ "morrowindSkills": [
+  {
+   "index": 5,
+   "sub": 105,
+   "name": "LongBlade",
+   "targets": [
+    {
+     "skill": "OneHanded",
+     "weight": 0.5
+    },
+    {
+     "skill": "TwoHanded",
+     "weight": 0.5
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "sub": 120,
+   "name": "Acrobatics",
+   "targets": [
+    {
+     "skill": "Jump",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "sub": 126,
+   "name": "HandToHand",
+   "targets": [
+    {
+     "skill": "UnarmedDamage",
+     "weight": 1
+    }
+   ]
+  }
+ ],
+ "specialTargets": [
+  "Jump",
+  "UnarmedDamage"
+ ],
+ "effects": [
+  "mw.fortify_skill"
+ ]
+}

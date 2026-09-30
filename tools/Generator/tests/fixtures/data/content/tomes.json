@@ -1,6 +1,91 @@
-{ "tomes": [
-  { "id": "Levitate", "spellName": "$LA_Spell_Levitate", "level": 10, "value": 150,
-    "effects": [ { "effect": "mw.levitate", "range": "self", "min": 10, "max": 10, "duration": 30 } ] },
-  { "id": "FortifyStrength", "effects": [ { "effect": "mw.fortify_attribute", "range": "self", "target": "Strength", "min": 5, "max": 10, "duration": 60 } ] },
-  { "id": "OndusisOpenDoor", "spellName": "Ondusi's Open Door", "effects": [ { "effect": "mw.open", "range": "touch", "min": 20, "max": 20 } ] }
-], "loot": { "chanceNone": 50 } }
+{
+ "tomes": [
+  {
+   "id": "levitate",
+   "title": "$LA_Tome_Levitate",
+   "spellName": "$LA_TomeSpell_Levitate",
+   "school": "Alteration",
+   "effects": [
+    {
+     "id": "mw.levitate",
+     "sub": -1,
+     "range": "self",
+     "min": 10,
+     "max": 10,
+     "duration": 30,
+     "area": 0
+    }
+   ],
+   "value": 595,
+   "rank": "Adept",
+   "vendors": [
+    "Alteration"
+   ],
+   "loot": true,
+   "lootLists": [
+    "Skyrim.esm|0x0A2735"
+   ],
+   "skyrimCost": 199
+  },
+  {
+   "id": "fortify_strength",
+   "title": "$LA_Tome_FortifyStrength",
+   "spellName": "$LA_TomeSpell_FortifyStrength",
+   "school": "Restoration",
+   "effects": [
+    {
+     "id": "mw.fortify_attribute",
+     "sub": 0,
+     "range": "self",
+     "min": 5,
+     "max": 10,
+     "duration": 60,
+     "area": 0
+    }
+   ],
+   "value": 80,
+   "rank": "Novice",
+   "vendors": [
+    "Restoration"
+   ],
+   "loot": false,
+   "skyrimCost": 20
+  },
+  {
+   "id": "ondusis_open_door",
+   "title": "$LA_Tome_OndusisOpenDoor",
+   "spellName": "$LA_TomeSpell_OndusisOpenDoor",
+   "school": "Alteration",
+   "effects": [
+    {
+     "id": "mw.open",
+     "sub": -1,
+     "range": "touch",
+     "min": 20,
+     "max": 20,
+     "duration": 0,
+     "area": 0
+    },
+    {
+     "id": "mw.shield",
+     "sub": -1,
+     "range": "self",
+     "min": 10,
+     "max": 10,
+     "duration": 30,
+     "area": 0
+    }
+   ],
+   "value": 100,
+   "rank": "Apprentice",
+   "vendors": [
+    "Mysticism"
+   ],
+   "loot": true,
+   "lootLists": [
+    "Skyrim.esm|0x0A2735"
+   ],
+   "skyrimCost": 40
+  }
+ ]
+}

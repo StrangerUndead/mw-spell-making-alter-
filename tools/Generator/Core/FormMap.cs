@@ -98,6 +98,25 @@ public sealed class FormMap
         return next;
     }
 
+    /// <summary>
+    /// Records an id that already exists in a plugin (hand-made record kept from a base plugin).
+    /// Fails if the EditorID is mapped to another id, or the id belongs to another EditorID.
+    /// </summary>
+    public void Reserve(string plugin, string editorId, uint id)
+    {
+        var m = MapFor(plugin);
+        if (m.TryGetValue(editorId, out var existing))
+        {
+            if (existing != id) throw new GeneratorException($"{plugin}: {editorId} is 0x{id:X6} in the base plugin but 0x{existing:X6} in the formmap");
+            return;
+        }
+        var owner = m.FirstOrDefault(kv => kv.Value == id).Key
+                    ?? (_retired.TryGetValue(plugin, out var ret) ? ret.FirstOrDefault(kv => kv.Value == id).Key : null);
+        if (owner is not null) throw new GeneratorException($"{plugin}: id 0x{id:X6} of {editorId} in the base plugin already belongs to {owner}");
+        if (id < MinId || id > MaxId) throw new GeneratorException($"{plugin}: {editorId} has id 0x{id:X6} outside the ESL range");
+        m[editorId] = id;
+    }
+
     /// <summary>EditorIDs present in the map but not generated this run.</summary>
     public IReadOnlyList<string> Stale(string plugin)
     {

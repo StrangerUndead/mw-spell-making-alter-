@@ -99,7 +99,9 @@ public sealed class ItemsBuilder(BuildContext ctx)
             var variantId = EffectBuilder.VariantEditorId(e, range, TargetNameForSub(e, sub));
             var min = fx.Num("min", "minMag", "magnitude") ?? 0;
             var max = fx.Num("max", "maxMag", "magnitude") ?? min;
-            var mag = e.HasMagnitude ? (float)Math.Round((min + max) / 2.0, MidpointRounding.AwayFromZero) : 0f;
+            // No-magnitude value effects (Water Walking, Water Breathing ...) still need 1 point to set their actor value.
+            var valueArchetype = e.Tier != "custom" && e.Archetype is "ValueModifier" or "PeakValueModifier" or "DualValueModifier";
+            var mag = e.HasMagnitude ? (float)Math.Round((min + max) / 2.0, MidpointRounding.AwayFromZero) : valueArchetype ? 1f : 0f;
             var dur = e.HasDuration ? (int)(fx.Num("duration") ?? 0) : 0;
             var area = e.HasArea && range != "self" ? (int)(fx.Num("area") ?? 0) : 0;
             if (!byRange.TryGetValue(range, out var list)) byRange[range] = list = new ExtendedList<Effect>();

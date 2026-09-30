@@ -28,7 +28,9 @@ if [[ -z "$SPRIGGIT" ]]; then
 fi
 
 TMP="$(mktemp -d)"
-trap 'rm -rf "$TMP"' EXIT
+STAGE=""
+if [[ -d /dev/shm ]] && [[ "$(stat -f -c %T /dev/shm 2>/dev/null)" == "tmpfs" ]]; then STAGE="$(mktemp -d -p /dev/shm)"; fi
+trap 'rm -rf "$TMP" ${STAGE:+"$STAGE"}' EXIT
 status=0
 dotnet build "$HERE" -v q -nologo >/dev/null
 
@@ -43,7 +45,11 @@ for p in LostArt LostArt_Slots; do
     mkdir -p "$YAML"
     cp -r "$TMP/yaml/$p" "$YAML/$p"
   fi
-  "$SPRIGGIT" deserialize -i "$YAML/$p" -o "$TMP/rt/$p.esp" >"$TMP/$p.deserialize.log" 2>&1 \
+  # Spriggit deserializes records in directory-enumeration order. Stage the YAML on tmpfs in
+  # alphabetical order (what NTFS gives on Windows) so the check can be byte-exact on Linux too.
+  src="$YAML/$p"
+  if [[ -n "$STAGE" ]] && python3 "$HERE/stage_sorted.py" "$YAML/$p" "$STAGE/$p"; then src="$STAGE/$p"; fi
+  "$SPRIGGIT" deserialize -i "$src" -o "$TMP/rt/$p.esp" >"$TMP/$p.deserialize.log" 2>&1 \
     || { cat "$TMP/$p.deserialize.log" >&2; exit 1; }
   echo -n "round-trip $p.esp: "
   dotnet run --project "$HERE" --no-build -- compare "$esp" "$TMP/rt/$p.esp" || status=1

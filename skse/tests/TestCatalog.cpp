@@ -25,7 +25,7 @@ TEST_CASE("Effect JSON parses per CONTRACTS section 3", "[catalog]")
 	REQUIRE(errors.empty());
 	const auto* fire = c.Find("mw.fire_damage");
 	REQUIRE(fire);
-	CHECK(fire->pascal == "FireDamage");
+	CHECK(fire->pascalName == "FireDamage");
 	CHECK(fire->mwIndex == 14);
 	CHECK(fire->mwBaseCost == 5.0);
 	CHECK(fire->school == School::kDestruction);

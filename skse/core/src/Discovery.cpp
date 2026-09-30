@@ -313,7 +313,7 @@ namespace LA
 	{
 		EffectDef def;
 		def.id = "pt." + ToLower(a_effect.form.ToString());
-		def.pascal = "PassThrough";
+		def.pascalName = "PassThrough";
 		def.nameKey = a_effect.name;  // not a key: the StringTable returns it unchanged
 		def.set = EffectSet::kPassThrough;
 		def.tier = Tier::kNative;

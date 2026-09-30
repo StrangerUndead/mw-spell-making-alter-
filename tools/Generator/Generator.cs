@@ -18,6 +18,7 @@ public sealed class GeneratorOptions
     public bool Prune { get; set; }
     public bool WriteFormMap { get; set; } = true;
     public bool Quiet { get; set; }
+    public string? BaseDir { get; set; }
 
     public string ResolvedFormMap => FormMapPath ?? Path.Combine(DataDir, "generated", "formmap.json");
     public string ResolvedGeneratedDir => GeneratedDir ?? Path.GetDirectoryName(Path.GetFullPath(ResolvedFormMap))!;
@@ -43,6 +44,9 @@ public static class PluginGenerator
         var formMap = FormMap.Load(opt.ResolvedFormMap);
         var ctx = new BuildContext(data, formMap, log);
 
+        var handMade = new HandMadeRecords(ctx);
+        handMade.Load(opt.BaseDir);
+
         // Slots first: their ids are the most important to keep contiguous and stable.
         new SlotsBuilder(ctx).Build();
 
@@ -61,6 +65,7 @@ public static class PluginGenerator
         dialogue.Build();
         dialogue.BuildMcmQuest();
 
+        handMade.Merge();
         ctx.Commit();
         new Validator(ctx).Run();
 

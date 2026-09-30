@@ -29,8 +29,8 @@ public static class Fixture
         }
     }
 
-    public static GeneratorResult Run(string dataDir, string outDir, string formMap) =>
-        PluginGenerator.Run(new GeneratorOptions { DataDir = dataDir, OutDir = outDir, FormMapPath = formMap, Quiet = true });
+    public static GeneratorResult Run(string dataDir, string outDir, string formMap, string? baseDir = null) =>
+        PluginGenerator.Run(new GeneratorOptions { DataDir = dataDir, OutDir = outDir, FormMapPath = formMap, Quiet = true, BaseDir = baseDir });
 }
 
 public class StableFormIdTests
@@ -96,6 +96,36 @@ public class StableFormIdTests
         var fm3 = FormMap.Load(path);
         Assert.Equal(0x802u, fm3.Get("X.esp", "LA_C")); // 0x801 stays burned
         Assert.Equal(0x801u, fm3.Get("X.esp", "LA_B")); // coming back restores its old id
+    }
+}
+
+public class HandMadeRecordTests
+{
+    [Fact]
+    public void RecordsAuthoredInCkSurviveRegeneration()
+    {
+        using var tmp = new TempDir();
+        var map = Path.Combine(tmp.Path, "formmap.json");
+        var r1 = Fixture.Run(Fixture.DataDir, Path.Combine(tmp.Path, "gen1"), map);
+        Assert.True(r1.Success);
+
+        // "CK edit": add a static to the generated plugin, as Spriggit would deserialize it from plugin/.
+        var baseDir = Path.Combine(tmp.Path, "base");
+        Directory.CreateDirectory(baseDir);
+        var mod = SkyrimMod.CreateFromBinary(r1.ContentPath, SkyrimRelease.SkyrimSE);
+        var id = mod.ModHeader.Stats.NextFormID;
+        var stat = new Static(new Mutagen.Bethesda.Plugins.FormKey(mod.ModKey, id), SkyrimRelease.SkyrimSE) { EditorID = "LA_AltarFocusStone" };
+        mod.Statics.Add(stat);
+        PluginGenerator.Write(mod, Path.Combine(baseDir, "LostArt.esp"));
+        File.Copy(r1.SlotsPath, Path.Combine(baseDir, "LostArt_Slots.esp"));
+
+        var r2 = Fixture.Run(Fixture.DataDir, Path.Combine(tmp.Path, "gen2"), map, baseDir);
+        Assert.True(r2.Success, string.Join("\n", r2.Log.Errors));
+        using var outMod = SkyrimMod.CreateFromBinaryOverlay(r2.ContentPath, SkyrimRelease.SkyrimSE);
+        Assert.Equal(id, outMod.Statics.Single(s => s.EditorID == "LA_AltarFocusStone").FormKey.ID);
+        Assert.Equal(FormMap.FormatId(id), JsonNode.Parse(File.ReadAllText(map))!["LostArt.esp"]!["LA_AltarFocusStone"]!.GetValue<string>());
+        // Everything generated is unchanged apart from the kept record.
+        Assert.Equal(outMod.EnumerateMajorRecords().Count() - 1, SkyrimMod.CreateFromBinaryOverlay(r1.ContentPath, SkyrimRelease.SkyrimSE).EnumerateMajorRecords().Count());
     }
 }
 
@@ -211,9 +241,40 @@ public class VariantTests
         Assert.Contains(m["LA_Levitate_Self"].Keywords!, k => k.FormKey == kwCustom);
         Assert.Contains(m["LA_FortifySkill_Acrobatics_Self"].Keywords!, k => k.FormKey == kwCustom);
         // Stand-in summon points at the generated NPC.
-        var scamp = mod.Npcs.Single(n => n.EditorID == "LA_StandIn_Scamp");
+        var scamp = mod.Npcs.Single(n => n.EditorID == "LA_StandIn_SummonScamp");
         var summon = Assert.IsAssignableFrom<IMagicEffectSummonCreatureArchetypeGetter>(m["LA_SummonScamp_Self"].Archetype);
         Assert.Equal(scamp.FormKey, summon.Association.FormKey);
+    }
+
+    [Fact]
+    public void BoundItemsAndLinkedSpells()
+    {
+        using var tmp = new TempDir();
+        var r = Fixture.Run(Fixture.DataDir, tmp.Path, Path.Combine(tmp.Path, "formmap.json"));
+        Assert.True(r.Success, string.Join("\n", r.Log.Errors));
+        using var mod = SkyrimMod.CreateFromBinaryOverlay(r.ContentPath, SkyrimRelease.SkyrimSE);
+        var m = mod.MagicEffects.ToDictionary(x => x.EditorID!);
+        // Vanilla bound weapon (Dragonborn's bound dagger) is used directly; Daedric templates get a new WEAP.
+        var dagger = Assert.IsAssignableFrom<IMagicEffectBoundArchetypeGetter>(m["LA_BoundDagger_Self"].Archetype);
+        Assert.Equal("Dragonborn.esm", dagger.Association.FormKey.ModKey.FileName.String);
+        var spear = Assert.IsAssignableFrom<IMagicEffectBoundArchetypeGetter>(m["LA_BoundSpear_Self"].Archetype);
+        Assert.Equal(mod.Weapons.Single(w => w.EditorID == "LA_Bound_Spear").FormKey, spear.Association.FormKey);
+        Assert.Contains(mod.Armors, a => a.EditorID == "LA_Bound_Boots" && a.Weight == 0f);
+        // Mixed-range tome: primary Aimed spell + linked Self sub-spell, each delivery-consistent.
+        var primary = mod.Spells.Single(s => s.EditorID == "LA_TomeSpell_OndusisOpenDoor");
+        var sub = mod.Spells.Single(s => s.EditorID == "LA_TomeSpell_OndusisOpenDoor_Self");
+        Assert.Equal(TargetType.Aimed, primary.TargetType);
+        Assert.Equal(TargetType.Self, sub.TargetType);
+        Assert.Equal(40u, primary.BaseCost);
+        Assert.Equal(0u, sub.BaseCost);
+        var book = mod.Books.Single(b => b.EditorID == "LA_Tome_OndusisOpenDoor");
+        Assert.Equal(primary.FormKey, Assert.IsAssignableFrom<IBookSpellGetter>(book.Teaches).Spell.FormKey);
+        // One refuse INFO per spellmaker + shared serve/refuse.
+        var topic = mod.DialogTopics.Single(t => t.EditorID == "LA_Topic_MakeSpell");
+        Assert.Equal(2 + 3, topic.Responses.Count);
+        Assert.Contains(topic.Responses, i => i.EditorID == "LA_Info_MakeSpell_Serve");
+        Assert.Contains(topic.Responses, i => i.EditorID == "LA_Info_MakeSpell_Refuse_Tolfdir");
+        Assert.Contains(mod.Quests, q => q.EditorID == "LA_MCMQuest" && q.Flags.HasFlag(Quest.Flag.StartGameEnabled) && q.VirtualMachineAdapter!.Scripts[0].Name == "LostArt_MCM");
     }
 
     [Fact]

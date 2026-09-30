@@ -36,7 +36,7 @@ namespace LA::Compiler
 {
 	std::string VariantEditorId(const EffectDef& a_def, std::string_view a_target, Range a_range)
 	{
-		std::string id = "LA_" + a_def.pascal;
+		std::string id = "LA_" + a_def.pascalName;
 		if (!a_target.empty()) {
 			id += "_";
 			id += a_target;

@@ -13,6 +13,7 @@ public sealed class ActorsBuilder(BuildContext ctx)
 {
     /// <summary>effect id -> generated association (stand-in NPC or bound item).</summary>
     private readonly Dictionary<string, FormKey> _associations = new(StringComparer.Ordinal);
+    private readonly HashSet<string> _fallbackReported = new(StringComparer.Ordinal);
 
     private Log Log => ctx.Log;
 
@@ -84,6 +85,7 @@ public sealed class ActorsBuilder(BuildContext ctx)
             return ctx.Resolve(e.Association, $"{e.Id} skyrim.creature/weapon/armor", "Npc", "LeveledNpc", "Weapon", "Armor", "Light", "Keyword", "Spell");
         if (FallbackAssociations.TryGetValue(e.Id, out var fb))
         {
+            if (!_fallbackReported.Add(e.Id)) return ctx.Vanilla_(fb.Type, fb.EditorId);
             ctx.Log.Warn($"{e.Id}: no association in data; using built-in fallback {fb.Type} {fb.EditorId}");
             ctx.Verify($"MGEF {e.Pascal}: association {fb.Type} {fb.EditorId} is a generator fallback (no schema field) - confirm it matches the vanilla effect {e.VanillaEffect}");
             return ctx.Vanilla_(fb.Type, fb.EditorId);

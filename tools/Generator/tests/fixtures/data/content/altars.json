@@ -1,0 +1,14 @@
+{
+ "altars": [
+  {
+   "id": "college",
+   "furniture": "LA_AltarCollege",
+   "nameKey": "$LA_Altar_College"
+  },
+  {
+   "id": "telvanni",
+   "furniture": "LA_AltarTelvanni",
+   "nameKey": "$LA_Altar_Telvanni"
+  }
+ ]
+}

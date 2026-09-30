@@ -1,5 +1,35 @@
-[
-  { "id": "tolfdir", "npc": "Skyrim.esm|0x01C19E", "refusal": "college" },
-  { "id": "faralda", "npc": "Skyrim.esm|0x01C197", "refusal": "college" },
-  { "id": "neloth", "npc": "Dragonborn.esm|0x01773A", "refusal": "telvanni" }
-]
+{
+ "spellmakers": [
+  {
+   "id": "tolfdir",
+   "npc": "Skyrim.esm|0x01C19E",
+   "name": "Tolfdir",
+   "refusal": "college",
+   "specialties": [
+    "Alteration",
+    "Mysticism"
+   ],
+   "refusalLine": "$LA_Refuse_Tolfdir"
+  },
+  {
+   "id": "faralda",
+   "npc": "Skyrim.esm|0x01C197",
+   "name": "Faralda",
+   "refusal": "college",
+   "specialties": [
+    "Destruction"
+   ],
+   "refusalLine": "$LA_Refuse_Faralda"
+  },
+  {
+   "id": "neloth",
+   "npc": "Dragonborn.esm|0x01773A",
+   "name": "Neloth",
+   "refusal": "quest:Dragonborn.esm|0x017E8D:500",
+   "specialties": [
+    "Alteration"
+   ],
+   "refusalLine": "$LA_Refuse_Neloth"
+  }
+ ]
+}

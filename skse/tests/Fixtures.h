@@ -16,8 +16,8 @@ namespace LA::Test
 	{
 		EffectDef def;
 		def.id = std::move(a_id);
-		def.pascal = Catalog::PascalFromId(def.id);
-		def.nameKey = "$LA_Effect_" + def.pascal;
+		def.pascalName = Catalog::PascalFromId(def.id);
+		def.nameKey = "$LA_Effect_" + def.pascalName;
 		def.mwBaseCost = a_mwCost;
 		def.school = a_school;
 		def.ranges = a_ranges;
