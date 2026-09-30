@@ -11,3 +11,7 @@ PASS Enter in editor -> LA_EditorOk
 PASS effect row added
 PASS add plays the add sound
 PASS D switches school tabs (UIMenuPrevNext)
+PASS Enter adds Fortify Attribute - [["LA_AddEffect","mw.fortify_attribute"]]
+PASS picker open with 8 attributes
+PASS picker Enter -> LA_PickTarget(1) - [["LA_PickTarget",1]]
+PASS editor title after pick - Fortify Intelligence
