@@ -1,0 +1,15 @@
+/**
+ * Papyrus user flags for Skyrim (Hidden = bit 0, Conditional = bit 1), as in the
+ * Creation Kit's TESV_Papyrus_Flags.flg. Used by scripts/build.sh; not shipped.
+ */
+Flag Hidden 0
+{
+	Script
+	Property
+}
+
+Flag Conditional 1
+{
+	Script
+	Variable
+}

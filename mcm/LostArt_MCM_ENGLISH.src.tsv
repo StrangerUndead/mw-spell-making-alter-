@@ -1,0 +1,181 @@
+$LA_MCM_AltarFee	Altar fee
+$LA_MCM_AltarFee_Help	What using an Altar of Spellmaking costs. Default: Full price.
+$LA_MCM_Altars	Altars of Spellmaking
+$LA_MCM_Altars_Help	Enables the Altars of Spellmaking at the College of Winterhold and Tel Mithryn. Spells you already made are kept either way. Default: On.
+$LA_MCM_AreaCap	Area cap
+$LA_MCM_AreaCap_Help	Largest area the editor allows, in feet. Default: 50 ft.
+$LA_MCM_AreaLOS	Area needs line of sight
+$LA_MCM_AreaLOS_Help	Area effects only hit targets the blast can see. Default: On.
+$LA_MCM_AttributeProfile	Attribute profile
+$LA_MCM_AttributeProfile_Help	How strongly Morrowind's attribute effects translate into Skyrim. Default: full values. Light: half values. Off: attribute effects disappear from the menu. Default: Default.
+$LA_MCM_Availability	Effect availability
+$LA_MCM_Availability_Help	Known spells: Morrowind's rule, you can use the effects of spells you know. Sandbox: every effect is available. Default: Known spells.
+$LA_MCM_BoundSkillBonus	Bound item skill bonuses
+$LA_MCM_BoundSkillBonus_Help	Gives bound weapons and armor Morrowind's +10 skill bonuses as small enchantments. Default: Off.
+$LA_MCM_CastingBonus	Casting bonus
+$LA_MCM_CastingBonus_Help	Flat bonus to the casting chance, standing in for Morrowind's Willpower and Luck. Default: 15.
+$LA_MCM_CastingFailure	Casting failure
+$LA_MCM_CastingFailure_Help	Morrowind's casting chance: spells can fail, costing the magicka. The chance is shown in the spellmaking menu. Default: Off.
+$LA_MCM_CloseAfterCreate	Close after creating
+$LA_MCM_CloseAfterCreate_Help	Closes the spellmaking menu after a spell is created. Default: On.
+$LA_MCM_CollegeMembership	College masters require membership
+$LA_MCM_CollegeMembership_Help	The College of Winterhold's spellmakers only serve College members. Default: On.
+$LA_MCM_CostModel	Cost model
+$LA_MCM_CostModel_Help	Skyrim-balanced prices effects from Skyrim's own spells so crafted spells cost what vanilla spells cost. Morrowind Classic uses Morrowind's formula unchanged. Engine autocalc lets Skyrim compute the cost. Use Rebalance all custom spells (Maintenance) to reprice spells you already made. Default: Skyrim-balanced.
+$LA_MCM_Deletable	Deletable spells
+$LA_MCM_Deletable_Help	Which spells Shift+click or Delete can remove from the Magic menu. Powers, racial, standing-stone and quest spells can never be deleted. Default: Any non-inherent.
+$LA_MCM_DllMissing	LostArt.dll not loaded
+$LA_MCM_DurationCap	Duration cap
+$LA_MCM_DurationCap_Help	Longest duration the editor allows, in seconds. Default: 1440 s.
+$LA_MCM_EffectNames	Effect names
+$LA_MCM_EffectNames_Help	Morrowind names every effect as Morrowind did. Skyrim uses Skyrim's names where they differ (Fury, Fear, Courage). Default: Morrowind.
+$LA_MCM_ElementalRiders	Skyrim elemental riders
+$LA_MCM_ElementalRiders_Help	Adds Skyrim's secondary effects to elemental damage, such as frost slowing and shock draining magicka. Default: On.
+$LA_MCM_ExperienceSchool	Experience school in Classic
+$LA_MCM_ExperienceSchool_Help	Morrowind Classic only: which effect's school gains the casting experience. Default: Costliest effect.
+$LA_MCM_Extended	Extended Morrowind effects
+$LA_MCM_Extended_Help	Adds Morrowind effects no obtainable spell carried (Restore Magicka, Summon Centurion Sphere and others), taught by rare tomes. Default: Off.
+$LA_MCM_FortifySkillTarget	Fortify Skill target
+$LA_MCM_FortifySkillTarget_Help	Skill level: raises the skill's level. Percent modifier: raises the skill's effectiveness by a percentage instead. Default: Skill level.
+$LA_MCM_GlobalCostMult	Global cost multiplier
+$LA_MCM_GlobalCostMult_Help	Multiplies the magicka cost of every spell you make. Default: 1.00x.
+$LA_MCM_GraceSlowfall	Grace Slowfall after Levitate
+$LA_MCM_GraceSlowfall_Help	Gives a few seconds of Slowfall when Levitate ends in mid-air. Default: Off.
+$LA_MCM_Haggling	Skyrim haggling
+$LA_MCM_Haggling_Help	Applies Skyrim's buy-price formula (Speech, Fortify Barter) and perks such as Haggling to spellmaker prices. Off keeps Morrowind's flat, non-negotiable fee. Default: Off.
+$LA_MCM_Hdr_Attributes	Attributes and skills
+$LA_MCM_Hdr_Availability	Availability
+$LA_MCM_Hdr_Behavior	Behavior
+$LA_MCM_Hdr_CostModel	Cost model
+$LA_MCM_Hdr_Debug	Debug
+$LA_MCM_Hdr_Effects	Effects on cast
+$LA_MCM_Hdr_Failure	Casting failure
+$LA_MCM_Hdr_Limits	Limits
+$LA_MCM_Hdr_Maintenance	Maintenance
+$LA_MCM_Hdr_Names	Names
+$LA_MCM_Hdr_Price	Price
+$LA_MCM_Hdr_Slots	Slots in use
+$LA_MCM_Hdr_Spellbook	Spellbook
+$LA_MCM_Hdr_Spellmakers	Spellmakers
+$LA_MCM_Hdr_Title	Lost Art of Spellmaking
+$LA_MCM_Hdr_Where	Where spells are made
+$LA_MCM_JumpPerPoint	Jump height per point
+$LA_MCM_JumpPerPoint_Help	Extra jump height per point of Jump magnitude. Default: 3.0%.
+$LA_MCM_Landing	Pick a page on the left. Highlight any option to see what it does.
+$LA_MCM_LoadPricing	Load pricing
+$LA_MCM_LoadPricing_Help	What a spell loaded as a starting point costs: the full price, or only the difference from the original. Default: Full price.
+$LA_MCM_LogLevel	Debug logging
+$LA_MCM_LogLevel_Help	Writes details to Documents/My Games/Skyrim Special Edition/SKSE/LostArt.log. Default: Off.
+$LA_MCM_MagnitudeCap	Magnitude cap
+$LA_MCM_MagnitudeCap_Help	Highest magnitude the editor allows. Default: 100 pts.
+$LA_MCM_Marks	Marks
+$LA_MCM_Marks_Help	How many Mark locations you can keep at once. Default: 1.
+$LA_MCM_MaxEffects	Max effects per spell
+$LA_MCM_MaxEffects_Help	Most effects one spell can hold. Default: 8.
+$LA_MCM_MinMaxRolls	Min-max rolls
+$LA_MCM_MinMaxRolls_Help	Rolls each effect's magnitude between its minimum and maximum. Off always uses the average. Default: On.
+$LA_MCM_Msg_Failed	The operation failed. See LostArt.log for details.
+$LA_MCM_Msg_RebalanceConfirm	Recompute the cost of every custom spell under the current cost model and settings?
+$LA_MCM_Msg_Rebalanced	Rebalanced {} custom spells.
+$LA_MCM_Msg_Rebuilt	Rebuilt {} custom spells.
+$LA_MCM_Msg_UninstallConfirm	Remove every custom spell from you and your followers, dispel their effects and clear all marks? This cannot be undone.
+$LA_MCM_Msg_UninstallDone	Done. Save your game now, quit, then remove Lost Art of Spellmaking. Load that save without the mod.
+$LA_MCM_Msg_UninstallFailed	Preparing for uninstall did not finish. See LostArt.log, and do not remove the mod yet.
+$LA_MCM_NPCFailure	Casting failure for NPCs
+$LA_MCM_NPCFailure_Help	Applies casting failure to NPCs casting custom spells too. Default: Off.
+$LA_MCM_Opt_AltarFee_FilledSoulGem	One filled soul gem
+$LA_MCM_Opt_AltarFee_FilledSoulGem_Short	Soul gem
+$LA_MCM_Opt_AltarFee_Free	Free
+$LA_MCM_Opt_AltarFee_Full	Full price
+$LA_MCM_Opt_AltarFee_Full_Short	Full
+$LA_MCM_Opt_AltarFee_Half	Half price
+$LA_MCM_Opt_AltarFee_Half_Short	Half
+$LA_MCM_Opt_AttributeProfile_Default	Default
+$LA_MCM_Opt_AttributeProfile_Light	Light
+$LA_MCM_Opt_AttributeProfile_Off	Off
+$LA_MCM_Opt_Availability_Known	Known spells
+$LA_MCM_Opt_Availability_Sandbox	Sandbox
+$LA_MCM_Opt_CostModel_Classic	Morrowind Classic
+$LA_MCM_Opt_CostModel_Classic_Short	Classic
+$LA_MCM_Opt_CostModel_EngineAutocalc	Engine autocalc
+$LA_MCM_Opt_CostModel_EngineAutocalc_Short	Autocalc
+$LA_MCM_Opt_CostModel_SkyrimBalanced	Skyrim-balanced
+$LA_MCM_Opt_CostModel_SkyrimBalanced_Short	Skyrim
+$LA_MCM_Opt_Deletable_AnyNonInherent	Any non-inherent
+$LA_MCM_Opt_Deletable_AnyNonInherent_Short	Non-inherent
+$LA_MCM_Opt_Deletable_CustomOnly	Custom only
+$LA_MCM_Opt_EffectNames_Morrowind	Morrowind
+$LA_MCM_Opt_EffectNames_Skyrim	Skyrim
+$LA_MCM_Opt_ExperienceSchool_Costliest	Costliest effect
+$LA_MCM_Opt_ExperienceSchool_Costliest_Short	Costliest
+$LA_MCM_Opt_ExperienceSchool_Hardest	Hardest effect
+$LA_MCM_Opt_ExperienceSchool_Hardest_Short	Hardest
+$LA_MCM_Opt_FortifySkillTarget_Level	Skill level
+$LA_MCM_Opt_FortifySkillTarget_Percent	Percent modifier
+$LA_MCM_Opt_FortifySkillTarget_Percent_Short	Percent
+$LA_MCM_Opt_LoadPricing_Difference	Difference only
+$LA_MCM_Opt_LoadPricing_Difference_Short	Difference
+$LA_MCM_Opt_LoadPricing_Full	Full price
+$LA_MCM_Opt_LoadPricing_Full_Short	Full
+$LA_MCM_Opt_LogLevel_Info	Info
+$LA_MCM_Opt_LogLevel_Off	Off
+$LA_MCM_Opt_LogLevel_Verbose	Verbose
+$LA_MCM_Opt_SkillPicker_Morrowind27	Morrowind (27)
+$LA_MCM_Opt_SkillPicker_Skyrim18	Skyrim (18)
+$LA_MCM_Opt_StartingRange_First	First allowed
+$LA_MCM_Opt_StartingRange_OpenMW	OpenMW rule
+$LA_MCM_Opt_SummonLimit_Morrowind	Morrowind (one per type)
+$LA_MCM_Opt_SummonLimit_Morrowind_Short	Morrowind
+$LA_MCM_Opt_SummonLimit_Skyrim	Skyrim
+$LA_MCM_Page_Casting	Casting
+$LA_MCM_Page_Costs	Costs
+$LA_MCM_Page_Effects	Effects
+$LA_MCM_Page_General	General
+$LA_MCM_Page_Maintenance	Maintenance
+$LA_MCM_Page_Menu	Menu
+$LA_MCM_Page_Services	Services
+$LA_MCM_Page_Spellbook	Spellbook
+$LA_MCM_PassThrough	Pass-through modded effects
+$LA_MCM_PassThrough_Help	Offers effects from other mods' spells that Effect Discovery cannot classify, at their own range. Default: On.
+$LA_MCM_PerNPCPrices	Per-NPC price modifiers
+$LA_MCM_PerNPCPrices_Help	Lets each spellmaker charge their own rate. Off: every spellmaker charges the same, as in Morrowind. Default: Off.
+$LA_MCM_PriceMult	Price multiplier
+$LA_MCM_PriceMultClassic	Price multiplier (Classic)
+$LA_MCM_PriceMultClassic_Help	Gold price = magicka cost x this multiplier in Morrowind Classic mode (Morrowind's fSpellMakingValueMult). Default: 7.0x.
+$LA_MCM_PriceMult_Help	Gold price = magicka cost x this multiplier, in Skyrim-balanced and Engine autocalc modes. Default: 3.0x.
+$LA_MCM_Rebalance	Rebalance all custom spells
+$LA_MCM_Rebalance_Help	Recomputes the cost of every custom spell under the current cost model and settings.
+$LA_MCM_Rebuild	Rebuild all slots
+$LA_MCM_Rebuild_Help	Re-applies every spell definition to its slot, as happens on every load. Use it if a custom spell looks wrong.
+$LA_MCM_RefuseWanted	Refuse wanted players
+$LA_MCM_RefuseWanted_Help	Court wizards refuse players with a bounty in their hold. Default: On.
+$LA_MCM_ReplaceOnLoad	Replace original on load
+$LA_MCM_ReplaceOnLoad_Help	A spell made from a loaded spell replaces the original, keeping its slot, hotkeys and favorites. Default: Off.
+$LA_MCM_Run	Run
+$LA_MCM_ShowCostMath	Show cost math
+$LA_MCM_ShowCostMath_Help	Shows how each effect adds to the spell's cost below the effect list. Default: Off.
+$LA_MCM_SkillPicker	Skill picker
+$LA_MCM_SkillPicker_Help	Which skill list the skill effects show: Skyrim's 18 skills or Morrowind's 27, mapped to Skyrim. Default: Skyrim (18).
+$LA_MCM_SkyrimOnly	Skyrim-only effects
+$LA_MCM_SkyrimOnly_Help	Offers Skyrim effects Morrowind never had (for example Muffle) from spells you know. Default: On.
+$LA_MCM_SpellSlots	Spells
+$LA_MCM_SpellSlots_Help	Custom spells in use out of the 500 spell slots.
+$LA_MCM_Spellmakers	NPC spellmakers
+$LA_MCM_Spellmakers_Help	Lets the 15 spellmaker NPCs offer 'I'd like to make a spell' and sell spell tomes. Default: On.
+$LA_MCM_StartingRange	Starting range
+$LA_MCM_StartingRange_Help	Range a newly added effect starts with. OpenMW rule: Touch for effects that allow all three ranges, Target for Touch/Target effects, otherwise the only range. First allowed: always the first range the effect allows. Default: OpenMW rule.
+$LA_MCM_SubSlots	Sub-spells
+$LA_MCM_SubSlots_Help	Shared sub-spell slots used by mixed-range spells, out of 500.
+$LA_MCM_SummonLimit	Summon limit
+$LA_MCM_SummonLimit_Help	Skyrim: one summon, two with Twin Souls. Morrowind: one summon of each type at a time. Default: Skyrim.
+$LA_MCM_TargetRunningTotal	Target x1.5 on the running total
+$LA_MCM_TargetRunningTotal_Help	Morrowind Classic only: applies the Target x1.5 multiplier to the spell's running total rather than to each Target effect alone. Default: On.
+$LA_MCM_Title	Lost Art of Spellmaking
+$LA_MCM_Tomes	Morrowind tomes in shops and loot
+$LA_MCM_Tomes_Help	Adds the Morrowind spell tomes to spellmaker stock and dungeon loot. Default: On.
+$LA_MCM_TouchReach	Touch reach
+$LA_MCM_TouchReach_Help	How far Touch spells reach, in game units. Default: 192.
+$LA_MCM_Uninstall	Prepare for uninstall
+$LA_MCM_Uninstall_Help	Removes custom spells from you and your followers, dispels their effects and clears marks. Then save, and remove the mod.
+$LA_MCM_Version	Plugin version
+$LA_MCM_Version_Help	Version of LostArt.dll.

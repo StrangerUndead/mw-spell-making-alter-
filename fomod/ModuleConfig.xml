@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Lost Art of Spellmaking - FOMOD installer (FOMOD 5.x, validated against fomod/schema/ModuleConfig.xsd
+  by tools/validate_fomod.py). tools/package.py assembles the archive this file describes:
+    Core\...                 everything in Data\ (DLL, JSON, both plugins, SWF, English text,
+                              scripts and script sources, MCM Helper config)
+    Translations\LostArt_<LANG>.txt   one text file per game language
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
+  <moduleName>Lost Art of Spellmaking</moduleName>
+  <requiredInstallFiles>
+    <folder source="Core" destination=""/>
+  </requiredInstallFiles>
+  <installSteps order="Explicit">
+    <installStep name="Game language">
+      <optionalFileGroups order="Explicit">
+        <group name="Language of your game" type="SelectExactlyOne">
+          <plugins order="Explicit">
+            <plugin name="English only">
+              <description>Your game runs in English. The English text is part of the core files; nothing else is installed.</description>
+              <conditionFlags>
+                <flag name="Language">ENGLISH</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Recommended"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="French (Français)">
+              <description>Your game runs in French. Installs Interface\Translations\LostArt_FRENCH.txt, which Skyrim needs to show this mod's text in a French game. Where no translation has shipped yet, this file carries the English text.</description>
+              <files>
+                <file source="Translations\LostArt_FRENCH.txt" destination="Interface\Translations\LostArt_FRENCH.txt" priority="0"/>
+              </files>
+              <conditionFlags>
+                <flag name="Language">FRENCH</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="German (Deutsch)">
+              <description>Your game runs in German. Installs Interface\Translations\LostArt_GERMAN.txt, which Skyrim needs to show this mod's text in a German game. Where no translation has shipped yet, this file carries the English text.</description>
+              <files>
+                <file source="Translations\LostArt_GERMAN.txt" destination="Interface\Translations\LostArt_GERMAN.txt" priority="0"/>
+              </files>
+              <conditionFlags>
+                <flag name="Language">GERMAN</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Italian (Italiano)">
+              <description>Your game runs in Italian. Installs Interface\Translations\LostArt_ITALIAN.txt, which Skyrim needs to show this mod's text in a Italian game. Where no translation has shipped yet, this file carries the English text.</description>
+              <files>
+                <file source="Translations\LostArt_ITALIAN.txt" destination="Interface\Translations\LostArt_ITALIAN.txt" priority="0"/>
+              </files>
+              <conditionFlags>
+                <flag name="Language">ITALIAN</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Spanish (Español)">
+              <description>Your game runs in Spanish. Installs Interface\Translations\LostArt_SPANISH.txt, which Skyrim needs to show this mod's text in a Spanish game. Where no translation has shipped yet, this file carries the English text.</description>
+              <files>
+                <file source="Translations\LostArt_SPANISH.txt" destination="Interface\Translations\LostArt_SPANISH.txt" priority="0"/>
+              </files>
+              <conditionFlags>
+                <flag name="Language">SPANISH</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Polish (Polski)">
+              <description>Your game runs in Polish. Installs Interface\Translations\LostArt_POLISH.txt, which Skyrim needs to show this mod's text in a Polish game. Where no translation has shipped yet, this file carries the English text.</description>
+              <files>
+                <file source="Translations\LostArt_POLISH.txt" destination="Interface\Translations\LostArt_POLISH.txt" priority="0"/>
+              </files>
+              <conditionFlags>
+                <flag name="Language">POLISH</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Russian (Русский)">
+              <description>Your game runs in Russian. Installs Interface\Translations\LostArt_RUSSIAN.txt, which Skyrim needs to show this mod's text in a Russian game. Where no translation has shipped yet, this file carries the English text.</description>
+              <files>
+                <file source="Translations\LostArt_RUSSIAN.txt" destination="Interface\Translations\LostArt_RUSSIAN.txt" priority="0"/>
+              </files>
+              <conditionFlags>
+                <flag name="Language">RUSSIAN</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Japanese (日本語)">
+              <description>Your game runs in Japanese. Installs Interface\Translations\LostArt_JAPANESE.txt, which Skyrim needs to show this mod's text in a Japanese game. Where no translation has shipped yet, this file carries the English text.</description>
+              <files>
+                <file source="Translations\LostArt_JAPANESE.txt" destination="Interface\Translations\LostArt_JAPANESE.txt" priority="0"/>
+              </files>
+              <conditionFlags>
+                <flag name="Language">JAPANESE</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+            <plugin name="Chinese (中文)">
+              <description>Your game runs in Chinese. Installs Interface\Translations\LostArt_CHINESE.txt, which Skyrim needs to show this mod's text in a Chinese game. Where no translation has shipped yet, this file carries the English text.</description>
+              <files>
+                <file source="Translations\LostArt_CHINESE.txt" destination="Interface\Translations\LostArt_CHINESE.txt" priority="0"/>
+              </files>
+              <conditionFlags>
+                <flag name="Language">CHINESE</flag>
+              </conditionFlags>
+              <typeDescriptor>
+                <type name="Optional"/>
+              </typeDescriptor>
+            </plugin>
+          </plugins>
+        </group>
+      </optionalFileGroups>
+    </installStep>
+  </installSteps>
+</config>

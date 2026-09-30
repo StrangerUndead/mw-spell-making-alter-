@@ -1,0 +1,108 @@
+diff --git a/Caprica/common/AsmUtils.h b/Caprica/common/AsmUtils.h
+index 8803c9e..e3c0724 100644
+--- a/Caprica/common/AsmUtils.h
++++ b/Caprica/common/AsmUtils.h
+@@ -6,7 +6,9 @@
+ 
+ #include <common/sse2neon.h>
+ 
+-#else
++#elif defined(_MSC_VER)
+ #include <intrin.h>
++#else
++#include <x86intrin.h>
+ #endif
+ 
+diff --git a/Caprica/common/CapricaInputFile.cpp b/Caprica/common/CapricaInputFile.cpp
+index ca8d0e8..48e9966 100644
+--- a/Caprica/common/CapricaInputFile.cpp
++++ b/Caprica/common/CapricaInputFile.cpp
+@@ -3,6 +3,7 @@
+ #include <common/CapricaConfig.h>
+ #include <common/FSUtils.h>
+ #include <common/parser/PapyrusProject.h>
++#include <algorithm>
+ #include <filesystem>
+ 
+ namespace caprica {
+diff --git a/Caprica/common/FSUtils.cpp b/Caprica/common/FSUtils.cpp
+index 3ce777a..b0642a6 100644
+--- a/Caprica/common/FSUtils.cpp
++++ b/Caprica/common/FSUtils.cpp
+@@ -2,12 +2,15 @@
+ 
+ #include <fcntl.h>
+ 
+-#ifdef __APPLE__
+-#include <sys/uio.h>
+-#else
++#if defined(_WIN32)
+ #include <io.h>
++#else
++#include <sys/uio.h>
++#include <unistd.h>
+ #endif
+ 
++#include <algorithm>
++#include <csignal>
+ #include <cstring>
+ #include <filesystem>
+ #include <future>
+diff --git a/Caprica/common/OSUtils.cpp b/Caprica/common/OSUtils.cpp
+index c994329..c552fea 100644
+--- a/Caprica/common/OSUtils.cpp
++++ b/Caprica/common/OSUtils.cpp
+@@ -1,5 +1,6 @@
+ #include "OSUtils.h"
+ #include <stdexcept>
++#include <cstdlib>
+ #ifdef _WIN32
+ #include <fcntl.h>
+ #include <io.h>
+@@ -41,7 +42,7 @@ void debugBreak() {
+   if (IsDebuggerPresent())
+     __debugbreak();
+ #else
+-  if (ptrace(PTRACE_TRACEME, 0, reinterpret_cast<caddr_t>(1), 0) == -1)
++  if (getenv("CAPRICA_DEBUGBREAK"))
+     raise(SIGTRAP);
+ #endif
+ }
+@@ -55,9 +56,11 @@ std::string getUserName() {
+   return std::string(userNameBuf, userNameBufLength);
+ #else
+   char userNameBuf[256];
+-  if (getlogin_r(userNameBuf, sizeof(userNameBuf)) != 0)
+-    throw std::runtime_error("Failed to get the user name!");
+-  return {userNameBuf};
++  if (getlogin_r(userNameBuf, sizeof(userNameBuf)) == 0)
++    return {userNameBuf};
++  if (const char* env = getenv("USER"); env && *env)
++    return {env};
++  return {"papyrus"};
+ #endif
+ }
+ 
+@@ -65,7 +68,7 @@ int openFile(const char *path, int flags, int mode) {
+ #ifdef _WIN32
+   return _open(path, _O_BINARY | _O_SEQUENTIAL | flags, mode);
+ #else
+-  return open(path, flags);
++  return open(path, flags, mode);
+ #endif
+ }
+ 
+diff --git a/Caprica/papyrus/PapyrusFunction.cpp b/Caprica/papyrus/PapyrusFunction.cpp
+index 44f3ded..89a2aaf 100644
+--- a/Caprica/papyrus/PapyrusFunction.cpp
++++ b/Caprica/papyrus/PapyrusFunction.cpp
+@@ -90,7 +90,8 @@ void PapyrusFunction::semantic(PapyrusResolutionContext* ctx) {
+ void PapyrusFunction::semantic2(PapyrusResolutionContext* ctx) {
+   if (isGlobal() && ctx->state && ctx->state->name != "")
+     ctx->reportingContext.error(location, "Global functions are only allowed in the empty state.");
+-  if (isNative() && !ctx->object->isNative())
++  // Skyrim has no Native script flag: SKSE plugin scripts legally declare natives in any script.
++  if (isNative() && !ctx->object->isNative() && conf::Papyrus::game != GameID::Skyrim)
+     ctx->reportingContext.error(location, "You can only define Native functions in a script marked Native.");
+ 
+   ctx->ensureNamesAreUnique(parameters, "parameter");

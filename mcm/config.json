@@ -1,0 +1,756 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Exit-9B/MCM-Helper/main/docs/config.schema.json",
+  "modName": "LostArt",
+  "displayName": "$LA_MCM_Title",
+  "pluginRequirements": [
+    "LostArt.esp",
+    "LostArt_Slots.esp"
+  ],
+  "cursorFillMode": "topToBottom",
+  "content": [
+    {
+      "text": "$LA_MCM_Hdr_Title",
+      "type": "header"
+    },
+    {
+      "text": "$LA_MCM_Landing",
+      "type": "text"
+    },
+    {
+      "type": "empty"
+    },
+    {
+      "text": "$LA_MCM_SpellSlots",
+      "type": "text",
+      "help": "$LA_MCM_SpellSlots_Help",
+      "valueOptions": {
+        "propertyName": "SpellSlotsText"
+      }
+    },
+    {
+      "text": "$LA_MCM_SubSlots",
+      "type": "text",
+      "help": "$LA_MCM_SubSlots_Help",
+      "valueOptions": {
+        "propertyName": "SubSlotsText"
+      }
+    },
+    {
+      "text": "$LA_MCM_Version",
+      "type": "text",
+      "help": "$LA_MCM_Version_Help",
+      "valueOptions": {
+        "propertyName": "VersionText"
+      }
+    }
+  ],
+  "pages": [
+    {
+      "pageDisplayName": "$LA_MCM_Page_General",
+      "content": [
+        {
+          "text": "$LA_MCM_Hdr_Where",
+          "type": "header"
+        },
+        {
+          "id": "bAltars:General",
+          "text": "$LA_MCM_Altars",
+          "type": "toggle",
+          "help": "$LA_MCM_Altars_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "bSpellmakers:General",
+          "text": "$LA_MCM_Spellmakers",
+          "type": "toggle",
+          "help": "$LA_MCM_Spellmakers_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "text": "$LA_MCM_Hdr_Names",
+          "type": "header",
+          "position": 1
+        },
+        {
+          "id": "iEffectNames:General",
+          "text": "$LA_MCM_EffectNames",
+          "type": "enum",
+          "help": "$LA_MCM_EffectNames_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_EffectNames_Morrowind",
+              "$LA_MCM_Opt_EffectNames_Skyrim"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        }
+      ]
+    },
+    {
+      "pageDisplayName": "$LA_MCM_Page_Costs",
+      "content": [
+        {
+          "text": "$LA_MCM_Hdr_CostModel",
+          "type": "header"
+        },
+        {
+          "id": "iCostModel:Costs",
+          "text": "$LA_MCM_CostModel",
+          "type": "enum",
+          "help": "$LA_MCM_CostModel_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_CostModel_SkyrimBalanced",
+              "$LA_MCM_Opt_CostModel_Classic",
+              "$LA_MCM_Opt_CostModel_EngineAutocalc"
+            ],
+            "shortNames": [
+              "$LA_MCM_Opt_CostModel_SkyrimBalanced_Short",
+              "$LA_MCM_Opt_CostModel_Classic_Short",
+              "$LA_MCM_Opt_CostModel_EngineAutocalc_Short"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "bTargetRunningTotal:Costs",
+          "text": "$LA_MCM_TargetRunningTotal",
+          "type": "toggle",
+          "help": "$LA_MCM_TargetRunningTotal_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "fGlobalCostMult:Costs",
+          "text": "$LA_MCM_GlobalCostMult",
+          "type": "slider",
+          "help": "$LA_MCM_GlobalCostMult_Help",
+          "valueOptions": {
+            "min": 0.25,
+            "max": 4.0,
+            "step": 0.05,
+            "formatString": "{2}x",
+            "sourceType": "ModSettingFloat"
+          }
+        },
+        {
+          "text": "$LA_MCM_Hdr_Price",
+          "type": "header",
+          "position": 1
+        },
+        {
+          "id": "fPriceMult:Costs",
+          "text": "$LA_MCM_PriceMult",
+          "type": "slider",
+          "help": "$LA_MCM_PriceMult_Help",
+          "valueOptions": {
+            "min": 1.0,
+            "max": 20.0,
+            "step": 0.5,
+            "formatString": "{1}x",
+            "sourceType": "ModSettingFloat"
+          }
+        },
+        {
+          "id": "fPriceMultClassic:Costs",
+          "text": "$LA_MCM_PriceMultClassic",
+          "type": "slider",
+          "help": "$LA_MCM_PriceMultClassic_Help",
+          "valueOptions": {
+            "min": 1.0,
+            "max": 20.0,
+            "step": 0.5,
+            "formatString": "{1}x",
+            "sourceType": "ModSettingFloat"
+          }
+        },
+        {
+          "id": "bHaggling:Costs",
+          "text": "$LA_MCM_Haggling",
+          "type": "toggle",
+          "help": "$LA_MCM_Haggling_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "iAltarFee:Costs",
+          "text": "$LA_MCM_AltarFee",
+          "type": "enum",
+          "help": "$LA_MCM_AltarFee_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_AltarFee_Full",
+              "$LA_MCM_Opt_AltarFee_Half",
+              "$LA_MCM_Opt_AltarFee_Free",
+              "$LA_MCM_Opt_AltarFee_FilledSoulGem"
+            ],
+            "shortNames": [
+              "$LA_MCM_Opt_AltarFee_Full_Short",
+              "$LA_MCM_Opt_AltarFee_Half_Short",
+              "$LA_MCM_Opt_AltarFee_Free",
+              "$LA_MCM_Opt_AltarFee_FilledSoulGem_Short"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        }
+      ]
+    },
+    {
+      "pageDisplayName": "$LA_MCM_Page_Menu",
+      "content": [
+        {
+          "text": "$LA_MCM_Hdr_Limits",
+          "type": "header"
+        },
+        {
+          "id": "iMaxEffects:Menu",
+          "text": "$LA_MCM_MaxEffects",
+          "type": "slider",
+          "help": "$LA_MCM_MaxEffects_Help",
+          "valueOptions": {
+            "min": 1,
+            "max": 8,
+            "step": 1,
+            "formatString": "{0}",
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "iMagnitudeCap:Menu",
+          "text": "$LA_MCM_MagnitudeCap",
+          "type": "slider",
+          "help": "$LA_MCM_MagnitudeCap_Help",
+          "valueOptions": {
+            "min": 100,
+            "max": 500,
+            "step": 10,
+            "formatString": "{0} pts",
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "iDurationCap:Menu",
+          "text": "$LA_MCM_DurationCap",
+          "type": "slider",
+          "help": "$LA_MCM_DurationCap_Help",
+          "valueOptions": {
+            "min": 60,
+            "max": 3600,
+            "step": 60,
+            "formatString": "{0} s",
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "iAreaCap:Menu",
+          "text": "$LA_MCM_AreaCap",
+          "type": "slider",
+          "help": "$LA_MCM_AreaCap_Help",
+          "valueOptions": {
+            "min": 0,
+            "max": 100,
+            "step": 5,
+            "formatString": "{0} ft",
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "text": "$LA_MCM_Hdr_Behavior",
+          "type": "header",
+          "position": 1
+        },
+        {
+          "id": "bCloseAfterCreate:Menu",
+          "text": "$LA_MCM_CloseAfterCreate",
+          "type": "toggle",
+          "help": "$LA_MCM_CloseAfterCreate_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "iStartingRange:Menu",
+          "text": "$LA_MCM_StartingRange",
+          "type": "enum",
+          "help": "$LA_MCM_StartingRange_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_StartingRange_OpenMW",
+              "$LA_MCM_Opt_StartingRange_First"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "bShowCostMath:Menu",
+          "text": "$LA_MCM_ShowCostMath",
+          "type": "toggle",
+          "help": "$LA_MCM_ShowCostMath_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        }
+      ]
+    },
+    {
+      "pageDisplayName": "$LA_MCM_Page_Casting",
+      "content": [
+        {
+          "text": "$LA_MCM_Hdr_Failure",
+          "type": "header"
+        },
+        {
+          "id": "bCastingFailure:Casting",
+          "text": "$LA_MCM_CastingFailure",
+          "type": "toggle",
+          "help": "$LA_MCM_CastingFailure_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          },
+          "groupControl": 1
+        },
+        {
+          "id": "iCastingBonus:Casting",
+          "text": "$LA_MCM_CastingBonus",
+          "type": "slider",
+          "help": "$LA_MCM_CastingBonus_Help",
+          "valueOptions": {
+            "min": 0,
+            "max": 30,
+            "step": 1,
+            "formatString": "{0}",
+            "sourceType": "ModSettingInt"
+          },
+          "groupCondition": 1
+        },
+        {
+          "id": "bNPCFailure:Casting",
+          "text": "$LA_MCM_NPCFailure",
+          "type": "toggle",
+          "help": "$LA_MCM_NPCFailure_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          },
+          "groupCondition": 1
+        },
+        {
+          "id": "iExperienceSchool:Casting",
+          "text": "$LA_MCM_ExperienceSchool",
+          "type": "enum",
+          "help": "$LA_MCM_ExperienceSchool_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_ExperienceSchool_Costliest",
+              "$LA_MCM_Opt_ExperienceSchool_Hardest"
+            ],
+            "shortNames": [
+              "$LA_MCM_Opt_ExperienceSchool_Costliest_Short",
+              "$LA_MCM_Opt_ExperienceSchool_Hardest_Short"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "text": "$LA_MCM_Hdr_Effects",
+          "type": "header",
+          "position": 1
+        },
+        {
+          "id": "bMinMaxRolls:Casting",
+          "text": "$LA_MCM_MinMaxRolls",
+          "type": "toggle",
+          "help": "$LA_MCM_MinMaxRolls_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "bElementalRiders:Casting",
+          "text": "$LA_MCM_ElementalRiders",
+          "type": "toggle",
+          "help": "$LA_MCM_ElementalRiders_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "iTouchReach:Casting",
+          "text": "$LA_MCM_TouchReach",
+          "type": "slider",
+          "help": "$LA_MCM_TouchReach_Help",
+          "valueOptions": {
+            "min": 128,
+            "max": 320,
+            "step": 8,
+            "formatString": "{0}",
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "bAreaLOS:Casting",
+          "text": "$LA_MCM_AreaLOS",
+          "type": "toggle",
+          "help": "$LA_MCM_AreaLOS_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "iSummonLimit:Casting",
+          "text": "$LA_MCM_SummonLimit",
+          "type": "enum",
+          "help": "$LA_MCM_SummonLimit_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_SummonLimit_Skyrim",
+              "$LA_MCM_Opt_SummonLimit_Morrowind"
+            ],
+            "shortNames": [
+              "$LA_MCM_Opt_SummonLimit_Skyrim",
+              "$LA_MCM_Opt_SummonLimit_Morrowind_Short"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "bGraceSlowfall:Casting",
+          "text": "$LA_MCM_GraceSlowfall",
+          "type": "toggle",
+          "help": "$LA_MCM_GraceSlowfall_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "fJumpPerPoint:Casting",
+          "text": "$LA_MCM_JumpPerPoint",
+          "type": "slider",
+          "help": "$LA_MCM_JumpPerPoint_Help",
+          "valueOptions": {
+            "min": 1.0,
+            "max": 10.0,
+            "step": 0.5,
+            "formatString": "{1}%",
+            "sourceType": "ModSettingFloat"
+          }
+        },
+        {
+          "id": "iMarks:Casting",
+          "text": "$LA_MCM_Marks",
+          "type": "slider",
+          "help": "$LA_MCM_Marks_Help",
+          "valueOptions": {
+            "min": 1,
+            "max": 10,
+            "step": 1,
+            "formatString": "{0}",
+            "sourceType": "ModSettingInt"
+          }
+        }
+      ]
+    },
+    {
+      "pageDisplayName": "$LA_MCM_Page_Effects",
+      "content": [
+        {
+          "text": "$LA_MCM_Hdr_Availability",
+          "type": "header"
+        },
+        {
+          "id": "iAvailability:Effects",
+          "text": "$LA_MCM_Availability",
+          "type": "enum",
+          "help": "$LA_MCM_Availability_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_Availability_Known",
+              "$LA_MCM_Opt_Availability_Sandbox"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "bSkyrimOnly:Effects",
+          "text": "$LA_MCM_SkyrimOnly",
+          "type": "toggle",
+          "help": "$LA_MCM_SkyrimOnly_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "bExtended:Effects",
+          "text": "$LA_MCM_Extended",
+          "type": "toggle",
+          "help": "$LA_MCM_Extended_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "bPassThrough:Effects",
+          "text": "$LA_MCM_PassThrough",
+          "type": "toggle",
+          "help": "$LA_MCM_PassThrough_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "bTomes:Effects",
+          "text": "$LA_MCM_Tomes",
+          "type": "toggle",
+          "help": "$LA_MCM_Tomes_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "text": "$LA_MCM_Hdr_Attributes",
+          "type": "header",
+          "position": 1
+        },
+        {
+          "id": "iAttributeProfile:Effects",
+          "text": "$LA_MCM_AttributeProfile",
+          "type": "enum",
+          "help": "$LA_MCM_AttributeProfile_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_AttributeProfile_Default",
+              "$LA_MCM_Opt_AttributeProfile_Light",
+              "$LA_MCM_Opt_AttributeProfile_Off"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "iSkillPicker:Effects",
+          "text": "$LA_MCM_SkillPicker",
+          "type": "enum",
+          "help": "$LA_MCM_SkillPicker_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_SkillPicker_Skyrim18",
+              "$LA_MCM_Opt_SkillPicker_Morrowind27"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "iFortifySkillTarget:Effects",
+          "text": "$LA_MCM_FortifySkillTarget",
+          "type": "enum",
+          "help": "$LA_MCM_FortifySkillTarget_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_FortifySkillTarget_Level",
+              "$LA_MCM_Opt_FortifySkillTarget_Percent"
+            ],
+            "shortNames": [
+              "$LA_MCM_Opt_FortifySkillTarget_Level",
+              "$LA_MCM_Opt_FortifySkillTarget_Percent_Short"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "bBoundSkillBonus:Effects",
+          "text": "$LA_MCM_BoundSkillBonus",
+          "type": "toggle",
+          "help": "$LA_MCM_BoundSkillBonus_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        }
+      ]
+    },
+    {
+      "pageDisplayName": "$LA_MCM_Page_Services",
+      "content": [
+        {
+          "text": "$LA_MCM_Hdr_Spellmakers",
+          "type": "header"
+        },
+        {
+          "id": "bCollegeMembership:Services",
+          "text": "$LA_MCM_CollegeMembership",
+          "type": "toggle",
+          "help": "$LA_MCM_CollegeMembership_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "bRefuseWanted:Services",
+          "text": "$LA_MCM_RefuseWanted",
+          "type": "toggle",
+          "help": "$LA_MCM_RefuseWanted_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "id": "bPerNPCPrices:Services",
+          "text": "$LA_MCM_PerNPCPrices",
+          "type": "toggle",
+          "help": "$LA_MCM_PerNPCPrices_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        }
+      ]
+    },
+    {
+      "pageDisplayName": "$LA_MCM_Page_Spellbook",
+      "content": [
+        {
+          "text": "$LA_MCM_Hdr_Spellbook",
+          "type": "header"
+        },
+        {
+          "id": "iDeletable:Spellbook",
+          "text": "$LA_MCM_Deletable",
+          "type": "enum",
+          "help": "$LA_MCM_Deletable_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_Deletable_CustomOnly",
+              "$LA_MCM_Opt_Deletable_AnyNonInherent"
+            ],
+            "shortNames": [
+              "$LA_MCM_Opt_Deletable_CustomOnly",
+              "$LA_MCM_Opt_Deletable_AnyNonInherent_Short"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "iLoadPricing:Spellbook",
+          "text": "$LA_MCM_LoadPricing",
+          "type": "enum",
+          "help": "$LA_MCM_LoadPricing_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_LoadPricing_Full",
+              "$LA_MCM_Opt_LoadPricing_Difference"
+            ],
+            "shortNames": [
+              "$LA_MCM_Opt_LoadPricing_Full_Short",
+              "$LA_MCM_Opt_LoadPricing_Difference_Short"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "id": "bReplaceOnLoad:Spellbook",
+          "text": "$LA_MCM_ReplaceOnLoad",
+          "type": "toggle",
+          "help": "$LA_MCM_ReplaceOnLoad_Help",
+          "valueOptions": {
+            "sourceType": "ModSettingBool"
+          }
+        },
+        {
+          "text": "$LA_MCM_Hdr_Slots",
+          "type": "header",
+          "position": 1
+        },
+        {
+          "text": "$LA_MCM_SpellSlots",
+          "type": "text",
+          "help": "$LA_MCM_SpellSlots_Help",
+          "valueOptions": {
+            "propertyName": "SpellSlotsText"
+          }
+        },
+        {
+          "text": "$LA_MCM_SubSlots",
+          "type": "text",
+          "help": "$LA_MCM_SubSlots_Help",
+          "valueOptions": {
+            "propertyName": "SubSlotsText"
+          }
+        }
+      ]
+    },
+    {
+      "pageDisplayName": "$LA_MCM_Page_Maintenance",
+      "content": [
+        {
+          "text": "$LA_MCM_Hdr_Maintenance",
+          "type": "header"
+        },
+        {
+          "text": "$LA_MCM_Rebalance",
+          "type": "text",
+          "help": "$LA_MCM_Rebalance_Help",
+          "valueOptions": {
+            "value": "$LA_MCM_Run"
+          },
+          "action": {
+            "type": "CallFunction",
+            "function": "DoRebalanceAll"
+          }
+        },
+        {
+          "text": "$LA_MCM_Rebuild",
+          "type": "text",
+          "help": "$LA_MCM_Rebuild_Help",
+          "valueOptions": {
+            "value": "$LA_MCM_Run"
+          },
+          "action": {
+            "type": "CallFunction",
+            "function": "DoRebuildAllSlots"
+          }
+        },
+        {
+          "text": "$LA_MCM_Uninstall",
+          "type": "text",
+          "help": "$LA_MCM_Uninstall_Help",
+          "valueOptions": {
+            "value": "$LA_MCM_Run"
+          },
+          "action": {
+            "type": "CallFunction",
+            "function": "DoPrepareForUninstall"
+          }
+        },
+        {
+          "text": "$LA_MCM_Hdr_Debug",
+          "type": "header",
+          "position": 1
+        },
+        {
+          "id": "iLogLevel:Maintenance",
+          "text": "$LA_MCM_LogLevel",
+          "type": "enum",
+          "help": "$LA_MCM_LogLevel_Help",
+          "valueOptions": {
+            "options": [
+              "$LA_MCM_Opt_LogLevel_Off",
+              "$LA_MCM_Opt_LogLevel_Info",
+              "$LA_MCM_Opt_LogLevel_Verbose"
+            ],
+            "sourceType": "ModSettingInt"
+          }
+        },
+        {
+          "text": "$LA_MCM_Version",
+          "type": "text",
+          "help": "$LA_MCM_Version_Help",
+          "valueOptions": {
+            "propertyName": "VersionText"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fomod>
+  <Name>Lost Art of Spellmaking</Name>
+  <Author>Lost Art of Spellmaking contributors</Author>
+  <Version MachineVersion="1.0.0">1.0.0</Version>
+  <Website>https://github.com/StrangerUndead/mw-spell-making-alter-</Website>
+  <Description>Morrowind's complete spellmaker for Skyrim SE/AE: every rule, limit, formula and effect of the original, used at an Altar of Spellmaking or bought from NPC spellmakers.
+
+Requirements: SKSE64 matching your game build, Address Library for SKSE Plugins, SkyUI, MCM Helper.
+Recommended: SSE Engine Fixes.
+Supported: Skyrim SE 1.5.97 and AE 1.6.x (Steam and GOG).
+
+Every behavior choice is a runtime MCM setting; nothing needs reinstalling to change one.
+To uninstall, run Maintenance > Prepare for uninstall in the MCM first, then save and remove the mod.</Description>
+  <Groups>
+    <element>Magic - Spells &amp; Enchantments</element>
+    <element>Gameplay</element>
+  </Groups>
+</fomod>
