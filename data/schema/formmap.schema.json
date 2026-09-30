@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/formmap.schema.json",
+  "title": "Generator output (data/generated/formmap.json): EditorID -> local FormID per plugin",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "additionalProperties": {
+      "type": "string",
+      "pattern": "^0x[0-9A-Fa-f]{3,6}$"
+    }
+  }
+}

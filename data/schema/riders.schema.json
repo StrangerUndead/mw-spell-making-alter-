@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/riders.schema.json",
+  "title": "Hidden rider effects (data/content/riders.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "riders"
+  ],
+  "properties": {
+    "riders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "effect",
+          "perk",
+          "elemental",
+          "magnitudeScale",
+          "verify"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9]+$"
+          },
+          "effect": {
+            "$ref": "common.schema.json#/$defs/formRef"
+          },
+          "perk": {
+            "$ref": "common.schema.json#/$defs/formRefOrNull"
+          },
+          "elemental": {
+            "type": "boolean"
+          },
+          "magnitudeScale": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "verify": {
+            "type": "boolean"
+          },
+          "variants": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            }
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/editorId"
+            }
+          },
+          "dualCastOnly": {
+            "type": "boolean"
+          },
+          "replacesPrimary": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

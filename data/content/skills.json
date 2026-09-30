@@ -1,0 +1,475 @@
+{
+  "skyrimSkills": [
+    {
+      "index": 0,
+      "name": "OneHanded",
+      "nameKey": "$LA_Skill_OneHanded",
+      "actorValue": "OneHanded"
+    },
+    {
+      "index": 1,
+      "name": "TwoHanded",
+      "nameKey": "$LA_Skill_TwoHanded",
+      "actorValue": "TwoHanded"
+    },
+    {
+      "index": 2,
+      "name": "Archery",
+      "nameKey": "$LA_Skill_Archery",
+      "actorValue": "Archery"
+    },
+    {
+      "index": 3,
+      "name": "Block",
+      "nameKey": "$LA_Skill_Block",
+      "actorValue": "Block"
+    },
+    {
+      "index": 4,
+      "name": "Smithing",
+      "nameKey": "$LA_Skill_Smithing",
+      "actorValue": "Smithing"
+    },
+    {
+      "index": 5,
+      "name": "HeavyArmor",
+      "nameKey": "$LA_Skill_HeavyArmor",
+      "actorValue": "HeavyArmor"
+    },
+    {
+      "index": 6,
+      "name": "LightArmor",
+      "nameKey": "$LA_Skill_LightArmor",
+      "actorValue": "LightArmor"
+    },
+    {
+      "index": 7,
+      "name": "Pickpocket",
+      "nameKey": "$LA_Skill_Pickpocket",
+      "actorValue": "Pickpocket"
+    },
+    {
+      "index": 8,
+      "name": "Lockpicking",
+      "nameKey": "$LA_Skill_Lockpicking",
+      "actorValue": "Lockpicking"
+    },
+    {
+      "index": 9,
+      "name": "Sneak",
+      "nameKey": "$LA_Skill_Sneak",
+      "actorValue": "Sneak"
+    },
+    {
+      "index": 10,
+      "name": "Alchemy",
+      "nameKey": "$LA_Skill_Alchemy",
+      "actorValue": "Alchemy"
+    },
+    {
+      "index": 11,
+      "name": "Speech",
+      "nameKey": "$LA_Skill_Speech",
+      "actorValue": "Speech"
+    },
+    {
+      "index": 12,
+      "name": "Alteration",
+      "nameKey": "$LA_Skill_Alteration",
+      "actorValue": "Alteration"
+    },
+    {
+      "index": 13,
+      "name": "Conjuration",
+      "nameKey": "$LA_Skill_Conjuration",
+      "actorValue": "Conjuration"
+    },
+    {
+      "index": 14,
+      "name": "Destruction",
+      "nameKey": "$LA_Skill_Destruction",
+      "actorValue": "Destruction"
+    },
+    {
+      "index": 15,
+      "name": "Illusion",
+      "nameKey": "$LA_Skill_Illusion",
+      "actorValue": "Illusion"
+    },
+    {
+      "index": 16,
+      "name": "Restoration",
+      "nameKey": "$LA_Skill_Restoration",
+      "actorValue": "Restoration"
+    },
+    {
+      "index": 17,
+      "name": "Enchanting",
+      "nameKey": "$LA_Skill_Enchanting",
+      "actorValue": "Enchanting"
+    }
+  ],
+  "morrowindSkills": [
+    {
+      "index": 0,
+      "sub": 100,
+      "name": "Block",
+      "nameKey": "$LA_MwSkill_Block",
+      "targets": [
+        {
+          "skill": "Block",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "sub": 101,
+      "name": "Armorer",
+      "nameKey": "$LA_MwSkill_Armorer",
+      "targets": [
+        {
+          "skill": "Smithing",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "sub": 102,
+      "name": "MediumArmor",
+      "nameKey": "$LA_MwSkill_MediumArmor",
+      "targets": [
+        {
+          "skill": "LightArmor",
+          "weight": 0.5
+        },
+        {
+          "skill": "HeavyArmor",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "sub": 103,
+      "name": "HeavyArmor",
+      "nameKey": "$LA_MwSkill_HeavyArmor",
+      "targets": [
+        {
+          "skill": "HeavyArmor",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "sub": 104,
+      "name": "BluntWeapon",
+      "nameKey": "$LA_MwSkill_BluntWeapon",
+      "targets": [
+        {
+          "skill": "OneHanded",
+          "weight": 0.5
+        },
+        {
+          "skill": "TwoHanded",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "sub": 105,
+      "name": "LongBlade",
+      "nameKey": "$LA_MwSkill_LongBlade",
+      "targets": [
+        {
+          "skill": "OneHanded",
+          "weight": 0.5
+        },
+        {
+          "skill": "TwoHanded",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "sub": 106,
+      "name": "Axe",
+      "nameKey": "$LA_MwSkill_Axe",
+      "targets": [
+        {
+          "skill": "OneHanded",
+          "weight": 0.5
+        },
+        {
+          "skill": "TwoHanded",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "sub": 107,
+      "name": "Spear",
+      "nameKey": "$LA_MwSkill_Spear",
+      "targets": [
+        {
+          "skill": "TwoHanded",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "sub": 108,
+      "name": "Athletics",
+      "nameKey": "$LA_MwSkill_Athletics",
+      "targets": [
+        {
+          "skill": "RunSwimSpeed",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "sub": 109,
+      "name": "Enchant",
+      "nameKey": "$LA_MwSkill_Enchant",
+      "targets": [
+        {
+          "skill": "Enchanting",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "sub": 110,
+      "name": "Destruction",
+      "nameKey": "$LA_MwSkill_Destruction",
+      "targets": [
+        {
+          "skill": "Destruction",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "sub": 111,
+      "name": "Alteration",
+      "nameKey": "$LA_MwSkill_Alteration",
+      "targets": [
+        {
+          "skill": "Alteration",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "sub": 112,
+      "name": "Illusion",
+      "nameKey": "$LA_MwSkill_Illusion",
+      "targets": [
+        {
+          "skill": "Illusion",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "sub": 113,
+      "name": "Conjuration",
+      "nameKey": "$LA_MwSkill_Conjuration",
+      "targets": [
+        {
+          "skill": "Conjuration",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "sub": 114,
+      "name": "Mysticism",
+      "nameKey": "$LA_MwSkill_Mysticism",
+      "targets": [
+        {
+          "skill": "Alteration",
+          "weight": 0.5
+        },
+        {
+          "skill": "Conjuration",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "sub": 115,
+      "name": "Restoration",
+      "nameKey": "$LA_MwSkill_Restoration",
+      "targets": [
+        {
+          "skill": "Restoration",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "sub": 116,
+      "name": "Alchemy",
+      "nameKey": "$LA_MwSkill_Alchemy",
+      "targets": [
+        {
+          "skill": "Alchemy",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "sub": 117,
+      "name": "Unarmored",
+      "nameKey": "$LA_MwSkill_Unarmored",
+      "targets": [
+        {
+          "skill": "Unarmored",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "sub": 118,
+      "name": "Security",
+      "nameKey": "$LA_MwSkill_Security",
+      "targets": [
+        {
+          "skill": "Lockpicking",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "sub": 119,
+      "name": "Sneak",
+      "nameKey": "$LA_MwSkill_Sneak",
+      "targets": [
+        {
+          "skill": "Sneak",
+          "weight": 1
+        },
+        {
+          "skill": "Pickpocket",
+          "weight": 0.5
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "sub": 120,
+      "name": "Acrobatics",
+      "nameKey": "$LA_MwSkill_Acrobatics",
+      "targets": [
+        {
+          "skill": "Jump",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "sub": 121,
+      "name": "LightArmor",
+      "nameKey": "$LA_MwSkill_LightArmor",
+      "targets": [
+        {
+          "skill": "LightArmor",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "sub": 122,
+      "name": "ShortBlade",
+      "nameKey": "$LA_MwSkill_ShortBlade",
+      "targets": [
+        {
+          "skill": "OneHanded",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "sub": 123,
+      "name": "Marksman",
+      "nameKey": "$LA_MwSkill_Marksman",
+      "targets": [
+        {
+          "skill": "Archery",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "sub": 124,
+      "name": "Mercantile",
+      "nameKey": "$LA_MwSkill_Mercantile",
+      "targets": [
+        {
+          "skill": "Speech",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "sub": 125,
+      "name": "Speechcraft",
+      "nameKey": "$LA_MwSkill_Speechcraft",
+      "targets": [
+        {
+          "skill": "Speech",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "sub": 126,
+      "name": "HandToHand",
+      "nameKey": "$LA_MwSkill_HandToHand",
+      "targets": [
+        {
+          "skill": "UnarmedDamage",
+          "weight": 1
+        }
+      ]
+    }
+  ],
+  "specialTargets": [
+    "Jump",
+    "RunSwimSpeed",
+    "UnarmedDamage",
+    "Unarmored"
+  ],
+  "effects": [
+    "mw.drain_skill",
+    "mw.fortify_skill",
+    "mwx.damage_skill",
+    "mwx.restore_skill",
+    "mwx.absorb_skill"
+  ]
+}

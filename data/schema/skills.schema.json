@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/skills.schema.json",
+  "title": "Skills (data/content/skills.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "skyrimSkills",
+    "morrowindSkills",
+    "effects"
+  ],
+  "properties": {
+    "skyrimSkills": {
+      "type": "array",
+      "minItems": 18,
+      "maxItems": 18,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "name",
+          "nameKey"
+        ],
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 17
+          },
+          "name": {
+            "enum": [
+              "OneHanded",
+              "TwoHanded",
+              "Archery",
+              "Block",
+              "Smithing",
+              "HeavyArmor",
+              "LightArmor",
+              "Pickpocket",
+              "Lockpicking",
+              "Sneak",
+              "Alchemy",
+              "Speech",
+              "Alteration",
+              "Conjuration",
+              "Destruction",
+              "Illusion",
+              "Restoration",
+              "Enchanting"
+            ]
+          },
+          "nameKey": {
+            "$ref": "common.schema.json#/$defs/translationKey"
+          },
+          "actorValue": {
+            "enum": [
+              "OneHanded",
+              "TwoHanded",
+              "Archery",
+              "Block",
+              "Smithing",
+              "HeavyArmor",
+              "LightArmor",
+              "Pickpocket",
+              "Lockpicking",
+              "Sneak",
+              "Alchemy",
+              "Speech",
+              "Alteration",
+              "Conjuration",
+              "Destruction",
+              "Illusion",
+              "Restoration",
+              "Enchanting"
+            ]
+          }
+        }
+      }
+    },
+    "morrowindSkills": {
+      "type": "array",
+      "minItems": 27,
+      "maxItems": 27,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "index",
+          "name",
+          "nameKey",
+          "targets"
+        ],
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 26
+          },
+          "sub": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 126
+          },
+          "name": {
+            "type": "string"
+          },
+          "nameKey": {
+            "$ref": "common.schema.json#/$defs/translationKey"
+          },
+          "targets": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "skill",
+                "weight"
+              ],
+              "properties": {
+                "skill": {
+                  "enum": [
+                    "OneHanded",
+                    "TwoHanded",
+                    "Archery",
+                    "Block",
+                    "Smithing",
+                    "HeavyArmor",
+                    "LightArmor",
+                    "Pickpocket",
+                    "Lockpicking",
+                    "Sneak",
+                    "Alchemy",
+                    "Speech",
+                    "Alteration",
+                    "Conjuration",
+                    "Destruction",
+                    "Illusion",
+                    "Restoration",
+                    "Enchanting",
+                    "Jump",
+                    "RunSwimSpeed",
+                    "UnarmedDamage",
+                    "Unarmored"
+                  ]
+                },
+                "weight": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "specialTargets": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "$ref": "common.schema.json#/$defs/effectId"
+      }
+    }
+  }
+}

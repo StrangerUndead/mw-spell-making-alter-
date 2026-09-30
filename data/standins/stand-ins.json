@@ -1,0 +1,135 @@
+{
+  "standins": [
+    {
+      "effect": "mw.bound_spear",
+      "kind": "weapon",
+      "creature": null,
+      "weapon": "Skyrim.esm|0x0139B7",
+      "weaponLabel": "DaedricGreatsword",
+      "nameKey": "$LA_EffectSk_BoundSpear",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_BoundSpear",
+      "item": "LA_Bound_Spear"
+    },
+    {
+      "effect": "mw.summon_scamp",
+      "kind": "creature",
+      "creature": "Skyrim.esm|0x0640B5",
+      "creatureLabel": "EncSummonFamiliar",
+      "nameKey": "$LA_EffectSk_SummonScamp",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_Scamp",
+      "actor": "LA_StandIn_SummonScamp"
+    },
+    {
+      "effect": "mw.summon_clannfear",
+      "kind": "creature",
+      "creature": "Dragonborn.esm|0x01EEC9",
+      "creatureLabel": "DLC2SummonSeeker",
+      "nameKey": "$LA_EffectSk_SummonClannfear",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_Clannfear",
+      "actor": "LA_StandIn_SummonClannfear"
+    },
+    {
+      "effect": "mw.summon_bonewalker",
+      "kind": "creature",
+      "creature": "Dawnguard.esm|0x0045B9",
+      "creatureLabel": "DLC1SoulCairnBonemanSummon",
+      "nameKey": "$LA_EffectSk_SummonBonewalker",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_Bonewalker",
+      "actor": "LA_StandIn_SummonBonewalker"
+    },
+    {
+      "effect": "mw.summon_greater_bonewalker",
+      "kind": "creature",
+      "creature": "Dawnguard.esm|0x0045B7",
+      "creatureLabel": "DLC1SoulCairnMistmanSummon",
+      "nameKey": "$LA_EffectSk_SummonGreaterBonewalker",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_GreaterBonewalker",
+      "actor": "LA_StandIn_SummonGreaterBonewalker"
+    },
+    {
+      "effect": "mw.summon_bonelord",
+      "kind": "creature",
+      "creature": "Dawnguard.esm|0x0045B4",
+      "creatureLabel": "DLC1SoulCairnWrathmanSummon",
+      "nameKey": "$LA_EffectSk_SummonBonelord",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_Bonelord",
+      "actor": "LA_StandIn_SummonBonelord"
+    },
+    {
+      "effect": "mw.summon_daedroth",
+      "kind": "creature",
+      "creature": "Skyrim.esm|0x016FF4",
+      "creatureLabel": "EncDremoraMelee05",
+      "nameKey": "$LA_EffectSk_SummonDaedroth",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_Daedroth",
+      "actor": "LA_StandIn_SummonDaedroth"
+    },
+    {
+      "effect": "mw.summon_golden_saint",
+      "kind": "creature",
+      "creature": "Skyrim.esm|0x016FF8",
+      "creatureLabel": "EncDremoraMelee06",
+      "nameKey": "$LA_EffectSk_SummonGoldenSaint",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_GoldenSaint",
+      "actor": "LA_StandIn_SummonGoldenSaint"
+    },
+    {
+      "effect": "mw.summon_hunger",
+      "kind": "creature",
+      "creature": "Dragonborn.esm|0x01B640",
+      "creatureLabel": "DLC2EncLurker01",
+      "nameKey": "$LA_EffectSk_SummonHunger",
+      "levelScale": 0.6,
+      "credit": "$LA_StandIn_Hunger",
+      "actor": "LA_StandIn_SummonHunger"
+    },
+    {
+      "effect": "mw.summon_winged_twilight",
+      "kind": "creature",
+      "creature": "Skyrim.esm|0x023ABD",
+      "creatureLabel": "EncWispMother",
+      "nameKey": "$LA_EffectSk_SummonWingedTwilight",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_WingedTwilight",
+      "actor": "LA_StandIn_SummonWingedTwilight"
+    },
+    {
+      "effect": "mwx.summon_centurion_sphere",
+      "kind": "creature",
+      "creature": "Skyrim.esm|0x10EC89",
+      "creatureLabel": "EncDwarvenSphere01",
+      "nameKey": "$LA_EffectSk_SummonCenturionSphere",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_CenturionSphere",
+      "actor": "LA_StandIn_SummonCenturionSphere"
+    },
+    {
+      "effect": "mwx.summon_fabricant",
+      "kind": "creature",
+      "creature": "Skyrim.esm|0x10EC86",
+      "creatureLabel": "EncDwarvenSpider01",
+      "nameKey": "$LA_EffectSk_SummonFabricant",
+      "levelScale": 1.0,
+      "credit": "$LA_StandIn_Fabricant",
+      "actor": "LA_StandIn_SummonFabricant"
+    },
+    {
+      "effect": "mwx.summon_bonewolf",
+      "kind": "creature",
+      "creature": "Dawnguard.esm|0x00C5EF",
+      "creatureLabel": "DLC1encDeathHound",
+      "nameKey": "$LA_EffectSk_SummonBonewolf",
+      "levelScale": 0.8,
+      "credit": "$LA_StandIn_Bonewolf",
+      "actor": "LA_StandIn_SummonBonewolf"
+    }
+  ]
+}

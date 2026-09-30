@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/altars.schema.json",
+  "title": "Altars of Spellmaking (data/content/altars.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "altars"
+  ],
+  "properties": {
+    "altars": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "furniture",
+          "cell",
+          "position",
+          "rotation",
+          "alternate",
+          "access",
+          "owner",
+          "freeFor",
+          "verify"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "furniture": {
+            "type": "string",
+            "pattern": "^LA_[A-Za-z0-9_]+$"
+          },
+          "nameKey": {
+            "$ref": "common.schema.json#/$defs/translationKey"
+          },
+          "cell": {
+            "$ref": "common.schema.json#/$defs/formRef"
+          },
+          "cellLabel": {
+            "$ref": "common.schema.json#/$defs/editorId"
+          },
+          "position": {
+            "$ref": "common.schema.json#/$defs/vec3"
+          },
+          "rotation": {
+            "$ref": "common.schema.json#/$defs/vec3"
+          },
+          "alternate": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "position",
+              "rotation"
+            ],
+            "properties": {
+              "position": {
+                "$ref": "common.schema.json#/$defs/vec3"
+              },
+              "rotation": {
+                "$ref": "common.schema.json#/$defs/vec3"
+              }
+            }
+          },
+          "access": {
+            "enum": [
+              "college",
+              "anyone"
+            ]
+          },
+          "owner": {
+            "$ref": "common.schema.json#/$defs/formRef"
+          },
+          "ownerLabel": {
+            "$ref": "common.schema.json#/$defs/editorId"
+          },
+          "freeFor": {
+            "enum": [
+              "archmage",
+              null
+            ]
+          },
+          "freeForFaction": {
+            "$ref": "common.schema.json#/$defs/formRef"
+          },
+          "loreBook": {
+            "type": "string",
+            "pattern": "^LA_Book_[A-Za-z0-9]+$"
+          },
+          "verify": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1160 @@
+{
+ "_comment": "Mock data for the offline harness and for manual testing in any Scaleform/Flash player. Shapes follow docs/dev/CONTRACTS.md section 7; '_mock' fields are harness-only.",
+ "known": [
+  {
+   "id": "mw.blind",
+   "text": "Blind",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 1,
+   "ranges": "Touch/Target",
+   "unit": "%",
+   "card": "Target misses more often.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.bound_dagger",
+   "text": "Bound Dagger",
+   "school": 1,
+   "schoolName": "Conjuration",
+   "baseCost": 2,
+   "ranges": "Self",
+   "unit": "",
+   "card": "A Daedric dagger appears in hand.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.bound_longsword",
+   "text": "Bound Longsword",
+   "school": 1,
+   "schoolName": "Conjuration",
+   "baseCost": 2,
+   "ranges": "Self",
+   "unit": "",
+   "card": "A Daedric sword appears in hand.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.burden",
+   "text": "Burden",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 1,
+   "ranges": "Touch/Target",
+   "unit": "pts",
+   "card": "Adds carry weight to the target.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.calm_humanoid",
+   "text": "Calm Humanoid",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 1,
+   "ranges": "Touch/Target",
+   "unit": "level",
+   "card": "Stops a humanoid's aggression.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.chameleon",
+   "text": "Chameleon",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 1,
+   "ranges": "Self/Touch/Target",
+   "unit": "%",
+   "card": "Partial invisibility that survives attacks.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.charm",
+   "text": "Charm",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 5,
+   "ranges": "Touch/Target",
+   "unit": "pts",
+   "card": "Improves a person's disposition.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.command_creature",
+   "text": "Command Creature",
+   "school": 1,
+   "schoolName": "Conjuration",
+   "baseCost": 15,
+   "ranges": "Touch/Target",
+   "unit": "level",
+   "card": "Makes a creature your temporary ally.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.cure_common_disease",
+   "text": "Cure Common Disease",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 1400,
+   "ranges": "Self/Touch/Target",
+   "unit": "",
+   "card": "Cures common diseases.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": false,
+    "dur": false,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.cure_poison",
+   "text": "Cure Poison",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 600,
+   "ranges": "Self/Touch/Target",
+   "unit": "",
+   "card": "Ends poison effects.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": false,
+    "dur": false,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.damage_attribute",
+   "text": "Damage Attribute",
+   "school": 2,
+   "schoolName": "Destruction",
+   "baseCost": 8,
+   "ranges": "Touch/Target",
+   "unit": "pts",
+   "card": "Lowers an attribute until restored.",
+   "icon": "",
+   "target": 1,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.disintegrate_armor",
+   "text": "Disintegrate Armor",
+   "school": 2,
+   "schoolName": "Destruction",
+   "baseCost": 6,
+   "ranges": "Touch/Target",
+   "unit": "pts",
+   "card": "Damages worn armor condition.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.drain_attribute",
+   "text": "Drain Attribute",
+   "school": 2,
+   "schoolName": "Destruction",
+   "baseCost": 1,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Lowers an attribute for the duration.",
+   "icon": "",
+   "target": 1,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.drain_skill",
+   "text": "Drain Skill",
+   "school": 2,
+   "schoolName": "Destruction",
+   "baseCost": 1,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Lowers a skill for the duration.",
+   "icon": "",
+   "target": 2,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.feather",
+   "text": "Feather",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 1,
+   "ranges": "Self",
+   "unit": "pts",
+   "card": "Raises carry weight.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.fire_damage",
+   "text": "Fire Damage",
+   "school": 2,
+   "schoolName": "Destruction",
+   "baseCost": 5,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Fire damage per second; Augmented Flames applies.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.fire_shield",
+   "text": "Fire Shield",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 3,
+   "ranges": "Self",
+   "unit": "pts",
+   "card": "Fire resistance plus a burning aura for attackers.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.fortify_attack",
+   "text": "Fortify Attack",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 1,
+   "ranges": "Self",
+   "unit": "pts",
+   "card": "Weapon damage bonus.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.fortify_attribute",
+   "text": "Fortify Attribute",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 1,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Raises an attribute for the duration.",
+   "icon": "",
+   "target": 1,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.fortify_health",
+   "text": "Fortify Health",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 1,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Raises maximum health.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.fortify_skill",
+   "text": "Fortify Skill",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 1,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Raises a skill for the duration.",
+   "icon": "",
+   "target": 2,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.frenzy_creature",
+   "text": "Frenzy Creature",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 1,
+   "ranges": "Touch/Target",
+   "unit": "level",
+   "card": "Makes a creature attack anything nearby.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.frost_damage",
+   "text": "Frost Damage",
+   "school": 2,
+   "schoolName": "Destruction",
+   "baseCost": 5,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Frost damage and slow; Augmented Frost applies.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.frost_shield",
+   "text": "Frost Shield",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 3,
+   "ranges": "Self",
+   "unit": "pts",
+   "card": "Frost resistance plus a chilling aura.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.invisibility",
+   "text": "Invisibility",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 40,
+   "ranges": "Self/Touch/Target",
+   "unit": "",
+   "card": "Invisible until you act.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.jump",
+   "text": "Jump",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 3,
+   "ranges": "Self",
+   "unit": "ft",
+   "card": "Jump height; no fall damage while active.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.levitate",
+   "text": "Levitate",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 3,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Jump rises, sneak descends.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.light",
+   "text": "Light",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 0.3,
+   "ranges": "Self/Touch/Target",
+   "unit": "ft",
+   "card": "A light follows the target.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.lock",
+   "text": "Lock",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 2,
+   "ranges": "Touch/Target",
+   "unit": "level",
+   "card": "Locks a door or chest to the magnitude's tier.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": false,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.night_eye",
+   "text": "Night Eye",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 1,
+   "ranges": "Self",
+   "unit": "pts",
+   "card": "See in the dark.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.open",
+   "text": "Open",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 6,
+   "ranges": "Touch/Target",
+   "unit": "level",
+   "card": "Opens locks up to the magnitude's tier; never Requires Key.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": false,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.paralyze",
+   "text": "Paralyze",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 40,
+   "ranges": "Touch/Target",
+   "unit": "",
+   "card": "The target cannot move.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.poison",
+   "text": "Poison",
+   "school": 2,
+   "schoolName": "Destruction",
+   "baseCost": 9,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Poison damage per second.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.resist_fire",
+   "text": "Resist Fire",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 2,
+   "ranges": "Self/Touch/Target",
+   "unit": "%",
+   "card": "Fire resistance.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.restore_attribute",
+   "text": "Restore Attribute",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 1,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Repairs attribute damage.",
+   "icon": "",
+   "target": 1,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.restore_health",
+   "text": "Restore Health",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 5,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Heals over the duration.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.shield",
+   "text": "Shield",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 2,
+   "ranges": "Self",
+   "unit": "pts",
+   "card": "Armor rating bonus.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.shock_damage",
+   "text": "Shock Damage",
+   "school": 2,
+   "schoolName": "Destruction",
+   "baseCost": 7,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Shock damage that drains magicka; Augmented Shock applies.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.silence",
+   "text": "Silence",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 40,
+   "ranges": "Touch/Target",
+   "unit": "",
+   "card": "The target cannot cast.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.slowfall",
+   "text": "Slowfall",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 3,
+   "ranges": "Self/Touch/Target",
+   "unit": "",
+   "card": "Falls slowly and without damage.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.sound",
+   "text": "Sound",
+   "school": 3,
+   "schoolName": "Illusion",
+   "baseCost": 3,
+   "ranges": "Touch/Target",
+   "unit": "pts",
+   "card": "The target's spells fail more often.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.spell_absorption",
+   "text": "Spell Absorption",
+   "school": 4,
+   "schoolName": "Restoration",
+   "baseCost": 10,
+   "ranges": "Self",
+   "unit": "%",
+   "card": "Chance to absorb hostile spells as magicka.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.summon_ancestral_ghost",
+   "text": "Summon Ancestral Ghost",
+   "school": 1,
+   "schoolName": "Conjuration",
+   "baseCost": 15,
+   "ranges": "Self",
+   "unit": "",
+   "card": "Summons an ancestral ghost.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.summon_clannfear",
+   "text": "Summon Clannfear",
+   "school": 1,
+   "schoolName": "Conjuration",
+   "baseCost": 22,
+   "ranges": "Self",
+   "unit": "",
+   "card": "Summons a clannfear.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.summon_scamp",
+   "text": "Summon Scamp",
+   "school": 1,
+   "schoolName": "Conjuration",
+   "baseCost": 11,
+   "ranges": "Self",
+   "unit": "",
+   "card": "Summons a scamp.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": false
+   }
+  },
+  {
+   "id": "mw.swift_swim",
+   "text": "Swift Swim",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 2,
+   "ranges": "Self/Touch/Target",
+   "unit": "pts",
+   "card": "Swim speed bonus.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.turn_undead",
+   "text": "Turn Undead",
+   "school": 1,
+   "schoolName": "Conjuration",
+   "baseCost": 0.2,
+   "ranges": "Touch/Target",
+   "unit": "level",
+   "card": "Undead flee.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.water_breathing",
+   "text": "Water Breathing",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 3,
+   "ranges": "Self/Touch/Target",
+   "unit": "",
+   "card": "Breathe underwater.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.water_walking",
+   "text": "Water Walking",
+   "school": 0,
+   "schoolName": "Alteration",
+   "baseCost": 3,
+   "ranges": "Self/Touch/Target",
+   "unit": "",
+   "card": "Walk on water.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": false,
+    "dur": true,
+    "area": true
+   }
+  },
+  {
+   "id": "mw.weakness_to_fire",
+   "text": "Weakness to Fire",
+   "school": 2,
+   "schoolName": "Destruction",
+   "baseCost": 2,
+   "ranges": "Self/Touch/Target",
+   "unit": "%",
+   "card": "Target takes more fire damage.",
+   "icon": "",
+   "target": 0,
+   "_mock": {
+    "ranges": [
+     "Self",
+     "Touch",
+     "Target"
+    ],
+    "mag": true,
+    "dur": true,
+    "area": true
+   }
+  }
+ ],
+ "attributes": [
+  "Strength",
+  "Intelligence",
+  "Willpower",
+  "Agility",
+  "Speed",
+  "Endurance",
+  "Personality",
+  "Luck"
+ ],
+ "skills": [
+  "One-Handed",
+  "Two-Handed",
+  "Archery",
+  "Block",
+  "Smithing",
+  "Heavy Armor",
+  "Light Armor",
+  "Pickpocket",
+  "Lockpicking",
+  "Sneak",
+  "Alchemy",
+  "Speech",
+  "Alteration",
+  "Conjuration",
+  "Destruction",
+  "Illusion",
+  "Restoration",
+  "Enchanting"
+ ],
+ "loadList": [
+  {
+   "slot": 0,
+   "name": "Winterhold Ascent",
+   "text": "Levitate 20 pts for 60 secs on Self",
+   "effects": [
+    [
+     "mw.levitate",
+     -1,
+     "Self",
+     20,
+     20,
+     60,
+     0
+    ]
+   ]
+  },
+  {
+   "slot": 3,
+   "name": "Stormcrow's Kiss",
+   "text": "Fire Damage 10 to 20 pts on Target, Shock Damage 10 to 20 pts on Target",
+   "effects": [
+    [
+     "mw.fire_damage",
+     -1,
+     "Target",
+     10,
+     20,
+     1,
+     0
+    ],
+    [
+     "mw.shock_damage",
+     -1,
+     "Target",
+     10,
+     20,
+     1,
+     0
+    ]
+   ]
+  },
+  {
+   "slot": 7,
+   "name": "Mark of the Scholar",
+   "text": "Fortify Intelligence 10 pts for 120 secs on Self",
+   "effects": [
+    [
+     "mw.fortify_attribute",
+     1,
+     "Self",
+     10,
+     10,
+     120,
+     0
+    ]
+   ]
+  }
+ ],
+ "state": {
+  "mode": "altar",
+  "providerName": "College of Winterhold Altar",
+  "name": "",
+  "gold": 1250
+ }
+}

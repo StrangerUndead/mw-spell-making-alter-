@@ -1,0 +1,2534 @@
+{
+  "tomes": [
+    {
+      "id": "levitate",
+      "title": "$LA_Tome_Levitate",
+      "spellName": "$LA_TomeSpell_Levitate",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.levitate",
+          "sub": -1,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 595,
+      "rank": "Adept",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2735"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 199
+    },
+    {
+      "id": "ondusis_open_door",
+      "title": "$LA_Tome_OndusisOpenDoor",
+      "spellName": "$LA_TomeSpell_OndusisOpenDoor",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.open",
+          "sub": -1,
+          "range": "touch",
+          "min": 50,
+          "max": 50,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 385,
+      "rank": "Apprentice",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 128
+    },
+    {
+      "id": "fenricks_doorjam",
+      "title": "$LA_Tome_FenricksDoorjam",
+      "spellName": "$LA_TomeSpell_FenricksDoorjam",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.lock",
+          "sub": -1,
+          "range": "touch",
+          "min": 10,
+          "max": 10,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 25,
+      "rank": "Novice",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B0"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 8
+    },
+    {
+      "id": "feather",
+      "title": "$LA_Tome_Feather",
+      "spellName": "$LA_TomeSpell_Feather",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.feather",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        }
+      ],
+      "value": 140,
+      "rank": "Novice",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B0"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 47
+    },
+    {
+      "id": "burden",
+      "title": "$LA_Tome_Burden",
+      "spellName": "$LA_TomeSpell_Burden",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.burden",
+          "sub": -1,
+          "range": "target",
+          "min": 20,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        }
+      ],
+      "value": 210,
+      "rank": "Apprentice",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 70
+    },
+    {
+      "id": "tinurs_hoptoad",
+      "title": "$LA_Tome_TinursHoptoad",
+      "spellName": "$LA_TomeSpell_TinursHoptoad",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.jump",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        }
+      ],
+      "value": 425,
+      "rank": "Adept",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2735"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 141
+    },
+    {
+      "id": "slowfall",
+      "title": "$LA_Tome_Slowfall",
+      "spellName": "$LA_TomeSpell_Slowfall",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.slowfall",
+          "sub": -1,
+          "range": "self",
+          "min": 30,
+          "max": 30,
+          "duration": 10,
+          "area": 0
+        }
+      ],
+      "value": 635,
+      "rank": "Adept",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2735"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 211
+    },
+    {
+      "id": "water_walking",
+      "title": "$LA_Tome_WaterWalking",
+      "spellName": "$LA_TomeSpell_WaterWalking",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.water_walking",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 120,
+      "rank": "Novice",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B0"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 39
+    },
+    {
+      "id": "water_breathing",
+      "title": "$LA_Tome_WaterBreathing",
+      "spellName": "$LA_TomeSpell_WaterBreathing",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.water_breathing",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 100,
+          "area": 0
+        }
+      ],
+      "value": 1170,
+      "rank": "Adept",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2735"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 389
+    },
+    {
+      "id": "swimmers_blessing",
+      "title": "$LA_Tome_SwimmersBlessing",
+      "spellName": "$LA_TomeSpell_SwimmersBlessing",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.swift_swim",
+          "sub": -1,
+          "range": "self",
+          "min": 5,
+          "max": 5,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 200,
+      "rank": "Apprentice",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 66
+    },
+    {
+      "id": "fire_shield",
+      "title": "$LA_Tome_FireShield",
+      "spellName": "$LA_TomeSpell_FireShield",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.fire_shield",
+          "sub": -1,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 595,
+      "rank": "Adept",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2735"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 199
+    },
+    {
+      "id": "frost_shield",
+      "title": "$LA_Tome_FrostShield",
+      "spellName": "$LA_TomeSpell_FrostShield",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.frost_shield",
+          "sub": -1,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 595,
+      "rank": "Adept",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2735"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 199
+    },
+    {
+      "id": "lightning_shield",
+      "title": "$LA_Tome_LightningShield",
+      "spellName": "$LA_TomeSpell_LightningShield",
+      "school": "Alteration",
+      "mwSchool": "Alteration",
+      "effects": [
+        {
+          "id": "mw.lightning_shield",
+          "sub": -1,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 595,
+      "rank": "Adept",
+      "vendors": [
+        "Alteration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2735"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 199
+    },
+    {
+      "id": "bound_armor",
+      "title": "$LA_Tome_BoundArmor",
+      "spellName": "$LA_TomeSpell_BoundArmor",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.bound_boots",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        },
+        {
+          "id": "mw.bound_cuirass",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        },
+        {
+          "id": "mw.bound_gloves",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        },
+        {
+          "id": "mw.bound_helm",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        },
+        {
+          "id": "mw.bound_shield",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 395,
+      "rank": "Novice",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B1"
+      ],
+      "extended": false,
+      "original": false,
+      "valuesFrom": [
+        "Bound Boots",
+        "Bound Cuirass",
+        "Bound Gauntlets",
+        "Bound Helm",
+        "Bound Shield"
+      ],
+      "skyrimCost": 131
+    },
+    {
+      "id": "bound_mace",
+      "title": "$LA_Tome_BoundMace",
+      "spellName": "$LA_TomeSpell_BoundMace",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.bound_mace",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 80,
+      "rank": "Apprentice",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272B"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 26
+    },
+    {
+      "id": "bound_spear",
+      "title": "$LA_Tome_BoundSpear",
+      "spellName": "$LA_TomeSpell_BoundSpear",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.bound_spear",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 80,
+      "rank": "Apprentice",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272B"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 26
+    },
+    {
+      "id": "command_creature",
+      "title": "$LA_Tome_CommandCreature",
+      "spellName": "$LA_TomeSpell_CommandCreature",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.command_creature",
+          "sub": -1,
+          "range": "target",
+          "min": 5,
+          "max": 5,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 2240,
+      "rank": "Master",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 747
+    },
+    {
+      "id": "command_humanoid",
+      "title": "$LA_Tome_CommandHumanoid",
+      "spellName": "$LA_TomeSpell_CommandHumanoid",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.command_humanoid",
+          "sub": -1,
+          "range": "target",
+          "min": 5,
+          "max": 5,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 2240,
+      "rank": "Master",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 747
+    },
+    {
+      "id": "summon_ancestral_ghost",
+      "title": "$LA_Tome_SummonAncestralGhost",
+      "spellName": "$LA_TomeSpell_SummonAncestralGhost",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.summon_ancestral_ghost",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 275,
+      "rank": "Apprentice",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272B"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 91
+    },
+    {
+      "id": "summon_skeletal_minion",
+      "title": "$LA_Tome_SummonSkeletalMinion",
+      "spellName": "$LA_TomeSpell_SummonSkeletalMinion",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.summon_skeletal_minion",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 510,
+      "rank": "Adept",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2730"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 170
+    },
+    {
+      "id": "summon_daedroth",
+      "title": "$LA_Tome_SummonDaedroth",
+      "spellName": "$LA_TomeSpell_SummonDaedroth",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.summon_daedroth",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 1260,
+      "rank": "Expert",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2736"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 420
+    },
+    {
+      "id": "summon_golden_saint",
+      "title": "$LA_Tome_SummonGoldenSaint",
+      "spellName": "$LA_TomeSpell_SummonGoldenSaint",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.summon_golden_saint",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 2170,
+      "rank": "Master",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 722
+    },
+    {
+      "id": "summon_hunger",
+      "title": "$LA_Tome_SummonHunger",
+      "spellName": "$LA_TomeSpell_SummonHunger",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.summon_hunger",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 1145,
+      "rank": "Expert",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2736"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 381
+    },
+    {
+      "id": "summon_winged_twilight",
+      "title": "$LA_Tome_SummonWingedTwilight",
+      "spellName": "$LA_TomeSpell_SummonWingedTwilight",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mw.summon_winged_twilight",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 2050,
+      "rank": "Master",
+      "vendors": [
+        "Conjuration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 683
+    },
+    {
+      "id": "fuddle",
+      "title": "$LA_Tome_Fuddle",
+      "spellName": "$LA_TomeSpell_Fuddle",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.damage_attribute",
+          "sub": 1,
+          "range": "touch",
+          "min": 1,
+          "max": 20,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 110,
+      "rank": "Novice",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B2"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 36
+    },
+    {
+      "id": "spirit_knife",
+      "title": "$LA_Tome_SpiritKnife",
+      "spellName": "$LA_TomeSpell_SpiritKnife",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.damage_health",
+          "sub": -1,
+          "range": "touch",
+          "min": 1,
+          "max": 20,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 110,
+      "rank": "Novice",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B2"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 36
+    },
+    {
+      "id": "soulpinch",
+      "title": "$LA_Tome_Soulpinch",
+      "spellName": "$LA_TomeSpell_Soulpinch",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.damage_magicka",
+          "sub": -1,
+          "range": "touch",
+          "min": 1,
+          "max": 20,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 110,
+      "rank": "Novice",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B2"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 36
+    },
+    {
+      "id": "doze",
+      "title": "$LA_Tome_Doze",
+      "spellName": "$LA_TomeSpell_Doze",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.damage_fatigue",
+          "sub": -1,
+          "range": "touch",
+          "min": 1,
+          "max": 20,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 55,
+      "rank": "Novice",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B2"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 18
+    },
+    {
+      "id": "eaters",
+      "title": "$LA_Tome_Eaters",
+      "spellName": "$LA_TomeSpell_Eaters",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.disintegrate_armor",
+          "sub": -1,
+          "range": "touch",
+          "min": 10,
+          "max": 30,
+          "duration": 1,
+          "area": 0
+        },
+        {
+          "id": "mw.disintegrate_weapon",
+          "sub": -1,
+          "range": "touch",
+          "min": 6,
+          "max": 25,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 275,
+      "rank": "Novice",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B2"
+      ],
+      "extended": false,
+      "original": false,
+      "valuesFrom": [
+        "Armor Eater",
+        "Weapon Eater"
+      ],
+      "skyrimCost": 92
+    },
+    {
+      "id": "strength_leech",
+      "title": "$LA_Tome_StrengthLeech",
+      "spellName": "$LA_TomeSpell_StrengthLeech",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.drain_attribute",
+          "sub": 0,
+          "range": "touch",
+          "min": 20,
+          "max": 20,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 395,
+      "rank": "Adept",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2731"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 132
+    },
+    {
+      "id": "drain_blood",
+      "title": "$LA_Tome_DrainBlood",
+      "spellName": "$LA_TomeSpell_DrainBlood",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.drain_health",
+          "sub": -1,
+          "range": "touch",
+          "min": 5,
+          "max": 5,
+          "duration": 30,
+          "area": 0
+        },
+        {
+          "id": "mw.drain_magicka",
+          "sub": -1,
+          "range": "touch",
+          "min": 5,
+          "max": 5,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 795,
+      "rank": "Adept",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2731"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 265
+    },
+    {
+      "id": "sleep",
+      "title": "$LA_Tome_Sleep",
+      "spellName": "$LA_TomeSpell_Sleep",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.drain_fatigue",
+          "sub": -1,
+          "range": "target",
+          "min": 5,
+          "max": 15,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 595,
+      "rank": "Adept",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2731"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 199
+    },
+    {
+      "id": "drain_block",
+      "title": "$LA_Tome_DrainBlock",
+      "spellName": "$LA_TomeSpell_DrainBlock",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.drain_skill",
+          "sub": 3,
+          "range": "target",
+          "min": 5,
+          "max": 20,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 735,
+      "rank": "Adept",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2731"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 244
+    },
+    {
+      "id": "poison",
+      "title": "$LA_Tome_Poison",
+      "spellName": "$LA_TomeSpell_Poison",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.poison",
+          "sub": -1,
+          "range": "target",
+          "min": 2,
+          "max": 20,
+          "duration": 1,
+          "area": 5
+        }
+      ],
+      "value": 210,
+      "rank": "Apprentice",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272C"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 70
+    },
+    {
+      "id": "dire_weakness",
+      "title": "$LA_Tome_DireWeakness",
+      "spellName": "$LA_TomeSpell_DireWeakness",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mw.weakness_to_fire",
+          "sub": -1,
+          "range": "target",
+          "min": 2,
+          "max": 60,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.weakness_to_frost",
+          "sub": -1,
+          "range": "target",
+          "min": 2,
+          "max": 60,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.weakness_to_shock",
+          "sub": -1,
+          "range": "target",
+          "min": 2,
+          "max": 60,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.weakness_to_magicka",
+          "sub": -1,
+          "range": "target",
+          "min": 2,
+          "max": 60,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.weakness_to_poison",
+          "sub": -1,
+          "range": "target",
+          "min": 2,
+          "max": 60,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.weakness_to_common_disease",
+          "sub": -1,
+          "range": "target",
+          "min": 1,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        }
+      ],
+      "value": 3505,
+      "rank": "Adept",
+      "vendors": [
+        "Destruction"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2731"
+      ],
+      "extended": false,
+      "original": false,
+      "valuesFrom": [
+        "Dire Weakness to Fire",
+        "Dire Weakness to Frost",
+        "Dire Weakness to Shock",
+        "Dire Weakness to Magicka",
+        "Dire Weakness to Poison",
+        "Weakness to Common Disease"
+      ],
+      "skyrimCost": 1168
+    },
+    {
+      "id": "crying_eye",
+      "title": "$LA_Tome_CryingEye",
+      "spellName": "$LA_TomeSpell_CryingEye",
+      "school": "Illusion",
+      "mwSchool": "Illusion",
+      "effects": [
+        {
+          "id": "mw.blind",
+          "sub": -1,
+          "range": "target",
+          "min": 1,
+          "max": 10,
+          "duration": 5,
+          "area": 0
+        }
+      ],
+      "value": 30,
+      "rank": "Novice",
+      "vendors": [
+        "Illusion"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B3"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 10
+    },
+    {
+      "id": "shadow_weave",
+      "title": "$LA_Tome_ShadowWeave",
+      "spellName": "$LA_TomeSpell_ShadowWeave",
+      "school": "Illusion",
+      "mwSchool": "Illusion",
+      "effects": [
+        {
+          "id": "mw.chameleon",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.sanctuary",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        }
+      ],
+      "value": 280,
+      "rank": "Novice",
+      "vendors": [
+        "Illusion"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B3"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 94
+    },
+    {
+      "id": "charm_mortal",
+      "title": "$LA_Tome_CharmMortal",
+      "spellName": "$LA_TomeSpell_CharmMortal",
+      "school": "Illusion",
+      "mwSchool": "Illusion",
+      "effects": [
+        {
+          "id": "mw.charm",
+          "sub": -1,
+          "range": "target",
+          "min": 10,
+          "max": 30,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 2980,
+      "rank": "Master",
+      "vendors": [
+        "Illusion"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273C"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 994
+    },
+    {
+      "id": "night_eye",
+      "title": "$LA_Tome_NightEye",
+      "spellName": "$LA_TomeSpell_NightEye",
+      "school": "Illusion",
+      "mwSchool": "Illusion",
+      "effects": [
+        {
+          "id": "mw.night_eye",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 80,
+      "rank": "Novice",
+      "vendors": [
+        "Illusion"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B3"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 26
+    },
+    {
+      "id": "silence",
+      "title": "$LA_Tome_Silence",
+      "spellName": "$LA_TomeSpell_Silence",
+      "school": "Illusion",
+      "mwSchool": "Illusion",
+      "effects": [
+        {
+          "id": "mw.silence",
+          "sub": -1,
+          "range": "target",
+          "min": 1,
+          "max": 1,
+          "duration": 5,
+          "area": 0
+        }
+      ],
+      "value": 250,
+      "rank": "Apprentice",
+      "vendors": [
+        "Illusion"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272D"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 83
+    },
+    {
+      "id": "earwig",
+      "title": "$LA_Tome_Earwig",
+      "spellName": "$LA_TomeSpell_Earwig",
+      "school": "Illusion",
+      "mwSchool": "Illusion",
+      "effects": [
+        {
+          "id": "mw.sound",
+          "sub": -1,
+          "range": "target",
+          "min": 3,
+          "max": 8,
+          "duration": 5,
+          "area": 0
+        }
+      ],
+      "value": 95,
+      "rank": "Novice",
+      "vendors": [
+        "Illusion"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B3"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 32
+    },
+    {
+      "id": "light",
+      "title": "$LA_Tome_Light",
+      "spellName": "$LA_TomeSpell_Light",
+      "school": "Alteration",
+      "mwSchool": "Illusion",
+      "effects": [
+        {
+          "id": "mw.light",
+          "sub": -1,
+          "range": "target",
+          "min": 20,
+          "max": 20,
+          "duration": 30,
+          "area": 30
+        }
+      ],
+      "value": 580,
+      "rank": "Novice",
+      "vendors": [
+        "Illusion"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B0"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 194
+    },
+    {
+      "id": "absorb_strength",
+      "title": "$LA_Tome_AbsorbStrength",
+      "spellName": "$LA_TomeSpell_AbsorbStrength",
+      "school": "Destruction",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.absorb_attribute",
+          "sub": 0,
+          "range": "touch",
+          "min": 5,
+          "max": 20,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 495,
+      "rank": "Adept",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2731"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 165
+    },
+    {
+      "id": "energy_leech",
+      "title": "$LA_Tome_EnergyLeech",
+      "spellName": "$LA_TomeSpell_EnergyLeech",
+      "school": "Destruction",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.absorb_fatigue",
+          "sub": -1,
+          "range": "touch",
+          "min": 5,
+          "max": 20,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 995,
+      "rank": "Expert",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2737"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 331
+    },
+    {
+      "id": "righteousness",
+      "title": "$LA_Tome_Righteousness",
+      "spellName": "$LA_TomeSpell_Righteousness",
+      "school": "Destruction",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.absorb_health",
+          "sub": -1,
+          "range": "touch",
+          "min": 10,
+          "max": 10,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 105,
+      "rank": "Novice",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B2"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 35
+    },
+    {
+      "id": "almsivi_intervention",
+      "title": "$LA_Tome_AlmsiviIntervention",
+      "spellName": "$LA_TomeSpell_AlmsiviIntervention",
+      "school": "Conjuration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.almsivi_intervention",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 240,
+      "rank": "Apprentice",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272B"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 80
+    },
+    {
+      "id": "divine_intervention",
+      "title": "$LA_Tome_DivineIntervention",
+      "spellName": "$LA_TomeSpell_DivineIntervention",
+      "school": "Conjuration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.divine_intervention",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 240,
+      "rank": "Apprentice",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272B"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 80
+    },
+    {
+      "id": "mark",
+      "title": "$LA_Tome_Mark",
+      "spellName": "$LA_TomeSpell_Mark",
+      "school": "Conjuration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.mark",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 560,
+      "rank": "Adept",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2730"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 186
+    },
+    {
+      "id": "recall",
+      "title": "$LA_Tome_Recall",
+      "spellName": "$LA_TomeSpell_Recall",
+      "school": "Conjuration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.recall",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 560,
+      "rank": "Adept",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2730"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 186
+    },
+    {
+      "id": "detect_creature",
+      "title": "$LA_Tome_DetectCreature",
+      "spellName": "$LA_TomeSpell_DetectCreature",
+      "school": "Alteration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.detect_animal",
+          "sub": -1,
+          "range": "self",
+          "min": 50,
+          "max": 150,
+          "duration": 5,
+          "area": 0
+        }
+      ],
+      "value": 290,
+      "rank": "Apprentice",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 96
+    },
+    {
+      "id": "detect_key",
+      "title": "$LA_Tome_DetectKey",
+      "spellName": "$LA_TomeSpell_DetectKey",
+      "school": "Alteration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.detect_key",
+          "sub": -1,
+          "range": "self",
+          "min": 50,
+          "max": 50,
+          "duration": 5,
+          "area": 0
+        }
+      ],
+      "value": 190,
+      "rank": "Apprentice",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 64
+    },
+    {
+      "id": "detect_enchantment",
+      "title": "$LA_Tome_DetectEnchantment",
+      "spellName": "$LA_TomeSpell_DetectEnchantment",
+      "school": "Alteration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.detect_enchantment",
+          "sub": -1,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 10,
+          "area": 0
+        }
+      ],
+      "value": 70,
+      "rank": "Novice",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B0"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 23
+    },
+    {
+      "id": "dispel",
+      "title": "$LA_Tome_Dispel",
+      "spellName": "$LA_TomeSpell_Dispel",
+      "school": "Restoration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.dispel",
+          "sub": -1,
+          "range": "self",
+          "min": 100,
+          "max": 100,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 640,
+      "rank": "Adept",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2734"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 214
+    },
+    {
+      "id": "reflect",
+      "title": "$LA_Tome_Reflect",
+      "spellName": "$LA_TomeSpell_Reflect",
+      "school": "Alteration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.reflect",
+          "sub": -1,
+          "range": "self",
+          "min": 10,
+          "max": 20,
+          "duration": 5,
+          "area": 0
+        }
+      ],
+      "value": 580,
+      "rank": "Adept",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2735"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 193
+    },
+    {
+      "id": "spell_absorption",
+      "title": "$LA_Tome_SpellAbsorption",
+      "spellName": "$LA_TomeSpell_SpellAbsorption",
+      "school": "Alteration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.spell_absorption",
+          "sub": -1,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 5,
+          "area": 0
+        }
+      ],
+      "value": 385,
+      "rank": "Apprentice",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272A"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 129
+    },
+    {
+      "id": "telekinesis",
+      "title": "$LA_Tome_Telekinesis",
+      "spellName": "$LA_TomeSpell_Telekinesis",
+      "school": "Alteration",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mw.telekinesis",
+          "sub": -1,
+          "range": "self",
+          "min": 25,
+          "max": 25,
+          "duration": 5,
+          "area": 0
+        }
+      ],
+      "value": 95,
+      "rank": "Novice",
+      "vendors": [
+        "Mysticism"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B0"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 32
+    },
+    {
+      "id": "panacea",
+      "title": "$LA_Tome_Panacea",
+      "spellName": "$LA_TomeSpell_Panacea",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.cure_poison",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 1,
+          "area": 0
+        },
+        {
+          "id": "mw.cure_common_disease",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 1,
+          "area": 0
+        },
+        {
+          "id": "mw.cure_blight_disease",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 3845,
+      "rank": "Master",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0DD648"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 1281
+    },
+    {
+      "id": "free_action",
+      "title": "$LA_Tome_FreeAction",
+      "spellName": "$LA_TomeSpell_FreeAction",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.cure_paralyzation",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 160,
+      "rank": "Novice",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B4"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 53
+    },
+    {
+      "id": "mephalas_skill",
+      "title": "$LA_Tome_MephalasSkill",
+      "spellName": "$LA_TomeSpell_MephalasSkill",
+      "school": "Illusion",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.chameleon",
+          "sub": -1,
+          "range": "self",
+          "min": 50,
+          "max": 50,
+          "duration": 60,
+          "area": 0
+        },
+        {
+          "id": "mw.fortify_attack",
+          "sub": -1,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 3170,
+      "rank": "Master",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273C"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 1056
+    },
+    {
+      "id": "troll_strength",
+      "title": "$LA_Tome_TrollStrength",
+      "spellName": "$LA_TomeSpell_TrollStrength",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.fortify_attribute",
+          "sub": 0,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 390,
+      "rank": "Adept",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2734"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 130
+    },
+    {
+      "id": "vital_gifts",
+      "title": "$LA_Tome_VitalGifts",
+      "spellName": "$LA_TomeSpell_VitalGifts",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.fortify_health",
+          "sub": -1,
+          "range": "self",
+          "min": 5,
+          "max": 20,
+          "duration": 30,
+          "area": 0
+        },
+        {
+          "id": "mw.fortify_magicka",
+          "sub": -1,
+          "range": "self",
+          "min": 5,
+          "max": 20,
+          "duration": 60,
+          "area": 0
+        },
+        {
+          "id": "mw.fortify_fatigue",
+          "sub": -1,
+          "range": "self",
+          "min": 5,
+          "max": 20,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 860,
+      "rank": "Novice",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B4"
+      ],
+      "extended": false,
+      "original": false,
+      "valuesFrom": [
+        "Vitality",
+        "Powerwell",
+        "Vigor"
+      ],
+      "skyrimCost": 287
+    },
+    {
+      "id": "fortify_security_skill",
+      "title": "$LA_Tome_FortifySecuritySkill",
+      "spellName": "$LA_TomeSpell_FortifySecuritySkill",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.fortify_skill",
+          "sub": 8,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 390,
+      "rank": "Adept",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2734"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 130
+    },
+    {
+      "id": "elemental_wards",
+      "title": "$LA_Tome_ElementalWards",
+      "spellName": "$LA_TomeSpell_ElementalWards",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.resist_fire",
+          "sub": -1,
+          "range": "self",
+          "min": 30,
+          "max": 30,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.resist_frost",
+          "sub": -1,
+          "range": "self",
+          "min": 30,
+          "max": 30,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.resist_shock",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 5,
+          "area": 0
+        },
+        {
+          "id": "mw.resist_magicka",
+          "sub": -1,
+          "range": "self",
+          "min": 30,
+          "max": 30,
+          "duration": 10,
+          "area": 0
+        }
+      ],
+      "value": 1425,
+      "rank": "Adept",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2734"
+      ],
+      "extended": false,
+      "original": false,
+      "valuesFrom": [
+        "Great Resist Fire",
+        "Great Resist Frost",
+        "Resist Shock",
+        "Great Resist Magicka"
+      ],
+      "skyrimCost": 475
+    },
+    {
+      "id": "healers_wards",
+      "title": "$LA_Tome_HealersWards",
+      "spellName": "$LA_TomeSpell_HealersWards",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.resist_poison",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.resist_common_disease",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.resist_blight_disease",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.resist_corprus_disease",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mw.resist_paralysis",
+          "sub": -1,
+          "range": "self",
+          "min": 50,
+          "max": 50,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 2175,
+      "rank": "Adept",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A2734"
+      ],
+      "extended": false,
+      "original": false,
+      "valuesFrom": [
+        "Strong Resist Poison",
+        "Seryn's Blessing",
+        "Vivec's Mercy",
+        "Strong Resist Corprus Disease",
+        "Resist Paralysis"
+      ],
+      "skyrimCost": 725
+    },
+    {
+      "id": "restore_strength",
+      "title": "$LA_Tome_RestoreStrength",
+      "spellName": "$LA_TomeSpell_RestoreStrength",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.restore_attribute",
+          "sub": 0,
+          "range": "self",
+          "min": 5,
+          "max": 20,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 250,
+      "rank": "Apprentice",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A272E"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 82
+    },
+    {
+      "id": "rest_of_st_merris",
+      "title": "$LA_Tome_RestOfStMerris",
+      "spellName": "$LA_TomeSpell_RestOfStMerris",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mw.restore_fatigue",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 10,
+          "duration": 20,
+          "area": 0
+        }
+      ],
+      "value": 75,
+      "rank": "Novice",
+      "vendors": [
+        "Restoration"
+      ],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x09E2B4"
+      ],
+      "extended": false,
+      "original": true,
+      "skyrimCost": 24
+    },
+    {
+      "id": "arcane_reservoir",
+      "title": "$LA_Tome_ArcaneReservoir",
+      "spellName": "$LA_TomeSpell_ArcaneReservoir",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mwx.restore_magicka",
+          "sub": -1,
+          "range": "self",
+          "min": 5,
+          "max": 10,
+          "duration": 10,
+          "area": 0
+        },
+        {
+          "id": "mwx.fortify_maximum_magicka",
+          "sub": -1,
+          "range": "self",
+          "min": 10,
+          "max": 10,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 1830,
+      "rank": "Master",
+      "vendors": [],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273F",
+        "Skyrim.esm|0x0A2740"
+      ],
+      "extended": true,
+      "original": false,
+      "skyrimCost": 610
+    },
+    {
+      "id": "spirit_thief",
+      "title": "$LA_Tome_SpiritThief",
+      "spellName": "$LA_TomeSpell_SpiritThief",
+      "school": "Destruction",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mwx.absorb_magicka",
+          "sub": -1,
+          "range": "touch",
+          "min": 5,
+          "max": 20,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 130,
+      "rank": "Novice",
+      "vendors": [],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273F",
+        "Skyrim.esm|0x0A2740"
+      ],
+      "extended": true,
+      "original": false,
+      "skyrimCost": 43
+    },
+    {
+      "id": "mundane_ward",
+      "title": "$LA_Tome_MundaneWard",
+      "spellName": "$LA_TomeSpell_MundaneWard",
+      "school": "Restoration",
+      "mwSchool": "Restoration",
+      "effects": [
+        {
+          "id": "mwx.resist_normal_weapons",
+          "sub": -1,
+          "range": "self",
+          "min": 20,
+          "max": 20,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 1990,
+      "rank": "Master",
+      "vendors": [],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273F",
+        "Skyrim.esm|0x0A2740"
+      ],
+      "extended": true,
+      "original": false,
+      "skyrimCost": 662
+    },
+    {
+      "id": "mundane_bane",
+      "title": "$LA_Tome_MundaneBane",
+      "spellName": "$LA_TomeSpell_MundaneBane",
+      "school": "Destruction",
+      "mwSchool": "Destruction",
+      "effects": [
+        {
+          "id": "mwx.weakness_to_normal_weapons",
+          "sub": -1,
+          "range": "target",
+          "min": 10,
+          "max": 20,
+          "duration": 30,
+          "area": 0
+        }
+      ],
+      "value": 895,
+      "rank": "Expert",
+      "vendors": [],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273F",
+        "Skyrim.esm|0x0A2740"
+      ],
+      "extended": true,
+      "original": false,
+      "skyrimCost": 298
+    },
+    {
+      "id": "dwemer_animunculi",
+      "title": "$LA_Tome_DwemerAnimunculi",
+      "spellName": "$LA_TomeSpell_DwemerAnimunculi",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mwx.summon_centurion_sphere",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 120,
+          "area": 0
+        }
+      ],
+      "value": 1945,
+      "rank": "Master",
+      "vendors": [],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273F",
+        "Skyrim.esm|0x0A2740"
+      ],
+      "extended": true,
+      "original": true,
+      "skyrimCost": 648
+    },
+    {
+      "id": "summon_fabricant",
+      "title": "$LA_Tome_SummonFabricant",
+      "spellName": "$LA_TomeSpell_SummonFabricant",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mwx.summon_fabricant",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 395,
+      "rank": "Adept",
+      "vendors": [],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273F",
+        "Skyrim.esm|0x0A2740"
+      ],
+      "extended": true,
+      "original": false,
+      "skyrimCost": 131
+    },
+    {
+      "id": "call_of_the_wild",
+      "title": "$LA_Tome_CallOfTheWild",
+      "spellName": "$LA_TomeSpell_CallOfTheWild",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mwx.call_wolf",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        },
+        {
+          "id": "mwx.call_bear",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 2365,
+      "rank": "Expert",
+      "vendors": [],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273F",
+        "Skyrim.esm|0x0A2740"
+      ],
+      "extended": true,
+      "original": false,
+      "skyrimCost": 788
+    },
+    {
+      "id": "summon_bonewolf",
+      "title": "$LA_Tome_SummonBonewolf",
+      "spellName": "$LA_TomeSpell_SummonBonewolf",
+      "school": "Conjuration",
+      "mwSchool": "Conjuration",
+      "effects": [
+        {
+          "id": "mwx.summon_bonewolf",
+          "sub": -1,
+          "range": "self",
+          "min": 1,
+          "max": 1,
+          "duration": 60,
+          "area": 0
+        }
+      ],
+      "value": 1180,
+      "rank": "Expert",
+      "vendors": [],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273F",
+        "Skyrim.esm|0x0A2740"
+      ],
+      "extended": true,
+      "original": false,
+      "skyrimCost": 394
+    },
+    {
+      "id": "skill_leech",
+      "title": "$LA_Tome_SkillLeech",
+      "spellName": "$LA_TomeSpell_SkillLeech",
+      "school": "Destruction",
+      "mwSchool": "Mysticism",
+      "effects": [
+        {
+          "id": "mwx.damage_skill",
+          "sub": 14,
+          "range": "touch",
+          "min": 1,
+          "max": 10,
+          "duration": 1,
+          "area": 0
+        },
+        {
+          "id": "mwx.absorb_skill",
+          "sub": 14,
+          "range": "touch",
+          "min": 5,
+          "max": 10,
+          "duration": 30,
+          "area": 0
+        },
+        {
+          "id": "mwx.restore_skill",
+          "sub": 14,
+          "range": "self",
+          "min": 1,
+          "max": 10,
+          "duration": 1,
+          "area": 0
+        }
+      ],
+      "value": 365,
+      "rank": "Apprentice",
+      "vendors": [],
+      "loot": true,
+      "lootLists": [
+        "Skyrim.esm|0x0A273F",
+        "Skyrim.esm|0x0A2740"
+      ],
+      "extended": true,
+      "original": false,
+      "skyrimCost": 121
+    }
+  ]
+}

@@ -1,0 +1,443 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/effect.schema.json",
+  "title": "Effect catalog file (data/effects/*.json): an array of EffectDef",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/EffectDef"
+  },
+  "$defs": {
+    "EffectDef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "set",
+        "tier",
+        "morrowind",
+        "skyrim",
+        "ranges",
+        "magnitude",
+        "duration",
+        "area",
+        "target",
+        "keywords",
+        "riders",
+        "reflectable",
+        "hostile",
+        "discovery",
+        "itemCard",
+        "sources"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "common.schema.json#/$defs/effectId"
+        },
+        "name": {
+          "type": "string",
+          "pattern": "^\\$LA_Effect_[A-Za-z0-9]+$"
+        },
+        "nameSkyrim": {
+          "type": "string",
+          "pattern": "^\\$LA_EffectSk_[A-Za-z0-9]+$"
+        },
+        "set": {
+          "enum": [
+            "mw",
+            "mwx",
+            "sk"
+          ]
+        },
+        "tier": {
+          "enum": [
+            "native",
+            "custom",
+            "standin"
+          ]
+        },
+        "morrowind": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "index",
+                "school",
+                "baseCost"
+              ],
+              "properties": {
+                "index": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 142
+                },
+                "school": {
+                  "$ref": "common.schema.json#/$defs/mwSchool"
+                },
+                "baseCost": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                }
+              }
+            }
+          ]
+        },
+        "skyrim": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "school",
+            "baseCost",
+            "vanillaTargetPriced",
+            "archetype",
+            "flags"
+          ],
+          "properties": {
+            "school": {
+              "$ref": "common.schema.json#/$defs/skSchool"
+            },
+            "baseCost": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "fitFrom": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "spell",
+                    "label",
+                    "magnitude",
+                    "duration",
+                    "area",
+                    "cost"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "vanilla"
+                    },
+                    "spell": {
+                      "$ref": "common.schema.json#/$defs/formRef"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "magnitude": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "duration": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "area": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "cost": {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  }
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "kind",
+                    "tome",
+                    "label",
+                    "magnitude",
+                    "duration",
+                    "area"
+                  ],
+                  "properties": {
+                    "kind": {
+                      "const": "morrowind"
+                    },
+                    "tome": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9_]+$"
+                    },
+                    "label": {
+                      "type": "string"
+                    },
+                    "magnitude": {
+                      "oneOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          "minItems": 2,
+                          "maxItems": 2
+                        }
+                      ]
+                    },
+                    "duration": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "area": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  }
+                }
+              ]
+            },
+            "vanillaTargetPriced": {
+              "type": "boolean"
+            },
+            "archetype": {
+              "$ref": "common.schema.json#/$defs/archetype"
+            },
+            "actorValue": {
+              "type": "string"
+            },
+            "secondAV": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "resist": {
+              "type": "string"
+            },
+            "vanillaEffect": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "projectile": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "creature": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "weapon": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "armor": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "flags": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "Hostile",
+                  "Detrimental",
+                  "Recover",
+                  "NoArea",
+                  "NoDuration",
+                  "NoMagnitude",
+                  "PowerAffectsMagnitude",
+                  "PowerAffectsDuration"
+                ]
+              }
+            }
+          }
+        },
+        "ranges": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "common.schema.json#/$defs/range"
+          }
+        },
+        "magnitude": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "has",
+            "unit",
+            "ticking"
+          ],
+          "properties": {
+            "has": {
+              "type": "boolean"
+            },
+            "unit": {
+              "enum": [
+                "pts",
+                "percent",
+                "ft",
+                "level",
+                "none"
+              ]
+            },
+            "ticking": {
+              "type": "boolean"
+            }
+          }
+        },
+        "duration": {
+          "type": "boolean"
+        },
+        "area": {
+          "type": "boolean"
+        },
+        "target": {
+          "enum": [
+            "none",
+            "attribute",
+            "skill"
+          ]
+        },
+        "keywords": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "common.schema.json#/$defs/editorId"
+          }
+        },
+        "riders": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9]+$"
+          }
+        },
+        "rankLadder": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": false,
+          "properties": {
+            "Novice": {
+              "type": "number",
+              "minimum": 1
+            },
+            "Apprentice": {
+              "type": "number",
+              "minimum": 1
+            },
+            "Adept": {
+              "type": "number",
+              "minimum": 1
+            },
+            "Expert": {
+              "type": "number",
+              "minimum": 1
+            },
+            "Master": {
+              "type": "number",
+              "minimum": 1
+            }
+          }
+        },
+        "reflectable": {
+          "type": "boolean"
+        },
+        "hostile": {
+          "type": "boolean"
+        },
+        "discovery": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "archetype": {
+              "$ref": "common.schema.json#/$defs/archetype"
+            },
+            "actorValue": {
+              "type": "string"
+            },
+            "resist": {
+              "type": "string"
+            },
+            "hostile": {
+              "type": "boolean"
+            },
+            "keywordsAny": {
+              "type": "array",
+              "items": {
+                "$ref": "common.schema.json#/$defs/editorId"
+              }
+            }
+          }
+        },
+        "itemCard": {
+          "type": "string",
+          "pattern": "^\\$LA_Card_[A-Za-z0-9]+$"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "oneOf": [
+              {
+                "$ref": "common.schema.json#/$defs/formRef"
+              },
+              {
+                "$ref": "common.schema.json#/$defs/tomeSource"
+              }
+            ]
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "set": {
+                "enum": [
+                  "mw",
+                  "mwx"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "morrowind": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "magnitude": {
+                "properties": {
+                  "has": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "magnitude": {
+                "properties": {
+                  "unit": {
+                    "const": "none"
+                  },
+                  "ticking": {
+                    "const": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

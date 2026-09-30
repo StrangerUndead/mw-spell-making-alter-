@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/tomes.schema.json",
+  "title": "Morrowind spell tomes (data/content/tomes.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "tomes"
+  ],
+  "properties": {
+    "tomes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "spellName",
+          "school",
+          "effects",
+          "value",
+          "vendors",
+          "loot"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "title": {
+            "type": "string",
+            "pattern": "^\\$LA_Tome_[A-Za-z0-9]+$"
+          },
+          "spellName": {
+            "type": "string",
+            "pattern": "^\\$LA_TomeSpell_[A-Za-z0-9]+$"
+          },
+          "school": {
+            "$ref": "common.schema.json#/$defs/skSchool"
+          },
+          "mwSchool": {
+            "$ref": "common.schema.json#/$defs/mwSchool"
+          },
+          "effects": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 8,
+            "items": {
+              "$ref": "common.schema.json#/$defs/spellEffect"
+            }
+          },
+          "value": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "rank": {
+            "$ref": "common.schema.json#/$defs/rank"
+          },
+          "vendors": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/mwSchool"
+            }
+          },
+          "loot": {
+            "type": "boolean"
+          },
+          "lootLists": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            }
+          },
+          "extended": {
+            "type": "boolean"
+          },
+          "original": {
+            "type": "boolean"
+          },
+          "valuesFrom": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "skyrimCost": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}

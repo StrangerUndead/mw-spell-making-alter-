@@ -1,0 +1,650 @@
+[
+  {
+    "id": "sk.muffle",
+    "name": "$LA_Effect_Muffle",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "ValueModifier",
+      "actorValue": "MovementNoiseMult",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x08F3EA",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x08F3EB",
+        "label": "Muffle",
+        "magnitude": 1,
+        "duration": 180,
+        "area": 0,
+        "cost": 144
+      },
+      "baseCost": 5.9918748864006135
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 1
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Muffle",
+    "sources": [
+      "Skyrim.esm|0x08F3EB"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.transmute",
+    "name": "$LA_Effect_Transmute",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x109110",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x109111",
+        "label": "Transmute",
+        "magnitude": 0,
+        "duration": 0,
+        "area": 0,
+        "cost": 100
+      },
+      "baseCost": 100.0
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": false,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Script",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Transmute",
+    "sources": [
+      "Skyrim.esm|0x109111"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.detect_life",
+    "name": "$LA_Effect_DetectLife",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "DetectLife",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x1019D8",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x0211EE",
+        "label": "Detect Life (per second)",
+        "magnitude": 0,
+        "duration": 10,
+        "area": 0,
+        "cost": 100
+      },
+      "baseCost": 100.0
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "DetectLife",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_DetectLife",
+    "sources": [
+      "Skyrim.esm|0x0211EE"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.detect_dead",
+    "name": "$LA_Effect_DetectDead",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "DetectLife",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0B79E8",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x0211EF",
+        "label": "Detect Dead (per second)",
+        "magnitude": 0,
+        "duration": 10,
+        "area": 0,
+        "cost": 148
+      },
+      "baseCost": 148.0
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Expert": 1
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "DetectLife",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_DetectDead",
+    "sources": [
+      "Skyrim.esm|0x0211EF"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.reanimate",
+    "name": "$LA_Effect_Reanimate",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Reanimate",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x065BD6",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x07E8E1",
+        "label": "Raise Zombie",
+        "magnitude": 6,
+        "duration": 60,
+        "area": 0,
+        "cost": 103
+      },
+      "baseCost": 1.999422034263129
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "level",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 13,
+      "Adept": 21,
+      "Expert": 30
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Reanimate",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Reanimate",
+    "sources": [
+      "Skyrim.esm|0x07E8E1",
+      "Skyrim.esm|0x065BD7",
+      "Skyrim.esm|0x096D94",
+      "Skyrim.esm|0x096D95"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.banish_daedra",
+    "name": "$LA_Effect_BanishDaedra",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Banish",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x06D22B",
+      "flags": [
+        "Hostile"
+      ],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x06D22C",
+        "label": "Banish Daedra",
+        "magnitude": 15,
+        "duration": 0,
+        "area": 0,
+        "cost": 196
+      },
+      "baseCost": 9.96679868889363
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "level",
+      "ticking": false
+    },
+    "duration": false,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "Banish",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_BanishDaedra",
+    "sources": [
+      "Skyrim.esm|0x06D22C",
+      "Skyrim.esm|0x06F952"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.command_daedra",
+    "name": "$LA_Effect_CommandDaedra",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "CommandSummoned",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x06F954",
+      "flags": [
+        "Hostile"
+      ],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x06F953",
+        "label": "Command Daedra",
+        "magnitude": 20,
+        "duration": 0,
+        "area": 0,
+        "cost": 243
+      },
+      "baseCost": 9.004783556649413
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "level",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Expert": 1
+    },
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "CommandSummoned",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_CommandDaedra",
+    "sources": [
+      "Skyrim.esm|0x06F953"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.flame_cloak",
+    "name": "$LA_Effect_FlameCloak",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Cloak",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03AE9E",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x03AE9F",
+        "label": "Flame Cloak",
+        "magnitude": 8,
+        "duration": 60,
+        "area": 0,
+        "cost": 289
+      },
+      "baseCost": 4.088203273545746
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicCloak",
+      "MagicDamageFire"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Cloak",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FlameCloak",
+    "sources": [
+      "Skyrim.esm|0x03AE9F"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.frost_cloak",
+    "name": "$LA_Effect_FrostCloak",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Cloak",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03AEA0",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x03AEA2",
+        "label": "Frost Cloak",
+        "magnitude": 8,
+        "duration": 60,
+        "area": 0,
+        "cost": 316
+      },
+      "baseCost": 4.470146139932373
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicCloak",
+      "MagicDamageFrost"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Cloak",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FrostCloak",
+    "sources": [
+      "Skyrim.esm|0x03AEA2"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.lightning_cloak",
+    "name": "$LA_Effect_LightningCloak",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Cloak",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03AEA1",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x03AEA3",
+        "label": "Lightning Cloak",
+        "magnitude": 8,
+        "duration": 60,
+        "area": 0,
+        "cost": 370
+      },
+      "baseCost": 5.234031872705626
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicCloak",
+      "MagicDamageShock"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Cloak",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_LightningCloak",
+    "sources": [
+      "Skyrim.esm|0x03AEA3"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.magelight",
+    "name": "$LA_Effect_Magelight",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Light",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01EA6D",
+      "projectile": "Skyrim.esm|0x041F0A",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x043323",
+        "label": "Magelight",
+        "magnitude": 5,
+        "duration": 60,
+        "area": 0,
+        "cost": 84
+      },
+      "baseCost": 1.992718285016476
+    },
+    "ranges": [
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 1
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Light",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Magelight",
+    "sources": [
+      "Skyrim.esm|0x043323"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  },
+  {
+    "id": "sk.conjure_ash_spawn",
+    "name": "$LA_Effect_ConjureAshSpawn",
+    "set": "sk",
+    "tier": "native",
+    "morrowind": null,
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Dragonborn.esm|0x01CDF7",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Dragonborn.esm|0x01CDF6",
+        "label": "Conjure Ash Spawn",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 186
+      },
+      "baseCost": 25.914722864416042
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ConjureAshSpawn",
+    "sources": [
+      "Dragonborn.esm|0x01CDF6"
+    ],
+    "notes": "Skyrim-only effect (Beyond Morrowind's list); fire-and-forget version of the vanilla spell."
+  }
+]

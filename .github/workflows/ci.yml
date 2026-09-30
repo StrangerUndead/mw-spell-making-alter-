@@ -1,0 +1,147 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ---------------------------------------------------------------------------------------------
+  # Portable core + Catch2 tests (native g++), data validators, FormKey check.
+  # Mirrors: cmake --preset linux-tests && cmake --build --preset linux-tests && ctest --preset linux-tests
+  # ---------------------------------------------------------------------------------------------
+  linux:
+    name: Linux - core, tests, data
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ninja-build g++
+          cmake --version
+          g++ --version
+
+      - name: Configure (linux-tests)
+        run: cmake --preset linux-tests
+
+      - name: Build (linux-tests)
+        run: cmake --build --preset linux-tests
+
+      - name: Test (linux-tests)
+        run: ctest --preset linux-tests
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Python requirements
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f tools/requirements.txt ]; then python -m pip install -r tools/requirements.txt; fi
+
+      - name: Validate data (tools/validate_data.py)
+        run: |
+          if [ -f tools/validate_data.py ]; then
+            python tools/validate_data.py
+          else
+            echo "tools/validate_data.py not present - skipped"
+          fi
+
+      - name: Check vanilla FormKeys (tools/check_formkeys.py)
+        env:
+          FORMKEYS_DIR: ${{ runner.temp }}/Mutagen.Bethesda.FormKeys
+        run: |
+          if [ -f tools/check_formkeys.py ]; then
+            git clone --depth 1 https://github.com/Mutagen-Modding/Mutagen.Bethesda.FormKeys.git "$FORMKEYS_DIR"
+            python tools/check_formkeys.py
+          else
+            echo "tools/check_formkeys.py not present - skipped"
+          fi
+
+  # ---------------------------------------------------------------------------------------------
+  # LostArt.dll with MSVC + vcpkg (CommonLibSSE-NG built from source, SE + AE).
+  # Mirrors: cmake --preset windows-msvc && cmake --build --preset windows-msvc && ctest --preset windows-msvc
+  # ---------------------------------------------------------------------------------------------
+  windows:
+    name: Windows - LostArt.dll (MSVC)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # (the runner context is not available in job-level env, so export from a step)
+      - name: Bootstrap vcpkg
+        shell: pwsh
+        run: |
+          $env:VCPKG_ROOT = "${{ runner.temp }}\vcpkg"
+          $env:VCPKG_DEFAULT_BINARY_CACHE = "${{ runner.temp }}\vcpkg-binary-cache"
+          "VCPKG_ROOT=$env:VCPKG_ROOT" >> $env:GITHUB_ENV
+          "VCPKG_DEFAULT_BINARY_CACHE=$env:VCPKG_DEFAULT_BINARY_CACHE" >> $env:GITHUB_ENV
+          git clone --filter=blob:none https://github.com/microsoft/vcpkg.git "$env:VCPKG_ROOT"
+          & "$env:VCPKG_ROOT/bootstrap-vcpkg.bat" -disableMetrics
+          New-Item -ItemType Directory -Force -Path "$env:VCPKG_DEFAULT_BINARY_CACHE" | Out-Null
+
+      - name: Cache vcpkg binaries
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/vcpkg-binary-cache
+          key: vcpkg-msvc-${{ runner.os }}-${{ hashFiles('vcpkg.json', 'vcpkg-configuration.json') }}
+          restore-keys: vcpkg-msvc-${{ runner.os }}-
+
+      - name: MSVC developer environment (x64)
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Install Ninja
+        uses: seanmiddleditch/gha-setup-ninja@v5
+
+      - name: Configure (windows-msvc)
+        run: cmake --preset windows-msvc
+
+      - name: Build (windows-msvc)
+        run: cmake --build --preset windows-msvc
+
+      - name: Test (windows-msvc)
+        run: ctest --preset windows-msvc
+
+      - name: Upload LostArt.dll
+        uses: actions/upload-artifact@v4
+        with:
+          name: LostArt-dll
+          path: |
+            build/windows-msvc/skse/plugin/LostArt.dll
+            build/windows-msvc/skse/plugin/LostArt.pdb
+          if-no-files-found: error
+
+  # ---------------------------------------------------------------------------------------------
+  # C# Mutagen generator.
+  # ---------------------------------------------------------------------------------------------
+  generator:
+    name: Generator - dotnet build
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+
+      - name: Build tools/Generator
+        run: |
+          if [ -d tools/Generator ]; then
+            dotnet build tools/Generator -c Release
+          else
+            echo "tools/Generator not present - skipped"
+          fi

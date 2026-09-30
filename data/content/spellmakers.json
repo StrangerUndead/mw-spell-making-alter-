@@ -1,0 +1,290 @@
+{
+  "spellmakers": [
+    {
+      "id": "tolfdir",
+      "npc": "Skyrim.esm|0x01C19E",
+      "npcLabel": "Tolfdir",
+      "name": "Tolfdir",
+      "location": "College of Winterhold",
+      "locationRef": "Skyrim.esm|0x076F3A",
+      "refusal": "college",
+      "merchantChest": "Skyrim.esm|0x098BA4",
+      "priceMult": 1.0,
+      "specialties": [
+        "Alteration",
+        "Mysticism"
+      ],
+      "refusalLine": "$LA_Refuse_Tolfdir"
+    },
+    {
+      "id": "faralda",
+      "npc": "Skyrim.esm|0x01C197",
+      "npcLabel": "Faralda",
+      "name": "Faralda",
+      "location": "College of Winterhold",
+      "locationRef": "Skyrim.esm|0x076F3A",
+      "refusal": "college",
+      "merchantChest": "Skyrim.esm|0x098BA1",
+      "priceMult": 1.0,
+      "specialties": [
+        "Destruction"
+      ],
+      "refusalLine": "$LA_Refuse_Faralda"
+    },
+    {
+      "id": "drevis_neloren",
+      "npc": "Skyrim.esm|0x01C198",
+      "npcLabel": "DrevisNeloren",
+      "name": "Drevis Neloren",
+      "location": "College of Winterhold",
+      "locationRef": "Skyrim.esm|0x076F3A",
+      "refusal": "college",
+      "merchantChest": "Skyrim.esm|0x098B9E",
+      "priceMult": 1.0,
+      "specialties": [
+        "Illusion",
+        "Mysticism"
+      ],
+      "refusalLine": "$LA_Refuse_DrevisNeloren"
+    },
+    {
+      "id": "colette_marence",
+      "npc": "Skyrim.esm|0x01C19A",
+      "npcLabel": "ColetteMarence",
+      "name": "Colette Marence",
+      "location": "College of Winterhold",
+      "locationRef": "Skyrim.esm|0x076F3A",
+      "refusal": "college",
+      "merchantChest": "Skyrim.esm|0x098BA3",
+      "priceMult": 1.0,
+      "specialties": [
+        "Restoration"
+      ],
+      "refusalLine": "$LA_Refuse_ColetteMarence"
+    },
+    {
+      "id": "phinis_gestor",
+      "npc": "Skyrim.esm|0x01C199",
+      "npcLabel": "PhinisGestor",
+      "name": "Phinis Gestor",
+      "location": "College of Winterhold",
+      "locationRef": "Skyrim.esm|0x076F3A",
+      "refusal": "college",
+      "merchantChest": "Skyrim.esm|0x098BA2",
+      "priceMult": 1.0,
+      "specialties": [
+        "Conjuration"
+      ],
+      "refusalLine": "$LA_Refuse_PhinisGestor"
+    },
+    {
+      "id": "sybille_stentor",
+      "npc": "Skyrim.esm|0x0132AA",
+      "npcLabel": "SybilleStentor",
+      "name": "Sybille Stentor",
+      "location": "Blue Palace, Solitude",
+      "locationRef": "Skyrim.esm|0x020086",
+      "refusal": "wanted:Haafingar",
+      "crimeFaction": "Skyrim.esm|0x029DB0",
+      "merchantChest": "Skyrim.esm|0x0A2989",
+      "priceMult": 1.0,
+      "specialties": [
+        "Illusion"
+      ],
+      "refusalLine": "$LA_Refuse_SybilleStentor"
+    },
+    {
+      "id": "farengar",
+      "npc": "Skyrim.esm|0x013BBB",
+      "npcLabel": "FarengarSecretFire",
+      "name": "Farengar Secret-Fire",
+      "location": "Dragonsreach, Whiterun",
+      "locationRef": "Skyrim.esm|0x01F871",
+      "refusal": "wanted:Whiterun",
+      "crimeFaction": "Skyrim.esm|0x0267EA",
+      "merchantChest": "Skyrim.esm|0x0A298A",
+      "priceMult": 1.0,
+      "specialties": [
+        "Destruction",
+        "Mysticism"
+      ],
+      "refusalLine": "$LA_Refuse_FarengarSecretFire"
+    },
+    {
+      "id": "wuunferth",
+      "npc": "Skyrim.esm|0x014146",
+      "npcLabel": "Wuunferth",
+      "name": "Wuunferth the Unliving",
+      "location": "Palace of the Kings, Windhelm",
+      "locationRef": "Skyrim.esm|0x0209F2",
+      "refusal": "wanted:Eastmarch",
+      "crimeFaction": "Skyrim.esm|0x0267E3",
+      "merchantChest": "Skyrim.esm|0x0A3F1B",
+      "priceMult": 1.0,
+      "specialties": [
+        "Destruction"
+      ],
+      "refusalLine": "$LA_Refuse_WuunferththeUnliving"
+    },
+    {
+      "id": "wylandriah",
+      "npc": "Skyrim.esm|0x019DEF",
+      "npcLabel": "Wylandriah",
+      "name": "Wylandriah",
+      "location": "Mistveil Keep, Riften",
+      "locationRef": "Skyrim.esm|0x022646",
+      "refusal": "wanted:Rift",
+      "crimeFaction": "Skyrim.esm|0x02816B",
+      "merchantChest": "Skyrim.esm|0x0A2988",
+      "priceMult": 1.0,
+      "specialties": [
+        "Alteration"
+      ],
+      "refusalLine": "$LA_Refuse_Wylandriah"
+    },
+    {
+      "id": "calcelmo",
+      "npc": "Skyrim.esm|0x01338E",
+      "npcLabel": "Calcelmo",
+      "name": "Calcelmo",
+      "location": "Understone Keep, Markarth",
+      "locationRef": "Skyrim.esm|0x01F316",
+      "refusal": "wanted:Reach",
+      "crimeFaction": "Skyrim.esm|0x02816C",
+      "merchantChest": "Skyrim.esm|0x09438A",
+      "priceMult": 1.0,
+      "specialties": [
+        "Conjuration"
+      ],
+      "refusalLine": "$LA_Refuse_Calcelmo"
+    },
+    {
+      "id": "madena",
+      "npc": "Skyrim.esm|0x01361D",
+      "npcLabel": "Madena",
+      "name": "Madena",
+      "location": "The White Hall, Dawnstar",
+      "locationRef": "Skyrim.esm|0x020062",
+      "refusal": "wanted:Pale",
+      "crimeFaction": "Skyrim.esm|0x02816E",
+      "merchantChest": "Skyrim.esm|0x0A2987",
+      "priceMult": 1.0,
+      "specialties": [
+        "Destruction"
+      ],
+      "refusalLine": "$LA_Refuse_Madena"
+    },
+    {
+      "id": "falion",
+      "npc": "Skyrim.esm|0x0135E9",
+      "npcLabel": "Falion",
+      "name": "Falion",
+      "location": "Falion's House, Morthal",
+      "locationRef": "Skyrim.esm|0x01EB92",
+      "refusal": "wanted:Hjaalmarch",
+      "crimeFaction": "Skyrim.esm|0x02816D",
+      "merchantChest": "Skyrim.esm|0x09DA56",
+      "priceMult": 1.0,
+      "specialties": [
+        "Conjuration",
+        "Mysticism"
+      ],
+      "refusalLine": "$LA_Refuse_Falion"
+    },
+    {
+      "id": "neloth",
+      "npc": "Dragonborn.esm|0x01773A",
+      "npcLabel": "DLC2Neloth",
+      "name": "Neloth",
+      "location": "Tel Mithryn, Solstheim",
+      "locationRef": "Dragonborn.esm|0x01CDEA",
+      "refusal": "quest:Dragonborn.esm|0x017E8D:500",
+      "merchantChest": "Dragonborn.esm|0x0177C1",
+      "priceMult": 1.0,
+      "specialties": [
+        "Alteration",
+        "Conjuration",
+        "Destruction",
+        "Illusion",
+        "Mysticism",
+        "Restoration"
+      ],
+      "refusalLine": "$LA_Refuse_Neloth",
+      "questLabel": "DLC2TT1 (Reluctant Steward)"
+    },
+    {
+      "id": "talvas_fathryon",
+      "npc": "Dragonborn.esm|0x017777",
+      "npcLabel": "DLC2Talvas",
+      "name": "Talvas Fathryon",
+      "location": "Tel Mithryn, Solstheim",
+      "locationRef": "Dragonborn.esm|0x0143BC",
+      "refusal": "quest:Dragonborn.esm|0x017E8D:500",
+      "merchantChest": "Dragonborn.esm|0x0177C0",
+      "priceMult": 1.0,
+      "specialties": [
+        "Conjuration",
+        "Destruction"
+      ],
+      "refusalLine": "$LA_Refuse_TalvasFathryon",
+      "questLabel": "DLC2TT1 (Reluctant Steward)"
+    },
+    {
+      "id": "elder_othreloth",
+      "npc": "Dragonborn.esm|0x01828A",
+      "npcLabel": "DLC2RRElderOthreloth",
+      "name": "Elder Othreloth",
+      "location": "Raven Rock Temple, Solstheim",
+      "locationRef": "Dragonborn.esm|0x019A21",
+      "refusal": "quest:Dragonborn.esm|0x024DFC:200",
+      "merchantChest": null,
+      "priceMult": 1.0,
+      "specialties": [
+        "Restoration",
+        "Mysticism"
+      ],
+      "refusalLine": "$LA_Refuse_ElderOthreloth",
+      "questLabel": "DLC2RRFavor03 (Clean Sweep)",
+      "verify": true,
+      "notes": "Completion stage of DLC2RRFavor03 taken as 200 (UESP lists no journal text for it); verify in the CK."
+    }
+  ],
+  "universalRules": [
+    "vampireStage4",
+    "relationshipBelowAcquaintance",
+    "serviceDisabled"
+  ],
+  "collegeFaction": "Skyrim.esm|0x01F259",
+  "holds": {
+    "Haafingar": {
+      "crimeFaction": "Skyrim.esm|0x029DB0"
+    },
+    "Whiterun": {
+      "crimeFaction": "Skyrim.esm|0x0267EA"
+    },
+    "Eastmarch": {
+      "crimeFaction": "Skyrim.esm|0x0267E3"
+    },
+    "Rift": {
+      "crimeFaction": "Skyrim.esm|0x02816B"
+    },
+    "Reach": {
+      "crimeFaction": "Skyrim.esm|0x02816C"
+    },
+    "Pale": {
+      "crimeFaction": "Skyrim.esm|0x02816E"
+    },
+    "Hjaalmarch": {
+      "crimeFaction": "Skyrim.esm|0x02816D"
+    }
+  },
+  "refusalReasons": {
+    "0": "serves",
+    "1": "college",
+    "2": "wanted",
+    "3": "quest",
+    "4": "vampireStage4",
+    "5": "relationshipBelowAcquaintance",
+    "6": "serviceDisabled"
+  }
+}

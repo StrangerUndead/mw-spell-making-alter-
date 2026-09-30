@@ -1,0 +1,792 @@
+[
+  {
+    "id": "mw.absorb_attribute",
+    "name": "$LA_Effect_AbsorbAttribute",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 85,
+      "school": "Mysticism",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "absorb_strength",
+        "label": "Absorb Strength",
+        "magnitude": [
+          5,
+          20
+        ],
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 3.0771711821580174
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "attribute",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_AbsorbAttribute",
+    "sources": [
+      "tome:absorb_strength"
+    ]
+  },
+  {
+    "id": "mw.absorb_fatigue",
+    "name": "$LA_Effect_AbsorbFatigue",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 88,
+      "school": "Mysticism",
+      "baseCost": 4.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Absorb",
+      "actorValue": "Stamina",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0AA157",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "energy_leech",
+        "label": "Energy Leech",
+        "magnitude": [
+          5,
+          20
+        ],
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 0.4888567906136016
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "Absorb",
+      "actorValue": "Stamina",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_AbsorbFatigue",
+    "sources": [
+      "tome:energy_leech"
+    ]
+  },
+  {
+    "id": "mw.absorb_health",
+    "name": "$LA_Effect_AbsorbHealth",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 86,
+      "school": "Mysticism",
+      "baseCost": 8.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Absorb",
+      "actorValue": "Health",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0AA155",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "righteousness",
+        "label": "Righteousness",
+        "magnitude": 10,
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 2.783352285197658
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "Absorb",
+      "actorValue": "Health",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_AbsorbHealth",
+    "sources": [
+      "tome:righteousness"
+    ]
+  },
+  {
+    "id": "mw.almsivi_intervention",
+    "name": "$LA_Effect_AlmsiviIntervention",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 63,
+      "school": "Mysticism",
+      "baseCost": 150.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "almsivi_intervention",
+        "label": "Almsivi Intervention",
+        "magnitude": 1,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 80.12270400481782
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": false,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_AlmsiviIntervention",
+    "sources": [
+      "tome:almsivi_intervention"
+    ]
+  },
+  {
+    "id": "mw.detect_animal",
+    "name": "$LA_Effect_DetectAnimal",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 64,
+      "school": "Mysticism",
+      "baseCost": 0.75
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "DetectLife",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x1019D8",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "detect_creature",
+        "label": "Detect Creature",
+        "magnitude": [
+          50,
+          150
+        ],
+        "duration": 5,
+        "area": 0
+      },
+      "baseCost": 0.607153642702943
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "ft",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "DetectLife",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_DetectAnimal",
+    "sources": [
+      "tome:detect_creature"
+    ]
+  },
+  {
+    "id": "mw.detect_enchantment",
+    "name": "$LA_Effect_DetectEnchantment",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 65,
+      "school": "Mysticism",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "detect_enchantment",
+        "label": "Detect Enchantment",
+        "magnitude": 10,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 1.8753684604533005
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "ft",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_DetectEnchantment",
+    "sources": [
+      "tome:detect_enchantment"
+    ]
+  },
+  {
+    "id": "mw.detect_key",
+    "name": "$LA_Effect_DetectKey",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 66,
+      "school": "Mysticism",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "detect_key",
+        "label": "Detect Key",
+        "magnitude": 50,
+        "duration": 5,
+        "area": 0
+      },
+      "baseCost": 0.8683639818388795
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "ft",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_DetectKey",
+    "sources": [
+      "tome:detect_key"
+    ]
+  },
+  {
+    "id": "mw.dispel",
+    "name": "$LA_Effect_Dispel",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 57,
+      "school": "Mysticism",
+      "baseCost": 5.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "dispel",
+        "label": "Dispel",
+        "magnitude": 100,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 1.3514771619421602
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": false,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Dispel",
+    "sources": [
+      "tome:dispel"
+    ]
+  },
+  {
+    "id": "mw.divine_intervention",
+    "name": "$LA_Effect_DivineIntervention",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 62,
+      "school": "Mysticism",
+      "baseCost": 150.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "divine_intervention",
+        "label": "Divine Intervention",
+        "magnitude": 1,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 80.12270400481782
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": false,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_DivineIntervention",
+    "sources": [
+      "tome:divine_intervention"
+    ]
+  },
+  {
+    "id": "mw.mark",
+    "name": "$LA_Effect_Mark",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 60,
+      "school": "Mysticism",
+      "baseCost": 350.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "mark",
+        "label": "Mark",
+        "magnitude": 1,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 186.9529760112416
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": false,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Mark",
+    "sources": [
+      "tome:mark"
+    ]
+  },
+  {
+    "id": "mw.recall",
+    "name": "$LA_Effect_Recall",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 61,
+      "school": "Mysticism",
+      "baseCost": 350.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "recall",
+        "label": "Recall",
+        "magnitude": 1,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 186.9529760112416
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": false,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Recall",
+    "sources": [
+      "tome:recall"
+    ]
+  },
+  {
+    "id": "mw.reflect",
+    "name": "$LA_Effect_Reflect",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 68,
+      "school": "Mysticism",
+      "baseCost": 10.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "reflect",
+        "label": "Reflect",
+        "magnitude": [
+          10,
+          20
+        ],
+        "duration": 5,
+        "area": 0
+      },
+      "baseCost": 9.832694005569754
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Reflect",
+    "sources": [
+      "tome:reflect"
+    ]
+  },
+  {
+    "id": "mw.soultrap",
+    "name": "$LA_Effect_Soultrap",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 58,
+      "school": "Mysticism",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SoulTrap",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x04DBA3",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04DBA4",
+        "label": "Soul Trap",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 107
+      },
+      "baseCost": 14.907931970389873
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 1
+    },
+    "reflectable": false,
+    "hostile": true,
+    "discovery": {
+      "archetype": "SoulTrap",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_Soultrap",
+    "sources": [
+      "Skyrim.esm|0x04DBA4"
+    ]
+  },
+  {
+    "id": "mw.spell_absorption",
+    "name": "$LA_Effect_SpellAbsorption",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 67,
+      "school": "Mysticism",
+      "baseCost": 10.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "ValueModifier",
+      "actorValue": "AbsorbChance",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0E40C6",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "spell_absorption",
+        "label": "Spell Absorption",
+        "magnitude": 10,
+        "duration": 5,
+        "area": 0
+      },
+      "baseCost": 10.267854466735265
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "AbsorbChance",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SpellAbsorption",
+    "sources": [
+      "tome:spell_absorption"
+    ]
+  },
+  {
+    "id": "mw.telekinesis",
+    "name": "$LA_Effect_Telekinesis",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 59,
+      "school": "Mysticism",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "telekinesis",
+        "label": "Telekinesis",
+        "magnitude": 25,
+        "duration": 5,
+        "area": 0
+      },
+      "baseCost": 0.9322380397295668
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "ft",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Telekinesis",
+    "sources": [
+      "Skyrim.esm|0x01A4CC",
+      "tome:telekinesis"
+    ]
+  }
+]

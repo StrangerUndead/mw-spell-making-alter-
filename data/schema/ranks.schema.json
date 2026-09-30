@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/ranks.schema.json",
+  "title": "Rank thresholds and half-cost perks (data/content/ranks.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "costThresholds",
+    "perks"
+  ],
+  "properties": {
+    "costThresholds": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      }
+    },
+    "rankNames": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "$ref": "common.schema.json#/$defs/translationKey"
+      }
+    },
+    "ladderRule": {
+      "type": "string"
+    },
+    "perks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Alteration",
+        "Conjuration",
+        "Destruction",
+        "Illusion",
+        "Restoration"
+      ],
+      "properties": {
+        "Alteration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "Novice",
+            "Apprentice",
+            "Adept",
+            "Expert",
+            "Master"
+          ],
+          "properties": {
+            "Novice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Apprentice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Adept": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Expert": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Master": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            }
+          }
+        },
+        "Conjuration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "Novice",
+            "Apprentice",
+            "Adept",
+            "Expert",
+            "Master"
+          ],
+          "properties": {
+            "Novice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Apprentice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Adept": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Expert": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Master": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            }
+          }
+        },
+        "Destruction": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "Novice",
+            "Apprentice",
+            "Adept",
+            "Expert",
+            "Master"
+          ],
+          "properties": {
+            "Novice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Apprentice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Adept": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Expert": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Master": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            }
+          }
+        },
+        "Illusion": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "Novice",
+            "Apprentice",
+            "Adept",
+            "Expert",
+            "Master"
+          ],
+          "properties": {
+            "Novice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Apprentice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Adept": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Expert": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Master": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            }
+          }
+        },
+        "Restoration": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "Novice",
+            "Apprentice",
+            "Adept",
+            "Expert",
+            "Master"
+          ],
+          "properties": {
+            "Novice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Apprentice": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Adept": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Expert": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            },
+            "Master": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            }
+          }
+        }
+      }
+    },
+    "perkLabels": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+[
+  { "morrowind": "Acrobatics", "index": 20, "targets": [ { "special": "Jump" } ] },
+  { "morrowind": "Long Blade", "index": 5, "targets": [ { "skill": "OneHanded", "weight": 0.5 }, { "skill": "TwoHanded", "weight": 0.5 } ] },
+  { "morrowind": "Hand-to-Hand", "index": 26, "targets": [ { "special": "UnarmedDamage" } ] }
+]

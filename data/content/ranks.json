@@ -1,0 +1,90 @@
+{
+  "costThresholds": [
+    60,
+    130,
+    250,
+    500
+  ],
+  "rankNames": [
+    "$LA_Rank_Novice",
+    "$LA_Rank_Apprentice",
+    "$LA_Rank_Adept",
+    "$LA_Rank_Expert",
+    "$LA_Rank_Master"
+  ],
+  "ladderRule": "rank = highest rank whose rankLadder threshold <= the effect's max magnitude (magnitude counts as 1 for effects without one); effects without a ladder use costThresholds on their Skyrim-balanced cost share; the spell's rank is the highest effect rank",
+  "perks": {
+    "Alteration": {
+      "Novice": "Skyrim.esm|0x0F2CA6",
+      "Apprentice": "Skyrim.esm|0x0C44B7",
+      "Adept": "Skyrim.esm|0x0C44B8",
+      "Expert": "Skyrim.esm|0x0C44B9",
+      "Master": "Skyrim.esm|0x0C44BA"
+    },
+    "Conjuration": {
+      "Novice": "Skyrim.esm|0x0F2CA7",
+      "Apprentice": "Skyrim.esm|0x0C44BB",
+      "Adept": "Skyrim.esm|0x0C44BC",
+      "Expert": "Skyrim.esm|0x0C44BD",
+      "Master": "Skyrim.esm|0x0C44BE"
+    },
+    "Destruction": {
+      "Novice": "Skyrim.esm|0x0F2CA8",
+      "Apprentice": "Skyrim.esm|0x0C44BF",
+      "Adept": "Skyrim.esm|0x0C44C0",
+      "Expert": "Skyrim.esm|0x0C44C1",
+      "Master": "Skyrim.esm|0x0C44C2"
+    },
+    "Illusion": {
+      "Novice": "Skyrim.esm|0x0F2CA9",
+      "Apprentice": "Skyrim.esm|0x0C44C3",
+      "Adept": "Skyrim.esm|0x0C44C4",
+      "Expert": "Skyrim.esm|0x0C44C5",
+      "Master": "Skyrim.esm|0x0C44C6"
+    },
+    "Restoration": {
+      "Novice": "Skyrim.esm|0x0F2CAA",
+      "Apprentice": "Skyrim.esm|0x0C44C7",
+      "Adept": "Skyrim.esm|0x0C44C8",
+      "Expert": "Skyrim.esm|0x0C44C9",
+      "Master": "Skyrim.esm|0x0C44CA"
+    }
+  },
+  "perkLabels": {
+    "Alteration": {
+      "Novice": "AlterationNovice00",
+      "Apprentice": "AlterationApprentice25",
+      "Adept": "AlterationAdept50",
+      "Expert": "AlterationExpert75",
+      "Master": "AlterationMaster100"
+    },
+    "Conjuration": {
+      "Novice": "ConjurationNovice00",
+      "Apprentice": "ConjurationApprentice25",
+      "Adept": "ConjurationAdept50",
+      "Expert": "ConjurationExpert75",
+      "Master": "ConjurationMaster100"
+    },
+    "Destruction": {
+      "Novice": "DestructionNovice00",
+      "Apprentice": "DestructionApprentice25",
+      "Adept": "DestructionAdept50",
+      "Expert": "DestructionExpert75",
+      "Master": "DestructionMaster100"
+    },
+    "Illusion": {
+      "Novice": "IllusionNovice00",
+      "Apprentice": "IllusionApprentice25",
+      "Adept": "IllusionAdept50",
+      "Expert": "IllusionExpert75",
+      "Master": "IllusionMaster100"
+    },
+    "Restoration": {
+      "Novice": "RestorationNovice00",
+      "Apprentice": "RestorationApprentice25",
+      "Adept": "RestorationAdept50",
+      "Expert": "RestorationExpert75",
+      "Master": "RestorationMaster100"
+    }
+  }
+}

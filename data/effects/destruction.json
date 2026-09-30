@@ -1,0 +1,1299 @@
+[
+  {
+    "id": "mw.damage_attribute",
+    "name": "$LA_Effect_DamageAttribute",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 22,
+      "school": "Destruction",
+      "baseCost": 8.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "fuddle",
+        "label": "Fuddle",
+        "magnitude": [
+          1,
+          20
+        ],
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 2.7665883752382956
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "attribute",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DamageAttribute",
+    "sources": [
+      "tome:fuddle"
+    ]
+  },
+  {
+    "id": "mw.damage_fatigue",
+    "name": "$LA_Effect_DamageFatigue",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 25,
+      "school": "Destruction",
+      "baseCost": 4.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Stamina",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03A2C6",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "doze",
+        "label": "Doze",
+        "magnitude": [
+          1,
+          20
+        ],
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 1.3832941876191478
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Stamina",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DamageFatigue",
+    "sources": [
+      "tome:doze"
+    ]
+  },
+  {
+    "id": "mw.damage_health",
+    "name": "$LA_Effect_DamageHealth",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 23,
+      "school": "Destruction",
+      "baseCost": 8.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03EB42",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "spirit_knife",
+        "label": "Spirit Knife",
+        "magnitude": [
+          1,
+          20
+        ],
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 2.7665883752382956
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DamageHealth",
+    "sources": [
+      "Skyrim.esm|0x0DA746",
+      "tome:spirit_knife"
+    ]
+  },
+  {
+    "id": "mw.damage_magicka",
+    "name": "$LA_Effect_DamageMagicka",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 24,
+      "school": "Destruction",
+      "baseCost": 8.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Magicka",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03A2B6",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "soulpinch",
+        "label": "Soulpinch",
+        "magnitude": [
+          1,
+          20
+        ],
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 2.7665883752382956
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Magicka",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DamageMagicka",
+    "sources": [
+      "tome:soulpinch"
+    ]
+  },
+  {
+    "id": "mw.disintegrate_armor",
+    "name": "$LA_Effect_DisintegrateArmor",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 38,
+      "school": "Destruction",
+      "baseCost": 6.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "eaters",
+        "label": "Armor and Weapon Eater",
+        "magnitude": [
+          10,
+          30
+        ],
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 1.9239669534316577
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DisintegrateArmor",
+    "sources": [
+      "tome:eaters"
+    ]
+  },
+  {
+    "id": "mw.disintegrate_weapon",
+    "name": "$LA_Effect_DisintegrateWeapon",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 37,
+      "school": "Destruction",
+      "baseCost": 6.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "eaters",
+        "label": "Armor and Weapon Eater",
+        "magnitude": [
+          6,
+          25
+        ],
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 1.9807116957800683
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DisintegrateWeapon",
+    "sources": [
+      "tome:eaters"
+    ]
+  },
+  {
+    "id": "mw.drain_attribute",
+    "name": "$LA_Effect_DrainAttribute",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 17,
+      "school": "Destruction",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "strength_leech",
+        "label": "Strength Leech",
+        "magnitude": 20,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 1.4672352093696903
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "attribute",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DrainAttribute",
+    "sources": [
+      "tome:strength_leech"
+    ]
+  },
+  {
+    "id": "mw.drain_fatigue",
+    "name": "$LA_Effect_DrainFatigue",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 20,
+      "school": "Destruction",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Stamina",
+      "secondAV": null,
+      "flags": [
+        "Recover",
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "sleep",
+        "label": "Sleep",
+        "magnitude": [
+          5,
+          15
+        ],
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 3.147621838502877
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Stamina",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DrainFatigue",
+    "sources": [
+      "tome:sleep"
+    ]
+  },
+  {
+    "id": "mw.drain_health",
+    "name": "$LA_Effect_DrainHealth",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 18,
+      "school": "Destruction",
+      "baseCost": 4.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "secondAV": null,
+      "flags": [
+        "Recover",
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "drain_blood",
+        "label": "Drain Blood",
+        "magnitude": 5,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 6.757939968468936
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DrainHealth",
+    "sources": [
+      "tome:drain_blood"
+    ]
+  },
+  {
+    "id": "mw.drain_magicka",
+    "name": "$LA_Effect_DrainMagicka",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 19,
+      "school": "Destruction",
+      "baseCost": 4.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Magicka",
+      "secondAV": null,
+      "flags": [
+        "Recover",
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "drain_blood",
+        "label": "Drain Blood",
+        "magnitude": 5,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 6.757939968468936
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Magicka",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DrainMagicka",
+    "sources": [
+      "tome:drain_blood"
+    ]
+  },
+  {
+    "id": "mw.drain_skill",
+    "name": "$LA_Effect_DrainSkill",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 21,
+      "school": "Destruction",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "secondAV": null,
+      "flags": [
+        "Recover",
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "drain_block",
+        "label": "Drain Block",
+        "magnitude": [
+          5,
+          20
+        ],
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 1.4115019356997993
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "skill",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DrainSkill",
+    "sources": [
+      "tome:drain_block"
+    ]
+  },
+  {
+    "id": "mw.fire_damage",
+    "name": "$LA_Effect_FireDamage",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 14,
+      "school": "Destruction",
+      "baseCost": 5.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "secondAV": null,
+      "resist": "FireResist",
+      "vanillaEffect": "Skyrim.esm|0x012F03",
+      "projectile": "Skyrim.esm|0x012E84",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x012FD0",
+        "label": "Firebolt",
+        "magnitude": 25,
+        "duration": 0,
+        "area": 0,
+        "cost": 41
+      },
+      "baseCost": 1.1886386484314202
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicDamageFire"
+    ],
+    "riders": [
+      "IntenseFlames",
+      "Impact"
+    ],
+    "rankLadder": {
+      "Apprentice": 25,
+      "Adept": 40,
+      "Expert": 60,
+      "Master": 100
+    },
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "resist": "FireResist",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_FireDamage",
+    "sources": [
+      "Skyrim.esm|0x012FD0",
+      "Skyrim.esm|0x012FCD",
+      "Skyrim.esm|0x01C789"
+    ]
+  },
+  {
+    "id": "mw.frost_damage",
+    "name": "$LA_Effect_FrostDamage",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 16,
+      "school": "Destruction",
+      "baseCost": 5.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "secondAV": null,
+      "resist": "FrostResist",
+      "vanillaEffect": "Skyrim.esm|0x01CEA2",
+      "projectile": "Skyrim.esm|0x02F774",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x02B96C",
+        "label": "Ice Spike",
+        "magnitude": 25,
+        "duration": 0,
+        "area": 0,
+        "cost": 48
+      },
+      "baseCost": 1.391576954261175
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicDamageFrost"
+    ],
+    "riders": [
+      "FrostStaminaSlow",
+      "DeepFreeze",
+      "Impact"
+    ],
+    "rankLadder": {
+      "Apprentice": 25,
+      "Adept": 40,
+      "Expert": 60,
+      "Master": 100
+    },
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "resist": "FrostResist",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_FrostDamage",
+    "sources": [
+      "Skyrim.esm|0x02B96C",
+      "Skyrim.esm|0x02B96B"
+    ]
+  },
+  {
+    "id": "mw.poison",
+    "name": "$LA_Effect_Poison",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 27,
+      "school": "Destruction",
+      "baseCost": 9.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "secondAV": null,
+      "resist": "PoisonResist",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "poison",
+        "label": "Poison",
+        "magnitude": [
+          2,
+          20
+        ],
+        "duration": 1,
+        "area": 5
+      },
+      "baseCost": 2.567448009160413
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "resist": "PoisonResist",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_Poison",
+    "sources": [
+      "tome:poison"
+    ]
+  },
+  {
+    "id": "mw.shock_damage",
+    "name": "$LA_Effect_ShockDamage",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 15,
+      "school": "Destruction",
+      "baseCost": 7.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "secondAV": null,
+      "resist": "ElectricResist",
+      "vanillaEffect": "Skyrim.esm|0x01CEA8",
+      "projectile": "Skyrim.esm|0x058E9C",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x02DD29",
+        "label": "Lightning Bolt",
+        "magnitude": 25,
+        "duration": 0,
+        "area": 0,
+        "cost": 51
+      },
+      "baseCost": 1.4785505139024984
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicDamageShock"
+    ],
+    "riders": [
+      "ShockMagicka",
+      "Disintegrate",
+      "Impact"
+    ],
+    "rankLadder": {
+      "Apprentice": 25,
+      "Adept": 40,
+      "Expert": 60,
+      "Master": 100
+    },
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "resist": "ElectricResist",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_ShockDamage",
+    "sources": [
+      "Skyrim.esm|0x02DD29",
+      "Skyrim.esm|0x02DD2A"
+    ]
+  },
+  {
+    "id": "mw.weakness_to_common_disease",
+    "name": "$LA_Effect_WeaknesstoCommonDisease",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 32,
+      "school": "Destruction",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "ResistDisease",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "dire_weakness",
+        "label": "Dire Weakness",
+        "magnitude": [
+          1,
+          20
+        ],
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.7316773433446775
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "ResistDisease",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_WeaknesstoCommonDisease",
+    "sources": [
+      "tome:dire_weakness"
+    ]
+  },
+  {
+    "id": "mw.weakness_to_fire",
+    "name": "$LA_Effect_WeaknesstoFire",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 28,
+      "school": "Destruction",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "FireResist",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x073F2D",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "dire_weakness",
+        "label": "Dire Weakness",
+        "magnitude": [
+          2,
+          60
+        ],
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.3392364341769265
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "FireResist",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_WeaknesstoFire",
+    "sources": [
+      "tome:dire_weakness"
+    ]
+  },
+  {
+    "id": "mw.weakness_to_frost",
+    "name": "$LA_Effect_WeaknesstoFrost",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 29,
+      "school": "Destruction",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "FrostResist",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x073F2E",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "dire_weakness",
+        "label": "Dire Weakness",
+        "magnitude": [
+          2,
+          60
+        ],
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.3392364341769265
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "FrostResist",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_WeaknesstoFrost",
+    "sources": [
+      "tome:dire_weakness"
+    ]
+  },
+  {
+    "id": "mw.weakness_to_magicka",
+    "name": "$LA_Effect_WeaknesstoMagicka",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 31,
+      "school": "Destruction",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "ResistMagic",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x073F51",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "dire_weakness",
+        "label": "Dire Weakness",
+        "magnitude": [
+          2,
+          60
+        ],
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.3392364341769265
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "ResistMagic",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_WeaknesstoMagicka",
+    "sources": [
+      "tome:dire_weakness"
+    ]
+  },
+  {
+    "id": "mw.weakness_to_poison",
+    "name": "$LA_Effect_WeaknesstoPoison",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 35,
+      "school": "Destruction",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "PoisonResist",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x090042",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "dire_weakness",
+        "label": "Dire Weakness",
+        "magnitude": [
+          2,
+          60
+        ],
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.3392364341769265
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "PoisonResist",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_WeaknesstoPoison",
+    "sources": [
+      "tome:dire_weakness"
+    ]
+  },
+  {
+    "id": "mw.weakness_to_shock",
+    "name": "$LA_Effect_WeaknesstoShock",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 30,
+      "school": "Destruction",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "ValueModifier",
+      "actorValue": "ElectricResist",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x073F2F",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "dire_weakness",
+        "label": "Dire Weakness",
+        "magnitude": [
+          2,
+          60
+        ],
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.3392364341769265
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "ElectricResist",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_WeaknesstoShock",
+    "sources": [
+      "tome:dire_weakness"
+    ]
+  }
+]

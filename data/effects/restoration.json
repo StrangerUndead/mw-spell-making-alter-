@@ -1,0 +1,1224 @@
+[
+  {
+    "id": "mw.cure_blight_disease",
+    "name": "$LA_Effect_CureBlightDisease",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 70,
+      "school": "Restoration",
+      "baseCost": 2000.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "panacea",
+        "label": "Panacea",
+        "magnitude": 1,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 1068.3027200642377
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": false,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CureBlightDisease",
+    "sources": [
+      "tome:panacea"
+    ]
+  },
+  {
+    "id": "mw.cure_common_disease",
+    "name": "$LA_Effect_CureCommonDisease",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 69,
+      "school": "Restoration",
+      "baseCost": 300.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "CureDisease",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0FBFF5",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "panacea",
+        "label": "Panacea",
+        "magnitude": 1,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 160.24540800963564
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": false,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "CureDisease",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CureCommonDisease",
+    "sources": [
+      "tome:panacea"
+    ]
+  },
+  {
+    "id": "mw.cure_paralyzation",
+    "name": "$LA_Effect_CureParalyzation",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 73,
+      "school": "Restoration",
+      "baseCost": 100.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "free_action",
+        "label": "Free Action",
+        "magnitude": 1,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 53.415136003211884
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": false,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CureParalyzation",
+    "sources": [
+      "tome:free_action"
+    ]
+  },
+  {
+    "id": "mw.cure_poison",
+    "name": "$LA_Effect_CurePoison",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 72,
+      "school": "Restoration",
+      "baseCost": 100.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "panacea",
+        "label": "Panacea",
+        "magnitude": 1,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 53.415136003211884
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": false,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CurePoison",
+    "sources": [
+      "tome:panacea"
+    ]
+  },
+  {
+    "id": "mw.fortify_attack",
+    "name": "$LA_Effect_FortifyAttack",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 117,
+      "school": "Restoration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "mephalas_skill",
+        "label": "Mephala's Skill",
+        "magnitude": 10,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 1.443589194714256
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FortifyAttack",
+    "sources": [
+      "tome:mephalas_skill"
+    ]
+  },
+  {
+    "id": "mw.fortify_attribute",
+    "name": "$LA_Effect_FortifyAttribute",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 79,
+      "school": "Restoration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "troll_strength",
+        "label": "Troll Strength",
+        "magnitude": 10,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 1.443589194714256
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "attribute",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FortifyAttribute",
+    "sources": [
+      "tome:troll_strength"
+    ]
+  },
+  {
+    "id": "mw.fortify_fatigue",
+    "name": "$LA_Effect_FortifyFatigue",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 82,
+      "school": "Restoration",
+      "baseCost": 0.5
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "Stamina",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0FB98F",
+      "flags": [
+        "Recover"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "vital_gifts",
+        "label": "Vital Gifts",
+        "magnitude": [
+          5,
+          20
+        ],
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 0.7692927955395044
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 25,
+      "Adept": 50,
+      "Expert": 100
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Stamina",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FortifyFatigue",
+    "sources": [
+      "Skyrim.esm|0x04DEE8",
+      "tome:vital_gifts"
+    ]
+  },
+  {
+    "id": "mw.fortify_health",
+    "name": "$LA_Effect_FortifyHealth",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 80,
+      "school": "Restoration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0FB98D",
+      "flags": [
+        "Recover"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "vital_gifts",
+        "label": "Vital Gifts",
+        "magnitude": [
+          5,
+          20
+        ],
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 1.5385855910790087
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 25,
+      "Adept": 50,
+      "Expert": 100
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FortifyHealth",
+    "sources": [
+      "Skyrim.esm|0x04DEE8",
+      "tome:vital_gifts"
+    ]
+  },
+  {
+    "id": "mw.fortify_magicka",
+    "name": "$LA_Effect_FortifyMagicka",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 81,
+      "school": "Restoration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "Magicka",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0FB98E",
+      "flags": [
+        "Recover"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "vital_gifts",
+        "label": "Vital Gifts",
+        "magnitude": [
+          5,
+          20
+        ],
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 1.4115019356997993
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 25,
+      "Adept": 50,
+      "Expert": 100
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Magicka",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FortifyMagicka",
+    "sources": [
+      "tome:vital_gifts"
+    ]
+  },
+  {
+    "id": "mw.fortify_skill",
+    "name": "$LA_Effect_FortifySkill",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 83,
+      "school": "Restoration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "secondAV": null,
+      "flags": [
+        "Recover"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "fortify_security_skill",
+        "label": "Fortify Security Skill",
+        "magnitude": 10,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 1.443589194714256
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "skill",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FortifySkill",
+    "sources": [
+      "tome:fortify_security_skill"
+    ]
+  },
+  {
+    "id": "mw.resist_blight_disease",
+    "name": "$LA_Effect_ResistBlightDisease",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 95,
+      "school": "Restoration",
+      "baseCost": 5.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "ResistDisease",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "healers_wards",
+        "label": "Healer's Wards",
+        "magnitude": 20,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 8.729109325754742
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "ResistDisease",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistBlightDisease",
+    "sources": [
+      "tome:healers_wards"
+    ]
+  },
+  {
+    "id": "mw.resist_common_disease",
+    "name": "$LA_Effect_ResistCommonDisease",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 94,
+      "school": "Restoration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "ResistDisease",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x100E60",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "healers_wards",
+        "label": "Healer's Wards",
+        "magnitude": 20,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.491643730301897
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "ResistDisease",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistCommonDisease",
+    "sources": [
+      "tome:healers_wards"
+    ]
+  },
+  {
+    "id": "mw.resist_corprus_disease",
+    "name": "$LA_Effect_ResistCorprusDisease",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 96,
+      "school": "Restoration",
+      "baseCost": 5.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "healers_wards",
+        "label": "Healer's Wards",
+        "magnitude": 20,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 8.729109325754742
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistCorprusDisease",
+    "sources": [
+      "tome:healers_wards"
+    ]
+  },
+  {
+    "id": "mw.resist_fire",
+    "name": "$LA_Effect_ResistFire",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 90,
+      "school": "Restoration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "FireResist",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03EAEA",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "elemental_wards",
+        "label": "Great Elemental Resistance",
+        "magnitude": 30,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.3503672065223853
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "FireResist",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistFire",
+    "sources": [
+      "tome:elemental_wards"
+    ]
+  },
+  {
+    "id": "mw.resist_frost",
+    "name": "$LA_Effect_ResistFrost",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 91,
+      "school": "Restoration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "FrostResist",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03EAEB",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "elemental_wards",
+        "label": "Great Elemental Resistance",
+        "magnitude": 30,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.3503672065223853
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "FrostResist",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistFrost",
+    "sources": [
+      "tome:elemental_wards"
+    ]
+  },
+  {
+    "id": "mw.resist_magicka",
+    "name": "$LA_Effect_ResistMagicka",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 93,
+      "school": "Restoration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "ResistMagic",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x039E51",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "elemental_wards",
+        "label": "Great Elemental Resistance",
+        "magnitude": 30,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.3503672065223853
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "ResistMagic",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistMagicka",
+    "sources": [
+      "tome:elemental_wards"
+    ]
+  },
+  {
+    "id": "mw.resist_paralysis",
+    "name": "$LA_Effect_ResistParalysis",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 99,
+      "school": "Restoration",
+      "baseCost": 0.2
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "healers_wards",
+        "label": "Healer's Wards",
+        "magnitude": 50,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 0.26762440275977445
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistParalysis",
+    "sources": [
+      "tome:healers_wards"
+    ]
+  },
+  {
+    "id": "mw.resist_poison",
+    "name": "$LA_Effect_ResistPoison",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 97,
+      "school": "Restoration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "PoisonResist",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x090041",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "healers_wards",
+        "label": "Healer's Wards",
+        "magnitude": 20,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 3.491643730301897
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "PoisonResist",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistPoison",
+    "sources": [
+      "tome:healers_wards"
+    ]
+  },
+  {
+    "id": "mw.resist_shock",
+    "name": "$LA_Effect_ResistShock",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 92,
+      "school": "Restoration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "ElectricResist",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03EAEC",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "elemental_wards",
+        "label": "Great Elemental Resistance",
+        "magnitude": 20,
+        "duration": 5,
+        "area": 0
+      },
+      "baseCost": 1.9081318344733724
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "ElectricResist",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistShock",
+    "sources": [
+      "tome:elemental_wards"
+    ]
+  },
+  {
+    "id": "mw.restore_attribute",
+    "name": "$LA_Effect_RestoreAttribute",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 74,
+      "school": "Restoration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "restore_strength",
+        "label": "Restore Strength",
+        "magnitude": [
+          5,
+          20
+        ],
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 0.1222141976534004
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "attribute",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_RestoreAttribute",
+    "sources": [
+      "tome:restore_strength"
+    ]
+  },
+  {
+    "id": "mw.restore_fatigue",
+    "name": "$LA_Effect_RestoreFatigue",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 77,
+      "school": "Restoration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "Stamina",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x02F3BA",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "rest_of_st_merris",
+        "label": "Rest of St. Merris",
+        "magnitude": [
+          1,
+          10
+        ],
+        "duration": 20,
+        "area": 0
+      },
+      "baseCost": 0.14081546881195256
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Stamina",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_RestoreFatigue",
+    "sources": [
+      "tome:rest_of_st_merris"
+    ]
+  },
+  {
+    "id": "mw.restore_health",
+    "name": "$LA_Effect_RestoreHealth",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 75,
+      "school": "Restoration",
+      "baseCost": 5.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01CEA6",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x02F3B8",
+        "label": "Fast Healing",
+        "magnitude": 50,
+        "duration": 0,
+        "area": 0,
+        "cost": 73
+      },
+      "baseCost": 0.9873152731971122
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicRestoreHealth"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 50,
+      "Adept": 100,
+      "Expert": 200
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Health",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_RestoreHealth",
+    "sources": [
+      "Skyrim.esm|0x012FCC",
+      "Skyrim.esm|0x02F3B8",
+      "Skyrim.esm|0x012FD2"
+    ]
+  }
+]

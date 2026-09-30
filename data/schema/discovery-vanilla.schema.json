@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/discovery-vanilla.schema.json",
+  "title": "Vanilla MGEF lookup (data/discovery/vanilla.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "map"
+  ],
+  "properties": {
+    "map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "effect",
+          "id",
+          "label"
+        ],
+        "properties": {
+          "effect": {
+            "$ref": "common.schema.json#/$defs/formRef"
+          },
+          "id": {
+            "$ref": "common.schema.json#/$defs/effectId"
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/editorId"
+          },
+          "example": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

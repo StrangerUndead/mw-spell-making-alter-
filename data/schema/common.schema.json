@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/common.schema.json",
+  "title": "Shared definitions",
+  "$defs": {
+    "formRef": {
+      "type": "string",
+      "pattern": "^(Skyrim|Dawnguard|Dragonborn|HearthFires|Update)\\.esm\\|0x[0-9A-F]{6}$",
+      "description": "Vanilla form reference: <plugin>|0x<6-digit local FormID>, checked by tools/check_formkeys.py"
+    },
+    "formRefOrNull": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/formRef"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "effectId": {
+      "type": "string",
+      "pattern": "^(mw|mwx|sk)\\.[a-z0-9_]+$"
+    },
+    "tomeSource": {
+      "type": "string",
+      "pattern": "^tome:[a-z0-9_]+$"
+    },
+    "translationKey": {
+      "type": "string",
+      "pattern": "^\\$LA_[A-Za-z0-9_]+$"
+    },
+    "mwSchool": {
+      "enum": [
+        "Alteration",
+        "Conjuration",
+        "Destruction",
+        "Illusion",
+        "Mysticism",
+        "Restoration"
+      ]
+    },
+    "skSchool": {
+      "enum": [
+        "Alteration",
+        "Conjuration",
+        "Destruction",
+        "Illusion",
+        "Restoration"
+      ]
+    },
+    "range": {
+      "enum": [
+        "self",
+        "touch",
+        "target"
+      ]
+    },
+    "rank": {
+      "enum": [
+        "Novice",
+        "Apprentice",
+        "Adept",
+        "Expert",
+        "Master"
+      ]
+    },
+    "archetype": {
+      "enum": [
+        "ValueModifier",
+        "Script",
+        "Dispel",
+        "CureDisease",
+        "Absorb",
+        "DualValueModifier",
+        "Calm",
+        "Demoralize",
+        "Frenzy",
+        "Disarm",
+        "CommandSummoned",
+        "Invisibility",
+        "Light",
+        "Lock",
+        "Open",
+        "BoundWeapon",
+        "SummonCreature",
+        "DetectLife",
+        "Telekinesis",
+        "Paralysis",
+        "Reanimate",
+        "SoulTrap",
+        "TurnUndead",
+        "Guide",
+        "WerewolfFeed",
+        "CureParalysis",
+        "CureAddiction",
+        "CurePoison",
+        "Concussion",
+        "ValueAndParts",
+        "AccumulateMagnitude",
+        "Stagger",
+        "PeakValueModifier",
+        "Cloak",
+        "Werewolf",
+        "SlowTime",
+        "Rally",
+        "EnhanceWeapon",
+        "SpawnHazard",
+        "Etherealize",
+        "Banish",
+        "SpawnScriptedRef",
+        "Disguise",
+        "GrabActor",
+        "VampireLord"
+      ]
+    },
+    "editorId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_]+$"
+    },
+    "vec3": {
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "spellEffect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sub",
+        "range",
+        "min",
+        "max",
+        "duration",
+        "area"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/effectId"
+        },
+        "sub": {
+          "type": "integer",
+          "minimum": -1,
+          "maximum": 126
+        },
+        "range": {
+          "$ref": "#/$defs/range"
+        },
+        "min": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "duration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "area": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

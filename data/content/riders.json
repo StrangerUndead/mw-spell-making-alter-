@@ -1,0 +1,158 @@
+{
+  "riders": [
+    {
+      "id": "IntenseFlames",
+      "effect": "Skyrim.esm|0x0F392D",
+      "perk": "Skyrim.esm|0x0F392E",
+      "elemental": false,
+      "magnitudeScale": 1.0,
+      "verify": false,
+      "variants": {
+        "aimed": "Skyrim.esm|0x0F392D",
+        "aimedArea": "Skyrim.esm|0x0F3930",
+        "selfArea": "Skyrim.esm|0x0F3931",
+        "concentration": "Skyrim.esm|0x0F392F"
+      },
+      "labels": [
+        "PerkIntenseFlamesConfDownFFAimed",
+        "PerkIntenseFlamesConfDownFFAimedArea",
+        "PerkIntenseFlamesConfDownFFSelfArea100",
+        "PerkIntenseFlamesConfDownConcAimed"
+      ]
+    },
+    {
+      "id": "DeepFreeze",
+      "effect": "Skyrim.esm|0x0F3932",
+      "perk": "Skyrim.esm|0x0F3933",
+      "elemental": false,
+      "magnitudeScale": 1.0,
+      "verify": false,
+      "variants": {
+        "aimed": "Skyrim.esm|0x0F3932",
+        "aimedArea": "Skyrim.esm|0x0F3935",
+        "selfArea": "Skyrim.esm|0x0F3936",
+        "concentration": "Skyrim.esm|0x0F3934"
+      },
+      "labels": [
+        "PerkDeepFreezeParalysisFFAimed",
+        "PerkDeepFreezeParalysisFFAimedArea15",
+        "PerkDeepFreezeParalysisFFSelfArea40",
+        "PerkDeepFreezeParalysisConcAimed"
+      ]
+    },
+    {
+      "id": "Disintegrate",
+      "effect": "Skyrim.esm|0x0F3F0D",
+      "perk": "Skyrim.esm|0x0F3F0E",
+      "elemental": false,
+      "magnitudeScale": 1.0,
+      "verify": false,
+      "variants": {
+        "aimed": "Skyrim.esm|0x0F3F0D",
+        "aimedArea": "Skyrim.esm|0x0F3F0F",
+        "concentration": "Skyrim.esm|0x0F3F0C"
+      },
+      "labels": [
+        "PerkDisintegrateFFAimed",
+        "PerkDisintegrateFFAimedArea",
+        "PerkDisintegrateConcAimed"
+      ]
+    },
+    {
+      "id": "Impact",
+      "effect": "Skyrim.esm|0x0153D3",
+      "perk": "Skyrim.esm|0x0153D2",
+      "elemental": false,
+      "magnitudeScale": 1.0,
+      "verify": false,
+      "dualCastOnly": true,
+      "labels": [
+        "PerkImpactStaggerPushFFAimed"
+      ]
+    },
+    {
+      "id": "ElementalPotency",
+      "effect": "Skyrim.esm|0x04E945",
+      "perk": "Skyrim.esm|0x0CB41A",
+      "elemental": false,
+      "magnitudeScale": 1.0,
+      "verify": true,
+      "replacesPrimary": true,
+      "variants": {
+        "fire": "Skyrim.esm|0x04E945",
+        "frost": "Skyrim.esm|0x10EE40",
+        "shock": "Skyrim.esm|0x10EE44"
+      },
+      "labels": [
+        "PerkSummonFlameAtronachPotent",
+        "PerkSummonFrostAtronachPCPotent",
+        "PerkSummonStormAtronachPCPotent"
+      ],
+      "notes": "Vanilla conjure spells carry the potent summon as a perk-conditioned alternative to the normal summon, not as an extra rider; verify in xEdit."
+    },
+    {
+      "id": "MysticBinding",
+      "effect": "Skyrim.esm|0x0424FA",
+      "perk": "Skyrim.esm|0x0640B3",
+      "elemental": false,
+      "magnitudeScale": 1.0,
+      "verify": true,
+      "replacesPrimary": true,
+      "variants": {
+        "sword": "Skyrim.esm|0x0424FA",
+        "battleaxe": "Skyrim.esm|0x0424FF",
+        "bow": "Skyrim.esm|0x042500",
+        "dagger": "Dragonborn.esm|0x01CE05"
+      },
+      "labels": [
+        "BoundSwordMysticFFSelf",
+        "BoundBattleAxeMysticFFSelf",
+        "BoundBowMysticFFSelf",
+        "DLC2BoundSwordMysticFFSelf"
+      ],
+      "notes": "Mystic variants are perk-conditioned alternatives of the bound-weapon effect; the Dragonborn dagger variant's EditorID says Sword (DLC2BoundSwordMysticFFSelf) and needs checking against DLC2BoundWeaponDaggerMystic."
+    },
+    {
+      "id": "SoulStealer",
+      "effect": "Skyrim.esm|0x0D799F",
+      "perk": "Skyrim.esm|0x0D799E",
+      "elemental": false,
+      "magnitudeScale": 1.0,
+      "verify": true,
+      "labels": [
+        "PerkSoulStealerFFContact"
+      ],
+      "notes": "Soul Stealer may be applied through the bound weapons' enchantment rather than a spell-embedded effect; verify."
+    },
+    {
+      "id": "FrostStaminaSlow",
+      "effect": "Skyrim.esm|0x0B729F",
+      "perk": null,
+      "elemental": true,
+      "magnitudeScale": 1.0,
+      "verify": true,
+      "labels": [
+        "FrostSlowFFAimed"
+      ],
+      "variants": {
+        "aimed": "Skyrim.esm|0x0B729F",
+        "touch": "Skyrim.esm|0x0B72A0",
+        "concentration": "Skyrim.esm|0x0B729D",
+        "stamina": "Skyrim.esm|0x05B450"
+      },
+      "notes": "Skyrim frost spells pair Frost Damage with a slow and equal stamina damage; if the vanilla frost MGEF is a DualValueModifier the stamina part lives in it instead. Setting bElementalRiders."
+    },
+    {
+      "id": "ShockMagicka",
+      "effect": "Skyrim.esm|0x05B44F",
+      "perk": null,
+      "elemental": true,
+      "magnitudeScale": 0.5,
+      "verify": true,
+      "labels": [
+        "EnchMagickaDamageFFContact"
+      ],
+      "notes": "Half-magnitude magicka damage that Skyrim shock spells carry; verify whether the vanilla shock MGEF is a DualValueModifier (then use its second AV instead)."
+    }
+  ]
+}

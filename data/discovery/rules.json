@@ -1,0 +1,661 @@
+{
+  "rules": [
+    {
+      "id": "mw.fire_damage",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Health",
+        "resist": "FireResist",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.frost_damage",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Health",
+        "resist": "FrostResist",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.shock_damage",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Health",
+        "resist": "ElectricResist",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.poison",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Health",
+        "resist": "PoisonResist",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.fire_damage",
+      "match": {
+        "keywordsAny": [
+          "MagicDamageFire"
+        ],
+        "hostile": true,
+        "castingType": "FireAndForget",
+        "delivery": [
+          "Aimed",
+          "Touch",
+          "TargetActor",
+          "Self"
+        ]
+      }
+    },
+    {
+      "id": "mw.frost_damage",
+      "match": {
+        "keywordsAny": [
+          "MagicDamageFrost"
+        ],
+        "hostile": true,
+        "castingType": "FireAndForget",
+        "delivery": [
+          "Aimed",
+          "Touch",
+          "TargetActor",
+          "Self"
+        ]
+      }
+    },
+    {
+      "id": "mw.shock_damage",
+      "match": {
+        "keywordsAny": [
+          "MagicDamageShock"
+        ],
+        "hostile": true,
+        "castingType": "FireAndForget",
+        "delivery": [
+          "Aimed",
+          "Touch",
+          "TargetActor",
+          "Self"
+        ]
+      }
+    },
+    {
+      "id": "mw.absorb_health",
+      "match": {
+        "archetype": "Absorb",
+        "actorValue": "Health"
+      }
+    },
+    {
+      "id": "mw.absorb_fatigue",
+      "match": {
+        "archetype": "Absorb",
+        "actorValue": "Stamina"
+      }
+    },
+    {
+      "id": "mwx.absorb_magicka",
+      "match": {
+        "archetype": "Absorb",
+        "actorValue": "Magicka"
+      }
+    },
+    {
+      "id": "mw.drain_health",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Health",
+        "hostile": true,
+        "flagsAll": [
+          "Recover"
+        ]
+      }
+    },
+    {
+      "id": "mw.drain_magicka",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Magicka",
+        "hostile": true,
+        "flagsAll": [
+          "Recover"
+        ]
+      }
+    },
+    {
+      "id": "mw.drain_fatigue",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Stamina",
+        "hostile": true,
+        "flagsAll": [
+          "Recover"
+        ]
+      }
+    },
+    {
+      "id": "mw.damage_health",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Health",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.damage_magicka",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Magicka",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.damage_fatigue",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Stamina",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.restore_health",
+      "match": {
+        "keywordsAny": [
+          "MagicRestoreHealth"
+        ],
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.fortify_health",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Health",
+        "hostile": false,
+        "flagsAll": [
+          "Recover"
+        ]
+      }
+    },
+    {
+      "id": "mw.fortify_magicka",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Magicka",
+        "hostile": false,
+        "flagsAll": [
+          "Recover"
+        ]
+      }
+    },
+    {
+      "id": "mw.fortify_fatigue",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Stamina",
+        "hostile": false,
+        "flagsAll": [
+          "Recover"
+        ]
+      }
+    },
+    {
+      "id": "mw.restore_health",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Health",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mwx.restore_magicka",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Magicka",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.restore_fatigue",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "Stamina",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.weakness_to_fire",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "FireResist",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.resist_fire",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "FireResist",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.weakness_to_frost",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "FrostResist",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.resist_frost",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "FrostResist",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.weakness_to_shock",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "ElectricResist",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.resist_shock",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "ElectricResist",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.weakness_to_magicka",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "ResistMagic",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.resist_magicka",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "ResistMagic",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.weakness_to_poison",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "PoisonResist",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.resist_poison",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "PoisonResist",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.weakness_to_common_disease",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "ResistDisease",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.resist_common_disease",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "ResistDisease",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.shield",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "DamageResist",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.shield",
+      "match": {
+        "keywordsAny": [
+          "MagicArmorSpell"
+        ],
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.burden",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "CarryWeight",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.feather",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "CarryWeight",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.water_breathing",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "WaterBreathing",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.water_walking",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "WaterWalking",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.spell_absorption",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "AbsorbChance",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.night_eye",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "NightEye",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.night_eye",
+      "match": {
+        "keywordsAny": [
+          "MagicNightEye"
+        ]
+      }
+    },
+    {
+      "id": "mw.jump",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "JumpingBonus",
+        "hostile": false
+      }
+    },
+    {
+      "id": "sk.muffle",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValue": "MovementNoiseMult",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.drain_skill",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValueGroup": "Skill",
+        "hostile": true
+      }
+    },
+    {
+      "id": "mw.fortify_skill",
+      "match": {
+        "archetype": "ValueModifier",
+        "actorValueGroup": "Skill",
+        "hostile": false
+      }
+    },
+    {
+      "id": "mw.paralyze",
+      "match": {
+        "archetype": "Paralysis"
+      }
+    },
+    {
+      "id": "mw.paralyze",
+      "match": {
+        "keywordsAny": [
+          "MagicParalysis"
+        ]
+      }
+    },
+    {
+      "id": "mw.invisibility",
+      "match": {
+        "archetype": "Invisibility"
+      }
+    },
+    {
+      "id": "mw.light",
+      "match": {
+        "archetype": "Light",
+        "delivery": [
+          "Self"
+        ]
+      }
+    },
+    {
+      "id": "sk.magelight",
+      "match": {
+        "archetype": "Light",
+        "delivery": [
+          "Aimed",
+          "TargetLocation"
+        ]
+      }
+    },
+    {
+      "id": "mw.calm_humanoid",
+      "match": {
+        "archetype": "Calm"
+      },
+      "alsoIds": [
+        "mw.calm_creature"
+      ]
+    },
+    {
+      "id": "mw.frenzy_humanoid",
+      "match": {
+        "archetype": "Frenzy"
+      },
+      "alsoIds": [
+        "mw.frenzy_creature"
+      ]
+    },
+    {
+      "id": "mw.demoralize_humanoid",
+      "match": {
+        "archetype": "Demoralize"
+      },
+      "alsoIds": [
+        "mw.demoralize_creature"
+      ]
+    },
+    {
+      "id": "mw.rally_humanoid",
+      "match": {
+        "archetype": "Rally"
+      },
+      "alsoIds": [
+        "mw.rally_creature"
+      ]
+    },
+    {
+      "id": "mw.turn_undead",
+      "match": {
+        "archetype": "TurnUndead"
+      }
+    },
+    {
+      "id": "mw.soultrap",
+      "match": {
+        "archetype": "SoulTrap"
+      }
+    },
+    {
+      "id": "mw.cure_common_disease",
+      "match": {
+        "archetype": "CureDisease"
+      }
+    },
+    {
+      "id": "mw.cure_paralyzation",
+      "match": {
+        "archetype": "CureParalysis"
+      }
+    },
+    {
+      "id": "mw.cure_poison",
+      "match": {
+        "archetype": "CurePoison"
+      }
+    },
+    {
+      "id": "mw.dispel",
+      "match": {
+        "archetype": "Dispel"
+      }
+    },
+    {
+      "id": "mw.telekinesis",
+      "match": {
+        "archetype": "Telekinesis"
+      }
+    },
+    {
+      "id": "mw.open",
+      "match": {
+        "archetype": "Open"
+      }
+    },
+    {
+      "id": "mw.lock",
+      "match": {
+        "archetype": "Lock"
+      }
+    },
+    {
+      "id": "sk.reanimate",
+      "match": {
+        "archetype": "Reanimate"
+      }
+    },
+    {
+      "id": "sk.banish_daedra",
+      "match": {
+        "archetype": "Banish"
+      }
+    },
+    {
+      "id": "sk.command_daedra",
+      "match": {
+        "archetype": "CommandSummoned"
+      }
+    },
+    {
+      "id": "sk.detect_life",
+      "match": {
+        "archetype": "DetectLife",
+        "keywordsNone": [
+          "MagicTurnUndead"
+        ]
+      }
+    },
+    {
+      "id": "sk.flame_cloak",
+      "match": {
+        "archetype": "Cloak",
+        "keywordsAny": [
+          "MagicDamageFire"
+        ]
+      }
+    },
+    {
+      "id": "sk.frost_cloak",
+      "match": {
+        "archetype": "Cloak",
+        "keywordsAny": [
+          "MagicDamageFrost"
+        ]
+      }
+    },
+    {
+      "id": "sk.lightning_cloak",
+      "match": {
+        "archetype": "Cloak",
+        "keywordsAny": [
+          "MagicDamageShock"
+        ]
+      }
+    },
+    {
+      "id": "mw.summon_flame_atronach",
+      "match": {
+        "archetype": "SummonCreature",
+        "keywordsAny": [
+          "MagicSummonFire"
+        ]
+      }
+    },
+    {
+      "id": "mw.summon_frost_atronach",
+      "match": {
+        "archetype": "SummonCreature",
+        "keywordsAny": [
+          "MagicSummonFrost"
+        ]
+      }
+    },
+    {
+      "id": "mw.summon_storm_atronach",
+      "match": {
+        "archetype": "SummonCreature",
+        "keywordsAny": [
+          "MagicSummonShock"
+        ]
+      }
+    },
+    {
+      "id": "mw.summon_skeletal_minion",
+      "match": {
+        "archetype": "SummonCreature",
+        "keywordsAny": [
+          "MagicSummonUndead"
+        ]
+      }
+    },
+    {
+      "id": "mw.summon_scamp",
+      "match": {
+        "archetype": "SummonCreature",
+        "keywordsAny": [
+          "MagicSummonFamiliar"
+        ]
+      }
+    }
+  ]
+}

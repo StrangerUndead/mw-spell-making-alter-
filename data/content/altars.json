@@ -1,0 +1,77 @@
+{
+  "altars": [
+    {
+      "id": "college",
+      "furniture": "LA_AltarCollege",
+      "nameKey": "$LA_Altar_College",
+      "cell": "Skyrim.esm|0x013810",
+      "cellLabel": "WinterholdCollegeArcanaeum",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alternate": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "access": "college",
+      "owner": "Skyrim.esm|0x01F259",
+      "ownerLabel": "CollegeofWinterholdFaction",
+      "freeFor": "archmage",
+      "freeForFaction": "Skyrim.esm|0x103372",
+      "loreBook": "LA_Book_FragmentsOnTheLostArt",
+      "verify": true,
+      "notes": "Placeholder coordinates: verify in CK (Arcanaeum annex). Alternate marker used when an interior overhaul occupies the spot."
+    },
+    {
+      "id": "telvanni",
+      "furniture": "LA_AltarTelvanni",
+      "nameKey": "$LA_Altar_Telvanni",
+      "cell": "Dragonborn.esm|0x017787",
+      "cellLabel": "DLC2TelMithryn",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alternate": {
+        "position": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "rotation": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "access": "anyone",
+      "owner": "Dragonborn.esm|0x01773A",
+      "ownerLabel": "DLC2Neloth",
+      "freeFor": null,
+      "loreBook": "LA_Book_OnTelvanniInscription",
+      "verify": true,
+      "notes": "Placeholder coordinates and cell: verify in CK that DLC2TelMithryn is Neloth's tower interior (upper tower)."
+    }
+  ]
+}

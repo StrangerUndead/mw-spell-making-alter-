@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/discovery-rules.schema.json",
+  "title": "Discovery rules (data/discovery/rules.json), ordered, first match wins",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "rules"
+  ],
+  "properties": {
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "match"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "common.schema.json#/$defs/effectId"
+          },
+          "alsoIds": {
+            "type": "array",
+            "items": {
+              "$ref": "common.schema.json#/$defs/effectId"
+            }
+          },
+          "match": {
+            "type": "object",
+            "additionalProperties": false,
+            "minProperties": 1,
+            "properties": {
+              "archetype": {
+                "$ref": "common.schema.json#/$defs/archetype"
+              },
+              "actorValue": {
+                "type": "string"
+              },
+              "actorValueGroup": {
+                "enum": [
+                  "Skill",
+                  "Attribute",
+                  "Resist"
+                ]
+              },
+              "resist": {
+                "type": "string"
+              },
+              "hostile": {
+                "type": "boolean"
+              },
+              "keywordsAny": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/editorId"
+                }
+              },
+              "keywordsAll": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/editorId"
+                }
+              },
+              "keywordsNone": {
+                "type": "array",
+                "items": {
+                  "$ref": "common.schema.json#/$defs/editorId"
+                }
+              },
+              "delivery": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "Self",
+                    "Touch",
+                    "Aimed",
+                    "TargetActor",
+                    "TargetLocation"
+                  ]
+                }
+              },
+              "castingType": {
+                "enum": [
+                  "ConstantEffect",
+                  "FireAndForget",
+                  "Concentration"
+                ]
+              },
+              "flagsAll": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "flagsNone": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

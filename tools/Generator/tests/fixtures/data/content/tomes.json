@@ -1,0 +1,6 @@
+{ "tomes": [
+  { "id": "Levitate", "spellName": "$LA_Spell_Levitate", "level": 10, "value": 150,
+    "effects": [ { "effect": "mw.levitate", "range": "self", "min": 10, "max": 10, "duration": 30 } ] },
+  { "id": "FortifyStrength", "effects": [ { "effect": "mw.fortify_attribute", "range": "self", "target": "Strength", "min": 5, "max": 10, "duration": 60 } ] },
+  { "id": "OndusisOpenDoor", "spellName": "Ondusi's Open Door", "effects": [ { "effect": "mw.open", "range": "touch", "min": 20, "max": 20 } ] }
+], "loot": { "chanceNone": 50 } }

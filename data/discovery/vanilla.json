@@ -1,0 +1,739 @@
+{
+  "map": [
+    {
+      "effect": "Skyrim.esm|0x012F03",
+      "id": "mw.fire_damage",
+      "label": "FireDamageFFAimed",
+      "example": "Firebolt"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEA1",
+      "id": "mw.fire_damage",
+      "label": "FireDamageFFAimedArea",
+      "example": "Fireball"
+    },
+    {
+      "effect": "Skyrim.esm|0x013CA9",
+      "id": "mw.fire_damage",
+      "label": "FireDamageConcAimed",
+      "example": "Flames"
+    },
+    {
+      "effect": "Skyrim.esm|0x07A82A",
+      "id": "mw.fire_damage",
+      "label": "FireDamageFFSelfArea100",
+      "example": "Fire Storm"
+    },
+    {
+      "effect": "Skyrim.esm|0x082A33",
+      "id": "mw.fire_damage",
+      "label": "FireDamageFFSelfArea65",
+      "example": "Fire Storm"
+    },
+    {
+      "effect": "Skyrim.esm|0x082A32",
+      "id": "mw.fire_damage",
+      "label": "FireDamageFFSelfArea25",
+      "example": "Fire Storm"
+    },
+    {
+      "effect": "Skyrim.esm|0x10F7F1",
+      "id": "mw.fire_damage",
+      "label": "FireDamageFFAimed75"
+    },
+    {
+      "effect": "Dragonborn.esm|0x02732C",
+      "id": "mw.fire_damage",
+      "label": "DLC2IgniteFireDamageFFAimed",
+      "example": "Ignite"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEA2",
+      "id": "mw.frost_damage",
+      "label": "FrostDamageFFAimed",
+      "example": "Ice Spike"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEA3",
+      "id": "mw.frost_damage",
+      "label": "FrostDamageFFAimedArea",
+      "example": "Ice Storm"
+    },
+    {
+      "effect": "Skyrim.esm|0x013CAA",
+      "id": "mw.frost_damage",
+      "label": "FrostDamageConcAimed",
+      "example": "Frostbite"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E8E2",
+      "id": "mw.frost_damage",
+      "label": "FrostDamageFFSelfArea100",
+      "example": "Blizzard"
+    },
+    {
+      "effect": "Skyrim.esm|0x066334",
+      "id": "mw.frost_damage",
+      "label": "FrostDamageFFSelfArea65",
+      "example": "Blizzard"
+    },
+    {
+      "effect": "Skyrim.esm|0x066335",
+      "id": "mw.frost_damage",
+      "label": "FrostDamageFFSelfArea25",
+      "example": "Blizzard"
+    },
+    {
+      "effect": "Skyrim.esm|0x10F7F0",
+      "id": "mw.frost_damage",
+      "label": "FrostDamageFFAimed75"
+    },
+    {
+      "effect": "Dragonborn.esm|0x02732E",
+      "id": "mw.frost_damage",
+      "label": "DLC2FreezeEffect",
+      "example": "Freeze"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEA8",
+      "id": "mw.shock_damage",
+      "label": "ShockDamageFFAimed",
+      "example": "Lightning Bolt"
+    },
+    {
+      "effect": "Skyrim.esm|0x05DBAE",
+      "id": "mw.shock_damage",
+      "label": "ShockDamageFFAimedArea",
+      "example": "Chain Lightning"
+    },
+    {
+      "effect": "Skyrim.esm|0x013CAB",
+      "id": "mw.shock_damage",
+      "label": "ShockDamageConcAimed",
+      "example": "Sparks"
+    },
+    {
+      "effect": "Skyrim.esm|0x0D22FA",
+      "id": "mw.shock_damage",
+      "label": "ShockDamageMassConcAimed",
+      "example": "Lightning Storm"
+    },
+    {
+      "effect": "Skyrim.esm|0x10F7EF",
+      "id": "mw.shock_damage",
+      "label": "ShockDamageFFAimed75"
+    },
+    {
+      "effect": "Skyrim.esm|0x03AE9E",
+      "id": "sk.flame_cloak",
+      "label": "FireCloakFFSelf",
+      "example": "Flame Cloak"
+    },
+    {
+      "effect": "Skyrim.esm|0x03AEA0",
+      "id": "sk.frost_cloak",
+      "label": "FrostCloakFFSelf",
+      "example": "Frost Cloak"
+    },
+    {
+      "effect": "Skyrim.esm|0x03AEA1",
+      "id": "sk.lightning_cloak",
+      "label": "ShockCloakFFSelf",
+      "example": "Lightning Cloak"
+    },
+    {
+      "effect": "Skyrim.esm|0x0F82E2",
+      "id": "mw.damage_health",
+      "label": "DunLabyDamageHealthConcSelf",
+      "example": "Equilibrium"
+    },
+    {
+      "effect": "Skyrim.esm|0x051B15",
+      "id": "mw.shield",
+      "label": "ArmorFFSelf0",
+      "example": "Oakflesh"
+    },
+    {
+      "effect": "Skyrim.esm|0x059B7A",
+      "id": "mw.shield",
+      "label": "ArmorFFSelf25",
+      "example": "Stoneflesh"
+    },
+    {
+      "effect": "Skyrim.esm|0x059B7B",
+      "id": "mw.shield",
+      "label": "ArmorFFSelf50",
+      "example": "Ironflesh"
+    },
+    {
+      "effect": "Skyrim.esm|0x059B7C",
+      "id": "mw.shield",
+      "label": "ArmorFFSelf75",
+      "example": "Ebonyflesh"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA6C",
+      "id": "mw.light",
+      "label": "LightFFSelf",
+      "example": "Candlelight"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA6D",
+      "id": "sk.magelight",
+      "label": "LightFFAimed",
+      "example": "Magelight"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA6E",
+      "id": "mw.paralyze",
+      "label": "ParalysisFFAimed",
+      "example": "Paralyze"
+    },
+    {
+      "effect": "Skyrim.esm|0x0B62E5",
+      "id": "mw.paralyze",
+      "label": "ParalysisFFSelfArea",
+      "example": "Mass Paralysis"
+    },
+    {
+      "effect": "Dragonborn.esm|0x017732",
+      "id": "mw.paralyze",
+      "label": "DLC2AshShellFFAimed",
+      "example": "Ash Shell"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA73",
+      "id": "mw.water_breathing",
+      "label": "WaterbreathingFFSelf",
+      "example": "Waterbreathing"
+    },
+    {
+      "effect": "Skyrim.esm|0x01A4CB",
+      "id": "mw.telekinesis",
+      "label": "TelekinesisEffect",
+      "example": "Telekinesis"
+    },
+    {
+      "effect": "Skyrim.esm|0x109110",
+      "id": "sk.transmute",
+      "label": "TransmuteOreMineralEffect",
+      "example": "Transmute"
+    },
+    {
+      "effect": "Skyrim.esm|0x0CEDFF",
+      "id": "sk.detect_life",
+      "label": "DetectLifeEnemyExteriorConcSelf",
+      "example": "Detect Life"
+    },
+    {
+      "effect": "Skyrim.esm|0x0CEE00",
+      "id": "sk.detect_life",
+      "label": "DetectLifeEnemyInteriorConcSelf",
+      "example": "Detect Life"
+    },
+    {
+      "effect": "Skyrim.esm|0x0B79E7",
+      "id": "sk.detect_life",
+      "label": "DetectLifeFriendExteriorConcSelf",
+      "example": "Detect Life"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA74",
+      "id": "sk.detect_life",
+      "label": "DetectLifeFriendInteriorConcSelf",
+      "example": "Detect Life"
+    },
+    {
+      "effect": "Skyrim.esm|0x0B79E8",
+      "id": "sk.detect_dead",
+      "label": "DetectUndeadEnemyExteriorConcSelf",
+      "example": "Detect Dead"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA75",
+      "id": "sk.detect_dead",
+      "label": "DetectUndeadEnemyInteriorConcSelf",
+      "example": "Detect Dead"
+    },
+    {
+      "effect": "Skyrim.esm|0x0E8269",
+      "id": "sk.detect_dead",
+      "label": "DetectUndeadFriendExteriorConcSelf",
+      "example": "Detect Dead"
+    },
+    {
+      "effect": "Skyrim.esm|0x0E826A",
+      "id": "sk.detect_dead",
+      "label": "DetectUndeadFriendInteriorConcSelf",
+      "example": "Detect Dead"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CE9F",
+      "id": "mw.bound_longsword",
+      "label": "BoundSwordFFSelf",
+      "example": "Bound Sword"
+    },
+    {
+      "effect": "Skyrim.esm|0x0424FA",
+      "id": "mw.bound_longsword",
+      "label": "BoundSwordMysticFFSelf",
+      "example": "Bound Sword (Mystic Binding)"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CE9E",
+      "id": "mw.bound_battle_axe",
+      "label": "BoundBattleAxeFFSelf",
+      "example": "Bound Battleaxe"
+    },
+    {
+      "effect": "Skyrim.esm|0x0424FF",
+      "id": "mw.bound_battle_axe",
+      "label": "BoundBattleAxeMysticFFSelf",
+      "example": "Bound Battleaxe (Mystic Binding)"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEA0",
+      "id": "mw.bound_longbow",
+      "label": "BoundBowFFSelf",
+      "example": "Bound Bow"
+    },
+    {
+      "effect": "Skyrim.esm|0x042500",
+      "id": "mw.bound_longbow",
+      "label": "BoundBowMysticFFSelf",
+      "example": "Bound Bow (Mystic Binding)"
+    },
+    {
+      "effect": "Dragonborn.esm|0x01CE04",
+      "id": "mw.bound_dagger",
+      "label": "DLC2BoundDaggerFFSelf",
+      "example": "Bound Dagger"
+    },
+    {
+      "effect": "Skyrim.esm|0x0640B4",
+      "id": "mw.summon_scamp",
+      "label": "SummonFamiliar",
+      "example": "Conjure Familiar"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEAA",
+      "id": "mw.summon_flame_atronach",
+      "label": "SummonFlameAtronach",
+      "example": "Conjure Flame Atronach"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E5D2",
+      "id": "mw.summon_flame_atronach",
+      "label": "SummonFlameThrall",
+      "example": "Flame Thrall"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEAB",
+      "id": "mw.summon_frost_atronach",
+      "label": "SummonFrostAtronach",
+      "example": "Conjure Frost Atronach"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E5D3",
+      "id": "mw.summon_frost_atronach",
+      "label": "SummonFrostThrall",
+      "example": "Frost Thrall"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEAC",
+      "id": "mw.summon_storm_atronach",
+      "label": "SummonStormAtronach",
+      "example": "Conjure Storm Atronach"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E5D4",
+      "id": "mw.summon_storm_atronach",
+      "label": "SummonStormThrall",
+      "example": "Storm Thrall"
+    },
+    {
+      "effect": "Skyrim.esm|0x10DDED",
+      "id": "mw.summon_dremora",
+      "label": "SummonDremoraLord",
+      "example": "Conjure Dremora Lord"
+    },
+    {
+      "effect": "Dawnguard.esm|0x0045BC",
+      "id": "mw.summon_bonewalker",
+      "label": "SummonBoneman",
+      "example": "Conjure Boneman"
+    },
+    {
+      "effect": "Dawnguard.esm|0x0045BB",
+      "id": "mw.summon_greater_bonewalker",
+      "label": "SummonMistman",
+      "example": "Conjure Mistman"
+    },
+    {
+      "effect": "Dawnguard.esm|0x0045B5",
+      "id": "mw.summon_bonelord",
+      "label": "SummonWrathman",
+      "example": "Conjure Wrathman"
+    },
+    {
+      "effect": "Dragonborn.esm|0x030CCF",
+      "id": "mw.summon_clannfear",
+      "label": "DLC2SummonSeekerEffect",
+      "example": "Conjure Seeker"
+    },
+    {
+      "effect": "Dragonborn.esm|0x01CDF7",
+      "id": "sk.conjure_ash_spawn",
+      "label": "DLC2SummonAshSpawn",
+      "example": "Conjure Ash Spawn"
+    },
+    {
+      "effect": "Skyrim.esm|0x065BD6",
+      "id": "sk.reanimate",
+      "label": "ReanimateFFAimed0",
+      "example": "Raise Zombie"
+    },
+    {
+      "effect": "Skyrim.esm|0x096D0B",
+      "id": "sk.reanimate",
+      "label": "ReanimateFFAimed25",
+      "example": "Reanimate Corpse"
+    },
+    {
+      "effect": "Skyrim.esm|0x096D0C",
+      "id": "sk.reanimate",
+      "label": "ReanimateFFAimed50",
+      "example": "Revenant"
+    },
+    {
+      "effect": "Skyrim.esm|0x096D0D",
+      "id": "sk.reanimate",
+      "label": "ReanimateFFAimed75",
+      "example": "Dread Zombie"
+    },
+    {
+      "effect": "Skyrim.esm|0x06D22B",
+      "id": "sk.banish_daedra",
+      "label": "BanishFFActor50",
+      "example": "Banish Daedra"
+    },
+    {
+      "effect": "Skyrim.esm|0x06F951",
+      "id": "sk.banish_daedra",
+      "label": "BanishFFActor75",
+      "example": "Expel Daedra"
+    },
+    {
+      "effect": "Skyrim.esm|0x06F954",
+      "id": "sk.command_daedra",
+      "label": "CommandFFActor",
+      "example": "Command Daedra"
+    },
+    {
+      "effect": "Skyrim.esm|0x04DBA3",
+      "id": "mw.soultrap",
+      "label": "SoulTrapFFActor",
+      "example": "Soul Trap"
+    },
+    {
+      "effect": "Skyrim.esm|0x08F3EA",
+      "id": "sk.muffle",
+      "label": "MuffleFFSelf",
+      "example": "Muffle"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEA6",
+      "id": "mw.restore_health",
+      "label": "RestoreHealthFFSelf",
+      "example": "Fast Healing"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEA7",
+      "id": "mw.restore_health",
+      "label": "RestoreHealthFFActor",
+      "example": "Heal Other"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEA4",
+      "id": "mw.restore_health",
+      "label": "RestoreHealthConcSelf",
+      "example": "Healing"
+    },
+    {
+      "effect": "Skyrim.esm|0x01CEA5",
+      "id": "mw.restore_health",
+      "label": "RestoreHealthConcActor",
+      "example": "Healing Hands"
+    },
+    {
+      "effect": "Skyrim.esm|0x0B62ED",
+      "id": "mw.restore_health",
+      "label": "RestoreHealthFFSelfArea",
+      "example": "Grand Healing"
+    },
+    {
+      "effect": "Dawnguard.esm|0x00E8D3",
+      "id": "mw.restore_health",
+      "label": "DLC1RestoreHealthUndeadFFActor",
+      "example": "Heal Undead"
+    },
+    {
+      "effect": "Dawnguard.esm|0x00E8D1",
+      "id": "mw.restore_health",
+      "label": "DLC1RestoreHealthUndeadConcActor",
+      "example": "Necromantic Healing"
+    },
+    {
+      "effect": "Skyrim.esm|0x04B145",
+      "id": "mw.turn_undead",
+      "label": "TurnUndeadFFAimed25",
+      "example": "Turn Lesser Undead"
+    },
+    {
+      "effect": "Skyrim.esm|0x05DD5B",
+      "id": "mw.turn_undead",
+      "label": "TurnUndeadFFAimed50",
+      "example": "Turn Undead"
+    },
+    {
+      "effect": "Skyrim.esm|0x05DD5C",
+      "id": "mw.turn_undead",
+      "label": "TurnUndeadFFAimed75",
+      "example": "Turn Greater Undead"
+    },
+    {
+      "effect": "Skyrim.esm|0x04D3F7",
+      "id": "mw.turn_undead",
+      "label": "TurnUndeadFFAimedArea50",
+      "example": "Repel Lesser Undead"
+    },
+    {
+      "effect": "Skyrim.esm|0x05DD5F",
+      "id": "mw.turn_undead",
+      "label": "TurnUndeadFFAimedArea75",
+      "example": "Repel Undead"
+    },
+    {
+      "effect": "Skyrim.esm|0x08C1AA",
+      "id": "mw.turn_undead",
+      "label": "TurnUndeadFFMassSelfArea",
+      "example": "Bane of the Undead"
+    },
+    {
+      "effect": "Skyrim.esm|0x04DEE7",
+      "id": "mw.calm_humanoid",
+      "label": "InfluenceAggDownFFAimed",
+      "example": "Calm"
+    },
+    {
+      "effect": "Skyrim.esm|0x04DEE7",
+      "id": "mw.calm_creature",
+      "label": "InfluenceAggDownFFAimed",
+      "example": "Calm"
+    },
+    {
+      "effect": "Skyrim.esm|0x04DEDF",
+      "id": "mw.calm_humanoid",
+      "label": "InfluenceAggDownFFAimedArea",
+      "example": "Pacify"
+    },
+    {
+      "effect": "Skyrim.esm|0x04DEDF",
+      "id": "mw.calm_creature",
+      "label": "InfluenceAggDownFFAimedArea",
+      "example": "Pacify"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E8DC",
+      "id": "mw.calm_humanoid",
+      "label": "InfluenceAggDownFFSelfArea250",
+      "example": "Harmony"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E8DC",
+      "id": "mw.calm_creature",
+      "label": "InfluenceAggDownFFSelfArea250",
+      "example": "Harmony"
+    },
+    {
+      "effect": "Skyrim.esm|0x04DEE6",
+      "id": "mw.frenzy_humanoid",
+      "label": "InfluenceAggUpFFAimed",
+      "example": "Fury"
+    },
+    {
+      "effect": "Skyrim.esm|0x04DEE6",
+      "id": "mw.frenzy_creature",
+      "label": "InfluenceAggUpFFAimed",
+      "example": "Fury"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA78",
+      "id": "mw.frenzy_humanoid",
+      "label": "InfluenceAggUpFFAimedArea",
+      "example": "Frenzy"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA78",
+      "id": "mw.frenzy_creature",
+      "label": "InfluenceAggUpFFAimedArea",
+      "example": "Frenzy"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E8D6",
+      "id": "mw.frenzy_humanoid",
+      "label": "InfluenceAggUpFFSelfArea250",
+      "example": "Mayhem"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E8D6",
+      "id": "mw.frenzy_creature",
+      "label": "InfluenceAggUpFFSelfArea250",
+      "example": "Mayhem"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA77",
+      "id": "mw.demoralize_humanoid",
+      "label": "InfluenceConfDownFFAimed",
+      "example": "Fear"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA77",
+      "id": "mw.demoralize_creature",
+      "label": "InfluenceConfDownFFAimed",
+      "example": "Fear"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA7A",
+      "id": "mw.demoralize_humanoid",
+      "label": "InfluenceConfDownFFAimedArea",
+      "example": "Rout"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA7A",
+      "id": "mw.demoralize_creature",
+      "label": "InfluenceConfDownFFAimedArea",
+      "example": "Rout"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E8D8",
+      "id": "mw.demoralize_humanoid",
+      "label": "InfluenceConfDownFFSelfArea250",
+      "example": "Hysteria"
+    },
+    {
+      "effect": "Skyrim.esm|0x07E8D8",
+      "id": "mw.demoralize_creature",
+      "label": "InfluenceConfDownFFSelfArea250",
+      "example": "Hysteria"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA79",
+      "id": "mw.rally_humanoid",
+      "label": "InfluenceConfUpFFAimed",
+      "example": "Courage"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA79",
+      "id": "mw.rally_creature",
+      "label": "InfluenceConfUpFFAimed",
+      "example": "Courage"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA76",
+      "id": "mw.rally_humanoid",
+      "label": "InfluenceConfUpFFAimedArea",
+      "example": "Rally"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA76",
+      "id": "mw.rally_creature",
+      "label": "InfluenceConfUpFFAimedArea",
+      "example": "Rally"
+    },
+    {
+      "effect": "Skyrim.esm|0x10F9B8",
+      "id": "mw.rally_humanoid",
+      "label": "InfluenceConfUpFFSelfAreaSecondary",
+      "example": "Call to Arms"
+    },
+    {
+      "effect": "Skyrim.esm|0x10F9B8",
+      "id": "mw.rally_creature",
+      "label": "InfluenceConfUpFFSelfAreaSecondary",
+      "example": "Call to Arms"
+    },
+    {
+      "effect": "Skyrim.esm|0x050CEA",
+      "id": "mw.fortify_health",
+      "label": "ConfUpFortifyHealth00",
+      "example": "Courage"
+    },
+    {
+      "effect": "Skyrim.esm|0x050CEB",
+      "id": "mw.fortify_fatigue",
+      "label": "ConfUpFortifyStamina00",
+      "example": "Courage"
+    },
+    {
+      "effect": "Skyrim.esm|0x050CEE",
+      "id": "mw.fortify_health",
+      "label": "ConfUpAreaFortifyHealth50",
+      "example": "Rally"
+    },
+    {
+      "effect": "Skyrim.esm|0x050CEF",
+      "id": "mw.fortify_fatigue",
+      "label": "ConfUpAreaFortifyStamina50",
+      "example": "Rally"
+    },
+    {
+      "effect": "Skyrim.esm|0x050CF2",
+      "id": "mw.fortify_health",
+      "label": "CallToArmsFortifyHealth100",
+      "example": "Call to Arms"
+    },
+    {
+      "effect": "Skyrim.esm|0x050CF3",
+      "id": "mw.fortify_fatigue",
+      "label": "CallToArmsFortifyStamina100",
+      "example": "Call to Arms"
+    },
+    {
+      "effect": "Skyrim.esm|0x08BB2D",
+      "id": "mw.fortify_skill",
+      "label": "CallToARmsFortifyMarksman100",
+      "example": "Call to Arms"
+    },
+    {
+      "effect": "Skyrim.esm|0x08BB2B",
+      "id": "mw.fortify_skill",
+      "label": "CallToArmsFortifyOneHanded100",
+      "example": "Call to Arms"
+    },
+    {
+      "effect": "Skyrim.esm|0x08BB2C",
+      "id": "mw.fortify_skill",
+      "label": "CallToArmsFortifyTwoHanded100",
+      "example": "Call to Arms"
+    },
+    {
+      "effect": "Skyrim.esm|0x01EA6A",
+      "id": "mw.invisibility",
+      "label": "InvisibillityFFSelf",
+      "example": "Invisibility"
+    },
+    {
+      "effect": "Skyrim.esm|0x0F5B57",
+      "id": "mw.absorb_health",
+      "label": "PlayerVampireAbsorbHealthConcAimed",
+      "example": "Vampiric Drain"
+    },
+    {
+      "effect": "Dawnguard.esm|0x019321",
+      "id": "mw.absorb_health",
+      "label": "DLC1PCVampireAbsorbHealthFFAimed",
+      "example": "Vampire Lord Drain Life"
+    }
+  ]
+}

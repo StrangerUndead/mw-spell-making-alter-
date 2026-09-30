@@ -1,0 +1,85 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 25, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "installDir": "${sourceDir}/build/${presetName}/install"
+    },
+    {
+      "name": "vcpkg",
+      "hidden": true,
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "VCPKG_MANIFEST_MODE": "ON"
+      }
+    },
+    {
+      "name": "linux-tests",
+      "inherits": "base",
+      "displayName": "Linux: lostart_core + Catch2 tests (native g++)",
+      "description": "Portable core library and unit tests. No vcpkg: nlohmann_json and Catch2 come from find_package or FetchContent.",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_COMPILER": "g++",
+        "LOSTART_BUILD_PLUGIN": "OFF",
+        "LOSTART_BUILD_TESTS": "ON"
+      }
+    },
+    {
+      "name": "linux-clangcl",
+      "inherits": [ "base", "vcpkg" ],
+      "displayName": "Linux -> Windows x64: LostArt.dll (clang-cl + xwin sysroot + vcpkg)",
+      "description": "Cross-compiles the SKSE plugin. Needs VCPKG_ROOT, clang-cl/lld-link >= 19, an xwin sysroot (XWIN_SYSROOT or /opt/xwin), and wine + llvm-mingw for DirectXTK's shaders.",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Linux" },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "VCPKG_CHAINLOAD_TOOLCHAIN_FILE": "${sourceDir}/cmake/toolchains/linux-clangcl.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md-clangcl",
+        "VCPKG_OVERLAY_TRIPLETS": "${sourceDir}/cmake/triplets",
+        "VCPKG_OVERLAY_PORTS": "${sourceDir}/cmake/ports",
+        "LOSTART_BUILD_PLUGIN": "ON",
+        "LOSTART_BUILD_TESTS": "OFF"
+      }
+    },
+    {
+      "name": "windows-msvc",
+      "inherits": [ "base", "vcpkg" ],
+      "displayName": "Windows: LostArt.dll + tests (MSVC cl.exe + vcpkg)",
+      "description": "Run from an x64 Native Tools / Developer prompt (cl.exe on PATH) with VCPKG_ROOT set.",
+      "condition": { "type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows" },
+      "architecture": { "value": "x64", "strategy": "external" },
+      "toolset": { "value": "host=x64", "strategy": "external" },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md",
+        "LOSTART_BUILD_PLUGIN": "ON",
+        "LOSTART_BUILD_TESTS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "linux-tests", "configurePreset": "linux-tests" },
+    { "name": "linux-clangcl", "configurePreset": "linux-clangcl" },
+    { "name": "windows-msvc", "configurePreset": "windows-msvc" }
+  ],
+  "testPresets": [
+    {
+      "name": "linux-tests",
+      "configurePreset": "linux-tests",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error" }
+    },
+    {
+      "name": "windows-msvc",
+      "configurePreset": "windows-msvc",
+      "output": { "outputOnFailure": true },
+      "execution": { "noTestsAction": "error" }
+    }
+  ]
+}

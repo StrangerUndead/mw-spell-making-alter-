@@ -1,0 +1,17 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "lostart",
+  "version-semver": "1.0.0",
+  "description": "Lost Art of Spellmaking - SKSE plugin dependencies. CommonLibSSE-NG itself is fetched by CMake (cmake/LostArtCommonLib.cmake); these are its and our third-party libraries.",
+  "supports": "windows & x64",
+  "dependencies": [
+    "directxmath",
+    "directxtk",
+    "nlohmann-json",
+    "rapidcsv",
+    "simpleini",
+    "spdlog",
+    "xbyak",
+    "catch2"
+  ]
+}

@@ -1,0 +1,762 @@
+[
+  {
+    "id": "mw.burden",
+    "name": "$LA_Effect_Burden",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 7,
+      "school": "Alteration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "ValueModifier",
+      "actorValue": "CarryWeight",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "burden",
+        "label": "Burden",
+        "magnitude": 20,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 1.7458218651509485
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "CarryWeight",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_Burden",
+    "sources": [
+      "tome:burden"
+    ]
+  },
+  {
+    "id": "mw.feather",
+    "name": "$LA_Effect_Feather",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 8,
+      "school": "Alteration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "ValueModifier",
+      "actorValue": "CarryWeight",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x03EB01",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "feather",
+        "label": "Feather",
+        "magnitude": 20,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 1.7458218651509485
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "CarryWeight",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Feather",
+    "sources": [
+      "tome:feather"
+    ]
+  },
+  {
+    "id": "mw.fire_shield",
+    "name": "$LA_Effect_FireShield",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 4,
+      "school": "Alteration",
+      "baseCost": 3.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "actorValue": "FireResist",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "fire_shield",
+        "label": "Fire Shield",
+        "magnitude": 10,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 4.721432757754315
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "actorValue": "FireResist",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FireShield",
+    "sources": [
+      "tome:fire_shield"
+    ]
+  },
+  {
+    "id": "mw.frost_shield",
+    "name": "$LA_Effect_FrostShield",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 6,
+      "school": "Alteration",
+      "baseCost": 3.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "actorValue": "FrostResist",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "frost_shield",
+        "label": "Frost Shield",
+        "magnitude": 10,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 4.721432757754315
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "actorValue": "FrostResist",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FrostShield",
+    "sources": [
+      "tome:frost_shield"
+    ]
+  },
+  {
+    "id": "mw.jump",
+    "name": "$LA_Effect_Jump",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 9,
+      "school": "Alteration",
+      "baseCost": 3.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "actorValue": "JumpingBonus",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "tinurs_hoptoad",
+        "label": "Tinur's Hoptoad",
+        "magnitude": 20,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 5.237465595452846
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "actorValue": "JumpingBonus",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Jump",
+    "sources": [
+      "tome:tinurs_hoptoad"
+    ]
+  },
+  {
+    "id": "mw.levitate",
+    "name": "$LA_Effect_Levitate",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 10,
+      "school": "Alteration",
+      "baseCost": 3.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "levitate",
+        "label": "Levitate",
+        "magnitude": 10,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 4.721432757754315
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Levitate",
+    "sources": [
+      "tome:levitate"
+    ]
+  },
+  {
+    "id": "mw.lightning_shield",
+    "name": "$LA_Effect_LightningShield",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 5,
+      "school": "Alteration",
+      "baseCost": 3.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "actorValue": "ElectricResist",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "lightning_shield",
+        "label": "Lightning Shield",
+        "magnitude": 10,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 4.721432757754315
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "actorValue": "ElectricResist",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_LightningShield",
+    "sources": [
+      "tome:lightning_shield"
+    ]
+  },
+  {
+    "id": "mw.lock",
+    "name": "$LA_Effect_Lock",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 12,
+      "school": "Alteration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "fenricks_doorjam",
+        "label": "Fenrick's Doorjam",
+        "magnitude": 10,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 0.6958380712994146
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": false,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Lock",
+    "sources": [
+      "tome:fenricks_doorjam"
+    ]
+  },
+  {
+    "id": "mw.open",
+    "name": "$LA_Effect_Open",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 13,
+      "school": "Alteration",
+      "baseCost": 6.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "ondusis_open_door",
+        "label": "Ondusi's Open Door",
+        "magnitude": 50,
+        "duration": 0,
+        "area": 0
+      },
+      "baseCost": 1.7425074244553886
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": false,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Open",
+    "sources": [
+      "tome:ondusis_open_door"
+    ]
+  },
+  {
+    "id": "mw.shield",
+    "name": "$LA_Effect_Shield",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 3,
+      "school": "Alteration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "ValueModifier",
+      "actorValue": "DamageResist",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x051B15",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x05AD5C",
+        "label": "Oakflesh",
+        "magnitude": 40,
+        "duration": 60,
+        "area": 0,
+        "cost": 103
+      },
+      "baseCost": 0.24808748635945618
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicArmorSpell"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 60,
+      "Adept": 80,
+      "Expert": 100
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "DamageResist",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Shield",
+    "sources": [
+      "Skyrim.esm|0x05AD5C",
+      "Skyrim.esm|0x05AD5D",
+      "Skyrim.esm|0x051B16",
+      "Skyrim.esm|0x05AD5E"
+    ]
+  },
+  {
+    "id": "mw.slowfall",
+    "name": "$LA_Effect_Slowfall",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 11,
+      "school": "Alteration",
+      "baseCost": 3.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "slowfall",
+        "label": "Slowfall",
+        "magnitude": 30,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 5.025550809783579
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Slowfall",
+    "sources": [
+      "tome:slowfall"
+    ]
+  },
+  {
+    "id": "mw.swift_swim",
+    "name": "$LA_Effect_SwiftSwim",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 1,
+      "school": "Alteration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Script",
+      "actorValue": "SpeedMult",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "swimmers_blessing",
+        "label": "Swimmer's Blessing",
+        "magnitude": 5,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 3.378969984234468
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "actorValue": "SpeedMult",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SwiftSwim",
+    "sources": [
+      "tome:swimmers_blessing"
+    ]
+  },
+  {
+    "id": "mw.water_breathing",
+    "name": "$LA_Effect_WaterBreathing",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 0,
+      "school": "Alteration",
+      "baseCost": 3.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "ValueModifier",
+      "actorValue": "WaterBreathing",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01EA73",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x05D175",
+        "label": "Waterbreathing",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 222
+      },
+      "baseCost": 30.930475676883663
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "WaterBreathing",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_WaterBreathing",
+    "sources": [
+      "Skyrim.esm|0x05D175",
+      "tome:water_breathing"
+    ]
+  },
+  {
+    "id": "mw.water_walking",
+    "name": "$LA_Effect_WaterWalking",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 2,
+      "school": "Alteration",
+      "baseCost": 3.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "ValueModifier",
+      "actorValue": "WaterWalking",
+      "secondAV": null,
+      "vanillaEffect": "Dragonborn.esm|0x0390E1",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "water_walking",
+        "label": "Water Walking",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 5.492300932047235
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "WaterWalking",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_WaterWalking",
+    "sources": [
+      "tome:water_walking"
+    ]
+  }
+]

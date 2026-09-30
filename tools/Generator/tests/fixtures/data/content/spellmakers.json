@@ -1,0 +1,5 @@
+[
+  { "id": "tolfdir", "npc": "Skyrim.esm|0x01C19E", "refusal": "college" },
+  { "id": "faralda", "npc": "Skyrim.esm|0x01C197", "refusal": "college" },
+  { "id": "neloth", "npc": "Dragonborn.esm|0x01773A", "refusal": "telvanni" }
+]

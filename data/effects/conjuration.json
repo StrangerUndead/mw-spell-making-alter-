@@ -1,0 +1,1620 @@
+[
+  {
+    "id": "mw.bound_battle_axe",
+    "name": "$LA_Effect_BoundBattleAxe",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 123,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "BoundWeapon",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01CE9E",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x0211EC",
+        "label": "Bound Battleaxe",
+        "magnitude": 0,
+        "duration": 120,
+        "area": 0,
+        "cost": 169
+      },
+      "weapon": "Skyrim.esm|0x058F5E",
+      "baseCost": 10.984678081818936
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [
+      "MysticBinding",
+      "SoulStealer"
+    ],
+    "rankLadder": {
+      "Apprentice": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "BoundWeapon",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundBattleAxe",
+    "sources": [
+      "Skyrim.esm|0x0211EC"
+    ]
+  },
+  {
+    "id": "mw.bound_boots",
+    "name": "$LA_Effect_BoundBoots",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 129,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "bound_armor",
+        "label": "Bound Armor",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "armor": "Skyrim.esm|0x01396A",
+      "baseCost": 3.6615339546981565
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundBoots",
+    "sources": [
+      "tome:bound_armor"
+    ]
+  },
+  {
+    "id": "mw.bound_cuirass",
+    "name": "$LA_Effect_BoundCuirass",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 127,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "bound_armor",
+        "label": "Bound Armor",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "armor": "Skyrim.esm|0x01396B",
+      "baseCost": 3.6615339546981565
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundCuirass",
+    "sources": [
+      "tome:bound_armor"
+    ]
+  },
+  {
+    "id": "mw.bound_dagger",
+    "name": "$LA_Effect_BoundDagger",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 120,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "BoundWeapon",
+      "secondAV": null,
+      "vanillaEffect": "Dragonborn.esm|0x01CE04",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Dragonborn.esm|0x01CE06",
+        "label": "Bound Dagger",
+        "magnitude": 0,
+        "duration": 120,
+        "area": 0,
+        "cost": 53
+      },
+      "weapon": "Dragonborn.esm|0x01CE02",
+      "baseCost": 3.4448990434106723
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [
+      "MysticBinding",
+      "SoulStealer"
+    ],
+    "rankLadder": {
+      "Novice": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "BoundWeapon",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundDagger",
+    "sources": [
+      "Dragonborn.esm|0x01CE06"
+    ]
+  },
+  {
+    "id": "mw.bound_gloves",
+    "name": "$LA_Effect_BoundGloves",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 131,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "bound_armor",
+        "label": "Bound Armor",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "armor": "Skyrim.esm|0x01396C",
+      "baseCost": 3.6615339546981565
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundGloves",
+    "sources": [
+      "tome:bound_armor"
+    ]
+  },
+  {
+    "id": "mw.bound_helm",
+    "name": "$LA_Effect_BoundHelm",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 128,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "bound_armor",
+        "label": "Bound Armor",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "armor": "Skyrim.esm|0x01396D",
+      "baseCost": 3.6615339546981565
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundHelm",
+    "sources": [
+      "tome:bound_armor"
+    ]
+  },
+  {
+    "id": "mw.bound_longbow",
+    "name": "$LA_Effect_BoundLongbow",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 125,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "BoundWeapon",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01CEA0",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x0211ED",
+        "label": "Bound Bow",
+        "magnitude": 0,
+        "duration": 120,
+        "area": 0,
+        "cost": 207
+      },
+      "weapon": "Skyrim.esm|0x058F60",
+      "baseCost": 13.45460569784923
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [
+      "MysticBinding",
+      "SoulStealer"
+    ],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "BoundWeapon",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundLongbow",
+    "sources": [
+      "Skyrim.esm|0x0211ED"
+    ]
+  },
+  {
+    "id": "mw.bound_longsword",
+    "name": "$LA_Effect_BoundLongsword",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 121,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "BoundWeapon",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01CE9F",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x0211EB",
+        "label": "Bound Sword",
+        "magnitude": 0,
+        "duration": 120,
+        "area": 0,
+        "cost": 93
+      },
+      "weapon": "Skyrim.esm|0x058F5F",
+      "baseCost": 6.04482284975835
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [
+      "MysticBinding",
+      "SoulStealer"
+    ],
+    "rankLadder": {
+      "Novice": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "BoundWeapon",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundLongsword",
+    "sources": [
+      "Skyrim.esm|0x0211EB"
+    ]
+  },
+  {
+    "id": "mw.bound_mace",
+    "name": "$LA_Effect_BoundMace",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 122,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "BoundWeapon",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01CE9F",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "bound_mace",
+        "label": "Bound Mace",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "weapon": "Skyrim.esm|0x0139B8",
+      "baseCost": 3.6615339546981565
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [
+      "MysticBinding",
+      "SoulStealer"
+    ],
+    "rankLadder": {
+      "Apprentice": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "BoundWeapon",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundMace",
+    "sources": [
+      "tome:bound_mace"
+    ]
+  },
+  {
+    "id": "mw.bound_shield",
+    "name": "$LA_Effect_BoundShield",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 130,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "bound_armor",
+        "label": "Bound Armor",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "armor": "Skyrim.esm|0x01396E",
+      "baseCost": 3.6615339546981565
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundShield",
+    "sources": [
+      "tome:bound_armor"
+    ]
+  },
+  {
+    "id": "mw.bound_spear",
+    "name": "$LA_Effect_BoundSpear",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 124,
+      "school": "Conjuration",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "BoundWeapon",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01CE9E",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "bound_spear",
+        "label": "Bound Spear",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "weapon": "Skyrim.esm|0x0139B7",
+      "baseCost": 3.6615339546981565
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [
+      "MysticBinding",
+      "SoulStealer"
+    ],
+    "rankLadder": {
+      "Apprentice": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "BoundWeapon",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_BoundSpear",
+    "sources": [
+      "tome:bound_spear"
+    ],
+    "nameSkyrim": "$LA_EffectSk_BoundSpear",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.command_creature",
+    "name": "$LA_Effect_CommandCreature",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 118,
+      "school": "Conjuration",
+      "baseCost": 15.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "command_creature",
+        "label": "Command Creature",
+        "magnitude": 5,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 25.34227488175851
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "level",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CommandCreature",
+    "sources": [
+      "tome:command_creature"
+    ]
+  },
+  {
+    "id": "mw.command_humanoid",
+    "name": "$LA_Effect_CommandHumanoid",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 119,
+      "school": "Conjuration",
+      "baseCost": 15.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "command_humanoid",
+        "label": "Command Humanoid",
+        "magnitude": 5,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 25.34227488175851
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "level",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CommandHumanoid",
+    "sources": [
+      "tome:command_humanoid"
+    ]
+  },
+  {
+    "id": "mw.summon_ancestral_ghost",
+    "name": "$LA_Effect_SummonAncestralGhost",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 106,
+      "school": "Conjuration",
+      "baseCost": 7.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0640B4",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "summon_ancestral_ghost",
+        "label": "Summon Ancestral Ghost",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 12.815368841443545
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonUndead"
+    ],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonAncestralGhost",
+    "sources": [
+      "tome:summon_ancestral_ghost"
+    ]
+  },
+  {
+    "id": "mw.summon_bonelord",
+    "name": "$LA_Effect_SummonBonelord",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 110,
+      "school": "Conjuration",
+      "baseCost": 25.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Dawnguard.esm|0x0045B5",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Dawnguard.esm|0x0045B3",
+        "label": "Conjure Wrathman",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 301
+      },
+      "baseCost": 41.93726657090983
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonUndead"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Expert": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonBonelord",
+    "sources": [
+      "Dawnguard.esm|0x0045B3"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonBonelord",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.summon_bonewalker",
+    "name": "$LA_Effect_SummonBonewalker",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 108,
+      "school": "Conjuration",
+      "baseCost": 13.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Dawnguard.esm|0x0045BC",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Dawnguard.esm|0x0045BA",
+        "label": "Conjure Boneman",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 129
+      },
+      "baseCost": 17.973114244675642
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonUndead"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonBonewalker",
+    "sources": [
+      "Dawnguard.esm|0x0045BA"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonBonewalker",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.summon_clannfear",
+    "name": "$LA_Effect_SummonClannfear",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 103,
+      "school": "Conjuration",
+      "baseCost": 22.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Dragonborn.esm|0x030CCF",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Dragonborn.esm|0x033C66",
+        "label": "Conjure Seeker",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 157
+      },
+      "baseCost": 21.874255321039346
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonClannfear",
+    "sources": [
+      "Dragonborn.esm|0x033C66"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonClannfear",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.summon_daedroth",
+    "name": "$LA_Effect_SummonDaedroth",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 104,
+      "school": "Conjuration",
+      "baseCost": 32.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x10DDED",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "summon_daedroth",
+        "label": "Summon Daedroth",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 58.5845432751705
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonDaedroth",
+    "sources": [
+      "tome:summon_daedroth"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonDaedroth",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.summon_dremora",
+    "name": "$LA_Effect_SummonDremora",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 105,
+      "school": "Conjuration",
+      "baseCost": 28.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x10DDED",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x10DDEC",
+        "label": "Conjure Dremora Lord",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 358
+      },
+      "creature": "Skyrim.esm|0x016F40",
+      "baseCost": 49.87887519065023
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Expert": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonDremora",
+    "sources": [
+      "Skyrim.esm|0x10DDEC"
+    ]
+  },
+  {
+    "id": "mw.summon_flame_atronach",
+    "name": "$LA_Effect_SummonFlameAtronach",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 114,
+      "school": "Conjuration",
+      "baseCost": 23.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01CEAA",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x0204C3",
+        "label": "Conjure Flame Atronach",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 150
+      },
+      "creature": "Skyrim.esm|0x0204C0",
+      "baseCost": 20.89897005194842
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonFire"
+    ],
+    "riders": [
+      "ElementalPotency"
+    ],
+    "rankLadder": {
+      "Apprentice": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonFlameAtronach",
+    "sources": [
+      "Skyrim.esm|0x0204C3"
+    ]
+  },
+  {
+    "id": "mw.summon_frost_atronach",
+    "name": "$LA_Effect_SummonFrostAtronach",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 115,
+      "school": "Conjuration",
+      "baseCost": 27.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01CEAB",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x0204C4",
+        "label": "Conjure Frost Atronach",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 215
+      },
+      "creature": "Skyrim.esm|0x0204C1",
+      "baseCost": 29.955190407792735
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonFrost"
+    ],
+    "riders": [
+      "ElementalPotency"
+    ],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonFrostAtronach",
+    "sources": [
+      "Skyrim.esm|0x0204C4"
+    ]
+  },
+  {
+    "id": "mw.summon_golden_saint",
+    "name": "$LA_Effect_SummonGoldenSaint",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 113,
+      "school": "Conjuration",
+      "baseCost": 55.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x10DDED",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "summon_golden_saint",
+        "label": "Summon Golden Saint",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 100.6921837541993
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonGoldenSaint",
+    "sources": [
+      "tome:summon_golden_saint"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonGoldenSaint",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.summon_greater_bonewalker",
+    "name": "$LA_Effect_SummonGreaterBonewalker",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 109,
+      "school": "Conjuration",
+      "baseCost": 15.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Dawnguard.esm|0x0045BB",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Dawnguard.esm|0x0045B8",
+        "label": "Conjure Mistman",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 193
+      },
+      "baseCost": 26.890008133506967
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonUndead"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Adept": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonGreaterBonewalker",
+    "sources": [
+      "Dawnguard.esm|0x0045B8"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonGreaterBonewalker",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.summon_hunger",
+    "name": "$LA_Effect_SummonHunger",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 112,
+      "school": "Conjuration",
+      "baseCost": 29.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Dragonborn.esm|0x030CCF",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "summon_hunger",
+        "label": "Summon Hunger",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 53.09224234312327
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonHunger",
+    "sources": [
+      "tome:summon_hunger"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonHunger",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.summon_scamp",
+    "name": "$LA_Effect_SummonScamp",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 102,
+      "school": "Conjuration",
+      "baseCost": 12.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0640B4",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x0640B6",
+        "label": "Conjure Familiar",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 107
+      },
+      "baseCost": 14.907931970389873
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonFamiliar"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Novice": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonScamp",
+    "sources": [
+      "Skyrim.esm|0x0640B6"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonScamp",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.summon_skeletal_minion",
+    "name": "$LA_Effect_SummonSkeletalMinion",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 107,
+      "school": "Conjuration",
+      "baseCost": 13.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0640B4",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "summon_skeletal_minion",
+        "label": "Summon Skeletal Minion",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "creature": "Skyrim.esm|0x02D1DE",
+      "baseCost": 23.799970705538016
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonUndead"
+    ],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonSkeletalMinion",
+    "sources": [
+      "tome:summon_skeletal_minion"
+    ]
+  },
+  {
+    "id": "mw.summon_storm_atronach",
+    "name": "$LA_Effect_SummonStormAtronach",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 116,
+      "school": "Conjuration",
+      "baseCost": 38.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01CEAC",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x0204C5",
+        "label": "Conjure Storm Atronach",
+        "magnitude": 0,
+        "duration": 60,
+        "area": 0,
+        "cost": 322
+      },
+      "creature": "Skyrim.esm|0x0204C2",
+      "baseCost": 44.86312237818261
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonShock"
+    ],
+    "riders": [
+      "ElementalPotency"
+    ],
+    "rankLadder": {
+      "Expert": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonStormAtronach",
+    "sources": [
+      "Skyrim.esm|0x0204C5"
+    ]
+  },
+  {
+    "id": "mw.summon_winged_twilight",
+    "name": "$LA_Effect_SummonWingedTwilight",
+    "set": "mw",
+    "tier": "standin",
+    "morrowind": {
+      "index": 111,
+      "school": "Conjuration",
+      "baseCost": 52.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0640B4",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "summon_winged_twilight",
+        "label": "Summon Winged Twilight",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 95.19988282215206
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonWingedTwilight",
+    "sources": [
+      "tome:summon_winged_twilight"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonWingedTwilight",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mw.turn_undead",
+    "name": "$LA_Effect_TurnUndead",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 101,
+      "school": "Conjuration",
+      "baseCost": 0.2
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "TurnUndead",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x04B145",
+      "projectile": "Skyrim.esm|0x04BE35",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04B146",
+        "label": "Turn Lesser Undead",
+        "magnitude": 6,
+        "duration": 30,
+        "area": 0,
+        "cost": 84
+      },
+      "baseCost": 3.4952603504003577
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicTurnUndead"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 6,
+      "Adept": 8,
+      "Expert": 16,
+      "Master": 30
+    },
+    "reflectable": false,
+    "hostile": true,
+    "discovery": {
+      "archetype": "TurnUndead",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_TurnUndead",
+    "sources": [
+      "Skyrim.esm|0x04B146",
+      "Skyrim.esm|0x05DD5D"
+    ]
+  }
+]

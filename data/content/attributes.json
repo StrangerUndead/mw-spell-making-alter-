@@ -1,0 +1,135 @@
+{
+  "attributes": [
+    {
+      "index": 0,
+      "name": "Strength",
+      "nameKey": "$LA_Attr_Strength",
+      "stats": [
+        {
+          "stat": "CarryWeight",
+          "perPoint": 3
+        },
+        {
+          "stat": "MeleeDamagePercent",
+          "perPoint": 0.5
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "name": "Intelligence",
+      "nameKey": "$LA_Attr_Intelligence",
+      "stats": [
+        {
+          "stat": "Magicka",
+          "perPoint": 2
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "name": "Willpower",
+      "nameKey": "$LA_Attr_Willpower",
+      "stats": [
+        {
+          "stat": "MagickaRatePercent",
+          "perPoint": 1
+        },
+        {
+          "stat": "MagicResist",
+          "perPoint": 0.25
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "name": "Agility",
+      "nameKey": "$LA_Attr_Agility",
+      "stats": [
+        {
+          "stat": "AttackSpeedPercent",
+          "perPoint": 0.5
+        },
+        {
+          "stat": "EvasionPercent",
+          "perPoint": 0.2
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "name": "Speed",
+      "nameKey": "$LA_Attr_Speed",
+      "stats": [
+        {
+          "stat": "SpeedMult",
+          "perPoint": 1
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "name": "Endurance",
+      "nameKey": "$LA_Attr_Endurance",
+      "stats": [
+        {
+          "stat": "Health",
+          "perPoint": 1
+        },
+        {
+          "stat": "StaminaRatePercent",
+          "perPoint": 1
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "name": "Personality",
+      "nameKey": "$LA_Attr_Personality",
+      "stats": [
+        {
+          "stat": "Speech",
+          "perPoint": 0.5
+        },
+        {
+          "stat": "PricePercent",
+          "perPoint": 0.5
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "name": "Luck",
+      "nameKey": "$LA_Attr_Luck",
+      "stats": [
+        {
+          "stat": "PickpocketPercent",
+          "perPoint": 0.5
+        },
+        {
+          "stat": "PricePercent",
+          "perPoint": 0.2
+        },
+        {
+          "stat": "EvasionPercent",
+          "perPoint": 0.2
+        }
+      ]
+    }
+  ],
+  "effects": [
+    "mw.damage_attribute",
+    "mw.drain_attribute",
+    "mw.absorb_attribute",
+    "mw.fortify_attribute",
+    "mw.restore_attribute"
+  ],
+  "profiles": {
+    "Default": 1.0,
+    "Light": 0.5,
+    "Off": 0.0
+  },
+  "singleEffectAttributes": [
+    "Luck"
+  ]
+}

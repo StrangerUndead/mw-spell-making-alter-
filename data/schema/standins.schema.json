@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lostart.invalid/schema/standins.schema.json",
+  "title": "Stand-ins (data/standins/stand-ins.json)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "standins"
+  ],
+  "properties": {
+    "standins": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "effect",
+          "kind",
+          "creature",
+          "nameKey",
+          "levelScale",
+          "credit"
+        ],
+        "properties": {
+          "effect": {
+            "$ref": "common.schema.json#/$defs/effectId"
+          },
+          "kind": {
+            "enum": [
+              "creature",
+              "weapon"
+            ]
+          },
+          "creature": {
+            "$ref": "common.schema.json#/$defs/formRefOrNull"
+          },
+          "creatureLabel": {
+            "$ref": "common.schema.json#/$defs/editorId"
+          },
+          "weapon": {
+            "$ref": "common.schema.json#/$defs/formRef"
+          },
+          "weaponLabel": {
+            "$ref": "common.schema.json#/$defs/editorId"
+          },
+          "nameKey": {
+            "$ref": "common.schema.json#/$defs/translationKey"
+          },
+          "levelScale": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "maximum": 4
+          },
+          "credit": {
+            "type": "string",
+            "pattern": "^\\$LA_StandIn_[A-Za-z0-9]+$"
+          },
+          "actor": {
+            "type": "string",
+            "pattern": "^LA_StandIn_[A-Za-z0-9]+$"
+          },
+          "item": {
+            "type": "string",
+            "pattern": "^LA_Bound_[A-Za-z0-9]+$"
+          }
+        },
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "weapon"
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "weapon"
+          ]
+        },
+        "else": {
+          "properties": {
+            "creature": {
+              "$ref": "common.schema.json#/$defs/formRef"
+            }
+          }
+        }
+      }
+    }
+  }
+}

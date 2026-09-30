@@ -1,0 +1,716 @@
+[
+  {
+    "id": "mwx.restore_magicka",
+    "name": "$LA_Effect_RestoreMagicka",
+    "set": "mwx",
+    "tier": "native",
+    "morrowind": {
+      "index": 76,
+      "school": "Restoration",
+      "baseCost": 5.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "Magicka",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0F4996",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "arcane_reservoir",
+        "label": "Arcane Reservoir",
+        "magnitude": [
+          5,
+          10
+        ],
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 0.7677238575562473
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "Magicka",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_RestoreMagicka",
+    "sources": [
+      "tome:arcane_reservoir"
+    ]
+  },
+  {
+    "id": "mwx.absorb_magicka",
+    "name": "$LA_Effect_AbsorbMagicka",
+    "set": "mwx",
+    "tier": "native",
+    "morrowind": {
+      "index": 87,
+      "school": "Mysticism",
+      "baseCost": 8.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Absorb",
+      "actorValue": "Magicka",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0AA156",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "spirit_thief",
+        "label": "Spirit Thief",
+        "magnitude": [
+          5,
+          20
+        ],
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 2.7086536919175663
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "Absorb",
+      "actorValue": "Magicka",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_AbsorbMagicka",
+    "sources": [
+      "tome:spirit_thief"
+    ]
+  },
+  {
+    "id": "mwx.fortify_maximum_magicka",
+    "name": "$LA_Effect_FortifyMaximumMagicka",
+    "set": "mwx",
+    "tier": "native",
+    "morrowind": {
+      "index": 84,
+      "school": "Restoration",
+      "baseCost": 4.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "ValueModifier",
+      "actorValue": "MagickaRate",
+      "secondAV": null,
+      "flags": [
+        "Recover"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "arcane_reservoir",
+        "label": "Arcane Reservoir",
+        "magnitude": 10,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 5.774356778857024
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "MagickaRate",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FortifyMaximumMagicka",
+    "sources": [
+      "tome:arcane_reservoir"
+    ]
+  },
+  {
+    "id": "mwx.resist_normal_weapons",
+    "name": "$LA_Effect_ResistNormalWeapons",
+    "set": "mwx",
+    "tier": "custom",
+    "morrowind": {
+      "index": 98,
+      "school": "Restoration",
+      "baseCost": 5.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "mundane_ward",
+        "label": "Mundane Ward",
+        "magnitude": 20,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 7.336176046848451
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_ResistNormalWeapons",
+    "sources": [
+      "tome:mundane_ward"
+    ]
+  },
+  {
+    "id": "mwx.weakness_to_normal_weapons",
+    "name": "$LA_Effect_WeaknesstoNormalWeapons",
+    "set": "mwx",
+    "tier": "custom",
+    "morrowind": {
+      "index": 36,
+      "school": "Destruction",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "mundane_bane",
+        "label": "Mundane Bane",
+        "magnitude": [
+          10,
+          20
+        ],
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 3.0209271036025713
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_WeaknesstoNormalWeapons",
+    "sources": [
+      "tome:mundane_bane"
+    ]
+  },
+  {
+    "id": "mwx.summon_centurion_sphere",
+    "name": "$LA_Effect_SummonCenturionSphere",
+    "set": "mwx",
+    "tier": "standin",
+    "morrowind": {
+      "index": 134,
+      "school": "Conjuration",
+      "baseCost": 25.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0640B4",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "dwemer_animunculi",
+        "label": "Dwemer Animunculi",
+        "magnitude": 1,
+        "duration": 120,
+        "area": 0
+      },
+      "baseCost": 42.18336742814254
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonCenturionSphere",
+    "sources": [
+      "tome:dwemer_animunculi"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonCenturionSphere",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mwx.summon_fabricant",
+    "name": "$LA_Effect_SummonFabricant",
+    "set": "mwx",
+    "tier": "standin",
+    "morrowind": {
+      "index": 137,
+      "school": "Conjuration",
+      "baseCost": 10.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0640B4",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "summon_fabricant",
+        "label": "Summon Fabricant",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 18.307669773490783
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonFabricant",
+    "sources": [
+      "tome:summon_fabricant"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonFabricant",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mwx.call_wolf",
+    "name": "$LA_Effect_CallWolf",
+    "set": "mwx",
+    "tier": "native",
+    "morrowind": {
+      "index": 138,
+      "school": "Conjuration",
+      "baseCost": 30.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0640B4",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "call_of_the_wild",
+        "label": "Call of the Wild",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "creature": "Skyrim.esm|0x023ABE",
+      "baseCost": 54.923009320472346
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CallWolf",
+    "sources": [
+      "tome:call_of_the_wild"
+    ]
+  },
+  {
+    "id": "mwx.call_bear",
+    "name": "$LA_Effect_CallBear",
+    "set": "mwx",
+    "tier": "native",
+    "morrowind": {
+      "index": 139,
+      "school": "Conjuration",
+      "baseCost": 30.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0640B4",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "call_of_the_wild",
+        "label": "Call of the Wild",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "creature": "Skyrim.esm|0x023A8A",
+      "baseCost": 54.923009320472346
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CallBear",
+    "sources": [
+      "tome:call_of_the_wild"
+    ]
+  },
+  {
+    "id": "mwx.summon_bonewolf",
+    "name": "$LA_Effect_SummonBonewolf",
+    "set": "mwx",
+    "tier": "standin",
+    "morrowind": {
+      "index": 140,
+      "school": "Conjuration",
+      "baseCost": 30.0
+    },
+    "skyrim": {
+      "school": "Conjuration",
+      "archetype": "SummonCreature",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x0640B4",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "summon_bonewolf",
+        "label": "Summon Bonewolf",
+        "magnitude": 1,
+        "duration": 60,
+        "area": 0
+      },
+      "baseCost": 54.923009320472346
+    },
+    "ranges": [
+      "self"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": false,
+    "target": "none",
+    "keywords": [
+      "MagicSummonUndead"
+    ],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "SummonCreature",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_SummonBonewolf",
+    "sources": [
+      "tome:summon_bonewolf"
+    ],
+    "nameSkyrim": "$LA_EffectSk_SummonBonewolf",
+    "notes": "Stand-in; see data/standins/stand-ins.json."
+  },
+  {
+    "id": "mwx.damage_skill",
+    "name": "$LA_Effect_DamageSkill",
+    "set": "mwx",
+    "tier": "custom",
+    "morrowind": {
+      "index": 26,
+      "school": "Destruction",
+      "baseCost": 8.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "skill_leech",
+        "label": "Skill Leech",
+        "magnitude": [
+          1,
+          10
+        ],
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 3.0137914657702227
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "skill",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_DamageSkill",
+    "sources": [
+      "tome:skill_leech"
+    ]
+  },
+  {
+    "id": "mwx.restore_skill",
+    "name": "$LA_Effect_RestoreSkill",
+    "set": "mwx",
+    "tier": "custom",
+    "morrowind": {
+      "index": 78,
+      "school": "Restoration",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Restoration",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "skill_leech",
+        "label": "Skill Leech",
+        "magnitude": [
+          1,
+          10
+        ],
+        "duration": 1,
+        "area": 0
+      },
+      "baseCost": 0.37672393322127784
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": true
+    },
+    "duration": true,
+    "area": true,
+    "target": "skill",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_RestoreSkill",
+    "sources": [
+      "tome:skill_leech"
+    ]
+  },
+  {
+    "id": "mwx.absorb_skill",
+    "name": "$LA_Effect_AbsorbSkill",
+    "set": "mwx",
+    "tier": "custom",
+    "morrowind": {
+      "index": 89,
+      "school": "Mysticism",
+      "baseCost": 2.0
+    },
+    "skyrim": {
+      "school": "Destruction",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "skill_leech",
+        "label": "Skill Leech",
+        "magnitude": [
+          5,
+          10
+        ],
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 3.2412272135003315
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "skill",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_AbsorbSkill",
+    "sources": [
+      "tome:skill_leech"
+    ]
+  }
+]

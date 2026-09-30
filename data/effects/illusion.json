@@ -1,0 +1,1075 @@
+[
+  {
+    "id": "mw.blind",
+    "name": "$LA_Effect_Blind",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 47,
+      "school": "Illusion",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "crying_eye",
+        "label": "Crying Eye",
+        "magnitude": [
+          1,
+          10
+        ],
+        "duration": 5,
+        "area": 0
+      },
+      "baseCost": 1.0974131967750267
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_Blind",
+    "sources": [
+      "tome:crying_eye"
+    ]
+  },
+  {
+    "id": "mw.calm_creature",
+    "name": "$LA_Effect_CalmCreature",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 50,
+      "school": "Illusion",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Calm",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x04DEE7",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04DEE9",
+        "label": "Calm",
+        "magnitude": 9,
+        "duration": 30,
+        "area": 0,
+        "cost": 146
+      },
+      "baseCost": 3.8891322824233394
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInfluence"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 9,
+      "Adept": 14,
+      "Expert": 20,
+      "Master": 25
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Calm",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CalmCreature",
+    "sources": [
+      "Skyrim.esm|0x04DEE9"
+    ]
+  },
+  {
+    "id": "mw.calm_humanoid",
+    "name": "$LA_Effect_CalmHumanoid",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 49,
+      "school": "Illusion",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Calm",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x04DEE7",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04DEE9",
+        "label": "Calm",
+        "magnitude": 9,
+        "duration": 30,
+        "area": 0,
+        "cost": 146
+      },
+      "baseCost": 3.8891322824233394
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInfluence"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 9,
+      "Adept": 14,
+      "Expert": 20,
+      "Master": 25
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Calm",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_CalmHumanoid",
+    "sources": [
+      "Skyrim.esm|0x04DEE9"
+    ]
+  },
+  {
+    "id": "mw.chameleon",
+    "name": "$LA_Effect_Chameleon",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 40,
+      "school": "Illusion",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "shadow_weave",
+        "label": "Shadow Weave",
+        "magnitude": 20,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 1.7458218651509485
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "percent",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Chameleon",
+    "sources": [
+      "tome:shadow_weave",
+      "tome:mephalas_skill"
+    ]
+  },
+  {
+    "id": "mw.charm",
+    "name": "$LA_Effect_Charm",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 44,
+      "school": "Illusion",
+      "baseCost": 5.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "charm_mortal",
+        "label": "Charm Mortal",
+        "magnitude": [
+          10,
+          30
+        ],
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 7.336176046848451
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInfluenceCharm"
+    ],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Charm",
+    "sources": [
+      "tome:charm_mortal"
+    ]
+  },
+  {
+    "id": "mw.demoralize_creature",
+    "name": "$LA_Effect_DemoralizeCreature",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 54,
+      "school": "Illusion",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Demoralize",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01EA77",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04DEEA",
+        "label": "Fear",
+        "magnitude": 9,
+        "duration": 30,
+        "area": 0,
+        "cost": 153
+      },
+      "baseCost": 4.0755975288408965
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInfluence",
+      "MagicInfluenceFear"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 9,
+      "Adept": 14,
+      "Expert": 20,
+      "Master": 25
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Demoralize",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_DemoralizeCreature",
+    "sources": [
+      "Skyrim.esm|0x04DEEA"
+    ],
+    "nameSkyrim": "$LA_EffectSk_DemoralizeCreature"
+  },
+  {
+    "id": "mw.demoralize_humanoid",
+    "name": "$LA_Effect_DemoralizeHumanoid",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 53,
+      "school": "Illusion",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Demoralize",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01EA77",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04DEEA",
+        "label": "Fear",
+        "magnitude": 9,
+        "duration": 30,
+        "area": 0,
+        "cost": 153
+      },
+      "baseCost": 4.0755975288408965
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInfluence",
+      "MagicInfluenceFear"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 9,
+      "Adept": 14,
+      "Expert": 20,
+      "Master": 25
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Demoralize",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_DemoralizeHumanoid",
+    "sources": [
+      "Skyrim.esm|0x04DEEA"
+    ],
+    "nameSkyrim": "$LA_EffectSk_DemoralizeHumanoid"
+  },
+  {
+    "id": "mw.frenzy_creature",
+    "name": "$LA_Effect_FrenzyCreature",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 52,
+      "school": "Illusion",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Frenzy",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x04DEE6",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04DEEB",
+        "label": "Fury",
+        "magnitude": 6,
+        "duration": 30,
+        "area": 0,
+        "cost": 67
+      },
+      "baseCost": 2.787886231866952
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInfluence",
+      "MagicInfluenceFrenzy"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 9,
+      "Adept": 14,
+      "Expert": 20,
+      "Master": 25
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Frenzy",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FrenzyCreature",
+    "sources": [
+      "Skyrim.esm|0x04DEEB"
+    ],
+    "nameSkyrim": "$LA_EffectSk_FrenzyCreature"
+  },
+  {
+    "id": "mw.frenzy_humanoid",
+    "name": "$LA_Effect_FrenzyHumanoid",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 51,
+      "school": "Illusion",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Frenzy",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x04DEE6",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04DEEB",
+        "label": "Fury",
+        "magnitude": 6,
+        "duration": 30,
+        "area": 0,
+        "cost": 67
+      },
+      "baseCost": 2.787886231866952
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInfluence",
+      "MagicInfluenceFrenzy"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 9,
+      "Adept": 14,
+      "Expert": 20,
+      "Master": 25
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Frenzy",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_FrenzyHumanoid",
+    "sources": [
+      "Skyrim.esm|0x04DEEB"
+    ],
+    "nameSkyrim": "$LA_EffectSk_FrenzyHumanoid"
+  },
+  {
+    "id": "mw.invisibility",
+    "name": "$LA_Effect_Invisibility",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 39,
+      "school": "Illusion",
+      "baseCost": 20.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Invisibility",
+      "actorValue": "Invisibility",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01EA6A",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x027EB6",
+        "label": "Invisibility",
+        "magnitude": 0,
+        "duration": 30,
+        "area": 0,
+        "cost": 334
+      },
+      "baseCost": 99.75004186227152
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInvisibility"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Expert": 1
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Invisibility",
+      "actorValue": "Invisibility",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Invisibility",
+    "sources": [
+      "Skyrim.esm|0x027EB6"
+    ]
+  },
+  {
+    "id": "mw.light",
+    "name": "$LA_Effect_Light",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 41,
+      "school": "Illusion",
+      "baseCost": 0.2
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Light",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01EA6C",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x043324",
+        "label": "Candlelight",
+        "magnitude": 5,
+        "duration": 60,
+        "area": 0,
+        "cost": 21
+      },
+      "baseCost": 0.498179571254119
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 25,
+      "Adept": 50
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Light",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Light",
+    "sources": [
+      "Skyrim.esm|0x043324",
+      "tome:light"
+    ]
+  },
+  {
+    "id": "mw.night_eye",
+    "name": "$LA_Effect_NightEye",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 43,
+      "school": "Illusion",
+      "baseCost": 0.2
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "ValueModifier",
+      "actorValue": "NightEye",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x06B10C",
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "night_eye",
+        "label": "Night-Eye",
+        "magnitude": 20,
+        "duration": 30,
+        "area": 0
+      },
+      "baseCost": 0.2934470418739381
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicNightEye"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 34,
+      "Adept": 67
+    },
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "archetype": "ValueModifier",
+      "actorValue": "NightEye",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_NightEye",
+    "sources": [
+      "tome:night_eye"
+    ]
+  },
+  {
+    "id": "mw.paralyze",
+    "name": "$LA_Effect_Paralyze",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 45,
+      "school": "Illusion",
+      "baseCost": 40.0
+    },
+    "skyrim": {
+      "school": "Alteration",
+      "archetype": "Paralysis",
+      "actorValue": "Paralysis",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01EA6E",
+      "projectile": "Skyrim.esm|0x06EBC8",
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x05AD5F",
+        "label": "Paralyze",
+        "magnitude": 0,
+        "duration": 10,
+        "area": 0,
+        "cost": 450
+      },
+      "baseCost": 450.0
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicParalysis"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Expert": 1
+    },
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "archetype": "Paralysis",
+      "actorValue": "Paralysis",
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_Paralyze",
+    "sources": [
+      "Skyrim.esm|0x05AD5F",
+      "Dragonborn.esm|0x017731"
+    ]
+  },
+  {
+    "id": "mw.rally_creature",
+    "name": "$LA_Effect_RallyCreature",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 56,
+      "school": "Illusion",
+      "baseCost": 0.2
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Rally",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01EA79",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04DEE8",
+        "label": "Courage",
+        "magnitude": 100,
+        "duration": 60,
+        "area": 0,
+        "cost": 39
+      },
+      "baseCost": 0.03428453248050599
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInfluence"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 9,
+      "Adept": 14,
+      "Expert": 20,
+      "Master": 25
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Rally",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_RallyCreature",
+    "sources": [
+      "Skyrim.esm|0x04DEE8",
+      "Skyrim.esm|0x04DEEC"
+    ],
+    "nameSkyrim": "$LA_EffectSk_RallyCreature"
+  },
+  {
+    "id": "mw.rally_humanoid",
+    "name": "$LA_Effect_RallyHumanoid",
+    "set": "mw",
+    "tier": "native",
+    "morrowind": {
+      "index": 55,
+      "school": "Illusion",
+      "baseCost": 0.2
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Rally",
+      "secondAV": null,
+      "vanillaEffect": "Skyrim.esm|0x01EA79",
+      "flags": [],
+      "vanillaTargetPriced": true,
+      "fitFrom": {
+        "kind": "vanilla",
+        "spell": "Skyrim.esm|0x04DEE8",
+        "label": "Courage",
+        "magnitude": 100,
+        "duration": 60,
+        "area": 0,
+        "cost": 39
+      },
+      "baseCost": 0.03428453248050599
+    },
+    "ranges": [
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [
+      "MagicInfluence"
+    ],
+    "riders": [],
+    "rankLadder": {
+      "Apprentice": 9,
+      "Adept": 14,
+      "Expert": 20,
+      "Master": 25
+    },
+    "reflectable": false,
+    "hostile": false,
+    "discovery": {
+      "archetype": "Rally",
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_RallyHumanoid",
+    "sources": [
+      "Skyrim.esm|0x04DEE8",
+      "Skyrim.esm|0x04DEEC"
+    ],
+    "nameSkyrim": "$LA_EffectSk_RallyHumanoid"
+  },
+  {
+    "id": "mw.sanctuary",
+    "name": "$LA_Effect_Sanctuary",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 42,
+      "school": "Illusion",
+      "baseCost": 1.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "shadow_weave",
+        "label": "Shadow Weave",
+        "magnitude": 20,
+        "duration": 10,
+        "area": 0
+      },
+      "baseCost": 1.7458218651509485
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": false,
+    "discovery": {
+      "hostile": false
+    },
+    "itemCard": "$LA_Card_Sanctuary",
+    "sources": [
+      "tome:shadow_weave"
+    ]
+  },
+  {
+    "id": "mw.silence",
+    "name": "$LA_Effect_Silence",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 46,
+      "school": "Illusion",
+      "baseCost": 40.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "silence",
+        "label": "Silence",
+        "magnitude": 1,
+        "duration": 5,
+        "area": 0
+      },
+      "baseCost": 55.55174144334036
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": false,
+      "unit": "none",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_Silence",
+    "sources": [
+      "tome:silence"
+    ]
+  },
+  {
+    "id": "mw.sound",
+    "name": "$LA_Effect_Sound",
+    "set": "mw",
+    "tier": "custom",
+    "morrowind": {
+      "index": 48,
+      "school": "Illusion",
+      "baseCost": 3.0
+    },
+    "skyrim": {
+      "school": "Illusion",
+      "archetype": "Script",
+      "secondAV": null,
+      "flags": [
+        "Hostile",
+        "Detrimental"
+      ],
+      "vanillaTargetPriced": false,
+      "fitFrom": {
+        "kind": "morrowind",
+        "tome": "earwig",
+        "label": "Earwig",
+        "magnitude": [
+          3,
+          8
+        ],
+        "duration": 5,
+        "area": 0
+      },
+      "baseCost": 3.2922395903250807
+    },
+    "ranges": [
+      "self",
+      "touch",
+      "target"
+    ],
+    "magnitude": {
+      "has": true,
+      "unit": "pts",
+      "ticking": false
+    },
+    "duration": true,
+    "area": true,
+    "target": "none",
+    "keywords": [],
+    "riders": [],
+    "reflectable": true,
+    "hostile": true,
+    "discovery": {
+      "hostile": true
+    },
+    "itemCard": "$LA_Card_Sound",
+    "sources": [
+      "tome:earwig"
+    ]
+  }
+]

@@ -1,0 +1,768 @@
+# Lost Art of Spellmaking - English strings (UTF-8 source). tools/validate_data.py --write-translations
+# regenerates Interface/Translations/LostArt_ENGLISH.txt (UTF-16 LE + BOM, CRLF) from this file.
+$LA_Effect_Burden	Burden
+$LA_Effect_Feather	Feather
+$LA_Effect_FireShield	Fire Shield
+$LA_Effect_FrostShield	Frost Shield
+$LA_Effect_Jump	Jump
+$LA_Effect_Levitate	Levitate
+$LA_Effect_LightningShield	Lightning Shield
+$LA_Effect_Lock	Lock
+$LA_Effect_Open	Open
+$LA_Effect_Shield	Shield
+$LA_Effect_Slowfall	Slowfall
+$LA_Effect_SwiftSwim	Swift Swim
+$LA_Effect_WaterBreathing	Water Breathing
+$LA_Effect_WaterWalking	Water Walking
+$LA_Effect_BoundBattleAxe	Bound Battle Axe
+$LA_Effect_BoundBoots	Bound Boots
+$LA_Effect_BoundCuirass	Bound Cuirass
+$LA_Effect_BoundDagger	Bound Dagger
+$LA_Effect_BoundGloves	Bound Gloves
+$LA_Effect_BoundHelm	Bound Helm
+$LA_Effect_BoundLongbow	Bound Longbow
+$LA_Effect_BoundLongsword	Bound Longsword
+$LA_Effect_BoundMace	Bound Mace
+$LA_Effect_BoundShield	Bound Shield
+$LA_Effect_BoundSpear	Bound Spear
+$LA_Effect_CommandCreature	Command Creature
+$LA_Effect_CommandHumanoid	Command Humanoid
+$LA_Effect_SummonAncestralGhost	Summon Ancestral Ghost
+$LA_Effect_SummonBonelord	Summon Bonelord
+$LA_Effect_SummonBonewalker	Summon Bonewalker
+$LA_Effect_SummonClannfear	Summon Clannfear
+$LA_Effect_SummonDaedroth	Summon Daedroth
+$LA_Effect_SummonDremora	Summon Dremora
+$LA_Effect_SummonFlameAtronach	Summon Flame Atronach
+$LA_Effect_SummonFrostAtronach	Summon Frost Atronach
+$LA_Effect_SummonGoldenSaint	Summon Golden Saint
+$LA_Effect_SummonGreaterBonewalker	Summon Greater Bonewalker
+$LA_Effect_SummonHunger	Summon Hunger
+$LA_Effect_SummonScamp	Summon Scamp
+$LA_Effect_SummonSkeletalMinion	Summon Skeletal Minion
+$LA_Effect_SummonStormAtronach	Summon Storm Atronach
+$LA_Effect_SummonWingedTwilight	Summon Winged Twilight
+$LA_Effect_TurnUndead	Turn Undead
+$LA_Effect_DamageAttribute	Damage Attribute
+$LA_Effect_DamageFatigue	Damage Fatigue
+$LA_Effect_DamageHealth	Damage Health
+$LA_Effect_DamageMagicka	Damage Magicka
+$LA_Effect_DisintegrateArmor	Disintegrate Armor
+$LA_Effect_DisintegrateWeapon	Disintegrate Weapon
+$LA_Effect_DrainAttribute	Drain Attribute
+$LA_Effect_DrainFatigue	Drain Fatigue
+$LA_Effect_DrainHealth	Drain Health
+$LA_Effect_DrainMagicka	Drain Magicka
+$LA_Effect_DrainSkill	Drain Skill
+$LA_Effect_FireDamage	Fire Damage
+$LA_Effect_FrostDamage	Frost Damage
+$LA_Effect_Poison	Poison
+$LA_Effect_ShockDamage	Shock Damage
+$LA_Effect_WeaknesstoCommonDisease	Weakness to Common Disease
+$LA_Effect_WeaknesstoFire	Weakness to Fire
+$LA_Effect_WeaknesstoFrost	Weakness to Frost
+$LA_Effect_WeaknesstoMagicka	Weakness to Magicka
+$LA_Effect_WeaknesstoPoison	Weakness to Poison
+$LA_Effect_WeaknesstoShock	Weakness to Shock
+$LA_Effect_Blind	Blind
+$LA_Effect_CalmCreature	Calm Creature
+$LA_Effect_CalmHumanoid	Calm Humanoid
+$LA_Effect_Chameleon	Chameleon
+$LA_Effect_Charm	Charm
+$LA_Effect_DemoralizeCreature	Demoralize Creature
+$LA_Effect_DemoralizeHumanoid	Demoralize Humanoid
+$LA_Effect_FrenzyCreature	Frenzy Creature
+$LA_Effect_FrenzyHumanoid	Frenzy Humanoid
+$LA_Effect_Invisibility	Invisibility
+$LA_Effect_Light	Light
+$LA_Effect_NightEye	Night Eye
+$LA_Effect_Paralyze	Paralyze
+$LA_Effect_RallyCreature	Rally Creature
+$LA_Effect_RallyHumanoid	Rally Humanoid
+$LA_Effect_Sanctuary	Sanctuary
+$LA_Effect_Silence	Silence
+$LA_Effect_Sound	Sound
+$LA_Effect_AbsorbAttribute	Absorb Attribute
+$LA_Effect_AbsorbFatigue	Absorb Fatigue
+$LA_Effect_AbsorbHealth	Absorb Health
+$LA_Effect_AlmsiviIntervention	Almsivi Intervention
+$LA_Effect_DetectAnimal	Detect Animal
+$LA_Effect_DetectEnchantment	Detect Enchantment
+$LA_Effect_DetectKey	Detect Key
+$LA_Effect_Dispel	Dispel
+$LA_Effect_DivineIntervention	Divine Intervention
+$LA_Effect_Mark	Mark
+$LA_Effect_Recall	Recall
+$LA_Effect_Reflect	Reflect
+$LA_Effect_Soultrap	Soultrap
+$LA_Effect_SpellAbsorption	Spell Absorption
+$LA_Effect_Telekinesis	Telekinesis
+$LA_Effect_CureBlightDisease	Cure Blight Disease
+$LA_Effect_CureCommonDisease	Cure Common Disease
+$LA_Effect_CureParalyzation	Cure Paralyzation
+$LA_Effect_CurePoison	Cure Poison
+$LA_Effect_FortifyAttack	Fortify Attack
+$LA_Effect_FortifyAttribute	Fortify Attribute
+$LA_Effect_FortifyFatigue	Fortify Fatigue
+$LA_Effect_FortifyHealth	Fortify Health
+$LA_Effect_FortifyMagicka	Fortify Magicka
+$LA_Effect_FortifySkill	Fortify Skill
+$LA_Effect_ResistBlightDisease	Resist Blight Disease
+$LA_Effect_ResistCommonDisease	Resist Common Disease
+$LA_Effect_ResistCorprusDisease	Resist Corprus Disease
+$LA_Effect_ResistFire	Resist Fire
+$LA_Effect_ResistFrost	Resist Frost
+$LA_Effect_ResistMagicka	Resist Magicka
+$LA_Effect_ResistParalysis	Resist Paralysis
+$LA_Effect_ResistPoison	Resist Poison
+$LA_Effect_ResistShock	Resist Shock
+$LA_Effect_RestoreAttribute	Restore Attribute
+$LA_Effect_RestoreFatigue	Restore Fatigue
+$LA_Effect_RestoreHealth	Restore Health
+$LA_Effect_RestoreMagicka	Restore Magicka
+$LA_Effect_AbsorbMagicka	Absorb Magicka
+$LA_Effect_FortifyMaximumMagicka	Fortify Maximum Magicka
+$LA_Effect_ResistNormalWeapons	Resist Normal Weapons
+$LA_Effect_WeaknesstoNormalWeapons	Weakness to Normal Weapons
+$LA_Effect_SummonCenturionSphere	Summon Centurion Sphere
+$LA_Effect_SummonFabricant	Summon Fabricant
+$LA_Effect_CallWolf	Call Wolf
+$LA_Effect_CallBear	Call Bear
+$LA_Effect_SummonBonewolf	Summon Bonewolf
+$LA_Effect_DamageSkill	Damage Skill
+$LA_Effect_RestoreSkill	Restore Skill
+$LA_Effect_AbsorbSkill	Absorb Skill
+$LA_Effect_Muffle	Muffle
+$LA_Effect_Transmute	Transmute
+$LA_Effect_DetectLife	Detect Life
+$LA_Effect_DetectDead	Detect Dead
+$LA_Effect_Reanimate	Reanimate
+$LA_Effect_BanishDaedra	Banish Daedra
+$LA_Effect_CommandDaedra	Command Daedra
+$LA_Effect_FlameCloak	Flame Cloak
+$LA_Effect_FrostCloak	Frost Cloak
+$LA_Effect_LightningCloak	Lightning Cloak
+$LA_Effect_Magelight	Magelight
+$LA_Effect_ConjureAshSpawn	Conjure Ash Spawn
+$LA_EffectSk_BoundSpear	Bound Greatsword
+$LA_EffectSk_SummonBonelord	Summon Wrathman
+$LA_EffectSk_SummonBonewalker	Summon Boneman
+$LA_EffectSk_SummonClannfear	Summon Seeker
+$LA_EffectSk_SummonDaedroth	Summon Dremora Markynaz
+$LA_EffectSk_SummonGoldenSaint	Summon Dremora Valkynaz
+$LA_EffectSk_SummonGreaterBonewalker	Summon Mistman
+$LA_EffectSk_SummonHunger	Summon Lurker
+$LA_EffectSk_SummonScamp	Summon Familiar
+$LA_EffectSk_SummonWingedTwilight	Summon Wispmother
+$LA_EffectSk_DemoralizeCreature	Fear (Creature)
+$LA_EffectSk_DemoralizeHumanoid	Fear (Humanoid)
+$LA_EffectSk_FrenzyCreature	Fury (Creature)
+$LA_EffectSk_FrenzyHumanoid	Fury (Humanoid)
+$LA_EffectSk_RallyCreature	Courage (Creature)
+$LA_EffectSk_RallyHumanoid	Courage (Humanoid)
+$LA_EffectSk_SummonCenturionSphere	Summon Dwarven Sphere
+$LA_EffectSk_SummonFabricant	Summon Dwarven Spider
+$LA_EffectSk_SummonBonewolf	Summon Death Hound
+$LA_EffectFmt_FortifyAttribute	Fortify {0}
+$LA_EffectFmt_DrainAttribute	Drain {0}
+$LA_EffectFmt_DamageAttribute	Damage {0}
+$LA_EffectFmt_RestoreAttribute	Restore {0}
+$LA_EffectFmt_AbsorbAttribute	Absorb {0}
+$LA_EffectFmt_FortifySkill	Fortify {0}
+$LA_EffectFmt_DrainSkill	Drain {0}
+$LA_EffectFmt_DamageSkill	Damage {0}
+$LA_EffectFmt_RestoreSkill	Restore {0}
+$LA_EffectFmt_AbsorbSkill	Absorb {0}
+$LA_Card_Burden	Player: -M carry weight. NPCs: -M/2 % speed (max 75%)
+$LA_Card_Feather	+M carry weight (vanilla Fortify Carry Weight)
+$LA_Card_FireShield	+M% fire resistance; melee attackers take 0.1 x M fire damage
+$LA_Card_FrostShield	+M% frost resistance; melee attackers take 0.1 x M frost damage
+$LA_Card_Jump	+3% jump height per point; falls count M ft shorter
+$LA_Card_Levitate	Jump rises, sneak descends; air speed scales with M
+$LA_Card_LightningShield	+M% shock resistance; melee attackers take 0.1 x M shock damage
+$LA_Card_Lock	Locks to the Skyrim tier at or below M; never touches Requires Key locks
+$LA_Card_Open	Unlocks a lock of level M or less; owned locks count as lockpicking
+$LA_Card_Shield	+M armor rating like Oakflesh; Mage Armor applies
+$LA_Card_Slowfall	Fall speed x (1 - M/200); no fall damage while active
+$LA_Card_SwiftSwim	+M% speed while swimming only
+$LA_Card_WaterBreathing	Breathe underwater (vanilla Waterbreathing)
+$LA_Card_WaterWalking	Walk on water (WaterWalking actor value)
+$LA_Card_BoundBattleAxe	Vanilla Bound Battleaxe; Mystic Binding and Soul Stealer apply
+$LA_Card_BoundBoots	Weightless bound Daedric boots for the duration
+$LA_Card_BoundCuirass	Weightless bound Daedric cuirass for the duration
+$LA_Card_BoundDagger	Bound Daedric dagger; Mystic Binding variant
+$LA_Card_BoundGloves	Weightless bound Daedric gauntlets for the duration
+$LA_Card_BoundHelm	Weightless bound Daedric helmet for the duration
+$LA_Card_BoundLongbow	Vanilla Bound Bow with bound arrows
+$LA_Card_BoundLongsword	Vanilla Bound Sword
+$LA_Card_BoundMace	New bound Daedric mace
+$LA_Card_BoundShield	Weightless bound Daedric shield for the duration
+$LA_Card_BoundSpear	No spears in Skyrim: a bound Daedric greatsword stands in
+$LA_Card_CommandCreature	A creature up to level M follows you for the duration
+$LA_Card_CommandHumanoid	An NPC up to level M follows you; quest actors are skipped
+$LA_Card_SummonAncestralGhost	A Dunmer ancestor ghost built from vanilla ghost assets
+$LA_Card_SummonBonelord	Stand-in: Wrathman from the Soul Cairn
+$LA_Card_SummonBonewalker	Stand-in: Boneman from the Soul Cairn
+$LA_Card_SummonClannfear	Stand-in: a Seeker of Hermaeus Mora
+$LA_Card_SummonDaedroth	Stand-in: Dremora Markynaz
+$LA_Card_SummonDremora	Dremora Kynval, Morrowind's mid-tier Dremora
+$LA_Card_SummonFlameAtronach	Vanilla Flame Atronach; Twin Souls and Elemental Potency apply
+$LA_Card_SummonFrostAtronach	Vanilla Frost Atronach; Twin Souls and Elemental Potency apply
+$LA_Card_SummonGoldenSaint	Stand-in: Dremora Valkynaz
+$LA_Card_SummonGreaterBonewalker	Stand-in: Mistman from the Soul Cairn
+$LA_Card_SummonHunger	Stand-in: a scaled-down Lurker
+$LA_Card_SummonScamp	Stand-in: a spectral Familiar
+$LA_Card_SummonSkeletalMinion	A Skeleton, tagged MagicSummonUndead
+$LA_Card_SummonStormAtronach	Vanilla Storm Atronach; Twin Souls and Elemental Potency apply
+$LA_Card_SummonWingedTwilight	Stand-in: a Wispmother
+$LA_Card_TurnUndead	Undead up to level M flee; filed under Restoration
+$LA_Card_DamageAttribute	Lowers the translated stats by M per second until restored
+$LA_Card_DamageFatigue	-M stamina per second, no recovery
+$LA_Card_DamageHealth	-M health per second; elemental resistances don't apply
+$LA_Card_DamageMagicka	-M magicka per second
+$LA_Card_DisintegrateArmor	Worn armor loses M condition per second, shield first
+$LA_Card_DisintegrateWeapon	The drawn weapon loses M condition per second; at 0 the target is disarmed
+$LA_Card_DrainAttribute	Lowers the translated stats by M for the duration
+$LA_Card_DrainFatigue	-M stamina for the duration, returned when it ends
+$LA_Card_DrainHealth	-M health for the duration, returned if the target survives
+$LA_Card_DrainMagicka	-M magicka for the duration
+$LA_Card_DrainSkill	-M to a Skyrim skill for the duration
+$LA_Card_FireDamage	M fire damage per second; Augmented Flames, Intense Flames and Impact apply
+$LA_Card_FrostDamage	M frost damage per second, with Skyrim's stamina damage and slow; Deep Freeze applies
+$LA_Card_Poison	M poison damage per second, resisted by poison resistance
+$LA_Card_ShockDamage	M shock damage per second plus half to magicka; Disintegrate applies
+$LA_Card_WeaknesstoCommonDisease	-M% disease resistance
+$LA_Card_WeaknesstoFire	-M% fire resistance
+$LA_Card_WeaknesstoFrost	-M% frost resistance
+$LA_Card_WeaknesstoMagicka	-M% magic resistance
+$LA_Card_WeaknesstoPoison	-M% poison resistance
+$LA_Card_WeaknesstoShock	-M% shock resistance
+$LA_Card_Blind	The subject's attacks miss M% of the time; it spots sneaking players less well
+$LA_Card_CalmCreature	Creatures up to level M stop fighting (vanilla Calm)
+$LA_Card_CalmHumanoid	NPCs up to level M stop fighting (vanilla Calm)
+$LA_Card_Chameleon	M% stealth bonus that attacking doesn't break; 0.2 x M% evasion
+$LA_Card_Charm	Relationship rises one step per 25 M; prices improve by M/2 %
+$LA_Card_DemoralizeCreature	Creatures up to level M flee (vanilla Fear)
+$LA_Card_DemoralizeHumanoid	NPCs up to level M flee (vanilla Fear)
+$LA_Card_FrenzyCreature	Creatures up to level M attack anything nearby (vanilla Frenzy)
+$LA_Card_FrenzyHumanoid	NPCs up to level M attack anything nearby (vanilla Frenzy)
+$LA_Card_Invisibility	Vanilla Invisibility; breaks on attacking, casting or activating
+$LA_Card_Light	Candlelight-style light, radius tier from M; follows a struck target. Filed under Alteration
+$LA_Card_NightEye	Night Eye image-space effect in three strength tiers by M
+$LA_Card_Paralyze	Vanilla Paralysis; filed under Alteration
+$LA_Card_RallyCreature	Creatures up to level M won't flee (vanilla Courage)
+$LA_Card_RallyHumanoid	NPCs up to level M won't flee (vanilla Courage)
+$LA_Card_Sanctuary	Physical attacks miss min(M, 75)% of the time; spells unaffected
+$LA_Card_Silence	The subject can't cast spells; powers and shouts still work
+$LA_Card_Sound	The subject's spells fizzle M% of the time
+$LA_Card_AbsorbAttribute	Drains the translated stats from the target and fortifies you
+$LA_Card_AbsorbFatigue	Vanilla Absorb on stamina
+$LA_Card_AbsorbHealth	Vanilla Absorb on health
+$LA_Card_AlmsiviIntervention	Teleports to Raven Rock Temple, the last Tribunal temple
+$LA_Card_DetectAnimal	Detect Life limited to creatures and animals within M ft
+$LA_Card_DetectEnchantment	Highlights enchanted items within M ft
+$LA_Card_DetectKey	Highlights keys within M ft
+$LA_Card_Dispel	Each active spell has an M% chance to end; abilities and potions untouched
+$LA_Card_DivineIntervention	Teleports to the nearest temple of the Divines
+$LA_Card_Mark	Stores your position for Recall
+$LA_Card_Recall	Teleports to your mark with followers; blocked where fast travel is
+$LA_Card_Reflect	M% chance to send an incoming spell back at its caster
+$LA_Card_Soultrap	Vanilla Soul Trap
+$LA_Card_SpellAbsorption	+M% spell absorption, like the Atronach perk
+$LA_Card_Telekinesis	Activation reach +M ft: open, loot and pick up from afar
+$LA_Card_CureBlightDisease	Cures Solstheim's ash-borne diseases and anything tagged blight
+$LA_Card_CureCommonDisease	Vanilla Cure Disease
+$LA_Card_CureParalyzation	Ends active paralysis
+$LA_Card_CurePoison	Ends active poison effects; lost health stays lost
+$LA_Card_FortifyAttack	+M% weapon damage and M points off Blind and Sanctuary miss chances
+$LA_Card_FortifyAttribute	Raises the translated stats by M for the duration
+$LA_Card_FortifyFatigue	+M stamina
+$LA_Card_FortifyHealth	+M health
+$LA_Card_FortifyMagicka	+M magicka
+$LA_Card_FortifySkill	+M to a Skyrim skill's level
+$LA_Card_ResistBlightDisease	+M% disease resistance (Skyrim has one)
+$LA_Card_ResistCommonDisease	+M% disease resistance
+$LA_Card_ResistCorprusDisease	M% chance to shrug off Sanguinare Vampiris
+$LA_Card_ResistFire	+M% fire resistance
+$LA_Card_ResistFrost	+M% frost resistance
+$LA_Card_ResistMagicka	+M% magic resistance
+$LA_Card_ResistParalysis	M% chance to ignore paralysis
+$LA_Card_ResistPoison	+M% poison resistance
+$LA_Card_ResistShock	+M% shock resistance
+$LA_Card_RestoreAttribute	Repairs damage to the translated stats by M per second
+$LA_Card_RestoreFatigue	+M stamina per second
+$LA_Card_RestoreHealth	+M health per second; Regeneration applies
+$LA_Card_RestoreMagicka	+M magicka per second
+$LA_Card_AbsorbMagicka	Vanilla Absorb on magicka
+$LA_Card_FortifyMaximumMagicka	+M% magicka regeneration
+$LA_Card_ResistNormalWeapons	-M% damage from unenchanted weapons
+$LA_Card_WeaknesstoNormalWeapons	+M% damage from unenchanted weapons
+$LA_Card_SummonCenturionSphere	Stand-in: a Dwarven Sphere
+$LA_Card_SummonFabricant	Stand-in: a Dwarven Spider
+$LA_Card_CallWolf	A wolf fights for you
+$LA_Card_CallBear	A bear fights for you
+$LA_Card_SummonBonewolf	Stand-in: a Death Hound
+$LA_Card_DamageSkill	Lowers a skill by M per second until restored
+$LA_Card_RestoreSkill	Repairs skill damage by M per second
+$LA_Card_AbsorbSkill	Drains a skill from the target and fortifies yours
+$LA_Card_Muffle	You move more quietly (vanilla Muffle)
+$LA_Card_Transmute	Iron ore to silver, silver to gold
+$LA_Card_DetectLife	See the living through walls, as a timed effect
+$LA_Card_DetectDead	See the dead through walls, as a timed effect
+$LA_Card_Reanimate	Raises a corpse up to level M to fight for you
+$LA_Card_BanishDaedra	Sends summoned Daedra up to level M back to Oblivion
+$LA_Card_CommandDaedra	Takes control of summoned creatures up to level M
+$LA_Card_FlameCloak	Melee-range enemies take M fire damage per second
+$LA_Card_FrostCloak	Melee-range enemies take M frost damage per second
+$LA_Card_LightningCloak	Nearby enemies take M shock damage per second
+$LA_Card_Magelight	A ball of light that sticks where it strikes
+$LA_Card_ConjureAshSpawn	An Ash Spawn fights for you
+$LA_Attr_Strength	Strength
+$LA_Attr_Intelligence	Intelligence
+$LA_Attr_Willpower	Willpower
+$LA_Attr_Agility	Agility
+$LA_Attr_Speed	Speed
+$LA_Attr_Endurance	Endurance
+$LA_Attr_Personality	Personality
+$LA_Attr_Luck	Luck
+$LA_Skill_OneHanded	One-Handed
+$LA_Skill_TwoHanded	Two-Handed
+$LA_Skill_Archery	Archery
+$LA_Skill_Block	Block
+$LA_Skill_Smithing	Smithing
+$LA_Skill_HeavyArmor	Heavy Armor
+$LA_Skill_LightArmor	Light Armor
+$LA_Skill_Pickpocket	Pickpocket
+$LA_Skill_Lockpicking	Lockpicking
+$LA_Skill_Sneak	Sneak
+$LA_Skill_Alchemy	Alchemy
+$LA_Skill_Speech	Speech
+$LA_Skill_Alteration	Alteration
+$LA_Skill_Conjuration	Conjuration
+$LA_Skill_Destruction	Destruction
+$LA_Skill_Illusion	Illusion
+$LA_Skill_Restoration	Restoration
+$LA_Skill_Enchanting	Enchanting
+$LA_MwSkill_Block	Block
+$LA_MwSkill_Armorer	Armorer
+$LA_MwSkill_MediumArmor	Medium Armor
+$LA_MwSkill_HeavyArmor	Heavy Armor
+$LA_MwSkill_BluntWeapon	Blunt Weapon
+$LA_MwSkill_LongBlade	Long Blade
+$LA_MwSkill_Axe	Axe
+$LA_MwSkill_Spear	Spear
+$LA_MwSkill_Athletics	Athletics
+$LA_MwSkill_Enchant	Enchant
+$LA_MwSkill_Destruction	Destruction
+$LA_MwSkill_Alteration	Alteration
+$LA_MwSkill_Illusion	Illusion
+$LA_MwSkill_Conjuration	Conjuration
+$LA_MwSkill_Mysticism	Mysticism
+$LA_MwSkill_Restoration	Restoration
+$LA_MwSkill_Alchemy	Alchemy
+$LA_MwSkill_Unarmored	Unarmored
+$LA_MwSkill_Security	Security
+$LA_MwSkill_Sneak	Sneak
+$LA_MwSkill_Acrobatics	Acrobatics
+$LA_MwSkill_LightArmor	Light Armor
+$LA_MwSkill_ShortBlade	Short Blade
+$LA_MwSkill_Marksman	Marksman
+$LA_MwSkill_Mercantile	Mercantile
+$LA_MwSkill_Speechcraft	Speechcraft
+$LA_MwSkill_HandToHand	Hand-to-Hand
+$LA_Msg_sNotifyMessage28	You can only add eight effects to a spell.
+$LA_Msg_sOnetypeEffectMessage	This effect has already been added.
+$LA_Msg_sNotifyMessage30	You have to add at least one effect to a spell.
+$LA_Msg_sNotifyMessage10	You have to name the spell before buying it.
+$LA_Msg_sEnchantmentMenu8	You cannot buy a spell that has a zero point cost.
+$LA_Msg_sNotifyMessage18	You don't have enough gold to buy this spell.
+$LA_Msg_sQuestionDeleteSpell	Are you sure you wish to delete %s?
+$LA_Msg_sDeleteSpellError	You cannot delete this item from the Magic Menu
+$LA_Msg_SpellbookFull	Your spellbook is full. Delete a custom spell first.
+$LA_Msg_AltarMembersOnly	Only members of the College may use this altar.
+$LA_Msg_SpellmakerMembersOnly	This spellmaker only serves members of the College.
+$LA_Msg_DuplicateName	You already know a spell called %s.
+$LA_Msg_TooComplex	This combination is too complex to inscribe. Remove an effect.
+$LA_Fmt_To	to
+$LA_Fmt_For	for
+$LA_Fmt_In	in
+$LA_Fmt_On	on
+$LA_Unit_pt	pt
+$LA_Unit_pts	pts
+$LA_Unit_percent	%
+$LA_Unit_ft	ft
+$LA_Unit_Level	level
+$LA_Unit_Levels	levels
+$LA_Unit_sec	sec
+$LA_Unit_secs	secs
+$LA_Range_Self	Self
+$LA_Range_Touch	Touch
+$LA_Range_Target	Target
+$LA_Rank_Novice	Novice
+$LA_Rank_Apprentice	Apprentice
+$LA_Rank_Adept	Adept
+$LA_Rank_Expert	Expert
+$LA_Rank_Master	Master
+$LA_School_Alteration	Alteration
+$LA_School_Conjuration	Conjuration
+$LA_School_Destruction	Destruction
+$LA_School_Illusion	Illusion
+$LA_School_Mysticism	Mysticism
+$LA_School_Restoration	Restoration
+$LA_UI_Name	Name
+$LA_UI_NameHint	Name your spell
+$LA_UI_EnterCreates	Enter creates
+$LA_UI_EffectsKnown	Effects Known
+$LA_UI_SpellEffects	Spell Effects
+$LA_UI_Counter	{0}/{1}
+$LA_UI_SearchHint	press / to search
+$LA_UI_Search	Search
+$LA_UI_TabAll	All
+$LA_UI_TabAlteration	A
+$LA_UI_TabConjuration	C
+$LA_UI_TabDestruction	D
+$LA_UI_TabIllusion	I
+$LA_UI_TabRestoration	R
+$LA_UI_GroupBySchool	Group by school
+$LA_UI_ReorderHint	Shift+Up/Down reorders (order matters in Classic mode)
+$LA_UI_Magicka	Magicka
+$LA_UI_MagickaCost	Magicka Cost
+$LA_UI_Price	Price
+$LA_UI_Gold	Gold
+$LA_UI_YourGold	Your Gold
+$LA_UI_GoldFmt	{0} gold
+$LA_UI_Chance	Chance
+$LA_UI_SpellChance	Spell Chance
+$LA_UI_Rank	Rank
+$LA_UI_Create	Create
+$LA_UI_Buy	Buy
+$LA_UI_Load	Load
+$LA_UI_Clear	Clear
+$LA_UI_Exit	Exit
+$LA_UI_OK	OK
+$LA_UI_Cancel	Cancel
+$LA_UI_Delete	Delete
+$LA_UI_Yes	Yes
+$LA_UI_No	No
+$LA_UI_Range	Range
+$LA_UI_Magnitude	Magnitude
+$LA_UI_Duration	Duration
+$LA_UI_Area	Area
+$LA_UI_To	to
+$LA_UI_Min	Min
+$LA_UI_Max	Max
+$LA_UI_EffectCost	Effect cost
+$LA_UI_Preview	Preview
+$LA_UI_InSkyrim	In Skyrim:
+$LA_UI_BaseCost	base cost
+$LA_UI_Ranges	Ranges
+$LA_UI_Unit	Unit
+$LA_UI_StandsInFor	Stands in for
+$LA_UI_PickAttribute	Choose an attribute
+$LA_UI_PickSkill	Choose a skill
+$LA_UI_CostModel	Cost model
+$LA_UI_CostModelFmt	({0} cost model)
+$LA_UI_CostModel_SkyrimBalanced	Skyrim-balanced
+$LA_UI_CostModel_Classic	Morrowind Classic
+$LA_UI_CostModel_EngineAutocalc	Engine autocalc
+$LA_UI_ShowCostMath	Show cost math
+$LA_UI_CostMathTitle	Cost math
+$LA_UI_CostMathTarget	x1.5 on Target
+$LA_UI_CostMathRunning	running total
+$LA_UI_LoadTitle	Start from a custom spell
+$LA_UI_LoadEmpty	You have no custom spells yet.
+$LA_UI_SpellLearned	Spell learned
+$LA_UI_AltarTitle	Altar of Spellmaking
+$LA_UI_SpellmakerTitle	Spellmaking
+$LA_UI_Controls_Move	Move
+$LA_UI_Controls_SwitchPane	Switch pane
+$LA_UI_Controls_SwitchTab	Switch school
+$LA_UI_Controls_Reorder	Reorder
+$LA_UI_Controls_Add	Add or edit
+$LA_UI_Controls_Remove	Remove
+$LA_UI_Controls_CycleRange	Cycle range
+$LA_UI_Controls_Adjust	Adjust
+$LA_UI_Controls_BigStep	Big step
+$LA_UI_Controls_Rename	Rename
+$LA_UI_Controls_Create	Create
+$LA_UI_Controls_CostMath	Cost math
+$LA_UI_Controls_Back	Back
+$LA_UI_Controls_Search	Search
+$LA_UI_Hint_Keyboard	Up/Down move  Left/Right pane  A/D school  E add  F range  R create  T rename  / search  F1 cost math  Tab exit
+$LA_UI_Hint_Gamepad	D-pad move  LB/RB school  (A) add  (Y) range  (X) create  (B) back  R3 search  L3 cost math
+$LA_UI_Hint_Editor	Left/Right adjust  Shift big step  F range  Enter OK  Delete remove  Esc cancel
+$LA_MCM_ModName	Lost Art of Spellmaking
+$LA_MCM_Page_General	General
+$LA_MCM_Page_Costs	Costs
+$LA_MCM_Page_Menu	Menu
+$LA_MCM_Page_Casting	Casting
+$LA_MCM_Page_Effects	Effects
+$LA_MCM_Page_Services	Services
+$LA_MCM_Page_Spellbook	Spellbook
+$LA_MCM_Page_Maintenance	Maintenance
+$LA_MCM_bAltars	Altars
+$LA_MCM_bSpellmakers	NPC spellmakers
+$LA_MCM_iEffectNames	Effect names
+$LA_MCM_iEffectNames_0	Morrowind
+$LA_MCM_iEffectNames_1	Skyrim (Fury, Fear, Courage)
+$LA_MCM_iCostModel	Cost model
+$LA_MCM_iCostModel_0	Skyrim-balanced
+$LA_MCM_iCostModel_1	Morrowind Classic
+$LA_MCM_iCostModel_2	Engine autocalc
+$LA_MCM_bTargetRunningTotal	Target x1.5 on the running total
+$LA_MCM_fGlobalCostMult	Global cost multiplier
+$LA_MCM_fPriceMult	Price multiplier
+$LA_MCM_fPriceMultClassic	Price multiplier (Classic)
+$LA_MCM_bHaggling	Skyrim haggling
+$LA_MCM_iAltarFee	Altar fee
+$LA_MCM_iAltarFee_0	Full price
+$LA_MCM_iAltarFee_1	Half
+$LA_MCM_iAltarFee_2	Free
+$LA_MCM_iAltarFee_3	One filled soul gem
+$LA_MCM_iMaxEffects	Max effects per spell
+$LA_MCM_iMagnitudeCap	Magnitude cap
+$LA_MCM_iDurationCap	Duration cap
+$LA_MCM_iAreaCap	Area cap
+$LA_MCM_bCloseAfterCreate	Close after creating
+$LA_MCM_iStartingRange	Starting range
+$LA_MCM_iStartingRange_0	OpenMW rule
+$LA_MCM_iStartingRange_1	First allowed
+$LA_MCM_bShowCostMath	Show cost math
+$LA_MCM_bCastingFailure	Casting failure
+$LA_MCM_bMinMaxRolls	Min-max rolls
+$LA_MCM_bElementalRiders	Skyrim elemental riders
+$LA_MCM_iTouchReach	Touch reach
+$LA_MCM_bAreaLOS	Area needs line of sight
+$LA_MCM_iSummonLimit	Summon limit
+$LA_MCM_iSummonLimit_0	Skyrim
+$LA_MCM_iSummonLimit_1	Morrowind (one per type)
+$LA_MCM_bGraceSlowfall	Grace Slowfall after Levitate
+$LA_MCM_fJumpPerPoint	Jump height per point
+$LA_MCM_iMarks	Marks
+$LA_MCM_iCastingBonus	Casting bonus
+$LA_MCM_bNPCFailure	Casting failure for NPCs
+$LA_MCM_iExperienceSchool	Experience school in Classic
+$LA_MCM_iExperienceSchool_0	Costliest effect
+$LA_MCM_iExperienceSchool_1	Hardest effect
+$LA_MCM_iAvailability	Effect availability
+$LA_MCM_iAvailability_0	Known spells
+$LA_MCM_iAvailability_1	Sandbox
+$LA_MCM_bSkyrimOnly	Skyrim-only effects
+$LA_MCM_bExtended	Extended Morrowind effects
+$LA_MCM_bPassThrough	Pass-through modded effects
+$LA_MCM_iAttributeProfile	Attribute profile
+$LA_MCM_iAttributeProfile_0	Default
+$LA_MCM_iAttributeProfile_1	Light
+$LA_MCM_iAttributeProfile_2	Off
+$LA_MCM_iSkillPicker	Skill picker
+$LA_MCM_iSkillPicker_0	Skyrim (18)
+$LA_MCM_iSkillPicker_1	Morrowind (27)
+$LA_MCM_iFortifySkillTarget	Fortify Skill target
+$LA_MCM_iFortifySkillTarget_0	Skill level
+$LA_MCM_iFortifySkillTarget_1	Percent modifier
+$LA_MCM_bTomes	Morrowind tomes in shops and loot
+$LA_MCM_bBoundSkillBonus	Bound item skill bonuses
+$LA_MCM_bCollegeMembership	College masters require membership
+$LA_MCM_bRefuseWanted	Refuse wanted players
+$LA_MCM_bPerNPCPrices	Per-NPC price modifiers
+$LA_MCM_iDeletable	Deletable spells
+$LA_MCM_iDeletable_0	Custom only
+$LA_MCM_iDeletable_1	Any non-inherent
+$LA_MCM_iLoadPricing	Load pricing
+$LA_MCM_iLoadPricing_0	Full price
+$LA_MCM_iLoadPricing_1	Difference only
+$LA_MCM_bReplaceOnLoad	Replace original on load
+$LA_MCM_SlotsInUse	Slots in use
+$LA_MCM_SlotsFmt	Spells {0}/500, sub-spells {1}/500
+$LA_MCM_RebalanceAll	Rebalance all custom spells
+$LA_MCM_RebuildAll	Rebuild all slots
+$LA_MCM_PrepareUninstall	Prepare for uninstall
+$LA_MCM_PrepareUninstallDone	Done. It is now safe to save and remove the mod.
+$LA_MCM_iLogLevel	Debug logging
+$LA_MCM_iLogLevel_0	Off
+$LA_MCM_iLogLevel_1	Info
+$LA_MCM_iLogLevel_2	Verbose
+$LA_StandIn_BoundSpear	Morrowind's Bound Spear; Skyrim has no spears, so a bound Daedric greatsword stands in.
+$LA_StandIn_Scamp	Stands in for Morrowind's Scamp.
+$LA_StandIn_Clannfear	Stands in for Morrowind's Clannfear.
+$LA_StandIn_Bonewalker	Stands in for Morrowind's Bonewalker.
+$LA_StandIn_GreaterBonewalker	Stands in for Morrowind's Greater Bonewalker.
+$LA_StandIn_Bonelord	Stands in for Morrowind's Bonelord.
+$LA_StandIn_Daedroth	Stands in for Morrowind's Daedroth.
+$LA_StandIn_GoldenSaint	Stands in for Morrowind's Golden Saint.
+$LA_StandIn_Hunger	Stands in for Morrowind's Hunger.
+$LA_StandIn_WingedTwilight	Stands in for Morrowind's Winged Twilight.
+$LA_StandIn_CenturionSphere	Stands in for Morrowind's Centurion Sphere.
+$LA_StandIn_Fabricant	Stands in for Tribunal's Fabricant.
+$LA_StandIn_Bonewolf	Stands in for Bloodmoon's Bonewolf.
+$LA_Tome_Levitate	Spell Tome: Levitate
+$LA_TomeSpell_Levitate	Levitate
+$LA_Tome_OndusisOpenDoor	Spell Tome: Ondusi's Open Door
+$LA_TomeSpell_OndusisOpenDoor	Ondusi's Open Door
+$LA_Tome_FenricksDoorjam	Spell Tome: Fenrick's Doorjam
+$LA_TomeSpell_FenricksDoorjam	Fenrick's Doorjam
+$LA_Tome_Feather	Spell Tome: Feather
+$LA_TomeSpell_Feather	Feather
+$LA_Tome_Burden	Spell Tome: Burden
+$LA_TomeSpell_Burden	Burden
+$LA_Tome_TinursHoptoad	Spell Tome: Tinur's Hoptoad
+$LA_TomeSpell_TinursHoptoad	Tinur's Hoptoad
+$LA_Tome_Slowfall	Spell Tome: Slowfall
+$LA_TomeSpell_Slowfall	Slowfall
+$LA_Tome_WaterWalking	Spell Tome: Water Walking
+$LA_TomeSpell_WaterWalking	Water Walking
+$LA_Tome_WaterBreathing	Spell Tome: Vivec's Kiss
+$LA_TomeSpell_WaterBreathing	Vivec's Kiss
+$LA_Tome_SwimmersBlessing	Spell Tome: Swimmer's Blessing
+$LA_TomeSpell_SwimmersBlessing	Swimmer's Blessing
+$LA_Tome_FireShield	Spell Tome: Fire Shield
+$LA_TomeSpell_FireShield	Fire Shield
+$LA_Tome_FrostShield	Spell Tome: Frost Shield
+$LA_TomeSpell_FrostShield	Frost Shield
+$LA_Tome_LightningShield	Spell Tome: Lightning Shield
+$LA_TomeSpell_LightningShield	Lightning Shield
+$LA_Tome_BoundArmor	Spell Tome: Bound Armor
+$LA_TomeSpell_BoundArmor	Bound Armor
+$LA_Tome_BoundMace	Spell Tome: Bound Mace
+$LA_TomeSpell_BoundMace	Bound Mace
+$LA_Tome_BoundSpear	Spell Tome: Bound Spear
+$LA_TomeSpell_BoundSpear	Bound Spear
+$LA_Tome_CommandCreature	Spell Tome: Command Creature
+$LA_TomeSpell_CommandCreature	Command Creature
+$LA_Tome_CommandHumanoid	Spell Tome: Command Humanoid
+$LA_TomeSpell_CommandHumanoid	Command Humanoid
+$LA_Tome_SummonAncestralGhost	Spell Tome: Summon Ancestral Ghost
+$LA_TomeSpell_SummonAncestralGhost	Summon Ancestral Ghost
+$LA_Tome_SummonSkeletalMinion	Spell Tome: Summon Skeletal Minion
+$LA_TomeSpell_SummonSkeletalMinion	Summon Skeletal Minion
+$LA_Tome_SummonDaedroth	Spell Tome: Summon Daedroth
+$LA_TomeSpell_SummonDaedroth	Summon Daedroth
+$LA_Tome_SummonGoldenSaint	Spell Tome: Summon Golden Saint
+$LA_TomeSpell_SummonGoldenSaint	Summon Golden Saint
+$LA_Tome_SummonHunger	Spell Tome: Summon Hunger
+$LA_TomeSpell_SummonHunger	Summon Hunger
+$LA_Tome_SummonWingedTwilight	Spell Tome: Summon Winged Twilight
+$LA_TomeSpell_SummonWingedTwilight	Summon Winged Twilight
+$LA_Tome_Fuddle	Spell Tome: Fuddle
+$LA_TomeSpell_Fuddle	Fuddle
+$LA_Tome_SpiritKnife	Spell Tome: Spirit Knife
+$LA_TomeSpell_SpiritKnife	Spirit Knife
+$LA_Tome_Soulpinch	Spell Tome: Soulpinch
+$LA_TomeSpell_Soulpinch	Soulpinch
+$LA_Tome_Doze	Spell Tome: Doze
+$LA_TomeSpell_Doze	Doze
+$LA_Tome_Eaters	Spell Tome: Armor and Weapon Eater
+$LA_TomeSpell_Eaters	Armor and Weapon Eater
+$LA_Tome_StrengthLeech	Spell Tome: Strength Leech
+$LA_TomeSpell_StrengthLeech	Strength Leech
+$LA_Tome_DrainBlood	Spell Tome: Drain Blood
+$LA_TomeSpell_DrainBlood	Drain Blood
+$LA_Tome_Sleep	Spell Tome: Sleep
+$LA_TomeSpell_Sleep	Sleep
+$LA_Tome_DrainBlock	Spell Tome: Drain Block
+$LA_TomeSpell_DrainBlock	Drain Block
+$LA_Tome_Poison	Spell Tome: Poison
+$LA_TomeSpell_Poison	Poison
+$LA_Tome_DireWeakness	Spell Tome: Dire Weakness
+$LA_TomeSpell_DireWeakness	Dire Weakness
+$LA_Tome_CryingEye	Spell Tome: Crying Eye
+$LA_TomeSpell_CryingEye	Crying Eye
+$LA_Tome_ShadowWeave	Spell Tome: Shadow Weave
+$LA_TomeSpell_ShadowWeave	Shadow Weave
+$LA_Tome_CharmMortal	Spell Tome: Charm Mortal
+$LA_TomeSpell_CharmMortal	Charm Mortal
+$LA_Tome_NightEye	Spell Tome: Night-Eye
+$LA_TomeSpell_NightEye	Night-Eye
+$LA_Tome_Silence	Spell Tome: Silence
+$LA_TomeSpell_Silence	Silence
+$LA_Tome_Earwig	Spell Tome: Earwig
+$LA_TomeSpell_Earwig	Earwig
+$LA_Tome_Light	Spell Tome: Light
+$LA_TomeSpell_Light	Light
+$LA_Tome_AbsorbStrength	Spell Tome: Absorb Strength
+$LA_TomeSpell_AbsorbStrength	Absorb Strength
+$LA_Tome_EnergyLeech	Spell Tome: Energy Leech
+$LA_TomeSpell_EnergyLeech	Energy Leech
+$LA_Tome_Righteousness	Spell Tome: Righteousness
+$LA_TomeSpell_Righteousness	Righteousness
+$LA_Tome_AlmsiviIntervention	Spell Tome: Almsivi Intervention
+$LA_TomeSpell_AlmsiviIntervention	Almsivi Intervention
+$LA_Tome_DivineIntervention	Spell Tome: Divine Intervention
+$LA_TomeSpell_DivineIntervention	Divine Intervention
+$LA_Tome_Mark	Spell Tome: Mark
+$LA_TomeSpell_Mark	Mark
+$LA_Tome_Recall	Spell Tome: Recall
+$LA_TomeSpell_Recall	Recall
+$LA_Tome_DetectCreature	Spell Tome: Detect Creature
+$LA_TomeSpell_DetectCreature	Detect Creature
+$LA_Tome_DetectKey	Spell Tome: Detect Key
+$LA_TomeSpell_DetectKey	Detect Key
+$LA_Tome_DetectEnchantment	Spell Tome: Detect Enchantment
+$LA_TomeSpell_DetectEnchantment	Detect Enchantment
+$LA_Tome_Dispel	Spell Tome: Dispel
+$LA_TomeSpell_Dispel	Dispel
+$LA_Tome_Reflect	Spell Tome: Reflect
+$LA_TomeSpell_Reflect	Reflect
+$LA_Tome_SpellAbsorption	Spell Tome: Spell Absorption
+$LA_TomeSpell_SpellAbsorption	Spell Absorption
+$LA_Tome_Telekinesis	Spell Tome: Telekinesis
+$LA_TomeSpell_Telekinesis	Telekinesis
+$LA_Tome_Panacea	Spell Tome: Panacea
+$LA_TomeSpell_Panacea	Panacea
+$LA_Tome_FreeAction	Spell Tome: Free Action
+$LA_TomeSpell_FreeAction	Free Action
+$LA_Tome_MephalasSkill	Spell Tome: Mephala's Skill
+$LA_TomeSpell_MephalasSkill	Mephala's Skill
+$LA_Tome_TrollStrength	Spell Tome: Troll Strength
+$LA_TomeSpell_TrollStrength	Troll Strength
+$LA_Tome_VitalGifts	Spell Tome: Vital Gifts
+$LA_TomeSpell_VitalGifts	Vital Gifts
+$LA_Tome_FortifySecuritySkill	Spell Tome: Fortify Security Skill
+$LA_TomeSpell_FortifySecuritySkill	Fortify Security Skill
+$LA_Tome_ElementalWards	Spell Tome: Great Elemental Resistance
+$LA_TomeSpell_ElementalWards	Great Elemental Resistance
+$LA_Tome_HealersWards	Spell Tome: Healer's Wards
+$LA_TomeSpell_HealersWards	Healer's Wards
+$LA_Tome_RestoreStrength	Spell Tome: Restore Strength
+$LA_TomeSpell_RestoreStrength	Restore Strength
+$LA_Tome_RestOfStMerris	Spell Tome: Rest of St. Merris
+$LA_TomeSpell_RestOfStMerris	Rest of St. Merris
+$LA_Tome_ArcaneReservoir	Spell Tome: Arcane Reservoir
+$LA_TomeSpell_ArcaneReservoir	Arcane Reservoir
+$LA_Tome_SpiritThief	Spell Tome: Spirit Thief
+$LA_TomeSpell_SpiritThief	Spirit Thief
+$LA_Tome_MundaneWard	Spell Tome: Mundane Ward
+$LA_TomeSpell_MundaneWard	Mundane Ward
+$LA_Tome_MundaneBane	Spell Tome: Mundane Bane
+$LA_TomeSpell_MundaneBane	Mundane Bane
+$LA_Tome_DwemerAnimunculi	Spell Tome: Dwemer Animunculi
+$LA_TomeSpell_DwemerAnimunculi	Dwemer Animunculi
+$LA_Tome_SummonFabricant	Spell Tome: Summon Fabricant
+$LA_TomeSpell_SummonFabricant	Summon Fabricant
+$LA_Tome_CallOfTheWild	Spell Tome: Call of the Wild
+$LA_TomeSpell_CallOfTheWild	Call of the Wild
+$LA_Tome_SummonBonewolf	Spell Tome: Summon Bonewolf
+$LA_TomeSpell_SummonBonewolf	Summon Bonewolf
+$LA_Tome_SkillLeech	Spell Tome: Skill Leech
+$LA_TomeSpell_SkillLeech	Skill Leech
+$LA_Book_FragmentsOnTheLostArt	Fragments on the Lost Art
+$LA_Book_SpellmakersPrimer	The Spellmaker's Primer
+$LA_Book_OnTelvanniInscription	On Telvanni Inscription
+$LA_Topic_MakeSpell	I'd like to make a spell.
+$LA_Altar_College	Altar of Spellmaking
+$LA_Altar_Telvanni	Telvanni Altar of Spellmaking
+$LA_Refuse_Tolfdir	I teach the art only to members of the College.
+$LA_Refuse_Faralda	I teach the art only to members of the College.
+$LA_Refuse_DrevisNeloren	I teach the art only to members of the College.
+$LA_Refuse_ColetteMarence	I teach the art only to members of the College.
+$LA_Refuse_PhinisGestor	I teach the art only to members of the College.
+$LA_Refuse_SybilleStentor	Clear your name with the Jarl's guards first. Then we can talk about spells.
+$LA_Refuse_FarengarSecretFire	Clear your name with the Jarl's guards first. Then we can talk about spells.
+$LA_Refuse_WuunferththeUnliving	Clear your name with the Jarl's guards first. Then we can talk about spells.
+$LA_Refuse_Wylandriah	Clear your name with the Jarl's guards first. Then we can talk about spells.
+$LA_Refuse_Calcelmo	Clear your name with the Jarl's guards first. Then we can talk about spells.
+$LA_Refuse_Madena	Clear your name with the Jarl's guards first. Then we can talk about spells.
+$LA_Refuse_Falion	Clear your name with the Jarl's guards first. Then we can talk about spells.
+$LA_Refuse_Neloth	Telvanni don't share their craft with strangers. Make yourself useful first.
+$LA_Refuse_TalvasFathryon	Telvanni don't share their craft with strangers. Make yourself useful first.
+$LA_Refuse_ElderOthreloth	The Temple's tomb is still full of ash spawn. Help us first.
