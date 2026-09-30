@@ -64,6 +64,22 @@ namespace LA
 			if (!a_state.strings.LoadFile(file)) {
 				a_errors.push_back("cannot read " + file.string() + " (menu text will show $LA_ keys)");
 			}
+			// Add-on packs: LostArt_<Pack>_<LANGUAGE>.txt (English fallback per pack is the pack's job).
+			const auto suffix = "_" + language + ".txt";
+			std::vector<std::filesystem::path> addons;
+			for (const auto& entry : std::filesystem::directory_iterator(dir, ec)) {
+				const auto name = entry.path().filename().string();
+				if (entry.is_regular_file() && name.starts_with("LostArt_") && name.size() > suffix.size() &&
+					name.ends_with(suffix) && entry.path() != file) {
+					addons.push_back(entry.path());
+				}
+			}
+			std::ranges::sort(addons);
+			for (const auto& addon : addons) {
+				if (!a_state.strings.LoadFile(addon)) {
+					a_errors.push_back("cannot read " + addon.string());
+				}
+			}
 		}
 
 		void ResolveSlots(State& a_state, std::vector<std::string>& a_errors)

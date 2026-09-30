@@ -4,7 +4,7 @@
   python3 tools/package.py [--version 1.0.0] [--out build/package] [--check]
 
 Inputs (relative to the repository root):
-  build/plugin/LostArt.dll                        SKSE plugin
+  build/{plugin,windows-msvc/skse/plugin,linux-clangcl/skse/plugin}/LostArt.dll   SKSE plugin
   build/plugins/LostArt.esp, LostArt_Slots.esp    generated plugins
   interface/build/LostArt_Spellmaking.swf        spellmaking menu
   build/papyrus/<name>.pex                        one per scripts/Source/<name>.psc
@@ -73,7 +73,11 @@ def plan(version: str) -> tuple[list[tuple[Path, str]], list[str], list[str]]:
         else:
             missing.append(rel)
 
-    need("build/plugin/LostArt.dll", "Core/SKSE/Plugins/LostArt.dll")
+    # The DLL comes from whichever preset built it (CMakePresets.json binaryDir build/<preset>).
+    dll_candidates = ["build/plugin/LostArt.dll", "build/windows-msvc/skse/plugin/LostArt.dll",
+                      "build/linux-clangcl/skse/plugin/LostArt.dll"]
+    dll = next((c for c in dll_candidates if (ROOT / c).is_file()), dll_candidates[0])
+    need(dll, "Core/SKSE/Plugins/LostArt.dll")
     need("build/plugins/LostArt.esp", "Core/LostArt.esp")
     need("build/plugins/LostArt_Slots.esp", "Core/LostArt_Slots.esp")
     need("interface/build/LostArt_Spellmaking.swf", "Core/Interface/LostArt_Spellmaking.swf")
