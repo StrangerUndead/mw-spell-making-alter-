@@ -1,0 +1,26 @@
+FormKey: 00098F:LostArt.esp
+EditorID: LA_Paralyze_Self
+Name:
+  TargetLanguage: English
+  Value: Paralyze
+Keywords:
+- 01EA70:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 450
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Paralysis
+  Type: Paralysis
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

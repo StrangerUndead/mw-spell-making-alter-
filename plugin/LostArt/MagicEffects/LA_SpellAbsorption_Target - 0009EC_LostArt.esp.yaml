@@ -1,0 +1,23 @@
+FormKey: 0009EC:LostArt.esp
+EditorID: LA_SpellAbsorption_Target
+Name:
+  TargetLanguage: English
+  Value: Spell Absorption
+Flags:
+- Recover
+- PowerAffectsMagnitude
+BaseCost: 10.267855
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: AbsorbChance
+Projectile: 03B6CA:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 03FA5A:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

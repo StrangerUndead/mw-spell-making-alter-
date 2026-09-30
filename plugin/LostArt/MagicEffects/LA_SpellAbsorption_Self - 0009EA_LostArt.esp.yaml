@@ -1,0 +1,21 @@
+FormKey: 0009EA:LostArt.esp
+EditorID: LA_SpellAbsorption_Self
+Name:
+  TargetLanguage: English
+  Value: Spell Absorption
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 10.267855
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: AbsorbChance
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

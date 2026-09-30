@@ -1,0 +1,26 @@
+FormKey: 000865:LostArt.esp
+EditorID: LA_CureParalyzation_Touch
+Name:
+  TargetLanguage: English
+  Value: Cure Paralyzation
+Keywords:
+- 000801:LostArt.esp
+- 000803:LostArt.esp
+Flags:
+- NoDuration
+- NoMagnitude
+BaseCost: 53.415134
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 04C6DA:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

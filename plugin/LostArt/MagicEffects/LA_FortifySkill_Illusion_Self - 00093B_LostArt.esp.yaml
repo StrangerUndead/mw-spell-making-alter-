@@ -1,0 +1,21 @@
+FormKey: 00093B:LostArt.esp
+EditorID: LA_FortifySkill_Illusion_Self
+Name:
+  TargetLanguage: English
+  Value: Fortify Illusion
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 1.4435892
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Illusion
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

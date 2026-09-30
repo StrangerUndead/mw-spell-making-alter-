@@ -1,0 +1,21 @@
+FormKey: 0009F1:LostArt.esp
+EditorID: LA_SummonDaedroth_Self
+Name:
+  TargetLanguage: English
+  Value: Summon Daedroth
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 58.584545
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 00081A:LostArt.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

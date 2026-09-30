@@ -1,0 +1,50 @@
+FormKey: 000B9E:LostArt.esp
+EditorID: LA_VendorTomes_Destruction
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 000B11:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B1B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B2D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B5C:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B60:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B45:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B0B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B13:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B15:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B58:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B64:LostArt.esp
+    Count: 1

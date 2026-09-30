@@ -1,0 +1,27 @@
+FormKey: 000979:LostArt.esp
+EditorID: LA_Invisibility_Touch
+Name:
+  TargetLanguage: English
+  Value: Invisibility
+Keywords:
+- 01EA6F:Skyrim.esm
+- 000803:LostArt.esp
+Flags:
+- NoMagnitude
+- PowerAffectsDuration
+BaseCost: 99.75004
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Invisibility
+  Type: Invisibility
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 073320:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

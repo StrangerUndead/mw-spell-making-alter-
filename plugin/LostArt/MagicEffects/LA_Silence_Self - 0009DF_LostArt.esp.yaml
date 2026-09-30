@@ -1,0 +1,25 @@
+FormKey: 0009DF:LostArt.esp
+EditorID: LA_Silence_Self
+Name:
+  TargetLanguage: English
+  Value: Silence
+Keywords:
+- 000801:LostArt.esp
+Flags:
+- Hostile
+- Detrimental
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 55.551743
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

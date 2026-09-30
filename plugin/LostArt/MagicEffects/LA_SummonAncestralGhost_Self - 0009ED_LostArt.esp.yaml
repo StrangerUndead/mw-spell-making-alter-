@@ -1,0 +1,23 @@
+FormKey: 0009ED:LostArt.esp
+EditorID: LA_SummonAncestralGhost_Self
+Name:
+  TargetLanguage: English
+  Value: Summon Ancestral Ghost
+Keywords:
+- 02482B:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 12.815369
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 000823:LostArt.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

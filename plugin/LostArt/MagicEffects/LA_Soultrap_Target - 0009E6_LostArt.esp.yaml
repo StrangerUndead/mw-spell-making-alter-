@@ -1,0 +1,25 @@
+FormKey: 0009E6:LostArt.esp
+EditorID: LA_Soultrap_Target
+Name:
+  TargetLanguage: English
+  Value: Soultrap
+Flags:
+- Hostile
+- Detrimental
+- NoMagnitude
+- PowerAffectsDuration
+BaseCost: 14.907932
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: SoulTrap
+Projectile: 075348:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 03A1E9:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

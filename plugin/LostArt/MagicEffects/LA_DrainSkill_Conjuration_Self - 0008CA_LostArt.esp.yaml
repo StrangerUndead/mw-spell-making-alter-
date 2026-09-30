@@ -1,0 +1,23 @@
+FormKey: 0008CA:LostArt.esp
+EditorID: LA_DrainSkill_Conjuration_Self
+Name:
+  TargetLanguage: English
+  Value: Drain Conjuration
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 1.4115019
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Conjuration
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

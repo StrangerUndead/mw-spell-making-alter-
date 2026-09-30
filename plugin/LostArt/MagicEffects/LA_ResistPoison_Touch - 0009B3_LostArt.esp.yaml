@@ -1,0 +1,25 @@
+FormKey: 0009B3:LostArt.esp
+EditorID: LA_ResistPoison_Touch
+Name:
+  TargetLanguage: English
+  Value: Resist Poison
+Keywords:
+- 000803:LostArt.esp
+Flags:
+- Recover
+- PowerAffectsMagnitude
+BaseCost: 3.4916437
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: PoisonResist
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 04C6DA:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

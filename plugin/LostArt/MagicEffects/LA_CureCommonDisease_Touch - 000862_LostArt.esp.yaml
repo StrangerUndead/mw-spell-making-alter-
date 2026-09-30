@@ -1,0 +1,25 @@
+FormKey: 000862:LostArt.esp
+EditorID: LA_CureCommonDisease_Touch
+Name:
+  TargetLanguage: English
+  Value: Cure Common Disease
+Keywords:
+- 000803:LostArt.esp
+Flags:
+- NoDuration
+- NoMagnitude
+BaseCost: 160.2454
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: CureDisease
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 04C6DA:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

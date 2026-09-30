@@ -1,0 +1,23 @@
+FormKey: 000A0E:LostArt.esp
+EditorID: LA_WeaknesstoFrost_Self
+Name:
+  TargetLanguage: English
+  Value: Weakness to Frost
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 3.3392365
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistFrost
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

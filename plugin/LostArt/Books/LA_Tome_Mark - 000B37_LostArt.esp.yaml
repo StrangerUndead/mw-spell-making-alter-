@@ -1,0 +1,25 @@
+FormKey: 000B37:LostArt.esp
+EditorID: LA_Tome_Mark
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Mark'
+Model:
+  File: Clutter\Books\SpellTomeConjurationLowPoly.nif
+BookText:
+  TargetLanguage: English
+  Value: ''
+PickUpSound: 03EDDE:Skyrim.esm
+PutDownSound: 03EE0C:Skyrim.esm
+Keywords:
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 000B36:LostArt.esp
+Value: 560
+Weight: 1
+InventoryArt: 02FBB6:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

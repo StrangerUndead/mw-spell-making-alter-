@@ -1,0 +1,41 @@
+FormKey: 000B0A:LostArt.esp
+EditorID: LA_TomeSpell_DireWeakness
+Name:
+  TargetLanguage: English
+  Value: Dire Weakness
+EquipmentType: 013F44:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''
+BaseCost: 1168
+Flags:
+- ManualCostCalc
+ChargeTime: 0.5
+CastType: FireAndForget
+TargetType: Aimed
+HalfCostPerk: 0C44C0:Skyrim.esm
+Effects:
+- BaseEffect: 000A0D:LostArt.esp
+  Data:
+    Magnitude: 31
+    Duration: 10
+- BaseEffect: 000A10:LostArt.esp
+  Data:
+    Magnitude: 31
+    Duration: 10
+- BaseEffect: 000A19:LostArt.esp
+  Data:
+    Magnitude: 31
+    Duration: 10
+- BaseEffect: 000A13:LostArt.esp
+  Data:
+    Magnitude: 31
+    Duration: 10
+- BaseEffect: 000A16:LostArt.esp
+  Data:
+    Magnitude: 31
+    Duration: 10
+- BaseEffect: 000A0A:LostArt.esp
+  Data:
+    Magnitude: 11
+    Duration: 10

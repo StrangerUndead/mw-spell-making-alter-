@@ -1,0 +1,11 @@
+FormKey: 000807:LostArt.esp
+EditorID: LA_AreaFX_Alteration_Large
+Model:
+  File: Magic\AlterationMassExplosion.nif
+Sound1: 08196E:Skyrim.esm
+ImpactDataSet: 03FA5A:Skyrim.esm
+Radius: 640
+Flags:
+- IgnoreLosCheck
+- NoControllerVibration
+SoundLevel: Normal

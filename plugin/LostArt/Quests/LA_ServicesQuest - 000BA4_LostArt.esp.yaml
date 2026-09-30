@@ -1,0 +1,11 @@
+FormKey: 000BA4:LostArt.esp
+EditorID: LA_ServicesQuest
+Name:
+  TargetLanguage: English
+  Value: 'Lost Art: Spellmaking Services'
+Flags:
+- StartGameEnabled
+- RunOnce
+Priority: 50
+Type: Misc
+Filter: LostArt\

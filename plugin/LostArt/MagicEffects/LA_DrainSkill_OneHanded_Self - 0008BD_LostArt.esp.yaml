@@ -1,0 +1,23 @@
+FormKey: 0008BD:LostArt.esp
+EditorID: LA_DrainSkill_OneHanded_Self
+Name:
+  TargetLanguage: English
+  Value: Drain One-Handed
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 1.4115019
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: OneHanded
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

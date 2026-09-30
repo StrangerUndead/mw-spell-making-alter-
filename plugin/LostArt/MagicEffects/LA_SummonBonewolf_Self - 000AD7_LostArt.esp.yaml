@@ -1,0 +1,23 @@
+FormKey: 000AD7:LostArt.esp
+EditorID: LA_SummonBonewolf_Self
+Name:
+  TargetLanguage: English
+  Value: Summon Bonewolf
+Keywords:
+- 02482B:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 54.923008
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 000820:LostArt.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

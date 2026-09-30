@@ -1,0 +1,34 @@
+FormKey: 000B9F:LostArt.esp
+EditorID: LA_VendorTomes_Illusion
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 000B03:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B19:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B33:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B3F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B51:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B53:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000AFD:LostArt.esp
+    Count: 1

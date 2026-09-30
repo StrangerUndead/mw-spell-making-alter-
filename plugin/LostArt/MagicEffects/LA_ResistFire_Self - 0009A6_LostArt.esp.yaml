@@ -1,0 +1,21 @@
+FormKey: 0009A6:LostArt.esp
+EditorID: LA_ResistFire_Self
+Name:
+  TargetLanguage: English
+  Value: Resist Fire
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 3.3503673
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistFire
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -47,8 +47,11 @@ function(_lostart_add_commonlib)
     set(ENABLE_SKYRIM_VR OFF)
     set(BUILD_TESTS OFF)
     set(SKSE_SUPPORT_XBYAK ON)          # Trampoline::write_branch/call with xbyak-generated thunks
-    set(REX_OPTION_INI ON)              # REX::INI settings (SimpleIni)
-    set(REX_OPTION_JSON ON)             # REX::JSON settings (nlohmann-json)
+    # REX::INI/JSON/TOML setting stores stay OFF: CommonLib 10.1.0's src/REX/REX.cpp defines them
+    # with an MSVC-only construct (`void SettingLoad<T>(...)`) that clang-cl rejects. The plugin
+    # uses SimpleIni / nlohmann-json directly instead (both are in vcpkg.json).
+    set(REX_OPTION_INI OFF)
+    set(REX_OPTION_JSON OFF)
     set(REX_OPTION_TOML OFF)
     set(COMMONLIB_ENABLE_IPO OFF)       # no /GL objects: faster builds, no LTCG forced on the plugin
     set(COMMONLIB_PREBUILT OFF)

@@ -1,0 +1,11 @@
+FormKey: 00080A:LostArt.esp
+EditorID: LA_AreaFX_Conjuration_Large
+Model:
+  File: Magic\ConjureImpactExplosion.nif
+Sound1: 03F26A:Skyrim.esm
+ImpactDataSet: 03A1E9:Skyrim.esm
+Radius: 640
+Flags:
+- IgnoreLosCheck
+- NoControllerVibration
+SoundLevel: Normal

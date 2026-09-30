@@ -1,0 +1,23 @@
+FormKey: 0009F4:LostArt.esp
+EditorID: LA_SummonFrostAtronach_Self
+Name:
+  TargetLanguage: English
+  Value: Summon Frost Atronach
+Keywords:
+- 024829:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 29.95519
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 0204C1:Skyrim.esm
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

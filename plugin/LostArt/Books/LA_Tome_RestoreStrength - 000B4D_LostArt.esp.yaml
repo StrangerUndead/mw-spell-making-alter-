@@ -1,0 +1,25 @@
+FormKey: 000B4D:LostArt.esp
+EditorID: LA_Tome_RestoreStrength
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Restore Strength'
+Model:
+  File: Clutter\Books\SpellTomeRestorationLowPoly.nif
+BookText:
+  TargetLanguage: English
+  Value: ''
+PickUpSound: 03EDDE:Skyrim.esm
+PutDownSound: 03EE0C:Skyrim.esm
+Keywords:
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 000B4C:LostArt.esp
+Value: 250
+Weight: 1
+InventoryArt: 02FBB7:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

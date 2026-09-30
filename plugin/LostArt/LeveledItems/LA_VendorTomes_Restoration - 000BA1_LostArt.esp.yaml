@@ -1,0 +1,46 @@
+FormKey: 000BA1:LostArt.esp
+EditorID: LA_VendorTomes_Restoration
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 000B29:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B4B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B7E:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B4D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B1D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B27:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B2F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B7C:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B39:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B43:LostArt.esp
+    Count: 1

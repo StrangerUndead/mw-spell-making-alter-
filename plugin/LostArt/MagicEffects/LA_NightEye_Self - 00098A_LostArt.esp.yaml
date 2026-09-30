@@ -1,0 +1,23 @@
+FormKey: 00098A:LostArt.esp
+EditorID: LA_NightEye_Self
+Name:
+  TargetLanguage: English
+  Value: Night Eye
+Keywords:
+- 0AD7C6:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 0.29344705
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: NightEye
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

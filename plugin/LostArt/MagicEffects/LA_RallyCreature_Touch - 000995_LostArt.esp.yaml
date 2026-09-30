@@ -1,0 +1,25 @@
+FormKey: 000995:LostArt.esp
+EditorID: LA_RallyCreature_Touch
+Name:
+  TargetLanguage: English
+  Value: Rally Creature
+Keywords:
+- 078098:Skyrim.esm
+- 000803:LostArt.esp
+Flags:
+- PowerAffectsMagnitude
+BaseCost: 0.034284532
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Rally
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 073320:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

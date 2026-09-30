@@ -88,6 +88,20 @@ const shot = (page, name) => page.screenshot({ path: path.join(outDir, name + ".
 async function press(page, key, times = 1, delay = 60) {
   for (let i = 0; i < times; i++) { await page.keyboard.press(key); await page.waitForTimeout(delay); }
 }
+/*
+ * "Gamepad" button: a synthetic numpad keydown/keyup with the GFx pad key code (96 + n).
+ * (Playwright's Numpad keys arrive as PageDown/Home/... in headless Chromium.)
+ * 0=A 1=B 2=X 3=Y 4=LB 5=LT 6=LS 7=RB 8=RT 9=RS
+ */
+async function pad(page, n, delay = 80) {
+  await page.evaluate((n) => {
+    const t = document.activeElement || window.LA_PLAYER;
+    for (const type of ["keydown", "keyup"])
+      t.dispatchEvent(new KeyboardEvent(type, { key: String(n), code: "Numpad" + n, keyCode: 96 + n, which: 96 + n,
+        location: 3, bubbles: true, cancelable: true }));
+  }, n);
+  await page.waitForTimeout(delay);
+}
 async function settle(page, ms = 250) { await page.waitForTimeout(ms); }
 function hasCall(log, name, ...args) {
   return log.some((c) => c[0] === name && args.every((a, i) => JSON.stringify(c[i + 1]) === JSON.stringify(a)));
@@ -305,47 +319,47 @@ async function scenario(browser) {
 
   // --- "gamepad" through the numpad (GFx pad codes 96..107)
   await clearLog(page);
-  await press(page, "Numpad3");   // Y: rename -> keyboard request (mock answers LA_KeyboardResult)
+  await pad(page, 3);   // Y: rename -> keyboard request (mock answers LA_KeyboardResult)
   await settle(page, 500);
   log = await calls(page);
   check("pad Y -> LA_RequestKeyboard(name, current, 40)", hasCall(log, "LA_RequestKeyboard", "name", "Stormcrow's Kiss", 40), log);
   check("keyboard result -> LA_SetName", hasCall(log, "LA_SetName", "Pad Named Spell"), log);
   await shot(page, "15_gamepad_glyphs");
   await clearLog(page);
-  await press(page, "Numpad7");   // RB on Effects Known -> next tab
-  await press(page, "Numpad4");   // LB -> previous tab
+  await pad(page, 7);   // RB on Effects Known -> next tab
+  await pad(page, 4);   // LB -> previous tab
   check("pad LB/RB switch tabs", (await sounds(page)).filter((x) => x === "UIMenuPrevNext").length >= 2);
-  await press(page, "Numpad6");   // LS click -> cost math
+  await pad(page, 6);   // LS click -> cost math
   await settle(page, 200);
   log = await calls(page);
   check("pad LS -> LA_ToggleCostMath", hasCall(log, "LA_ToggleCostMath"));
-  await press(page, "Numpad6");
+  await pad(page, 6);
   await press(page, "ArrowRight");
   await clearLog(page);
-  await press(page, "Numpad0");   // A on a spell effect -> edit
+  await pad(page, 0);   // A on a spell effect -> edit
   await settle(page, 300);
-  await press(page, "Numpad8");   // RT in editor -> big step
-  await press(page, "Numpad3");   // Y in editor -> range
+  await pad(page, 8);   // RT in editor -> big step
+  await pad(page, 3);   // Y in editor -> range
   await settle(page, 300);
   log = await calls(page);
   check("pad A -> LA_EditEffect, RT -> big step, Y -> range",
     hasCall(log, "LA_EditEffect", 0) && log.some((c) => c[0] === "LA_EditorStep" && c[3] === true) && hasCall(log, "LA_EditorRange"), log);
   await shot(page, "16_gamepad_editor");
-  await press(page, "Numpad2");   // X in editor -> delete
+  await pad(page, 2);   // X in editor -> delete
   await settle(page, 300);
   log = await calls(page);
   check("pad X in editor -> LA_EditorDelete", hasCall(log, "LA_EditorDelete"));
   await clearLog(page);
-  await press(page, "Numpad2");   // X -> create
+  await pad(page, 2);   // X -> create
   await settle(page, 300);
   log = await calls(page);
   check("pad X -> LA_Create", hasCall(log, "LA_Create"));
   if (await page.evaluate(() => window.LA_LOG.some((c) => c[0] === "LA_Create"))) {
-    await press(page, "Numpad0");   // A dismisses a message if one opened
+    await pad(page, 0);   // A dismisses a message if one opened
     await settle(page, 200);
   }
   await clearLog(page);
-  await press(page, "Numpad1");   // B -> exit
+  await pad(page, 1);   // B -> exit
   await settle(page, 500);
   log = await calls(page);
   check("pad B -> LA_Exit", hasCall(log, "LA_Exit"));

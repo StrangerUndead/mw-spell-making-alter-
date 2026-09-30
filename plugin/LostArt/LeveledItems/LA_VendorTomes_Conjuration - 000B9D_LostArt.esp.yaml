@@ -1,0 +1,50 @@
+FormKey: 000B9D:LostArt.esp
+EditorID: LA_VendorTomes_Conjuration
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 000AF3:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000AF5:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000AF7:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B66:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B72:LostArt.esp
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000B6A:LostArt.esp
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000B70:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000AFF:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B01:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B6E:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B74:LostArt.esp
+    Count: 1

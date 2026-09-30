@@ -1,0 +1,25 @@
+FormKey: 000B92:LostArt.esp
+EditorID: LA_TomeLoot_LItemSpellTomes25Conjuration
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 000AEF:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000AF5:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000AF7:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B0F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B66:LostArt.esp
+    Count: 1

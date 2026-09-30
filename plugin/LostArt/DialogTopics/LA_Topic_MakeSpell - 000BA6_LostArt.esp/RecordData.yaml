@@ -1,0 +1,8 @@
+FormKey: 000BA6:LostArt.esp
+EditorID: LA_Topic_MakeSpell
+Name:
+  TargetLanguage: English
+  Value: I'd like to make a spell.
+Branch: 000BA5:LostArt.esp
+Quest: 000BA4:LostArt.esp
+SubtypeName: CUST

@@ -1,0 +1,27 @@
+FormKey: 00083B:LostArt.esp
+EditorID: LA_AbsorbFatigue_Touch
+Name:
+  TargetLanguage: English
+  Value: Absorb Fatigue
+Keywords:
+- 000803:LostArt.esp
+Flags:
+- Hostile
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 0.4888568
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Stamina
+  Type: Absorb
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 0ABF01:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

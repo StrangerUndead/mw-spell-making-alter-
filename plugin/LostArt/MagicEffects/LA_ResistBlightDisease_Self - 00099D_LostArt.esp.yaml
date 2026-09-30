@@ -1,0 +1,21 @@
+FormKey: 00099D:LostArt.esp
+EditorID: LA_ResistBlightDisease_Self
+Name:
+  TargetLanguage: English
+  Value: Resist Blight Disease
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 8.72911
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistDisease
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

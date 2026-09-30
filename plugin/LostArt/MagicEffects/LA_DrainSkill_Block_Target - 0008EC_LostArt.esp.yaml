@@ -1,0 +1,25 @@
+FormKey: 0008EC:LostArt.esp
+EditorID: LA_DrainSkill_Block_Target
+Name:
+  TargetLanguage: English
+  Value: Drain Block
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 1.4115019
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Block
+Projectile: 012E84:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 0ABF01:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,24 @@
+FormKey: 000A4D:LostArt.esp
+EditorID: LA_DamageSkill_Block_Self
+Name:
+  TargetLanguage: English
+  Value: Damage Block
+Keywords:
+- 000801:LostArt.esp
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 3.0137916
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

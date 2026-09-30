@@ -1,0 +1,23 @@
+FormKey: 00084E:LostArt.esp
+EditorID: LA_Burden_Self
+Name:
+  TargetLanguage: English
+  Value: Burden
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 1.7458218
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: CarryWeight
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

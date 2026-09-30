@@ -1,0 +1,22 @@
+FormKey: 000BA3:LostArt.esp
+EditorID: LA_AltarTelvanni
+ObjectBounds:
+  First: -60, -40, 0
+  Second: 60, 40, 90
+Name:
+  TargetLanguage: English
+  Value: Telvanni Altar of Spellmaking
+Model:
+  File: Furniture\Workstations\EnchantingWorkbench01.nif
+Keywords:
+- 06E2A3:Skyrim.esm
+Flags:
+- MustExitToTalk
+WorkbenchData:
+  UsesSkill: 255
+Markers:
+- Enabled: True
+  DisabledEntryPoints: {}
+  EntryPoints:
+    Points:
+    - Front

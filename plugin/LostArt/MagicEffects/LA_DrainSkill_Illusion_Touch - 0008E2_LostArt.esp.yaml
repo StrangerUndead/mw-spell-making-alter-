@@ -1,0 +1,27 @@
+FormKey: 0008E2:LostArt.esp
+EditorID: LA_DrainSkill_Illusion_Touch
+Name:
+  TargetLanguage: English
+  Value: Drain Illusion
+Keywords:
+- 000803:LostArt.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 1.4115019
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Illusion
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 0ABF01:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

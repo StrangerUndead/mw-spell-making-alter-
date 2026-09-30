@@ -1,0 +1,26 @@
+FormKey: 000A01:LostArt.esp
+EditorID: LA_TurnUndead_Target
+Name:
+  TargetLanguage: English
+  Value: Turn Undead
+Keywords:
+- 0BD83F:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 3.4952602
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: TurnUndead
+Projectile: 04BE35:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 04C6DA:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

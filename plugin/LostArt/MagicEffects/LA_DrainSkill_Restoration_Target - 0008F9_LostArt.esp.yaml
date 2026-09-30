@@ -1,0 +1,25 @@
+FormKey: 0008F9:LostArt.esp
+EditorID: LA_DrainSkill_Restoration_Target
+Name:
+  TargetLanguage: English
+  Value: Drain Restoration
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 1.4115019
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Restoration
+Projectile: 012E84:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 0ABF01:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

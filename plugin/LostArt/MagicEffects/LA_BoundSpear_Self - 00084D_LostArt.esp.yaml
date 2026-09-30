@@ -1,0 +1,21 @@
+FormKey: 00084D:LostArt.esp
+EditorID: LA_BoundSpear_Self
+Name:
+  TargetLanguage: English
+  Value: Bound Spear
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 3.661534
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectBoundArchetype
+  Association: 000825:LostArt.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,21 @@
+FormKey: 00084A:LostArt.esp
+EditorID: LA_BoundLongsword_Self
+Name:
+  TargetLanguage: English
+  Value: Bound Longsword
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 6.0448227
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectBoundArchetype
+  Association: 058F5F:Skyrim.esm
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,26 @@
+FormKey: 000A34:LostArt.esp
+EditorID: LA_AbsorbSkill_Archery_Target
+Name:
+  TargetLanguage: English
+  Value: Absorb Archery
+Keywords:
+- 000801:LostArt.esp
+Flags:
+- Hostile
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 3.2412271
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 012E84:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 0ABF01:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

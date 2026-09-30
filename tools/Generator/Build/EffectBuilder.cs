@@ -182,6 +182,11 @@ public sealed class EffectBuilder(BuildContext ctx)
 
     public void BuildVariants(Func<EffectDef, FormKey?> associationFor)
     {
+        ctx.Verify("MGEF LA_* variants: no casting art, hand art, hit shader/art, sounds or light are set (only ImpactData on Touch/Target, from the element/school) - " +
+                   "copy them from skyrim.vanillaEffect at data load in the DLL, or give the variants an art pass in CK");
+        ctx.Verify("MGEF Summon*/Bound* variants use Self delivery (Morrowind ranges; vanilla summons use Target Location) - confirm the creature appears beside the caster");
+        ctx.Verify("MGEF flags are derived: Recover on held (non-ticking) value modifiers with duration, PowerAffectsMagnitude when the effect has magnitude else PowerAffectsDuration, " +
+                   "NoArea on Self variants - spot-check against the vanilla effect each variant is modelled on");
         foreach (var v in PlanVariants(ctx.Data))
         {
             var mgef = BuildVariant(v, associationFor);

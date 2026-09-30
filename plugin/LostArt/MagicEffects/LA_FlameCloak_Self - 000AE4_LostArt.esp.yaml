@@ -1,0 +1,23 @@
+FormKey: 000AE4:LostArt.esp
+EditorID: LA_FlameCloak_Self
+Name:
+  TargetLanguage: English
+  Value: Flame Cloak
+Keywords:
+- 0B62E4:Skyrim.esm
+- 01CEAD:Skyrim.esm
+Flags:
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 4.0882034
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 02B385:Skyrim.esm
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

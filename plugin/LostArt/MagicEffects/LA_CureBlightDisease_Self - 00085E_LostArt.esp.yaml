@@ -1,0 +1,23 @@
+FormKey: 00085E:LostArt.esp
+EditorID: LA_CureBlightDisease_Self
+Name:
+  TargetLanguage: English
+  Value: Cure Blight Disease
+Keywords:
+- 000801:LostArt.esp
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+BaseCost: 1068.3027
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

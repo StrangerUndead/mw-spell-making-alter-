@@ -1,0 +1,27 @@
+FormKey: 0009DE:LostArt.esp
+EditorID: LA_ShockDamage_Target
+Name:
+  TargetLanguage: English
+  Value: Shock Damage
+Keywords:
+- 01CEAF:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 1.4785506
+MagicSkill: Destruction
+ResistValue: ResistShock
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 058E9C:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 038B05:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

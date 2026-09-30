@@ -1,0 +1,21 @@
+FormKey: 0009A9:LostArt.esp
+EditorID: LA_ResistFrost_Self
+Name:
+  TargetLanguage: English
+  Value: Resist Frost
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 3.3503673
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistFrost
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,25 @@
+FormKey: 000ADF:LostArt.esp
+EditorID: LA_CommandDaedra_Touch
+Name:
+  TargetLanguage: English
+  Value: Command Daedra
+Keywords:
+- 000803:LostArt.esp
+Flags:
+- Hostile
+- PowerAffectsMagnitude
+BaseCost: 9.004784
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: CommandSummoned
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 03A1E9:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

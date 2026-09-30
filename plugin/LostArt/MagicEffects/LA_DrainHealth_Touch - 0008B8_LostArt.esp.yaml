@@ -1,0 +1,27 @@
+FormKey: 0008B8:LostArt.esp
+EditorID: LA_DrainHealth_Touch
+Name:
+  TargetLanguage: English
+  Value: Drain Health
+Keywords:
+- 000803:LostArt.esp
+Flags:
+- Hostile
+- Recover
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 6.75794
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 0ABF01:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

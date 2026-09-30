@@ -1,0 +1,25 @@
+FormKey: 00088E:LostArt.esp
+EditorID: LA_DemoralizeHumanoid_Target
+Name:
+  TargetLanguage: English
+  Value: Demoralize Humanoid
+Keywords:
+- 078098:Skyrim.esm
+- 0424E0:Skyrim.esm
+Flags:
+- PowerAffectsMagnitude
+BaseCost: 4.075598
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Demoralize
+Projectile: 07331D:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 073320:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

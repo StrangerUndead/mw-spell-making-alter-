@@ -1,0 +1,23 @@
+FormKey: 0009D9:LostArt.esp
+EditorID: LA_Shield_Self
+Name:
+  TargetLanguage: English
+  Value: Shield
+Keywords:
+- 01EA72:Skyrim.esm
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 0.24808748
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: DamageResist
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

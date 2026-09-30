@@ -19,8 +19,9 @@ Build trees go to `build/<preset>/` (ignored by git). The DLL is
 - **CommonLibSSE-NG** ([alandtse/CommonLibVR](https://github.com/alandtse/CommonLibVR), ng line) is
   pulled by `cmake/LostArtCommonLib.cmake` with FetchContent at a pinned tag (`v10.1.0`) and built
   from source as a subproject, configured for **SE + AE, no VR** (`ENABLE_SKYRIM_SE=ON`,
-  `ENABLE_SKYRIM_AE=ON`, `ENABLE_SKYRIM_VR=OFF`), with `SKSE_SUPPORT_XBYAK`, `REX_OPTION_INI`
-  and `REX_OPTION_JSON` on.
+  `ENABLE_SKYRIM_AE=ON`, `ENABLE_SKYRIM_VR=OFF`), with `SKSE_SUPPORT_XBYAK` on. CommonLib's REX setting
+  stores (`REX_OPTION_INI/JSON/TOML`) stay off: CommonLib 10.1.0's `src/REX/REX.cpp` uses an
+  MSVC-only template construct that clang-cl rejects. Use SimpleIni / nlohmann-json directly.
   - There is no maintained vcpkg registry port for current CommonLibSSE-NG (the old
     colorglass registry stops at 3.x), and CommonLib's published prebuilt bundles bake in VR,
     so a pinned source build is the reproducible option.

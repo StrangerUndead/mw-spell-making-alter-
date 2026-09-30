@@ -1,0 +1,21 @@
+FormKey: 000AD8:LostArt.esp
+EditorID: LA_SummonCenturionSphere_Self
+Name:
+  TargetLanguage: English
+  Value: Summon Centurion Sphere
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 42.18337
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 000821:LostArt.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

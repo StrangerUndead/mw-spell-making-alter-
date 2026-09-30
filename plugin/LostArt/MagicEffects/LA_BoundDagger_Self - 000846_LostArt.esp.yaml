@@ -1,0 +1,21 @@
+FormKey: 000846:LostArt.esp
+EditorID: LA_BoundDagger_Self
+Name:
+  TargetLanguage: English
+  Value: Bound Dagger
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 3.444899
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectBoundArchetype
+  Association: 01CE02:Dragonborn.esm
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

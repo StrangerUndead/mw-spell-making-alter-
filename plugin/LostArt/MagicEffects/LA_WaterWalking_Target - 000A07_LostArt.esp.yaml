@@ -1,0 +1,23 @@
+FormKey: 000A07:LostArt.esp
+EditorID: LA_WaterWalking_Target
+Name:
+  TargetLanguage: English
+  Value: Water Walking
+Flags:
+- NoMagnitude
+- PowerAffectsDuration
+BaseCost: 5.492301
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: WaterWalking
+Projectile: 03B6CA:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 03FA5A:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

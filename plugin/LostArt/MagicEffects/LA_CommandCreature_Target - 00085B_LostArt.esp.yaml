@@ -1,0 +1,24 @@
+FormKey: 00085B:LostArt.esp
+EditorID: LA_CommandCreature_Target
+Name:
+  TargetLanguage: English
+  Value: Command Creature
+Keywords:
+- 000801:LostArt.esp
+Flags:
+- PowerAffectsMagnitude
+BaseCost: 25.342276
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 075348:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 03A1E9:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

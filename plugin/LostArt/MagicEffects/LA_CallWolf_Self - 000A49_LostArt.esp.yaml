@@ -1,0 +1,21 @@
+FormKey: 000A49:LostArt.esp
+EditorID: LA_CallWolf_Self
+Name:
+  TargetLanguage: English
+  Value: Call Wolf
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 54.923008
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 023ABE:Skyrim.esm
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

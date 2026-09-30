@@ -1,0 +1,11 @@
+FormKey: 00080C:LostArt.esp
+EditorID: LA_AreaFX_Destruction_Medium
+Model:
+  File: Magic\FireBallExplosion.nif
+Sound1: 02518E:Skyrim.esm
+ImpactDataSet: 01C2AF:Skyrim.esm
+Radius: 320
+Flags:
+- IgnoreLosCheck
+- NoControllerVibration
+SoundLevel: Normal

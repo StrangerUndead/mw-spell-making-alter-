@@ -1,0 +1,25 @@
+FormKey: 000B88:LostArt.esp
+EditorID: LA_TomeLoot_LItemSpellTOmes50Restoration
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 000B0D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B1D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B27:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B2F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B7C:LostArt.esp
+    Count: 1

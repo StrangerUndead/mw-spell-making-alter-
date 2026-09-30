@@ -1,0 +1,62 @@
+FormKey: 000BA0:LostArt.esp
+EditorID: LA_VendorTomes_Mysticism
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 000B07:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B4F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B78:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000AEF:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B05:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B09:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B0F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B5E:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000AED:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B0D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B37:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B47:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B49:LostArt.esp
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000B1F:LostArt.esp
+    Count: 1

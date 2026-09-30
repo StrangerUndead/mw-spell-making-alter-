@@ -1,0 +1,29 @@
+FormKey: 000990:LostArt.esp
+EditorID: LA_Paralyze_Touch
+Name:
+  TargetLanguage: English
+  Value: Paralyze
+Keywords:
+- 01EA70:Skyrim.esm
+- 000803:LostArt.esp
+Flags:
+- Hostile
+- Detrimental
+- NoMagnitude
+- PowerAffectsDuration
+BaseCost: 450
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Paralysis
+  Type: Paralysis
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 03FA5A:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

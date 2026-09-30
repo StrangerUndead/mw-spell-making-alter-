@@ -1,0 +1,21 @@
+FormKey: 000926:LostArt.esp
+EditorID: LA_FortifyHealth_Self
+Name:
+  TargetLanguage: English
+  Value: Fortify Health
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 1.5385855
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

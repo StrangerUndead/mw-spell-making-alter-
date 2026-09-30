@@ -1,0 +1,21 @@
+FormKey: 0009A0:LostArt.esp
+EditorID: LA_ResistCommonDisease_Self
+Name:
+  TargetLanguage: English
+  Value: Resist Common Disease
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 3.4916437
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistDisease
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

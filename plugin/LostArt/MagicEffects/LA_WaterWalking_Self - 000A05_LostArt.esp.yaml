@@ -1,0 +1,21 @@
+FormKey: 000A05:LostArt.esp
+EditorID: LA_WaterWalking_Self
+Name:
+  TargetLanguage: English
+  Value: Water Walking
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 5.492301
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: WaterWalking
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,7 @@
+FormKey: 000BA5:LostArt.esp
+EditorID: LA_Branch_MakeSpell
+Quest: 000BA4:LostArt.esp
+Category: Player
+Flags:
+- TopLevel
+StartingTopic: 000BA6:LostArt.esp

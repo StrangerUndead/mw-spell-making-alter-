@@ -1,0 +1,21 @@
+FormKey: 000936:LostArt.esp
+EditorID: LA_FortifySkill_Alchemy_Self
+Name:
+  TargetLanguage: English
+  Value: Fortify Alchemy
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 1.4435892
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Alchemy
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

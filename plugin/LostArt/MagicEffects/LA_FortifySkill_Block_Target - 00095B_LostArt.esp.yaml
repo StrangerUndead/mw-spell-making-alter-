@@ -1,0 +1,23 @@
+FormKey: 00095B:LostArt.esp
+EditorID: LA_FortifySkill_Block_Target
+Name:
+  TargetLanguage: English
+  Value: Fortify Block
+Flags:
+- Recover
+- PowerAffectsMagnitude
+BaseCost: 1.4435892
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Block
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 04C6DA:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

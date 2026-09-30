@@ -1,0 +1,21 @@
+FormKey: 0009F0:LostArt.esp
+EditorID: LA_SummonClannfear_Self
+Name:
+  TargetLanguage: English
+  Value: Summon Clannfear
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 21.874256
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 000819:LostArt.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

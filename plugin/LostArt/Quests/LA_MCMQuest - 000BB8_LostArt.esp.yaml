@@ -1,0 +1,24 @@
+FormKey: 000BB8:LostArt.esp
+EditorID: LA_MCMQuest
+VirtualMachineAdapter:
+  Scripts:
+  - Name: LostArt_MCM
+  FileName: ''
+  Aliases:
+  - Property:
+      Name: ''
+      Object: 000BB8:LostArt.esp
+      Alias: 0
+    Scripts:
+    - Name: SKI_PlayerLoadGameAlias
+Name:
+  TargetLanguage: English
+  Value: Lost Art of Spellmaking
+Flags:
+- StartGameEnabled
+Filter: LostArt\
+NextAliasID: 1
+Aliases:
+- Name: PlayerAlias
+  Flags: []
+  ForcedReference: 000014:Skyrim.esm

@@ -1,0 +1,28 @@
+FormKey: 0009E0:LostArt.esp
+EditorID: LA_Silence_Touch
+Name:
+  TargetLanguage: English
+  Value: Silence
+Keywords:
+- 000801:LostArt.esp
+- 000803:LostArt.esp
+Flags:
+- Hostile
+- Detrimental
+- NoMagnitude
+- PowerAffectsDuration
+BaseCost: 55.551743
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 074798:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

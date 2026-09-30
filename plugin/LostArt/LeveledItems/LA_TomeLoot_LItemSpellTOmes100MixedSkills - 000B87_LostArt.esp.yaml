@@ -1,0 +1,41 @@
+FormKey: 000B87:LostArt.esp
+EditorID: LA_TomeLoot_LItemSpellTOmes100MixedSkills
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 000B62:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B56:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B6C:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000AFB:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B3B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B68:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000AF1:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B17:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B3D:LostArt.esp
+    Count: 1

@@ -1,0 +1,24 @@
+FormKey: 000998:LostArt.esp
+EditorID: LA_RallyHumanoid_Target
+Name:
+  TargetLanguage: English
+  Value: Rally Humanoid
+Keywords:
+- 078098:Skyrim.esm
+Flags:
+- PowerAffectsMagnitude
+BaseCost: 0.034284532
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Rally
+Projectile: 07331D:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 073320:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

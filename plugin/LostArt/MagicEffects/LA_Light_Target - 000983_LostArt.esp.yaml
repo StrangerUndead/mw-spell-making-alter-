@@ -1,0 +1,22 @@
+FormKey: 000983:LostArt.esp
+EditorID: LA_Light_Target
+Name:
+  TargetLanguage: English
+  Value: Light
+Flags:
+- PowerAffectsMagnitude
+BaseCost: 0.49817958
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectLightArchetype
+  Association: 03FA58:Skyrim.esm
+Projectile: 03B6CA:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 03FA5A:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

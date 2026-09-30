@@ -878,12 +878,12 @@ class LostArtSpellmakingMenu extends MovieClip
 			return false;
 		var ctx: String = context();
 		var action: String = KeyMap.resolve(ctx, a_d.code, a_d.skseKeycode, a_d.device, a_d.shift);
+		if (devMode)
+			trace("[LostArt] " + ctx + " " + a_d.toString() + " -> " + action);
 		if (action == undefined)
 			return false;
 		if (a_d.value == "keyHold" && !repeatable(action))
 			return false;
-		if (devMode)
-			trace("[LostArt] " + ctx + " " + a_d.toString() + " -> " + action);
 
 		switch (ctx) {
 			case KeyMap.CTX_TEXT:

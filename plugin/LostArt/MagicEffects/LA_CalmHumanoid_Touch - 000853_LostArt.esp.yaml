@@ -1,0 +1,25 @@
+FormKey: 000853:LostArt.esp
+EditorID: LA_CalmHumanoid_Touch
+Name:
+  TargetLanguage: English
+  Value: Calm Humanoid
+Keywords:
+- 078098:Skyrim.esm
+- 000803:LostArt.esp
+Flags:
+- PowerAffectsMagnitude
+BaseCost: 3.8891323
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Calm
+Projectile: 000804:LostArt.esp
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 073320:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

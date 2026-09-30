@@ -1,0 +1,11 @@
+FormKey: 000810:LostArt.esp
+EditorID: LA_AreaFX_Illusion_Large
+Model:
+  File: Magic\IllusionMassiveLightExplosion.nif
+Sound1: 081971:Skyrim.esm
+ImpactDataSet: 073320:Skyrim.esm
+Radius: 640
+Flags:
+- IgnoreLosCheck
+- NoControllerVibration
+SoundLevel: Normal

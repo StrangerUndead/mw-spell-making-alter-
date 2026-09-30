@@ -1,0 +1,25 @@
+FormKey: 000971:LostArt.esp
+EditorID: LA_FrenzyHumanoid_Target
+Name:
+  TargetLanguage: English
+  Value: Frenzy Humanoid
+Keywords:
+- 078098:Skyrim.esm
+- 0C44B6:Skyrim.esm
+Flags:
+- PowerAffectsMagnitude
+BaseCost: 2.7878861
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Frenzy
+Projectile: 07331D:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 073320:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

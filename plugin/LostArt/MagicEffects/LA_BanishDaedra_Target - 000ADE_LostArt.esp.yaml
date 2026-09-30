@@ -1,0 +1,24 @@
+FormKey: 000ADE:LostArt.esp
+EditorID: LA_BanishDaedra_Target
+Name:
+  TargetLanguage: English
+  Value: Banish Daedra
+Flags:
+- Hostile
+- NoDuration
+- PowerAffectsMagnitude
+BaseCost: 9.966799
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Banish
+Projectile: 075348:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 03A1E9:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

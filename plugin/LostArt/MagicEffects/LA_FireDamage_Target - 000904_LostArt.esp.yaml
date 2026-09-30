@@ -1,0 +1,27 @@
+FormKey: 000904:LostArt.esp
+EditorID: LA_FireDamage_Target
+Name:
+  TargetLanguage: English
+  Value: Fire Damage
+Keywords:
+- 01CEAD:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- PowerAffectsMagnitude
+BaseCost: 1.1886387
+MagicSkill: Destruction
+ResistValue: ResistFire
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 012E84:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 01C2AF:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

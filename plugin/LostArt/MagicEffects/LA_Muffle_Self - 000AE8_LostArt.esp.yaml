@@ -1,0 +1,21 @@
+FormKey: 000AE8:LostArt.esp
+EditorID: LA_Muffle_Self
+Name:
+  TargetLanguage: English
+  Value: Muffle
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 5.9918747
+MagicSkill: Illusion
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: MovementNoiseMult
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

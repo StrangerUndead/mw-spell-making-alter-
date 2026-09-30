@@ -1,0 +1,37 @@
+FormKey: 000B96:LostArt.esp
+EditorID: LA_TomeLoot_LItemSpellTomes50Alteration
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 000B25:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B2B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B31:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B35:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B49:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B5A:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B7A:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B80:LostArt.esp
+    Count: 1

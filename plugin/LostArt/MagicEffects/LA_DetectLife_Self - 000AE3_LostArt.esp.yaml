@@ -1,0 +1,21 @@
+FormKey: 000AE3:LostArt.esp
+EditorID: LA_DetectLife_Self
+Name:
+  TargetLanguage: English
+  Value: Detect Life
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 100
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: DetectLife
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

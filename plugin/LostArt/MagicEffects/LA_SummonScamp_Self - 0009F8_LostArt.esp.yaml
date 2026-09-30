@@ -1,0 +1,23 @@
+FormKey: 0009F8:LostArt.esp
+EditorID: LA_SummonScamp_Self
+Name:
+  TargetLanguage: English
+  Value: Summon Scamp
+Keywords:
+- 1091CF:Skyrim.esm
+Flags:
+- NoMagnitude
+- NoArea
+- PowerAffectsDuration
+BaseCost: 14.907932
+MagicSkill: Conjuration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectSummonCreatureArchetype
+  Association: 00081E:LostArt.esp
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

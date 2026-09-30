@@ -1,0 +1,21 @@
+FormKey: 000935:LostArt.esp
+EditorID: LA_FortifySkill_Sneak_Self
+Name:
+  TargetLanguage: English
+  Value: Fortify Sneak
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 1.4435892
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Sneak
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

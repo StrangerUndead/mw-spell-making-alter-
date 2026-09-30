@@ -112,10 +112,13 @@ namespace LA
 		std::array<std::array<RE::BGSPerk*, 5>, kSchoolCount> castingPerks{};
 		RE::BGSPerk* CastingPerk(School a_school, Rank a_rank) const;
 
-		// Pass-through effects discovered at runtime are added to `catalog` here (main thread,
-		// never while a menu session is open: Catalog::Find pointers stay valid between menu
-		// openings because entries are only ever appended once per id).
+		// Pass-through effects discovered at runtime are appended to `catalog` here (main thread;
+		// once per id, never replaced; Catalog stores a deque, so Find() pointers stay valid).
 		void AddPassThrough(EffectDef a_def);
+
+		// Quest-protected spells (Spellbook::CanDelete -> kQuestSpell): built-in list plus
+		// Data/SKSE/Plugins/LostArt/content/protected-spells.json when present. Full FormIDs.
+		std::unordered_set<RE::FormID> protectedSpells;
 
 		// Summary of the kDataLoaded pass (for `la slots`, tests and the log).
 		std::vector<std::string> loadWarnings;

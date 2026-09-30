@@ -1,0 +1,21 @@
+FormKey: 000B8C:LostArt.esp
+EditorID: LA_TomeLoot_LItemSpellTomes00Illusion
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 000B03:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B19:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B3F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B51:LostArt.esp
+    Count: 1

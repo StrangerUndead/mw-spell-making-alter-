@@ -1,0 +1,23 @@
+FormKey: 000AE6:LostArt.esp
+EditorID: LA_LightningCloak_Self
+Name:
+  TargetLanguage: English
+  Value: Lightning Cloak
+Keywords:
+- 0B62E4:Skyrim.esm
+- 01CEAF:Skyrim.esm
+Flags:
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 5.2340317
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectCloakArchetype
+  Association: 02B392:Skyrim.esm
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

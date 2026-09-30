@@ -1,0 +1,25 @@
+FormKey: 000B51:LostArt.esp
+EditorID: LA_Tome_ShadowWeave
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Shadow Weave'
+Model:
+  File: Clutter\Books\SpellTomeIllusionLowPoly.nif
+BookText:
+  TargetLanguage: English
+  Value: ''
+PickUpSound: 03EDDE:Skyrim.esm
+PutDownSound: 03EE0C:Skyrim.esm
+Keywords:
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 000B50:LostArt.esp
+Value: 280
+Weight: 1
+InventoryArt: 02FBB4:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

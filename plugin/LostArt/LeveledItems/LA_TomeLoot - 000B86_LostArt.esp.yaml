@@ -1,0 +1,305 @@
+FormKey: 000B86:LostArt.esp
+EditorID: LA_TomeLoot
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 000AF3:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B03:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B07:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B11:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B19:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B1B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B21:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B23:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B29:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B2D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B33:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B3F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B4B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B4F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B51:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B5C:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B60:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B62:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B78:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B7E:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B82:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000AEF:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000AF5:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000AF7:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000AF9:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B05:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B09:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B0F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B41:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B45:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B4D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B53:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B56:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B5E:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B66:LostArt.esp
+    Count: 1
+- Data:
+    Level: 5
+    Reference: 000B76:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000AED:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B0B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B0D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B13:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B15:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B1D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B25:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B27:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B2B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B2F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B31:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B35:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B37:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B47:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B49:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B58:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B5A:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B64:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B6C:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B72:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B7A:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B7C:LostArt.esp
+    Count: 1
+- Data:
+    Level: 10
+    Reference: 000B80:LostArt.esp
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000AFB:LostArt.esp
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000B1F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000B3B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000B68:LostArt.esp
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000B6A:LostArt.esp
+    Count: 1
+- Data:
+    Level: 20
+    Reference: 000B70:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000AF1:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000AFD:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000AFF:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B01:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B17:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B39:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B3D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B43:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B6E:LostArt.esp
+    Count: 1
+- Data:
+    Level: 30
+    Reference: 000B74:LostArt.esp
+    Count: 1

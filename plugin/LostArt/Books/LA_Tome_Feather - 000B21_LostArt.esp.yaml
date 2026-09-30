@@ -1,0 +1,25 @@
+FormKey: 000B21:LostArt.esp
+EditorID: LA_Tome_Feather
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Feather'
+Model:
+  File: Clutter\Books\SpellTomeAlterationLowPoly.nif
+BookText:
+  TargetLanguage: English
+  Value: ''
+PickUpSound: 03EDDE:Skyrim.esm
+PutDownSound: 03EE0C:Skyrim.esm
+Keywords:
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 000B20:LostArt.esp
+Value: 140
+Weight: 1
+InventoryArt: 02FBB3:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

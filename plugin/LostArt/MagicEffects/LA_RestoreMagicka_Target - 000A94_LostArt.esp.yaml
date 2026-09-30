@@ -1,0 +1,22 @@
+FormKey: 000A94:LostArt.esp
+EditorID: LA_RestoreMagicka_Target
+Name:
+  TargetLanguage: English
+  Value: Restore Magicka
+Flags:
+- PowerAffectsMagnitude
+BaseCost: 0.76772386
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 04C6DA:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

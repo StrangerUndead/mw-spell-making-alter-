@@ -1,0 +1,21 @@
+FormKey: 000861:LostArt.esp
+EditorID: LA_CureCommonDisease_Self
+Name:
+  TargetLanguage: English
+  Value: Cure Common Disease
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+BaseCost: 160.2454
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: CureDisease
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

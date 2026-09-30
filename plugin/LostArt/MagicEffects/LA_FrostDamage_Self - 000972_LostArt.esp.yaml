@@ -1,0 +1,25 @@
+FormKey: 000972:LostArt.esp
+EditorID: LA_FrostDamage_Self
+Name:
+  TargetLanguage: English
+  Value: Frost Damage
+Keywords:
+- 01CEAE:Skyrim.esm
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 1.391577
+MagicSkill: Destruction
+ResistValue: ResistFrost
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

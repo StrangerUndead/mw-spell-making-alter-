@@ -1,0 +1,14 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.41
+ModKey: LostArt_Slots.esp
+GameRelease: SkyrimSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Lost Art of Spellmaking generator
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0

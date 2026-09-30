@@ -1,0 +1,29 @@
+FormKey: 000B8B:LostArt.esp
+EditorID: LA_TomeLoot_LItemSpellTomes00Destruction
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 000B11:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B1B:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B2D:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B4F:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B5C:LostArt.esp
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000B60:LostArt.esp
+    Count: 1

@@ -1,0 +1,22 @@
+FormKey: 000B85:LostArt.esp
+EditorID: LA_Book_OnTelvanniInscription
+Name:
+  TargetLanguage: English
+  Value: On Telvanni Inscription
+Model:
+  File: Clutter\Books\BasicBook05.nif
+BookText:
+  TargetLanguage: English
+  Value: <p align='center'>On Telvanni Inscription</p><p>[Placeholder text - see docs/OUTLINE.md "Icons and text".]</p>
+PickUpSound: 03EDDE:Skyrim.esm
+PutDownSound: 03EE0C:Skyrim.esm
+Keywords:
+- 0937A2:Skyrim.esm
+Teaches:
+  MutagenObjectType: BookTeachesNothing
+Value: 40
+Weight: 1
+InventoryArt: 0153F4:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

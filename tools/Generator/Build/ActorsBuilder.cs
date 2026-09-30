@@ -242,7 +242,7 @@ public sealed class ActorsBuilder(BuildContext ctx)
             _associations[e.Id] = w.FormKey;
         }
         if (anyWeapon)
-            ctx.Verify("WEAP LA_Bound_Dagger/Mace/Spear: Daedric mesh paths typed by hand (verify they exist and consider the bound-weapon shader/.nif used by BoundWeaponSword); " +
+            ctx.Verify("WEAP LA_Bound_* (new bound weapons modelled on the vanilla Daedric weapon in skyrim.weapon): Daedric mesh paths typed by hand (verify they exist and consider the bound-weapon shader/.nif used by BoundWeaponSword); " +
                        "damage scaled to ~0.65x Daedric like vanilla Bound Sword; Template (CNAM) points at the vanilla Daedric weapon; no swing/draw sounds set - copy from the Daedric weapon in CK");
 
         var anyArmor = false;

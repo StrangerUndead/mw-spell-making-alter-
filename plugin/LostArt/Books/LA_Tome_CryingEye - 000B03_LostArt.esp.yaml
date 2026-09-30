@@ -1,0 +1,25 @@
+FormKey: 000B03:LostArt.esp
+EditorID: LA_Tome_CryingEye
+Name:
+  TargetLanguage: English
+  Value: 'Spell Tome: Crying Eye'
+Model:
+  File: Clutter\Books\SpellTomeIllusionLowPoly.nif
+BookText:
+  TargetLanguage: English
+  Value: ''
+PickUpSound: 03EDDE:Skyrim.esm
+PutDownSound: 03EE0C:Skyrim.esm
+Keywords:
+- 0937A5:Skyrim.esm
+Flags:
+- 0x4
+Teaches:
+  MutagenObjectType: BookSpell
+  Spell: 000B02:LostArt.esp
+Value: 30
+Weight: 1
+InventoryArt: 02FBB4:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

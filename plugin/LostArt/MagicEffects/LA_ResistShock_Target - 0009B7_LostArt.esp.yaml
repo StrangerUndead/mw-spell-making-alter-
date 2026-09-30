@@ -1,0 +1,23 @@
+FormKey: 0009B7:LostArt.esp
+EditorID: LA_ResistShock_Target
+Name:
+  TargetLanguage: English
+  Value: Resist Shock
+Flags:
+- Recover
+- PowerAffectsMagnitude
+BaseCost: 1.9081318
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: ResistShock
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 04C6DA:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

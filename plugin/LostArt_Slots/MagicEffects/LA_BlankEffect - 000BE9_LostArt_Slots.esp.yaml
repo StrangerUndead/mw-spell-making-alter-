@@ -1,0 +1,22 @@
+FormKey: 000BE9:LostArt_Slots.esp
+EditorID: LA_BlankEffect
+Name:
+  TargetLanguage: English
+  Value: Unwritten Spell
+Flags:
+- NoDuration
+- NoMagnitude
+- NoArea
+- HideInUI
+- Painless
+- NoHitEffect
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: Script
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Silent
+Description:
+  TargetLanguage: English
+  Value: ''

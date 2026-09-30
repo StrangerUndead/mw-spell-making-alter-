@@ -1,0 +1,22 @@
+FormKey: 000B84:LostArt.esp
+EditorID: LA_Book_SpellmakersPrimer
+Name:
+  TargetLanguage: English
+  Value: The Spellmaker's Primer
+Model:
+  File: Clutter\Books\BasicBook03.nif
+BookText:
+  TargetLanguage: English
+  Value: <p align='center'>The Spellmaker's Primer</p><p>[Placeholder text - see docs/OUTLINE.md "Icons and text".]</p>
+PickUpSound: 03EDDE:Skyrim.esm
+PutDownSound: 03EE0C:Skyrim.esm
+Keywords:
+- 0937A2:Skyrim.esm
+Teaches:
+  MutagenObjectType: BookTeachesNothing
+Value: 40
+Weight: 1
+InventoryArt: 0153D4:Skyrim.esm
+Description:
+  TargetLanguage: English
+  Value: ''

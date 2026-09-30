@@ -1,0 +1,11 @@
+FormKey: 000813:LostArt.esp
+EditorID: LA_AreaFX_Restoration_Large
+Model:
+  File: Magic\TurnUndeadMassExplosion.nif
+Sound1: 0960EA:Skyrim.esm
+ImpactDataSet: 04C6DA:Skyrim.esm
+Radius: 640
+Flags:
+- IgnoreLosCheck
+- NoControllerVibration
+SoundLevel: Normal

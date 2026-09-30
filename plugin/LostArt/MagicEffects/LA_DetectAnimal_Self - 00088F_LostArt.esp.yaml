@@ -1,0 +1,20 @@
+FormKey: 00088F:LostArt.esp
+EditorID: LA_DetectAnimal_Self
+Name:
+  TargetLanguage: English
+  Value: Detect Animal
+Flags:
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 0.60715365
+MagicSkill: Alteration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  Type: DetectLife
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

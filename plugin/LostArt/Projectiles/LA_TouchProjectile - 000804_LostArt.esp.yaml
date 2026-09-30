@@ -1,0 +1,9 @@
+FormKey: 000804:LostArt.esp
+EditorID: LA_TouchProjectile
+Type: Missile
+Speed: 6000
+Range: 192
+CollisionRadius: 10
+CollisionLayer: 088768:Skyrim.esm
+MuzzleFlashModel: ''
+SoundLevel: 2

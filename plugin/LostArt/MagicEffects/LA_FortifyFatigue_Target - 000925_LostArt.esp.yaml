@@ -1,0 +1,23 @@
+FormKey: 000925:LostArt.esp
+EditorID: LA_FortifyFatigue_Target
+Name:
+  TargetLanguage: English
+  Value: Fortify Fatigue
+Flags:
+- Recover
+- PowerAffectsMagnitude
+BaseCost: 0.7692928
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Stamina
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 04C6DA:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

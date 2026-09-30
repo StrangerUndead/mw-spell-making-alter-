@@ -1,0 +1,21 @@
+FormKey: 000A8C:LostArt.esp
+EditorID: LA_FortifyMaximumMagicka_Self
+Name:
+  TargetLanguage: English
+  Value: Fortify Maximum Magicka
+Flags:
+- Recover
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 5.774357
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: MagickaRate
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

@@ -1,0 +1,23 @@
+FormKey: 000928:LostArt.esp
+EditorID: LA_FortifyHealth_Target
+Name:
+  TargetLanguage: English
+  Value: Fortify Health
+Flags:
+- Recover
+- PowerAffectsMagnitude
+BaseCost: 1.5385855
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+Projectile: 012FDC:Skyrim.esm
+CastType: FireAndForget
+TargetType: Aimed
+ImpactData: 04C6DA:Skyrim.esm
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

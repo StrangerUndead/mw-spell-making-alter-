@@ -1,0 +1,22 @@
+FormKey: 0009D3:LostArt.esp
+EditorID: LA_RestoreHealth_Self
+Name:
+  TargetLanguage: English
+  Value: Restore Health
+Keywords:
+- 01CEB0:Skyrim.esm
+Flags:
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 0.9873153
+MagicSkill: Restoration
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Health
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''

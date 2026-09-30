@@ -1,0 +1,22 @@
+FormKey: 000888:LostArt.esp
+EditorID: LA_DamageMagicka_Self
+Name:
+  TargetLanguage: English
+  Value: Damage Magicka
+Flags:
+- Hostile
+- Detrimental
+- NoArea
+- PowerAffectsMagnitude
+BaseCost: 2.7665884
+MagicSkill: Destruction
+SpellmakingCastingTime: 0.5
+Archetype:
+  MutagenObjectType: MagicEffectArchetype
+  ActorValue: Magicka
+CastType: FireAndForget
+DualCastScale: 1
+CastingSoundLevel: Normal
+Description:
+  TargetLanguage: English
+  Value: ''
