@@ -134,6 +134,14 @@ namespace LA::Compiler
 				}
 				return mgef;
 			}
+			// Add-on packs bring their own MGEF per range (EffectDef::variantForms).
+			if (a_entry.variantEditorId.empty() && a_entry.vanillaEffect.Valid()) {
+				auto* addon = FormMap::Resolve<RE::EffectSetting>(a_entry.vanillaEffect);
+				if (!addon) {
+					a_why = fmt::format("add-on effect {} ({}) is not loaded", a_entry.effectId, a_entry.vanillaEffect.ToString());
+				}
+				return addon;
+			}
 			auto* mgef = state.forms.Get<RE::EffectSetting>(a_entry.variantEditorId);
 			if (!mgef) {
 				a_why = fmt::format("variant {} of {} is missing from LostArt.esp", a_entry.variantEditorId, a_entry.effectId);
@@ -217,8 +225,12 @@ namespace LA::Spellbook
 			auto*       mgef = Compiler::ResolveEntry(entry, why);
 			if (!mgef) {
 				if (!entry.riderId.empty()) {
-					logger::warn("'{}': {}; rider skipped", a_def.name, why);
-					continue;  // riders only feed perks; the spell works without them
+					// Riders only feed perks, so the spell works without them. The slot still gets an
+					// inert placeholder so record effect i stays plan entry i (the cast router and the
+					// effect systems map active effects back to plan entries by index).
+					logger::warn("'{}': {}; rider replaced by an inert placeholder", a_def.name, why);
+					want(state.blankEffect, 0.0f, 0, 0.0f);
+					continue;
 				}
 				// OUTLINE "Load and save sequence" 4: a missing effect pack downgrades that effect
 				// to an inert placeholder instead of crashing.

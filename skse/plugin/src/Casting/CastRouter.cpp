@@ -84,44 +84,17 @@ namespace LA::Casting
 			return ref;
 		}
 
-		RE::EffectSetting* EntryEffect(const PlannedEntry& a_entry)
-		{
-			auto& state = State::Get();
-			if (!a_entry.variantEditorId.empty()) {
-				return state.forms.Get<RE::EffectSetting>(a_entry.variantEditorId);
-			}
-			if (a_entry.vanillaEffect.Valid()) {
-				return FormMap::Resolve<RE::EffectSetting>(a_entry.vanillaEffect);
-			}
-			if (const auto* def = state.catalog.Find(a_entry.effectId); def && def->passThroughForm) {
-				return RE::TESForm::LookupByID<RE::EffectSetting>(def->passThroughForm);
-			}
-			return nullptr;
-		}
-
-		// Plan entry of the record's a_effect. Riders that failed to resolve are skipped by the
-		// compiler, so effects are matched to entries by base effect, in order.
+		// Plan entry of the record's a_effect. The compiler writes one record effect per plan entry,
+		// in order (an unresolved rider or effect becomes an inert placeholder), so the record index
+		// is the entry index.
 		const PlannedEntry* EntryOf(const PlanRef& a_ref, const RE::Effect* a_effect)
 		{
 			const auto& entries = a_ref.spell->plan.spells[a_ref.planIndex].entries;
-			auto*       blank = State::Get().blankEffect;
-			std::size_t j = 0;
-			for (auto* effect : a_ref.record->effects) {
-				while (j < entries.size()) {
-					auto* mgef = EntryEffect(entries[j]);
-					const bool match = mgef ? mgef == effect->baseEffect : (entries[j].riderId.empty() && effect->baseEffect == blank);
-					if (match) {
-						break;
-					}
-					++j;
+			const auto& effects = a_ref.record->effects;
+			for (std::uint32_t i = 0; i < effects.size() && i < entries.size(); ++i) {
+				if (effects[i] == a_effect) {
+					return &entries[i];
 				}
-				if (j >= entries.size()) {
-					return nullptr;
-				}
-				if (effect == a_effect) {
-					return &entries[j];
-				}
-				++j;
 			}
 			return nullptr;
 		}

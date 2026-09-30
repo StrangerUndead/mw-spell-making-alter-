@@ -1,0 +1,16 @@
+FormKey: 000BB9:LostArt.esp
+EditorID: LA_Perk_SummonLimit
+Name:
+  TargetLanguage: English
+  Value: Morrowind Summoning
+Description:
+  TargetLanguage: English
+  Value: ''
+NumRanks: 1
+Hidden: True
+Effects:
+- MutagenObjectType: PerkEntryPointModifyValue
+  EntryPoint: ModCommandedActorLimit
+  PerkConditionTabCount: 1
+  Modification: Add
+  Value: 1

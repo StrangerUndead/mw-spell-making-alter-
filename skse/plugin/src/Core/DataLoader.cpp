@@ -34,6 +34,21 @@ namespace LA
 			return "ENGLISH";
 		}
 
+		// Sorted "<prefix>*.json" files in a directory (add-on data packs).
+		std::vector<std::filesystem::path> AddonFiles(const std::filesystem::path& a_dir, std::string_view a_prefix)
+		{
+			std::vector<std::filesystem::path> files;
+			std::error_code                    ec;
+			for (const auto& entry : std::filesystem::directory_iterator(a_dir, ec)) {
+				const auto name = entry.path().filename().string();
+				if (entry.is_regular_file() && name.starts_with(a_prefix) && entry.path().extension() == ".json") {
+					files.push_back(entry.path());
+				}
+			}
+			std::ranges::sort(files);
+			return files;
+		}
+
 		void LoadStrings(State& a_state, std::vector<std::string>& a_errors)
 		{
 			const auto dir = std::filesystem::path("Data") / "Interface" / "Translations";
@@ -212,6 +227,14 @@ namespace LA
 									if (!FormMap::Resolve<RE::EffectSetting>(entry.vanillaEffect) && missingRiders.insert(entry.riderId).second) {
 										a_errors.push_back(fmt::format("rider {} ({}) is not loaded; it will be skipped", entry.riderId,
 											entry.vanillaEffect.ToString()));
+									}
+									continue;
+								}
+								if (entry.variantEditorId.empty() && entry.vanillaEffect.Valid()) {
+									// Add-on pack MGEF (EffectDef::variantForms).
+									++a_variants;
+									if (!FormMap::Resolve<RE::EffectSetting>(entry.vanillaEffect)) {
+										missing.push_back(entry.vanillaEffect.ToString());
 									}
 									continue;
 								}
@@ -433,8 +456,16 @@ namespace LA
 		state.catalog.LoadAttributes(dir / "content" / "attributes.json", errors);
 		state.catalog.LoadSkills(dir / "content" / "skills.json", errors);
 		state.content.LoadAll(dir, errors);
+		// Add-on packs may drop discovery/vanilla_<pack>.json and rules_<pack>.json beside ours; ours
+		// load first so their rules come after (first match wins) and their lookups can add ids.
 		state.discovery.LoadVanilla(dir / "discovery" / "vanilla.json", errors);
 		state.discovery.LoadRules(dir / "discovery" / "rules.json", errors);
+		for (const auto& extra : AddonFiles(dir / "discovery", "vanilla_")) {
+			state.discovery.LoadVanilla(extra, errors);
+		}
+		for (const auto& extra : AddonFiles(dir / "discovery", "rules_")) {
+			state.discovery.LoadRules(extra, errors);
+		}
 		LoadStrings(state, errors);
 		const auto jsonMs = Ms(start);
 

@@ -1,0 +1,58 @@
+FormKey: 000BBA:LostArt.esp
+EditorID: LA_Package_CommandFollow
+Flags:
+- AllowSwimming
+Type: Package
+PreferredSpeed: Run
+InterruptFlags:
+- HellosToPlayer
+- RandomConversations
+- ObserveCombatBehavior
+- GreetCorpseBehavior
+- ReactionToPlayerActions
+- FriendlyFireComments
+- AggroRadiusBehavior
+- AllowIdleChatter
+- WorldInteractions
+ScheduleMonth: -1
+ScheduleDayOfWeek: Any
+ScheduleHour: -1
+ScheduleMinute: -1
+Unknown3: 0x000000
+IdleAnimations:
+  Type: Random
+PackageTemplate: 019B2C:Skyrim.esm
+Data:
+- Key: 0
+  Value:
+    MutagenObjectType: PackageDataTarget
+    Name: Target
+    Flags:
+    - Public
+    Type: SingleRef
+    Target:
+      MutagenObjectType: PackageTargetSpecificReference
+      Reference: 000014:Skyrim.esm
+- Key: 1
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Name: MinRadius
+    Flags:
+    - Public
+    Data: 150
+- Key: 2
+  Value:
+    MutagenObjectType: PackageDataFloat
+    Name: MaxRadius
+    Flags:
+    - Public
+    Data: 300
+XnamMarker: '[]'
+ProcedureTree:
+- BranchType: Procedure
+  ProcedureType: Follow
+  DataInputIndices:
+  - 0
+  - 1
+  - 2
+  Unknown: []
