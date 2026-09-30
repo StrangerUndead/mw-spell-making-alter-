@@ -666,8 +666,7 @@ namespace LA::Spellbook
 
 	void Revert()
 	{
-		auto& state = State::Get();
-		Compiler::OnRevert();
+		auto&       state = State::Get();
 		std::size_t blanked = 0;
 		for (auto* records : { &state.primarySlots, &state.subSlots }) {
 			for (auto* record : *records) {

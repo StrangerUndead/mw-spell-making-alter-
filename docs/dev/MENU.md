@@ -261,14 +261,24 @@ opens the SWF in Ruffle in headless Chromium with FlashVar `la_dev=1`, and lets
 `test/harness/mock_dll.js` play the DLL. Dev mode only switches to a device font and registers
 the `LA_Invoke`/`LA_DevStart` ExternalInterface bridge; in game there are no FlashVars.
 
-- **Scenario**: ~50 checks drive keyboard, mouse and "gamepad" input (numpad keys produce the GFx
-  pad codes: 0=A 1=B 2=X 3=Y 4=LB 5=LT 6=LS 7=RB 8=RT 9=RS) and assert the exact intents and
-  arguments the SWF sends, plus sounds.
-- **Layout**: screenshots at 1280×720, 1920×1080, 2560×1440, 3840×2160, 2560×1080 and 3440×1440,
-  main view and editor.
-- **Perf**: pushes 200 known effects and times `LA_SetKnown` + `LA_SetState` (Ruffle, indicative).
+- **Scenario** (42 checks): drives keyboard, mouse and "gamepad" input (synthetic numpad events
+  carrying the GFx pad codes: 0=A 1=B 2=X 3=Y 4=LB 5=LT 6=LS 7=RB 8=RT 9=RS) and asserts the exact
+  intents and arguments the SWF sends, plus sounds: search, tabs, add, picker, editor steps/range/
+  OK/cancel/delete, reorder, remove, cost math (also inside the editor), rename + Enter-creates,
+  message box, load list, mouse wheel/click, every gamepad binding, exit.
+- **Layout** (6 checks): screenshots at 1280×720, 1920×1080, 2560×1440, 3840×2160, 2560×1080 and
+  3440×1440, main view and editor.
+- **Perf** (1 check): pushes 200 known effects and times `LA_SetKnown` + `LA_SetState`
+  (30–45 ms in Ruffle/WASM under software GL; indicative only, GFx is native code).
 
-Screenshots and `report.json` land in `interface/test/out/`. For manual poking, run
+Screenshots, `trace.log` (the SWF's `trace` output) and `report.json` land in
+`interface/test/out/`. Harness-only quirks, none of which apply in game: Ruffle 0.6 turns a JS
+`""` into the AS string `"null"`, so the mock drops empty strings before invoking; Playwright's
+numpad keys arrive as navigation keys, so "pad" presses are synthetic events that also carry a
+digit (typed if a text field has focus); headless Chromium renders frames only on demand and
+Ruffle ticks on animation frames, so the mouse step forces frames (1×1 screenshots) around the
+press and waits for the call instead of sleeping. Run one harness at a time (it owns port 8765;
+set `LA_HARNESS_PORT` to change it). For manual poking, run
 `node interface/test/harness/run.mjs --serve` and open `http://127.0.0.1:8765/test/harness/`
 (`?npc=1` for the Buy label, `?close=1` to close after Create, `?log=info` for traces).
 `mock_data.json` doubles as a sample of every payload shape (known list, load list, state).

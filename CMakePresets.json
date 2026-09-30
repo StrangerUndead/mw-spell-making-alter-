@@ -58,6 +58,7 @@
         "CMAKE_C_COMPILER": "cl",
         "CMAKE_CXX_COMPILER": "cl",
         "VCPKG_TARGET_TRIPLET": "x64-windows-static-md",
+        "VCPKG_MANIFEST_FEATURES": "tests",
         "LOSTART_BUILD_PLUGIN": "ON",
         "LOSTART_BUILD_TESTS": "ON"
       }

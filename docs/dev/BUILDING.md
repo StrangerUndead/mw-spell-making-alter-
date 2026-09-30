@@ -28,9 +28,11 @@ Build trees go to `build/<preset>/` (ignored by git). The DLL is
   - To use a local checkout instead of downloading: `-DLOSTART_COMMONLIB_DIR=/path/to/commonlib`
     or `export COMMONLIBSSE_DIR=/path/to/commonlib` (it should be at the same tag).
 - **Third-party libraries** CommonLib and we need (spdlog, directxtk, directxmath, rapidcsv,
-  simpleini, xbyak, nlohmann-json, catch2) come from vcpkg in manifest mode. The registry
-  baseline is pinned in `vcpkg-configuration.json` (a git registry, so the local vcpkg clone may
-  be shallow).
+  simpleini, xbyak, nlohmann-json; catch2 via the manifest feature `tests`, which only the
+  `windows-msvc` preset enables) come from vcpkg in manifest mode. The registry baseline is
+  pinned in `vcpkg-configuration.json` (a git registry, so the local vcpkg clone may be
+  shallow). Editing `vcpkg.json` makes vcpkg reinstall its headers on the next configure,
+  which forces a full CommonLib rebuild.
 
 ## Linux: unit tests (`linux-tests`)
 
@@ -89,7 +91,7 @@ file build/linux-clangcl/skse/plugin/LostArt.dll
 The first configure builds all vcpkg dependencies (Release only, triplet
 `cmake/triplets/x64-windows-static-md-clangcl.cmake`); later configures restore them from
 vcpkg's binary cache (`~/.cache/vcpkg/archives`, or `$VCPKG_DEFAULT_BINARY_CACHE`).
-Timings measured on a 4-core container: see the table at the end.
+Measured timings are at the end of this file.
 
 ### Hosts whose proxy blocks GitHub archive downloads
 
@@ -152,7 +154,8 @@ for SKSE Plugins; it logs to `Documents/My Games/Skyrim Special Edition/SKSE/Los
 
 - **linux**: `linux-tests` configure/build/ctest, then `python tools/validate_data.py` and
   `python tools/check_formkeys.py` when present (the latter with a shallow clone of
-  Mutagen-Modding/Mutagen.Bethesda.FormKeys at `$FORMKEYS_DIR`).
+  Mutagen-Modding/Mutagen.Bethesda.FormKeys exported as `$LA_FORMKEYS`; locally both tools
+  default to `/opt/deps/formkeys`).
 - **windows**: `windows-msvc` configure/build/ctest; uploads `LostArt.dll` + `.pdb` as the
   `LostArt-dll` artifact. vcpkg binaries are cached between runs.
 - **generator**: `dotnet build tools/Generator -c Release`.
@@ -171,3 +174,17 @@ for SKSE Plugins; it logs to `Documents/My Games/Skyrim Special Edition/SKSE/Los
 | `cmake/ports/directxtk/` | overlay port: DirectXTK shaders via fxc2 under Wine (Linux host only) |
 | `cmake/scripts/vcpkg-github-via-git.sh` | optional asset-cache script (see above) |
 | `cmake/version.rc.in` | version resource embedded in LostArt.dll |
+
+## Measured timings (Linux cross build, 4-core container, warm download cache)
+
+| Step | Time |
+| --- | --- |
+| `xwin splat` (downloads ~800 MB sysroot) | ~2 min |
+| `cmake --preset linux-clangcl`, first run (all vcpkg ports; DirectXTK incl. 100+ shaders under Wine ≈ 50 s) | ~2 min |
+| same, later runs (vcpkg binary cache hit) | ~15 s |
+| CommonLibSSE-NG from source (~520 translation units, clang-cl) | ~28-30 min |
+| `lostart_core` + plugin sources, link | ~1-2 min |
+| `linux-tests` configure + build (FetchContent Catch2) + ctest | ~3 min |
+
+The CommonLib objects are reused by incremental builds; only changing CommonLib's options or
+tag (or deleting `build/linux-clangcl`) rebuilds it.

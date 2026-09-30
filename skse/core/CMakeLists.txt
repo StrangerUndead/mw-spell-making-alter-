@@ -12,6 +12,7 @@ add_library(lostart_core STATIC
     src/MenuSession.cpp
     src/Serialization.cpp
     src/Settings.cpp
+    src/SlotPool.cpp
     src/Text.cpp
     src/Types.cpp
     src/Util.cpp

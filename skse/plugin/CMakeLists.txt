@@ -26,7 +26,8 @@ target_compile_definitions(LostArt PRIVATE
     LOSTART_VERSION_PATCH=${PROJECT_VERSION_PATCH}
 )
 
-target_link_libraries(LostArt PRIVATE CommonLibSSE::CommonLibSSE)
+# nlohmann_json is provided by cmake/LostArtDependencies.cmake (vcpkg on these presets).
+target_link_libraries(LostArt PRIVATE CommonLibSSE::CommonLibSSE nlohmann_json::nlohmann_json)
 if(TARGET lostart_core)
     target_link_libraries(LostArt PRIVATE lostart_core)
 endif()
@@ -39,7 +40,7 @@ if(MSVC)
     # Always write a PDB (crash-log symbolication; RelWithDebInfo has /Zi) and drop dead code.
     target_link_options(LostArt PRIVATE
         /DEBUG
-        "$<$<NOT:$<CONFIG:Debug>>:/OPT:REF;/OPT:ICF>"
+        "$<$<NOT:$<CONFIG:Debug>>:/INCREMENTAL:NO;/OPT:REF;/OPT:ICF>"
     )
 endif()
 

@@ -39,6 +39,7 @@ function(_lostart_add_commonlib)
         GIT_SHALLOW TRUE
         GIT_SUBMODULES ""        # extern/openvr is only needed for VR
         GIT_PROGRESS TRUE
+        SYSTEM                   # consumers see CommonLib headers as system headers (no warning spam)
     )
 
     # CommonLib options (CMP0077 NEW in its CMakeLists, so plain variables win over option()).

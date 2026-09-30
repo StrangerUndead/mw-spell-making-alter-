@@ -17,7 +17,8 @@
 // Flags: the vanilla crafting menus use kUsesMenuContext | kDisablePauseMenu | kUpdateUsesCursor
 // (CraftingMenu.h); the outline asks for a menu that also pauses the game and shows the cursor
 // (kPausesGame, kUsesCursor; IMenu::RefreshPlatform drops the cursor on gamepad because of
-// kUpdateUsesCursor). kRequiresUpdate keeps AdvanceMovie running for the delayed close.
+// kUpdateUsesCursor), and kModal as docs/dev/MENU.md asks (lower movies stop advancing).
+// kRequiresUpdate keeps AdvanceMovie running for the delayed close.
 // depthPriority 3 matches LockpickingMenu/TrainingMenu, below MessageBoxMenu (10).
 
 namespace LA::UI
@@ -139,7 +140,7 @@ namespace LA::UI
 			{
 				using Flag = RE::UI_MENU_FLAGS;
 				depthPriority = 3;
-				menuFlags.set(Flag::kPausesGame, Flag::kUsesCursor, Flag::kUsesMenuContext, Flag::kDisablePauseMenu,
+				menuFlags.set(Flag::kPausesGame, Flag::kUsesCursor, Flag::kUsesMenuContext, Flag::kModal, Flag::kDisablePauseMenu,
 					Flag::kUpdateUsesCursor, Flag::kRequiresUpdate, Flag::kDontHideCursorWhenTopmost);
 				inputContext = Context::kMenuMode;
 
@@ -164,11 +165,14 @@ namespace LA::UI
 				auto*      delegate = fxDelegate.get();
 				const bool loaded = scaleform && scaleform->LoadMovieEx(this, kMoviePath, RE::GFxMovieView::ScaleModeType::kShowAll,
 					[delegate](RE::GFxMovieDef* a_def) {
+						// VERIFY(in-game): the view inherits this state, so LA_Ready (frame 1) reaches us.
 						a_def->SetState(RE::GFxState::StateType::kExternalInterface, delegate);
 					});
 				if (!loaded || !uiMovie) {
 					logger::error("spellmaking menu: could not load Interface/{}.swf"sv, kMoviePath);
-					_closeAt = std::chrono::steady_clock::now();
+					// Queued behind the kShow being processed; without a movie nothing else would
+					// ever close this game-pausing menu.
+					CloseSpellmakingMenu();
 				} else {
 					uiMovie->SetState(RE::GFxState::StateType::kExternalInterface, delegate);
 				}
@@ -245,7 +249,15 @@ namespace LA::UI
 					_closeAt.reset();
 					CloseSpellmakingMenu();
 				}
-				RE::IMenu::AdvanceMovie(a_interval, a_currentTime);
+				// Like the vanilla IMenu::AdvanceMovie (CurrentTime variable, then Advance), but
+				// with the frame interval as GFx's delta time in seconds. CommonLib's
+				// reimplementation passes a_currentTime as the delta. VERIFY(in-game): the SWF
+				// tweens (150 ms fades, cost count-up) run at real speed.
+				if (uiMovie) {
+					const RE::GFxValue now(static_cast<double>(a_currentTime));
+					uiMovie->SetVariable("CurrentTime", now, RE::GFxMovie::SetVarType::kNormal);
+					uiMovie->Advance(a_interval);
+				}
 			}
 
 			void OnCall(std::string_view a_name, const RE::FxDelegateArgs& a_args)
@@ -296,6 +308,11 @@ namespace LA::UI
 					provider = _controller->ProviderRef();
 					altar = _controller->GetProvider().kind == Provider::Kind::kAltar;
 					_controller->Detach();
+				}
+				// The delegate's callback table holds a GPtr to this menu (AddCallbackVisitor), a
+				// cycle through our own fxDelegate member: break it so the menu is destroyed.
+				if (fxDelegate) {
+					fxDelegate->UnregisterHandler(this);
 				}
 				// OUTLINE "Altars": closing the menu stands the player up.
 				if (altar) {

@@ -54,11 +54,16 @@ function serve() {
       res.writeHead(200, { "Content-Type": MIME[path.extname(f)] || "application/octet-stream", "Cache-Control": "no-store" });
       fs.createReadStream(f).pipe(res);
     });
+    srv.on("error", (e) => {   // e.g. another harness run already owns the port
+      console.error(`cannot serve on 127.0.0.1:${PORT}: ${e.message} (set LA_HARNESS_PORT)`);
+      process.exit(2);
+    });
     srv.listen(PORT, "127.0.0.1", () => resolve(srv));
   });
 }
 
 const checks = [];
+const traceLines = [];   // SWF trace() output (dev mode), written to out/trace.log
 function check(name, ok, detail) {
   checks.push({ name, ok: !!ok, detail: detail === undefined ? "" : detail });
   console.log(`${ok ? "PASS" : "FAIL"} ${name}${detail !== undefined ? " - " + (typeof detail === "string" ? detail : JSON.stringify(detail)) : ""}`);
@@ -68,8 +73,13 @@ async function openPage(browser, w, h, query = "") {
   const page = await browser.newPage({ locale: "en-US", viewport: { width: w, height: h } });
   const errors = [];
   page.on("pageerror", (e) => errors.push(String(e.message)));
-  page.on("console", (m) => { if (m.type() === "error") errors.push(m.text()); });
-  await page.goto(`http://127.0.0.1:${PORT}/test/harness/index.html${query}`);
+  page.on("console", (m) => {
+    const t = m.text();
+    if (m.type() === "error") errors.push(t);
+    const i = t.indexOf("[LostArt]");
+    if (i >= 0) traceLines.push(t.slice(i).replace(/ ?color: whitesmoke.*$/, ""));
+  });
+  await page.goto(`http://127.0.0.1:${PORT}/test/harness/index.html${query}${query ? "&" : "?"}log=info`);
   await page.waitForFunction(() => window.LA_HARNESS_READY === true, null, { timeout: 30000 });
   await page.waitForFunction(() => window.LA_LAST_STATE !== undefined, null, { timeout: 10000 });
   await page.waitForTimeout(400);
@@ -90,7 +100,9 @@ async function press(page, key, times = 1, delay = 60) {
 }
 /*
  * "Gamepad" button: a synthetic numpad keydown/keyup with the GFx pad key code (96 + n).
- * (Playwright's Numpad keys arrive as PageDown/Home/... in headless Chromium.)
+ * (Playwright's Numpad keys arrive as PageDown/Home/... in headless Chromium. Ruffle only maps the
+ * event when it carries the digit, so a "pad" press while a text field is focused also types that
+ * digit - a harness artefact; real pad buttons produce no characters.)
  * 0=A 1=B 2=X 3=Y 4=LB 5=LT 6=LS 7=RB 8=RT 9=RS
  */
 async function pad(page, n, delay = 80) {
@@ -101,6 +113,20 @@ async function pad(page, n, delay = 80) {
         location: 3, bubbles: true, cancelable: true }));
   }, n);
   await page.waitForTimeout(delay);
+}
+/* Waits (up to 4 s) until the SWF has sent a call - Ruffle under software GL can lag mouse events. */
+async function waitCall(page, name, ms = 4000) {
+  if (name === "LA_SetState-editor")
+    return page.waitForFunction(() => window.LA_LAST_STATE && window.LA_LAST_STATE.editor, null, { timeout: ms }).catch(() => {});
+  return page.waitForFunction((n) => window.LA_LOG.some((c) => c[0] === n), name, { timeout: ms }).catch(() => {});
+}
+/*
+ * Headless Chromium only produces frames on demand and Ruffle runs its tick on animation frames,
+ * so a pointer event can sit unprocessed; a 1x1 screenshot forces a frame (harness only).
+ */
+async function pumpFrame(page) {
+  await page.screenshot({ clip: { x: 0, y: 0, width: 1, height: 1 } });
+  await page.waitForTimeout(30);
 }
 async function settle(page, ms = 250) { await page.waitForTimeout(ms); }
 function hasCall(log, name, ...args) {
@@ -310,11 +336,26 @@ async function scenario(browser) {
   await page.mouse.move(box.w * 0.2, box.h * 0.5);
   await page.mouse.wheel(0, 300);
   await settle(page, 200);
-  await page.mouse.click(box.w * 0.2, box.h * 0.5);
-  await settle(page, 400);
+  // Ruffle under software GL can drop a press that arrives before it has processed the pointer
+  // move, so: move, give it time, press/release, and retry (max 3) only if nothing was sent.
+  let clicks = 0;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    clicks++;
+    await page.mouse.move(box.w * 0.2 + 4 + attempt, box.h * 0.5 + 2);
+    await settle(page, 300);
+    await pumpFrame(page);
+    await page.mouse.down();
+    await pumpFrame(page);
+    await page.mouse.up();
+    await pumpFrame(page);
+    await waitCall(page, "LA_AddEffect", 1500);
+    if (await page.evaluate(() => window.LA_LOG.some((c) => c[0] === "LA_AddEffect"))) break;
+  }
+  await waitCall(page, "LA_AddEffect");
+  await waitCall(page, "LA_SetState-editor");
   log = await calls(page);
-  check("mouse click on a known row -> LA_AddEffect", log.some((c) => c[0] === "LA_AddEffect"), log);
-  await press(page, "Escape");
+  check("mouse click on a known row -> LA_AddEffect", log.some((c) => c[0] === "LA_AddEffect"), `clicks=${clicks} ${JSON.stringify(log)}`);
+  if ((await state(page)).editor) await press(page, "Escape");   // close the editor the click opened
   await settle(page, 300);
 
   // --- "gamepad" through the numpad (GFx pad codes 96..107)
@@ -432,6 +473,7 @@ async function perf(browser) {
     await browser.close();
     srv.close();
   }
+  fs.writeFileSync(path.join(outDir, "trace.log"), traceLines.join("\n") + "\n");
   const failed = checks.filter((c) => !c.ok);
   fs.writeFileSync(path.join(outDir, "report.json"), JSON.stringify({ checks, perfMs, failed: failed.length }, null, 2));
   console.log(`\n${checks.length - failed.length}/${checks.length} checks passed; screenshots in ${outDir}`);

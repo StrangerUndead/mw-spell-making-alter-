@@ -110,6 +110,17 @@ namespace LA::Services
 				}
 			}
 
+			// Installed flattened: data/generated/variants.json -> SKSE/Plugins/LostArt/variants.json.
+			if (auto root = ReadJson(State::Get().dataDir / "variants.json")) {
+				if (auto map = root->find("lootInjection"); map != root->end() && map->is_object()) {
+					for (const auto& [list, target] : map->items()) {
+						if (target.is_string()) {
+							data.lootInjection.emplace_back(list, ParseFormRef(target.get<std::string>()));
+						}
+					}
+				}
+			}
+
 			if (!data.collegeFaction.Valid()) {
 				data.collegeFaction = FormRef{ "Skyrim.esm", Vanilla::kCollegeOfWinterholdFaction };
 			}

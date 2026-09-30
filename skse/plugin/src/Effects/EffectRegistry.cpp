@@ -309,11 +309,10 @@ namespace LA::Effects::Internal
 						DismissSameType(c.caster, effect);
 					}
 				}
-				if (State::IsMainThread()) {
-					HandleCaptured(c);
-				} else {
-					SKSE::GetTaskInterface()->AddTask([c]() { HandleCaptured(c); });
-				}
+				// Always through the task queue (FIFO): the apply is handled after the engine has
+				// finished adding the effect (AdjustForPerks included), and an instant effect's
+				// remove event is handled after its apply.
+				SKSE::GetTaskInterface()->AddTask([c]() { HandleCaptured(c); });
 				return RE::BSEventNotifyControl::kContinue;
 			}
 		};
@@ -333,22 +332,30 @@ namespace LA::Effects::Internal
 			if (!target) {
 				return;
 			}
+			Captured c = a_c;
+			if (auto* live = FindActiveEffect(target.get(), c.uid); live && live->GetBaseObject() == c.mgef) {
+				c.magnitude = live->magnitude;  // final value: roll and perks applied
+				c.duration = live->duration;
+			}
 			// Shrine prayer (blessing effects carry MagicBlessing): restores damaged attributes, as
 			// praying did in Morrowind. VERIFY(in-game): every shrine blessing MGEF has the keyword.
-			if (target->IsPlayerRef() && BlessingKeyword() && a_c.mgef->HasKeyword(BlessingKeyword())) {
+			if (target->IsPlayerRef() && BlessingKeyword() && c.mgef->HasKeyword(BlessingKeyword())) {
 				ClearLedger(target.get());
 			}
 			// Resist Corprus: M% chance to shrug off Sanguinare Vampiris when it is contracted.
-			if (IsSanguinare(a_c.spell)) {
+			static std::unordered_map<RE::FormID, std::chrono::steady_clock::time_point> corprusRolled;  // main thread only
+			const auto now = std::chrono::steady_clock::now();
+			if (IsSanguinare(c.spell) && (!corprusRolled.contains(c.targetId) || now - corprusRolled[c.targetId] > std::chrono::seconds(5))) {
+				corprusRolled[c.targetId] = now;  // one roll per contraction, not per disease effect
 				const double chance = SumMagnitude(target.get(), "mw.resist_corprus_disease");
 				if (chance > 0 && Mech::ChanceRoll(chance, Roll100())) {
-					if (auto* disease = a_c.spell->As<RE::SpellItem>()) {
+					if (auto* disease = c.spell->As<RE::SpellItem>()) {
 						target->RemoveSpell(disease);
-						logger::info("effects: Resist Corprus shrugged off {} on {:08X}", disease->GetName(), a_c.targetId);
+						logger::info("effects: Resist Corprus shrugged off {} on {:08X}", disease->GetName(), c.targetId);
 					}
 				}
 			}
-			const auto* key = KeyOf(a_c.mgef);
+			const auto* key = KeyOf(c.mgef);
 			if (!key) {
 				return;
 			}
@@ -361,11 +368,11 @@ namespace LA::Effects::Internal
 			}
 			{
 				std::shared_lock lock(g_instLock);
-				if (FindInstance(a_c.targetId, a_c.uid)) {
+				if (FindInstance(c.targetId, c.uid)) {
 					return;
 				}
 			}
-			StartInstance(MakeInstance(a_c, key), *handler, false);
+			StartInstance(MakeInstance(c, key), *handler, false);
 		}
 
 		void ResumeActor(RE::Actor* a_actor)
@@ -385,6 +392,12 @@ namespace LA::Effects::Internal
 				if (!key || !FindHandler(*key)) {
 					continue;
 				}
+				{
+					std::shared_lock lock(g_instLock);
+					if (FindInstance(a_actor->GetFormID(), effect->usUniqueID)) {
+						continue;  // already tracked
+					}
+				}
 				Captured c;
 				c.target = a_actor->GetHandle();
 				c.targetId = a_actor->GetFormID();
@@ -399,9 +412,6 @@ namespace LA::Effects::Internal
 					c.casterId = caster->GetFormID();
 				}
 				found.push_back(c);
-				if (!found.empty()) {
-					found.back().duration = effect->duration;
-				}
 			}
 			for (const auto& c : found) {
 				const auto* key = KeyOf(c.mgef);
@@ -413,6 +423,41 @@ namespace LA::Effects::Internal
 				StartInstance(std::move(inst), *FindHandler(*key), true);
 			}
 		}
+
+		// Actors leaving the loaded area keep their effects (saved with them) but are not
+		// processed: their instances are dropped without undoing anything and rebuilt, with
+		// resume(), when the actor loads again - so the remove event always finds its instance.
+		class ObjectLoadedSink final : public RE::BSTEventSink<RE::TESObjectLoadedEvent>
+		{
+		public:
+			static ObjectLoadedSink* Get()
+			{
+				static ObjectLoadedSink sink;
+				return &sink;
+			}
+			RE::BSEventNotifyControl ProcessEvent(const RE::TESObjectLoadedEvent* a_event, RE::BSTEventSource<RE::TESObjectLoadedEvent>*) override
+			{
+				if (!a_event || !State::Get().dataReady) {
+					return RE::BSEventNotifyControl::kContinue;
+				}
+				const auto id = a_event->formID;
+				const bool loaded = a_event->loaded;
+				SKSE::GetTaskInterface()->AddTask([id, loaded]() {
+					if (g_pendingResume.load() || id == 0x14) {
+						return;
+					}
+					if (loaded) {
+						if (auto* actor = RE::TESForm::LookupByID<RE::Actor>(id)) {
+							ResumeActor(actor);
+						}
+					} else {
+						std::unique_lock lock(g_instLock);
+						std::erase_if(g_instances, [&](const auto& p) { return p->targetId == id && p->uid != 0; });
+					}
+				});
+				return RE::BSEventNotifyControl::kContinue;
+			}
+		};
 
 		void ResumeAll()
 		{
@@ -453,19 +498,20 @@ namespace LA::Effects::Internal
 				}
 			}
 			std::vector<Instance*> stale;
+			std::vector<Instance*> dropped;
 			for (auto* inst : live) {
 				auto target = inst->target.get();
 				inst->elapsed += a_delta;
 				inst->validate += a_delta;
 				if (!target) {
 					if (inst->validate > 5.0f) {
-						stale.push_back(inst);  // actor deleted or unloaded for good
+						dropped.push_back(inst);  // actor deleted: nothing left to undo
 					}
 					continue;
 				}
-				// Stale check every 2 s: the effect must still be on the actor (an effect can end
-				// without an event when its actor unloads or the effect list is cleared).
-				if (inst->uid != 0 && inst->validate > 2.0f) {
+				// Stale check every 2 s on loaded actors: the effect must still be on the actor (an
+				// effect can end without an event when the effect list is cleared).
+				if (inst->uid != 0 && inst->validate > 2.0f && target->Is3DLoaded()) {
 					inst->validate = 0.0f;
 					if (!FindActiveEffect(target.get(), inst->uid)) {
 						stale.push_back(inst);
@@ -478,6 +524,10 @@ namespace LA::Effects::Internal
 				if (const auto* handler = FindHandler(*inst->key); handler && handler->update) {
 					handler->update(*inst, a_delta);
 				}
+			}
+			if (!dropped.empty()) {
+				std::unique_lock lock(g_instLock);
+				std::erase_if(g_instances, [&](const auto& p) { return std::ranges::find(dropped, p.get()) != dropped.end(); });
 			}
 			for (auto* inst : stale) {
 				bool present = false;
@@ -790,6 +840,12 @@ namespace LA::Effects::Internal
 		vm->DispatchStaticCall("Debug", "Notification", args, callback);
 	}
 
+	std::string LocalText(std::string_view a_key, std::string_view a_fallback)
+	{
+		auto text = State::Get().Text(a_key);
+		return text.empty() || text == a_key ? std::string(a_fallback) : text;
+	}
+
 	float StaminaRatio(RE::Actor* a_actor)
 	{
 		if (!a_actor) {
@@ -865,6 +921,7 @@ namespace LA::Effects
 
 		if (auto* holder = RE::ScriptEventSourceHolder::GetSingleton()) {
 			holder->AddEventSink<RE::TESActiveEffectApplyRemoveEvent>(ApplyRemoveSink::Get());
+			holder->AddEventSink<RE::TESObjectLoadedEvent>(ObjectLoadedSink::Get());
 		}
 		stl::write_vfunc<PlayerUpdateHook>(RE::VTABLE_PlayerCharacter[0], 0xAD);
 		logger::info("effects: frame hook on PlayerCharacter::Update (vtbl 0xAD)");

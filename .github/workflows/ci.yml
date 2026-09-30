@@ -47,7 +47,17 @@ jobs:
       - name: Python requirements
         run: |
           python -m pip install --upgrade pip
-          if [ -f tools/requirements.txt ]; then python -m pip install -r tools/requirements.txt; fi
+          if [ -f tools/requirements.txt ]; then
+            python -m pip install -r tools/requirements.txt
+          else
+            python -m pip install "jsonschema>=4.18"   # validate_data.py (jsonschema + referencing)
+          fi
+
+      # Both tools read the clone from $LA_FORMKEYS (validate_data.py also runs the FormKey check).
+      - name: Clone Mutagen.Bethesda.FormKeys
+        run: |
+          git clone --depth 1 https://github.com/Mutagen-Modding/Mutagen.Bethesda.FormKeys.git "$RUNNER_TEMP/formkeys"
+          echo "LA_FORMKEYS=$RUNNER_TEMP/formkeys" >> "$GITHUB_ENV"
 
       - name: Validate data (tools/validate_data.py)
         run: |
@@ -58,12 +68,9 @@ jobs:
           fi
 
       - name: Check vanilla FormKeys (tools/check_formkeys.py)
-        env:
-          FORMKEYS_DIR: ${{ runner.temp }}/Mutagen.Bethesda.FormKeys
         run: |
           if [ -f tools/check_formkeys.py ]; then
-            git clone --depth 1 https://github.com/Mutagen-Modding/Mutagen.Bethesda.FormKeys.git "$FORMKEYS_DIR"
-            python tools/check_formkeys.py
+            python tools/check_formkeys.py "$LA_FORMKEYS"
           else
             echo "tools/check_formkeys.py not present - skipped"
           fi

@@ -70,6 +70,27 @@ namespace LA::Compiler
 			}
 		}
 
+		// True when the record already holds exactly these effects (same MGEF, magnitude, area,
+		// duration, cost, in order). Recompiling identical content then keeps the existing Effect
+		// objects, so running ActiveEffects stay attached to their spell (rebuild on load, MCM
+		// "Rebuild all slots", `la rebuild`).
+		bool SameEffects(const RE::SpellItem* a_record, const std::vector<RE::Effect>& a_wanted)
+		{
+			if (a_record->effects.size() != a_wanted.size()) {
+				return false;
+			}
+			for (std::size_t i = 0; i < a_wanted.size(); ++i) {
+				const auto* have = a_record->effects[static_cast<std::uint32_t>(i)];
+				const auto& want = a_wanted[i];
+				if (!have || have->baseEffect != want.baseEffect || have->effectItem.magnitude != want.effectItem.magnitude ||
+					have->effectItem.area != want.effectItem.area || have->effectItem.duration != want.effectItem.duration ||
+					have->cost != want.cost || have->conditions.head != nullptr) {
+					return false;
+				}
+			}
+			return true;
+		}
+
 		void RefreshCaches(RE::SpellItem* a_record)
 		{
 			std::int32_t hostile = 0;
@@ -179,9 +200,18 @@ namespace LA::Spellbook
 		const bool  primary = a_index == 0;
 		const auto  costs = Compiler::EntryCosts(a_def);
 
-		std::vector<RE::Effect*> effects;
-		std::vector<bool>        costGiven(a_def.effects.size(), false);
+		std::vector<RE::Effect> effects;  // wanted content; Effect objects are made only if it changed
+		std::vector<bool>       costGiven(a_def.effects.size(), false);
 		effects.reserve(planned.entries.size());
+		auto want = [&](RE::EffectSetting* a_base, float a_magnitude, std::uint32_t a_duration, float a_cost) {
+			RE::Effect effect;
+			effect.baseEffect = a_base;
+			effect.effectItem.magnitude = a_magnitude;
+			effect.effectItem.duration = a_duration;
+			effect.effectItem.area = 0;
+			effect.cost = a_cost;
+			effects.push_back(effect);
+		};
 		for (const auto& entry : planned.entries) {
 			std::string why;
 			auto*       mgef = Compiler::ResolveEntry(entry, why);
@@ -193,7 +223,7 @@ namespace LA::Spellbook
 				// OUTLINE "Load and save sequence" 4: a missing effect pack downgrades that effect
 				// to an inert placeholder instead of crashing.
 				logger::warn("'{}': {}; compiled as an inert placeholder", a_def.name, why);
-				effects.push_back(Compiler::MakeEffect(state.blankEffect, 0.0f, 0, 0, 0.0f));
+				want(state.blankEffect, 0.0f, 0, 0.0f);
 				continue;
 			}
 			float cost = 0.0f;
@@ -203,17 +233,25 @@ namespace LA::Spellbook
 			}
 			// Area stays 0 in the effect item: the plugin's own area resolver applies Morrowind
 			// area (entry.area, feet) on impact (OUTLINE "Area").
-			effects.push_back(Compiler::MakeEffect(mgef, static_cast<float>(entry.maxMag), entry.duration, 0, cost));
+			want(mgef, static_cast<float>(entry.maxMag), entry.duration, cost);
 		}
 		if (effects.empty()) {
 			// A spell record never goes out with an empty effect list.
-			effects.push_back(Compiler::MakeEffect(state.blankEffect, 0.0f, 0, 0, 0.0f));
+			want(state.blankEffect, 0.0f, 0, 0.0f);
 		}
 		if (effects.size() > kEngineEffectCeiling) {
 			return fail(fmt::format("{} effects exceed the engine ceiling of {}", effects.size(), kEngineEffectCeiling));
 		}
 
-		Compiler::ReplaceEffects(a_record, effects);
+		if (!Compiler::SameEffects(a_record, effects)) {
+			std::vector<RE::Effect*> fresh;
+			fresh.reserve(effects.size());
+			for (const auto& effect : effects) {
+				fresh.push_back(Compiler::MakeEffect(effect.baseEffect, effect.effectItem.magnitude, effect.effectItem.duration,
+					effect.effectItem.area, effect.cost));
+			}
+			Compiler::ReplaceEffects(a_record, fresh);
+		}
 
 		const auto expected = Compiler::Expected(planned.range);
 		auto&      data = a_record->data;

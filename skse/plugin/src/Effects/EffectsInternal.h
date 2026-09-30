@@ -85,6 +85,8 @@ namespace LA::Effects::Internal
 	double SumMagnitude(const RE::Actor* a_actor, std::string_view a_id);
 	double MaxMagnitude(const RE::Actor* a_actor, std::string_view a_id);
 	bool   HasInstance(const RE::Actor* a_actor, std::string_view a_id);
+	// Another live instance of a_id on a_inst's target (for "last one out restores" handlers).
+	bool   HasInstanceOther(const Instance& a_inst, std::string_view a_id);
 	// Calls a_fn for every live instance on a_actor (shared lock held; a_fn must not mutate).
 	void ForEachOn(const RE::Actor* a_actor, const std::function<void(const Instance&)>& a_fn);
 	void ForEachInstance(const std::function<void(const Instance&)>& a_fn);
@@ -116,6 +118,8 @@ namespace LA::Effects::Internal
 	void OnLoadedWorld();
 
 	// Cross-module services.
+	// Actor-value deltas for a_points of an attribute (negative = loss) under the current profile.
+	std::vector<std::pair<RE::ActorValue, float>> AttributeAVDeltas(int a_attribute, float a_points);
 	bool   ApplyLockOpen(RE::Actor* a_caster, RE::TESObjectREFR* a_ref, std::string_view a_effectId, double a_magnitude);
 	double EvasionPercent(const RE::Actor* a_actor);         // attribute translation (Agility, Luck)
 	double MeleeDamagePercent(const RE::Actor* a_actor);     // Strength
@@ -125,6 +129,7 @@ namespace LA::Effects::Internal
 	void   ClearLedger(RE::Actor* a_actor);                  // shrine prayer
 	void   OnDisintegrateRepair(RE::Actor* a_actor, bool a_armor, bool a_weapons);
 	double ConditionOf(RE::FormID a_actor, RE::FormID a_item);  // 100 when untracked
+	std::size_t ResolvedTempleCount();                          // Divine + Almsivi destinations found
 
 	// ---------------------------------------------------------------------------------------
 	// Small helpers.
@@ -146,6 +151,9 @@ namespace LA::Effects::Internal
 	float Distance(const RE::NiPoint3& a_lhs, const RE::NiPoint3& a_rhs);
 	bool  IsCustomSlotSpell(const RE::MagicItem* a_spell);  // LA_Slot_* / LA_Sub_* record
 	void  Notify(const std::string& a_text);
+	// Translation (Interface/Translations/LostArt_<LANG>.txt) with an English fallback while the key
+	// is missing from the file.
+	std::string LocalText(std::string_view a_key, std::string_view a_fallback);
 	float StaminaRatio(RE::Actor* a_actor);
 	void  ApplyAVDeltas(RE::Actor* a_actor, std::vector<std::pair<RE::ActorValue, float>>& a_list,
 		 const std::vector<std::pair<RE::ActorValue, float>>& a_deltas);

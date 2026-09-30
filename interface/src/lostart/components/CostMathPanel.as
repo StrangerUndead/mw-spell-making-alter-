@@ -55,7 +55,7 @@ class lostart.components.CostMathPanel
 		if (!a_visible)
 			return;
 		var pad: Number = 20;
-		Draw.panel(_bg, _w, _h, Theme.MODAL_ALPHA, true);
+		Draw.panel(_bg, _w, _h, 97, true);
 		var title: String = Translator.tr("$LA_UI_CostMathTitle");
 		if (a_modelName != undefined && a_modelName.length > 0)
 			title += "  (" + Translator.tr(a_modelName) + ")";

@@ -3,7 +3,8 @@
 #include "Core/State.h"
 
 // Fields of data/content/{spellmakers,altars,tomes}.json that core Content does not carry yet
-// (docs/data-notes.md 1.5, 1.6, 1.8). Read once from State::dataDir/content with nlohmann::json.
+// (docs/data-notes.md 1.5, 1.6, 1.8), plus variants.json "lootInjection" (docs/dev/GENERATOR.md).
+// Read once from State::dataDir with nlohmann::json.
 // Owner: Services/*.cpp. Core change requested: move these into lostart::Content.
 namespace LA::Services
 {
@@ -36,6 +37,8 @@ namespace LA::Services
 		std::unordered_map<std::string, SpellmakerExtra> spellmakers;        // by spellmaker id
 		std::unordered_map<std::string, AltarExtra>      altars;             // by altar id
 		std::vector<TomeExtra>                           tomes;
+		// variants.json "lootInjection": generated LVLI EditorID -> vanilla leveled list.
+		std::vector<std::pair<std::string, FormRef>>     lootInjection;
 
 		static const ServiceData& Get();  // loads on first use
 	};

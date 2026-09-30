@@ -226,28 +226,8 @@ namespace LA::UI
 		if (a_def.set == EffectSet::kPassThrough) {
 			return a_def.passThroughForm != 0;
 		}
-		static std::mutex                               mutex;
-		static std::unordered_map<std::string, bool>    cache;  // FormMap is fixed after kDataLoaded
-		std::scoped_lock                                lock(mutex);
-		if (const auto it = cache.find(a_def.id); it != cache.end()) {
-			return it->second;
-		}
-		std::string target;
-		if (a_def.target == TargetKind::kAttribute) {
-			target = Catalog::AttributeName(0);
-		} else if (a_def.target == TargetKind::kSkill) {
-			target = Catalog::SkyrimSkillName(0);
-		}
-		bool found = false;
-		const auto& forms = State::Get().forms;
-		for (const auto range : a_def.AllowedRanges()) {
-			if (forms.Get(Compiler::VariantEditorId(a_def, target, range))) {
-				found = true;
-				break;
-			}
-		}
-		cache.emplace(a_def.id, found);
-		return found;
+		// Core/DataLoader verified every variant x target at kDataLoaded (State::hiddenEffects).
+		return State::Get().EffectUsable(a_def.id);
 	}
 
 	namespace
@@ -783,9 +763,21 @@ namespace LA::UI
 
 	void MenuController::Create()
 	{
-		auto&      session = *_session;
-		const auto ctx = BuildContext(true);
-		Outcome    outcome;
+		auto& session = *_session;
+		auto  ctx = BuildContext(true);
+		// "Replace original on load" keeps the loaded spell's slot, hotkeys and favorites.
+		std::optional<SpellDef> replacing;
+		if (_settings.replaceOnLoad) {
+			if (const auto slot = session.LoadedFromSlot()) {
+				const auto&       state = State::Get();
+				std::shared_lock lock(state.lock);
+				if (const auto it = state.spells.find(*slot); it != state.spells.end()) {
+					replacing = it->second.def;
+				}
+			}
+		}
+		ctx.replacing = replacing ? &*replacing : nullptr;
+		Outcome outcome;
 		auto       purchase = session.TryCreate(ctx, outcome);
 		if (!purchase) {
 			ShowMessages(outcome, true);

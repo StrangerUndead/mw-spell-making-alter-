@@ -108,6 +108,8 @@ namespace LA::UI
 			if (menu.GetMember(kOrigMember, &existing) && !existing.IsUndefined()) {
 				return;  // already wrapped (menu instance reused)
 			}
+			// VERIFY(in-game): vanilla (non-SkyUI) MagicMenu.swf also routes card updates through
+			// Menu_mc.UpdateItemCardInfo by name; SkyUI does (ItemMenu.as).
 			RE::GFxValue original;
 			if (!menu.GetMember("UpdateItemCardInfo", &original) || original.IsUndefined() || original.IsNull()) {
 				logger::warn("magic menu: Menu_mc.UpdateItemCardInfo not found; custom item cards disabled"sv);
@@ -208,6 +210,7 @@ namespace LA::UI
 			box->bodyText = text;
 			box->buttonText.push_back(GameSettingString("sYes", "Yes").c_str());
 			box->buttonText.push_back(GameSettingString("sNo", "No").c_str());
+			// VERIFY(in-game): the factory-created box has buttonPressOffset 0 (button 0 = Yes).
 			box->callback = RE::BSTSmartPointer<RE::IMessageBoxCallback>(new DeleteConfirm(spell->GetFormID()));
 			RE::MessageBoxMenu::QueueMessage(box);
 		}

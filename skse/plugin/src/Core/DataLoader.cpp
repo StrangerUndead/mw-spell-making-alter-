@@ -151,8 +151,16 @@ namespace LA
 			}
 		}
 
+		struct FoundVariant
+		{
+			const EffectDef*   def;
+			Range              range;
+			RE::EffectSetting* mgef;
+		};
+
 		// Every variant EditorID the compiler can emit, per effect x allowed range x target.
-		void VerifyVariants(State& a_state, std::vector<std::string>& a_errors, std::size_t& a_variants, std::size_t& a_missing)
+		void VerifyVariants(State& a_state, std::vector<std::string>& a_errors, std::size_t& a_variants, std::size_t& a_missing,
+			std::vector<FoundVariant>& a_found)
 		{
 			a_state.hiddenEffects.clear();
 			Settings probeSettings = a_state.settings;
@@ -211,11 +219,12 @@ namespace LA
 									continue;
 								}
 								++a_variants;
-								const auto* mgef = a_state.forms.Get<RE::EffectSetting>(entry.variantEditorId);
+								auto* mgef = a_state.forms.Get<RE::EffectSetting>(entry.variantEditorId);
 								if (!mgef) {
 									missing.push_back(entry.variantEditorId);
 									continue;
 								}
+								a_found.push_back({ &def, range, mgef });
 								if (mgef->data.castingType != RE::MagicSystem::CastingType::kFireAndForget || mgef->data.delivery != expected) {
 									a_errors.push_back(fmt::format("{} has casting type {} / delivery {}; expected FireAndForget / {}",
 										entry.variantEditorId, static_cast<int>(mgef->data.castingType), static_cast<int>(mgef->data.delivery),
@@ -231,6 +240,140 @@ namespace LA
 					a_errors.push_back(fmt::format("{} hidden: {} variant(s) missing (first: {})", def.id, missing.size(), missing.front()));
 				}
 			}
+		}
+
+		// Generated variants carry no presentation of their own (GENERATOR.md "Magic effect
+		// variants"): copy casting/hit art, shaders, light, sounds, dual-cast data, menu object and,
+		// where ours is empty, impact data and (Target) projectile from the vanilla MGEF each variant
+		// is modelled on (`skyrim.vanillaEffect`). Only null fields are filled; nothing vanilla is
+		// modified.
+		std::size_t CopyPresentation(const std::vector<FoundVariant>& a_found, std::size_t& a_fields)
+		{
+			std::size_t patched = 0;
+			for (const auto& found : a_found) {
+				if (!found.def->vanillaEffect.Valid()) {
+					continue;
+				}
+				const auto* vanilla = FormMap::Resolve<RE::EffectSetting>(found.def->vanillaEffect);
+				auto*       ours = found.mgef;
+				if (!vanilla || vanilla == ours) {
+					continue;
+				}
+				std::size_t fields = 0;
+				auto        fill = [&](auto*& a_ours, auto* a_vanilla) {
+					if (!a_ours && a_vanilla) {
+						a_ours = a_vanilla;
+						++fields;
+					}
+				};
+				auto&       to = ours->data;
+				const auto& from = vanilla->data;
+				fill(to.light, from.light);
+				fill(to.effectShader, from.effectShader);
+				fill(to.enchantShader, from.enchantShader);
+				fill(to.castingArt, from.castingArt);
+				fill(to.hitEffectArt, from.hitEffectArt);
+				fill(to.enchantEffectArt, from.enchantEffectArt);
+				fill(to.hitVisuals, from.hitVisuals);
+				fill(to.enchantVisuals, from.enchantVisuals);
+				fill(to.impactDataSet, from.impactDataSet);
+				if (!to.dualCastData && from.dualCastData) {
+					to.dualCastData = from.dualCastData;
+					to.dualCastScale = from.dualCastScale;
+					++fields;
+				}
+				if (found.range == Range::kTarget) {
+					fill(to.projectileBase, from.projectileBase);  // Touch keeps LA_TouchProjectile
+				}
+				if (!ours->menuDispObject && vanilla->menuDispObject) {
+					ours->menuDispObject = vanilla->menuDispObject;
+					++fields;
+				}
+				if (ours->effectSounds.empty() && !vanilla->effectSounds.empty()) {
+					for (const auto& sound : vanilla->effectSounds) {
+						ours->effectSounds.push_back(sound);
+					}
+					to.castingSoundLevel = from.castingSoundLevel;
+					++fields;
+				}
+				if (fields > 0) {
+					++patched;
+					a_fields += fields;
+				}
+			}
+			return patched;
+		}
+
+		// data/generated/variants.json (installed as SKSE/Plugins/LostArt/variants.json) is the
+		// generator's own list of effect -> range -> sub -> EditorID; any disagreement with the
+		// compiler's naming is a build problem worth a warning.
+		std::size_t CrossCheckVariants(State& a_state, std::vector<std::string>& a_errors)
+		{
+			const auto file = a_state.dataDir / "variants.json";
+			std::error_code ec;
+			if (!std::filesystem::exists(file, ec)) {
+				return 0;
+			}
+			std::ifstream     in(file, std::ios::binary);
+			std::stringstream ss;
+			ss << in.rdbuf();
+			nlohmann::json root;
+			try {
+				root = nlohmann::json::parse(ss.str());
+			} catch (const nlohmann::json::exception& e) {
+				a_errors.push_back("variants.json: " + std::string(e.what()));
+				return 0;
+			}
+			const auto variants = root.find("variants");
+			if (variants == root.end() || !variants->is_object()) {
+				return 0;
+			}
+			Settings probeSettings = a_state.settings;
+			std::size_t mismatches = 0;
+			for (const auto& [effectId, ranges] : variants->items()) {
+				if (!a_state.catalog.Find(effectId)) {
+					a_errors.push_back(fmt::format("variants.json lists {} which the catalog does not have", effectId));
+					++mismatches;
+					continue;
+				}
+				for (const auto& [rangeText, subs] : ranges.items()) {
+					const auto range = RangeFromString(rangeText);
+					if (!range || !subs.is_object()) {
+						continue;
+					}
+					for (const auto& [subText, editorId] : subs.items()) {
+						if (!editorId.is_string()) {
+							continue;
+						}
+						SpellEffect probe;
+						probe.effectId = effectId;
+						probe.range = *range;
+						try {
+							probe.sub = static_cast<std::int16_t>(std::stoi(subText));
+						} catch (const std::exception&) {
+							continue;
+						}
+						const auto plan = Compiler::Plan(a_state.catalog, { probe }, probeSettings);
+						const auto expected = editorId.get<std::string>();
+						bool       emitted = false;
+						std::string first;
+						for (const auto& spell : plan.spells) {
+							for (const auto& entry : spell.entries) {
+								if (entry.riderId.empty() && first.empty()) {
+									first = entry.variantEditorId;
+								}
+								emitted = emitted || entry.variantEditorId == expected;
+							}
+						}
+						if (!emitted) {
+							++mismatches;
+							a_errors.push_back(fmt::format("variants.json: {} {} sub {} is {} but the compiler emits {}", effectId, rangeText,
+								subText, expected, first.empty() ? "nothing" : first));
+						}
+					}
+				}
+			}
+			return mismatches;
 		}
 
 		// Live refit of Skyrim-balanced base costs against the vanilla spell each effect was fitted
@@ -301,10 +444,14 @@ namespace LA
 		ResolvePerks(state, errors);
 		LoadProtectedSpells(state, errors);
 
-		std::size_t variants = 0;
-		std::size_t missing = 0;
-		VerifyVariants(state, errors, variants, missing);
-		const auto refitted = Refit(state);
+		std::size_t               variants = 0;
+		std::size_t               missing = 0;
+		std::vector<FoundVariant> found;
+		VerifyVariants(state, errors, variants, missing, found);
+		const auto  mismatches = CrossCheckVariants(state, errors);
+		std::size_t presentationFields = 0;
+		const auto  presented = CopyPresentation(found, presentationFields);
+		const auto  refitted = Refit(state);
 		const auto formsMs = Ms(formsStart);
 
 		state.dataReady = !state.primarySlots.empty() && state.blankEffect != nullptr;
@@ -316,11 +463,13 @@ namespace LA
 		logger::info(
 			"data loaded in {:.1f} ms (json {:.1f} ms, records {:.1f} ms): {} effects ({} hidden), {} attributes, {} Morrowind skills, "
 			"{} riders, {} stand-ins, {} tomes, {} spellmakers, {} altars; discovery {} lookups + {} rules; {} strings; formmap {} "
-			"records; slots {}+{}; variants {} checked, {} missing; {} base costs refitted; {} warnings",
+			"records; slots {}+{}; variants {} checked, {} missing, {} variants.json mismatches; presentation copied to {} variants "
+			"({} fields); {} base costs refitted; {} warnings",
 			Ms(start), jsonMs, formsMs, state.catalog.Size(), state.hiddenEffects.size(), state.catalog.Attributes().size(),
 			state.catalog.MwSkills().size(), state.content.AllRiders().size(), state.content.StandIns().size(), state.content.Tomes().size(),
 			state.content.Spellmakers().size(), state.content.Altars().size(), state.discovery.LookupSize(), state.discovery.RuleCount(),
-			state.strings.Size(), state.forms.Size(), state.primarySlots.size(), state.subSlots.size(), variants, missing, refitted,
+			state.strings.Size(), state.forms.Size(), state.primarySlots.size(), state.subSlots.size(), variants, missing, mismatches,
+			presented, presentationFields, refitted,
 			state.loadWarnings.size());
 		if (!state.dataReady) {
 			logger::critical("LostArt cannot run: the slot records are missing (enable LostArt.esp and LostArt_Slots.esp)");

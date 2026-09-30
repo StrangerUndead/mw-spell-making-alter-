@@ -19,7 +19,8 @@ namespace LA::Compiler
 	// Engine cost of each definition effect (Effect::cost), in definition order.
 	std::vector<float> EntryCosts(const SpellDef& a_def);
 
-	// Effect recycling: called by the revert handler before any slot is blanked.
+	// Effect recycling: called once per SKSE revert callback (a game load or new game), before any
+	// slot is blanked. Never from anywhere else: the two-revert delay is what makes reuse safe.
 	void        OnRevert();
 	std::size_t RetiredEffectCount();
 }

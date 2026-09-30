@@ -11,6 +11,7 @@ add_executable(lostart_tests
     TestMenu.cpp
     TestSerialization.cpp
     TestSettings.cpp
+    TestSlotPool.cpp
     TestText.cpp
 )
 target_link_libraries(lostart_tests PRIVATE lostart_core nlohmann_json::nlohmann_json Catch2::Catch2WithMain)

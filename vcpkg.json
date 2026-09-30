@@ -11,7 +11,12 @@
     "rapidcsv",
     "simpleini",
     "spdlog",
-    "xbyak",
-    "catch2"
-  ]
+    "xbyak"
+  ],
+  "features": {
+    "tests": {
+      "description": "Catch2 v3 for the lostart_core unit tests (enabled by the windows-msvc preset).",
+      "dependencies": [ "catch2" ]
+    }
+  }
 }
