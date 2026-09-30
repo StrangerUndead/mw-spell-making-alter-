@@ -4,8 +4,11 @@
 //
 // Incoming effects are filtered in MagicTarget::AddTarget, vfunc 01 of the MagicTarget
 // sub-object of Character and PlayerCharacter (CommonLib RE/M/MagicTarget.h "virtual bool
-// AddTarget(AddTargetData&) // 01"; the MagicTarget base is the second base of Actor, so its
-// vtable is VTABLE_Character[1] / VTABLE_PlayerCharacter[1], RE/A/Actor.h class declaration).
+// AddTarget(AddTargetData&) // 01"). Actor's bases are TESObjectREFR (itself TESForm,
+// BSHandleRefObject, BSTEventSink<BSAnimationGraphEvent>, IAnimationGraphManagerHolder: vtables
+// 0-3), then MagicTarget, so the MagicTarget vtable is VTABLE_Character[4] /
+// VTABLE_PlayerCharacter[4] (RE/A/Actor.h, RE/T/TESObjectREFR.h class declarations; index 1 is
+// BSHandleRefObject's NiRefObject vtable, whose slot 1 is DeleteThis).
 // Returning false means the effect was not added; this is the call that also produces the
 // "magic effect apply" events Papyrus Extender reports (powerof3/PapyrusExtenderSSE
 // src/Game/HookedEventHandler.cpp, MagicEffectApply::MagicTargetApply wraps a call into the same
@@ -302,8 +305,8 @@ namespace LA::Effects::Internal
 		Register("mw.cure_paralyzation", { CureParalysisStart, nullptr, nullptr, nullptr });
 		Register("mw.cure_poison", { CurePoisonStart, nullptr, nullptr, nullptr });
 
-		stl::write_vfunc<AddTargetHook<0>>(RE::VTABLE_Character[1], 0x1);
-		stl::write_vfunc<AddTargetHook<1>>(RE::VTABLE_PlayerCharacter[1], 0x1);
+		stl::write_vfunc<AddTargetHook<0>>(RE::VTABLE_Character[4], 0x1);
+		stl::write_vfunc<AddTargetHook<1>>(RE::VTABLE_PlayerCharacter[4], 0x1);
 		logger::info("effects: MagicTarget::AddTarget hooks (Reflect, Resist Paralysis)");
 	}
 }

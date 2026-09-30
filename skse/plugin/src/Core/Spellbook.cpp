@@ -527,12 +527,16 @@ namespace LA::Spellbook
 		if (!a_spell) {
 			return DeleteCheck::kInherent;
 		}
-		if (const auto* custom = state.FindBySpell(a_spell)) {
-			// Linked sub-spells are never in a spell list; only the equipped spell is deletable.
-			return custom->primary == a_spell || (custom->def.slot < state.primarySlots.size() &&
-			                                         state.primarySlots[custom->def.slot] == a_spell) ?
-			           DeleteCheck::kOk :
-			           DeleteCheck::kInherent;
+		{
+			// Also called from the magic menu's delete hotkey (UI task): look up under the lock.
+			std::shared_lock guard(state.lock);
+			if (const auto* custom = state.FindBySpellLocked(a_spell)) {
+				// Linked sub-spells are never in a spell list; only the equipped spell is deletable.
+				return custom->primary == a_spell || (custom->def.slot < state.primarySlots.size() &&
+				                                         state.primarySlots[custom->def.slot] == a_spell) ?
+				           DeleteCheck::kOk :
+				           DeleteCheck::kInherent;
+			}
 		}
 		if (state.slotIndex.contains(a_spell)) {
 			return DeleteCheck::kNotCustom;  // an unused slot record

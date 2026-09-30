@@ -280,17 +280,19 @@ namespace LA::Effects::Internal
 					return RE::BSEventNotifyControl::kContinue;
 				}
 				Captured c;
-				c.target = target->GetHandle();
 				c.targetId = target->GetFormID();
 				c.uid = a_event->activeEffectUniqueID;
 				c.applied = a_event->isApplied;
-				if (a_event->caster) {
-					if (auto* caster = a_event->caster->As<RE::Actor>()) {
-						c.caster = caster->GetHandle();
-						c.casterId = caster->GetFormID();
-					}
-				}
 				if (c.applied) {
+					// Handles only for applies: a remove is matched by (targetId, uid), and removes also
+					// fire while an actor is being deleted, when creating a new handle for it is unsafe.
+					c.target = target->GetHandle();
+					if (a_event->caster) {
+						if (auto* caster = a_event->caster->As<RE::Actor>()) {
+							c.caster = caster->GetHandle();
+							c.casterId = caster->GetFormID();
+						}
+					}
 					auto* effect = FindActiveEffect(target, c.uid);
 					if (!effect) {
 						return RE::BSEventNotifyControl::kContinue;
@@ -947,7 +949,9 @@ namespace LA::Effects
 		RevertWorld();
 		std::unique_lock lock(g_instLock);
 		g_instances.clear();
-		g_wake = false;
+		// g_wake stays set: InstallWorld woke the frame for good (exterior tracking for Divine
+		// Intervention, Casting's touch-reach / summon-perk refresh), and nothing re-wakes it after
+		// a load.
 	}
 
 	void PrepareForUninstall()

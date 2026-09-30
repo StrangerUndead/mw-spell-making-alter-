@@ -208,7 +208,9 @@ namespace LA::Services
 			placed.assign(g_placed.begin(), g_placed.end());
 		}
 		for (const auto formId : placed) {
-			if (auto* ref = RE::TESForm::LookupByID<RE::TESObjectREFR>(formId)) {
+			// g_placed spans every save of the session and created refs (0xFF......) are renumbered
+			// per save: after loading another save the id may name some other created reference.
+			if (auto* ref = RE::TESForm::LookupByID<RE::TESObjectREFR>(formId); ref && IsAltar(ref)) {
 				ApplyStateTo(ref);
 			}
 		}

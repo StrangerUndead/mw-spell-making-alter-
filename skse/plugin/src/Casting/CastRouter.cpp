@@ -59,14 +59,16 @@ namespace LA::Casting
 			const RE::SpellItem* record{ nullptr };
 		};
 
-		// FindBySpell takes its own shared lock; callers must not hold State::lock.
+		// Callers hold a ReadGuard for as long as they use the result (the PlanRef points into
+		// State::spells, which the main thread edits). The lookup itself takes no lock: a second
+		// shared lock on the same thread could deadlock behind a queued writer.
 		std::optional<PlanRef> Resolve(const RE::MagicItem* a_item)
 		{
 			const auto* record = a_item ? a_item->As<RE::SpellItem>() : nullptr;
 			if (!record || !IsCustomSlotSpell(record)) {
 				return std::nullopt;
 			}
-			const auto* custom = State::Get().FindBySpell(record);
+			const auto* custom = State::Get().FindBySpellLocked(record);
 			if (!custom) {
 				return std::nullopt;
 			}
@@ -149,11 +151,11 @@ namespace LA::Casting
 			if (!a_effect || !a_effect->effect || !IsCustomSlotSpell(a_effect->spell) || !State::Get().dataReady) {
 				return;
 			}
+			ReadGuard  guard;
 			const auto ref = Resolve(a_effect->spell);
 			if (!ref) {
 				return;
 			}
-			ReadGuard guard;
 			const auto* entry = EntryOf(*ref, a_effect->effect);
 			const auto* source = entry ? SourceOf(*ref, *entry) : nullptr;
 			const auto* def = source ? State::Get().catalog.Find(source->effectId) : nullptr;
@@ -334,15 +336,18 @@ namespace LA::Casting
 				if (!a_doCast || !a_spell || !actor || !State::Get().dataReady) {
 					return func(a_this, a_doCast, a_arg2, a_spell);
 				}
-				const auto ref = Resolve(a_spell);
-				const bool primary = ref && ref->planIndex == 0;
-				const CustomSpell* custom = primary ? ref->spell : nullptr;
+				// Copied under the guard: `custom` is only used as a flag after it is released.
+				const CustomSpell*          custom = nullptr;
 				std::vector<RE::SpellItem*> subs;
 				std::vector<SpellEffect>    effects;
-				if (custom) {
-					ReadGuard guard;
-					subs = custom->subs;
-					effects = custom->def.effects;
+				{
+					ReadGuard  guard;
+					const auto ref = Resolve(a_spell);
+					if (ref && ref->planIndex == 0) {
+						custom = ref->spell;
+						subs = custom->subs;
+						effects = custom->def.effects;
+					}
 				}
 
 				const auto release = Decide(actor, a_spell, [&]() { return RollFails(actor, custom ? &effects : nullptr, a_spell); });
@@ -448,7 +453,8 @@ namespace LA::Casting
 		{
 			auto  casterPtr = a_impact.caster.get();
 			auto* caster = casterPtr.get();
-			auto* record = RE::TESForm::LookupByID<RE::SpellItem>(a_impact.spell);
+			auto*      record = RE::TESForm::LookupByID<RE::SpellItem>(a_impact.spell);
+			ReadGuard  guard;  // main thread (task): no lock taken
 			const auto ref = Resolve(record);
 			if (!caster || !ref) {
 				return;

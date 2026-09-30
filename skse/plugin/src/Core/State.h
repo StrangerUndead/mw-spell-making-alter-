@@ -92,8 +92,12 @@ namespace LA
 		std::string     Text(std::string_view a_key) const { return strings.Get(a_key); }
 		std::string     MessageText(Msg a_msg) const { return strings.Get("$LA_Msg_" + std::string(MessageKey(a_msg))); }
 
-		// Custom spell owning this form (primary or sub), if any.
+		// Custom spell owning this form (primary or sub), if any. Takes the shared lock itself; the
+		// pointer stays valid only while no main-thread writer erases the spell, so readers off the
+		// main thread that keep using it take `lock` and call FindBySpellLocked instead.
 		const CustomSpell* FindBySpell(const RE::SpellItem* a_spell) const;
+		// Same, for callers that already hold `lock` (shared or unique) or run on the main thread.
+		const CustomSpell* FindBySpellLocked(const RE::SpellItem* a_spell) const;
 		bool               IsCustomSpell(const RE::SpellItem* a_spell) const { return FindBySpell(a_spell) != nullptr; }
 		std::optional<std::uint16_t> SlotOf(const RE::SpellItem* a_spell) const;
 

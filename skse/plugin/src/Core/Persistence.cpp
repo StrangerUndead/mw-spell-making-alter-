@@ -21,10 +21,10 @@
 // read, each saved ActiveEffect is re-attached to its spell's Effect entries, so a slot that is
 // still blank at that moment loses its buffs (the reload bug of other slot-based spellcrafting
 // mods; OUTLINE "Why fixed slots"). Hence the early restore: at kPreLoadGame the plugin reads the
-// LART definitions straight from the save's .skse file and compiles the slots before any change
-// form loads; the revert callback re-applies them after blanking; the load callback then keeps
-// that compilation when the co-save agrees with it (recompiling would detach the effects the
-// engine just re-attached) and rebuilds from scratch otherwise.
+// LART definitions straight from the save's .skse file; the revert callback, which runs after it
+// and before any change form loads, blanks the slots and compiles them once; the load callback
+// then keeps that compilation when the co-save agrees with it (recompiling would detach the
+// effects the engine just re-attached) and rebuilds from scratch otherwise.
 namespace LA::Persistence
 {
 	namespace
@@ -81,9 +81,31 @@ namespace LA::Persistence
 			return true;
 		}
 
+		// Records exactly as the last load read them. When the plugin can't run (LostArt.esp or
+		// LostArt_Slots.esp disabled), nothing is compiled, so a save must not overwrite the player's
+		// spellbook with an empty one: the loaded records are written back unchanged instead.
+		struct RawRecord
+		{
+			std::uint32_t             type{ 0 };
+			std::uint32_t             version{ 0 };
+			std::vector<std::uint8_t> bytes;
+		};
+		std::vector<RawRecord> g_rawLoaded;
+
 		void OnSave(SKSE::SerializationInterface* a_intfc)
 		{
-			auto&                       state = State::Get();
+			auto& state = State::Get();
+			if (!state.dataReady) {
+				for (const auto& raw : g_rawLoaded) {
+					static const std::uint8_t empty = 0;
+					const void* data = raw.bytes.empty() ? static_cast<const void*>(&empty) : raw.bytes.data();
+					a_intfc->WriteRecord(raw.type, raw.version, data, static_cast<std::uint32_t>(raw.bytes.size()));
+				}
+				logger::warn("co-save: plugin data not loaded; {} record(s) from the last load written back unchanged",
+					g_rawLoaded.size());
+				return;
+			}
+			
 			std::vector<SpellDef>       defs;
 			std::vector<Mark>           marks;
 			std::vector<LedgerEntry>    ledger;
@@ -142,12 +164,14 @@ namespace LA::Persistence
 			std::uint32_t type = 0;
 			std::uint32_t recordVersion = 0;
 			std::uint32_t length = 0;
+			g_rawLoaded.clear();
 			while (a_intfc->GetNextRecordInfo(type, recordVersion, length)) {
 				std::vector<std::uint8_t> bytes(length);
 				if (length > 0 && a_intfc->ReadRecordData(bytes.data(), length) != length) {
 					logger::error("co-save: record {:08X} is truncated", type);
 					continue;
 				}
+				g_rawLoaded.push_back({ type, recordVersion, bytes });
 				if (recordVersion > kSchemaVersion) {
 					logger::warn("co-save: record {:08X} has schema {} (this plugin knows {}); reading what it can", type, recordVersion,
 						kSchemaVersion);
@@ -222,6 +246,7 @@ namespace LA::Persistence
 		{
 			// Once per game load/new game, and before anything is blanked: Effect objects retired
 			// two sessions ago become reusable (Core/SpellCompiler.cpp, EffectPool).
+			g_rawLoaded.clear();  // a new game (or the next load) starts without the old records
 			Compiler::OnRevert();
 			Spellbook::Revert();
 			Effects::Revert();
@@ -294,7 +319,12 @@ namespace LA::Persistence
 		if (!ok || !signature) {
 			return fail("not an SKSE co-save");
 		}
-		if (format != 1) {
+		// SKSE64 rejects 0 (invalid) and anything newer than its own Header::kVersion. VERIFY
+		// (in-game, `la test save` cosave_file): the format number current SKSE64 builds write;
+		// 1 and 2 are accepted because the header / plugin / chunk walk below is layout-checked
+		// (every read is bounds-checked, so an unexpected layout fails the parse and the load
+		// callback rebuilds instead).
+		if (format == 0 || format > 2) {
 			return fail(fmt::format("unknown co-save format {}", format));
 		}
 		if (plugins > 4096) {
@@ -373,12 +403,13 @@ namespace LA::Persistence
 			logger::warn("early restore skipped ({}): {}", path->filename().string(), error);
 			return;
 		}
+		// Only parsed here: the revert callback (after this message, before any change form is
+		// read) blanks the slots and compiles these once. Compiling now as well would recompile
+		// twice per load and would rewrite the slots of the session still running, which keeps
+		// them if this load fails.
 		g_early.pending = true;
 		g_early.defs = std::move(*defs);
-		// Applied now and again after the revert callback blanks the slots (whichever comes last
-		// wins; both compile the same definitions).
-		Apply(g_early.defs, "early restore");
-		g_early.applied = true;
+		logger::info("early restore: {} custom spells read from {}", g_early.defs.size(), path->filename().string());
 	}
 
 	void OnPostLoadGame(bool a_success)

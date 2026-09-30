@@ -135,6 +135,15 @@ namespace LA
 
 	const CustomSpell* State::FindBySpell(const RE::SpellItem* a_spell) const
 	{
+		if (!a_spell || !slotIndex.contains(a_spell)) {
+			return nullptr;
+		}
+		std::shared_lock guard(lock);
+		return FindBySpellLocked(a_spell);
+	}
+
+	const CustomSpell* State::FindBySpellLocked(const RE::SpellItem* a_spell) const
+	{
 		if (!a_spell) {
 			return nullptr;
 		}
@@ -142,7 +151,6 @@ namespace LA
 		if (it == slotIndex.end()) {
 			return nullptr;
 		}
-		std::shared_lock guard(lock);
 		std::uint16_t primary = it->second;
 		if ((primary & kSubFlag) != 0) {
 			const std::uint16_t sub = primary & static_cast<std::uint16_t>(~kSubFlag);
@@ -190,10 +198,13 @@ namespace LA
 
 	void State::AddPassThrough(EffectDef a_def)
 	{
-		if (a_def.id.empty() || catalog.Find(a_def.id)) {
-			return;  // appended once per id, never replaced (keeps EffectDef pointers stable)
+		if (a_def.id.empty()) {
+			return;
 		}
 		std::unique_lock guard(lock);
+		if (catalog.Find(a_def.id)) {
+			return;  // appended once per id, never replaced (Catalog::Add would overwrite in place)
+		}
 		logger::info("pass-through effect registered: {} ({})", a_def.id, a_def.nameKey);
 		catalog.Add(std::move(a_def));
 	}

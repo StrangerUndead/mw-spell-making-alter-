@@ -79,10 +79,19 @@ namespace LA::UI
 			{
 				if (a_params.argCount >= 1 && a_params.args[0].IsObject()) {
 					if (auto* spell = SelectedSpell()) {
-						if (const auto* custom = State::Get().FindBySpell(spell)) {
-							const auto text = CardText(*custom);
+						// Scaleform callback (UI side): read the definition under the lock, since
+						// the main thread may delete or replace the spell meanwhile.
+						std::optional<std::string> text;
+						{
+							const auto&      state = State::Get();
+							std::shared_lock guard(state.lock);
+							if (const auto* custom = state.FindBySpellLocked(spell)) {
+								text = CardText(*custom);
+							}
+						}
+						if (text) {
 							RE::GFxValue effects;
-							a_params.movie->CreateString(&effects, text.c_str());
+							a_params.movie->CreateString(&effects, text->c_str());
 							a_params.args[0].SetMember("effects", effects);
 						}
 					}

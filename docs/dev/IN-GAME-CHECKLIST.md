@@ -107,6 +107,15 @@ in `docs/dev/TESTING.md` by hand. It covers:
   - `DLC2TelMithryn` as Neloth's tower;
   - Clean Sweep stage 200.
 
+## Engine assumptions from the code review
+
+- **Timing:** SKSE's revert callback runs after kPreLoadGame and before change forms load. The early restore of custom spells depends on it.
+- **Threading:** Scaleform callbacks run on the thread `State::MarkMainThread` recorded at plugin load. Opening the menu may add pass-through catalog entries while hooks read the catalog.
+- **Co-save format:** `la test save` (cosave_file) shows which co-save format number current SKSE64 writes; the parser accepts 1–2.
+- **Revert:** `Effects::Revert` restores character controllers during the revert callback. Check that loading a save while levitating doesn't crash.
+- **Papyrus calls:** `MakeFunctionArguments` results passed to `DispatchStaticCall`/`DispatchMethodCall`. Check whether the VM takes ownership; otherwise each call leaks a little.
+- **Missing plugins:** with LostArt.esp or LostArt_Slots.esp disabled, saves write the last loaded co-save records back unchanged, so re-enabling the mod restores the spellbook.
+
 ## Known v1.0 limitations (documented, not bugs)
 
 - **Swap-style perks:** Elemental Potency and Mystic Binding replace the spell's effect rather than add a rider, so they don't apply to crafted summons and bound weapons.

@@ -628,22 +628,28 @@ namespace LA::UI
 		const auto& state = State::Get();
 		const auto  fmt = state.Formatter();
 		Val         list = Val::Array();
-		// UI callbacks run on the main thread, where every spellbook writer runs too, so the list
-		// can't change underneath us. No lock here: Spellbook::List() may take it itself.
-		for (const auto* spell : Spellbook::List()) {
-			if (!spell) {
-				continue;
+		// Menu calls arrive on the UI side while the spellbook is written on the main thread
+		// (CompletePurchase goes through RunOnMainThread), so the definitions are copied under
+		// the lock instead of keeping pointers into State::spells.
+		std::vector<SpellDef> defs;
+		{
+			std::shared_lock lock(state.lock);
+			defs.reserve(state.spells.size());
+			for (const auto& [slot, custom] : state.spells) {
+				defs.push_back(custom.def);
 			}
+		}
+		for (const auto& def : defs) {
 			std::string text;
-			for (const auto& effect : spell->def.effects) {
+			for (const auto& effect : def.effects) {
 				if (!text.empty()) {
 					text += "; ";
 				}
 				text += fmt.Line(effect);
 			}
 			Val entry = Val::Object();
-			entry.Set("slot", Val::Num(spell->def.slot));
-			entry.Set("name", Val::Str(spell->def.name));
+			entry.Set("slot", Val::Num(def.slot));
+			entry.Set("name", Val::Str(def.name));
 			entry.Set("text", Val::Str(std::move(text)));
 			list.Push(std::move(entry));
 		}

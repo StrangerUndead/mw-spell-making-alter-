@@ -675,7 +675,9 @@ namespace LA::Effects::Internal
 		int RankOf(RE::Actor* a_npc)
 		{
 			auto* player = Player();
-			auto* rel = player ? RE::BGSRelationship::GetRelationship(a_npc->GetActorBase(), player->GetActorBase()) : nullptr;
+			auto* npcBase = a_npc ? a_npc->GetActorBase() : nullptr;
+			auto* playerBase = player ? player->GetActorBase() : nullptr;
+			auto* rel = npcBase && playerBase ? RE::BGSRelationship::GetRelationship(npcBase, playerBase) : nullptr;
 			if (!rel) {
 				return 0;  // acquaintance
 			}

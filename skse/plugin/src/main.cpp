@@ -41,9 +41,10 @@ SKSEPluginInfo(
 
 namespace
 {
-	// Branch trampoline shared by every hook in the DLL (Casting's active-effect and cast hooks,
-	// Effects' frame and movement hooks, UI's magic-menu hooks). Allocated in SKSE::Init, before
-	// any component installs. Each write_call/write_branch needs 14 bytes (more with xbyak thunks).
+	// SKSE's default branch trampoline (SKSE::GetTrampoline()), allocated in SKSE::Init. No hook
+	// uses it today: the vtable hooks (Casting, Effects' frame / AddTarget hooks) need none, and the
+	// two write_call sites own named trampolines (Effects/Movement.cpp 64 B for 2 calls,
+	// Effects/Combat.cpp 32 B for 1 call; a write_call<5> takes 14 bytes). Kept as headroom.
 	constexpr std::size_t kTrampolineSize = 1 << 10;
 
 	// Documents/My Games/Skyrim Special Edition[ GOG]/SKSE/LostArt.log. Starts at info so the
