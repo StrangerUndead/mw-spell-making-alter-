@@ -775,3 +775,7 @@ $LA_Msg_NoTemple	There is no temple close enough to reach you here.
 $LA_Msg_ItemRuined	Your {0} is ruined.
 $LA_Msg_ArmorRepaired	Your armor has been repaired.
 $LA_Msg_WeaponsRepaired	Your weapons have been repaired.
+$LA_UI_CostShare	share
+$LA_UI_NoEffects	Choose effects from Effects Known.
+$LA_UI_NoKnown	You know no effects that can be used in spellmaking.
+$LA_UI_NoMatches	No effect matches the search.

@@ -523,3 +523,12 @@ TEST_CASE("The live base-cost override feeds the readout and the purchase", "[me
 	REQUIRE(p);
 	CHECK(p->def.cost == after);
 }
+
+TEST_CASE("Editor cancel also closes the attribute picker", "[menu]")
+{
+	Harness h;
+	h.session.AddEffect("mw.fortify_attribute");
+	REQUIRE(h.session.Picker());
+	CHECK(h.session.EditorCancel().changed);
+	CHECK_FALSE(h.session.Picker());
+}

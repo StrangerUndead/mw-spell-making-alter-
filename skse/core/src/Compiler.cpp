@@ -148,6 +148,11 @@ namespace LA::Compiler
 				if (def->set == EffectSet::kPassThrough) {
 					entry.variantEditorId.clear();
 				}
+				// Add-on packs bring their own MGEF per range.
+				if (auto it = def->variantForms.find(a_effect.range); it != def->variantForms.end()) {
+					entry.variantEditorId.clear();
+					entry.vanillaEffect = it->second;
+				}
 				unit.entries.push_back(std::move(entry));
 			}
 

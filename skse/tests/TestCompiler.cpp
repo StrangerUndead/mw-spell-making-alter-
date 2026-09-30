@@ -165,3 +165,17 @@ TEST_CASE("Morrowind skills split across Skyrim skills by weight", "[compiler]")
 	CHECK(plan.Primary().entries[2].variantEditorId == "LA_FortifySkill_Acrobatics_Self");
 	CHECK(plan.Primary().entries[2].maxMag == 10);
 }
+
+TEST_CASE("Add-on effects use their own MGEFs", "[compiler][addon]")
+{
+	Catalog                  c;
+	std::vector<std::string> errors;
+	REQUIRE(c.LoadEffectsFromString(R"([{"id":"mw.ice_storm","name":"$X","skyrim":{"school":"Destruction","baseCost":2},
+		"morrowind":{"school":"Destruction","baseCost":6},"ranges":["target"],
+		"variantForms":{"target":"IceStorm.esp|0x000801"}}])", errors));
+	const auto plan = Compiler::Plan(c, { E("mw.ice_storm", Range::kTarget, 10, 10) }, Settings{});
+	REQUIRE(plan.Primary().entries.size() == 1);
+	CHECK(plan.Primary().entries[0].variantEditorId.empty());
+	CHECK(plan.Primary().entries[0].vanillaEffect.ToString() == "IceStorm.esp|0x000801");
+	CHECK(plan.Primary().entries[0].riderId.empty());
+}

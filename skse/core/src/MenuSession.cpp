@@ -397,6 +397,11 @@ namespace LA
 	Outcome MenuSession::EditorCancel()
 	{
 		Outcome outcome;
+		// The SWF treats the attribute/skill picker as the first step of the editor.
+		if (_picker) {
+			_picker.reset();
+			outcome.changed = true;
+		}
 		if (_editor) {
 			_editor.reset();  // a new effect is dropped; an edited one keeps its old values
 			outcome.changed = true;

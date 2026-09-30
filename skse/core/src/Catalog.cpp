@@ -198,6 +198,15 @@ namespace LA
 					}
 				}
 			}
+			if (auto forms = a_obj.find("variantForms"); forms != a_obj.end() && forms->is_object()) {
+				for (const auto& [key, value] : forms->items()) {
+					if (auto range = RangeFromString(key); range && value.is_string()) {
+						if (auto ref = ParseFormRef(value.get<std::string>()); ref.Valid()) {
+							a_def.variantForms[*range] = ref;
+						}
+					}
+				}
+			}
 			a_def.reflectable = Get<bool>(a_obj, "reflectable", true);
 			a_def.hostile = Get<bool>(a_obj, "hostile", false);
 			a_def.itemCardKey = Get<std::string>(a_obj, "itemCard", "");

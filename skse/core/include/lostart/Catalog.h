@@ -60,6 +60,10 @@ namespace LA
 		std::string                 itemCardKey;
 		std::vector<FormRef>        sources;
 
+		// Add-on packs: the pack's own MGEF per range ("variantForms": {"self": "MyPack.esp|0x000801"}).
+		// When present the compiler uses these instead of generated LA_ variants.
+		std::map<Range, FormRef> variantForms;
+
 		// Runtime binding for pass-through effects (full FormID of the modded MGEF).
 		std::uint32_t passThroughForm{ 0 };
 
