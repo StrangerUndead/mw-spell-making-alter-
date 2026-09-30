@@ -5,6 +5,33 @@
 #include <algorithm>
 #include <cmath>
 
+namespace LA
+{
+	const FormRef& RiderInfo::EffectFor(Range a_range, bool a_hasArea) const
+	{
+		auto pick = [&](const char* a_key) -> const FormRef* {
+			const auto it = variants.find(a_key);
+			return it != variants.end() && it->second.Valid() ? &it->second : nullptr;
+		};
+		if (a_range == Range::kTouch) {
+			if (const auto* v = pick("touch")) {
+				return *v;
+			}
+		}
+		if (a_range != Range::kSelf) {
+			if (a_hasArea) {
+				if (const auto* v = pick("aimedArea")) {
+					return *v;
+				}
+			}
+			if (const auto* v = pick("aimed")) {
+				return *v;
+			}
+		}
+		return effect;
+	}
+}
+
 namespace LA::Compiler
 {
 	std::string VariantEditorId(const EffectDef& a_def, std::string_view a_target, Range a_range)
@@ -129,13 +156,18 @@ namespace LA::Compiler
 				if (rider && rider->elemental && !a_settings.elementalRiders) {
 					continue;
 				}
+				// Perks that swap the main effect for a conditioned variant (Elemental Potency,
+				// Mystic Binding) can't ride along as an extra effect; the plugin handles them.
+				if (rider && rider->replacesPrimary) {
+					continue;
+				}
 				PlannedEntry entry;
 				entry.sourceIndex = a_index;
 				entry.effectId = def->id;
 				entry.sub = a_effect.sub;
 				entry.riderId = riderId;
 				if (rider) {
-					entry.vanillaEffect = rider->effect;
+					entry.vanillaEffect = rider->EffectFor(a_effect.range, area > 0);
 				}
 				entry.range = a_effect.range;
 				const double scale = rider ? rider->magnitudeScale : 1.0;

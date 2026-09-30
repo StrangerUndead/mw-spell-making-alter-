@@ -33,6 +33,32 @@
           }
         }
       }
+    },
+    "unmapped": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "effect",
+          "label",
+          "reason"
+        ],
+        "properties": {
+          "effect": {
+            "$ref": "common.schema.json#/$defs/formRef"
+          },
+          "label": {
+            "$ref": "common.schema.json#/$defs/editorId"
+          },
+          "example": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

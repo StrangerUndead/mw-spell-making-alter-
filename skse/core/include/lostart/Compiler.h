@@ -5,6 +5,7 @@
 #include "lostart/Types.h"
 
 #include <functional>
+#include <map>
 #include <string>
 #include <vector>
 
@@ -20,6 +21,11 @@ namespace LA
 		FormRef     perk;            // perk that reads it (informational)
 		bool        elemental{ false };  // Frost stamina/slow, Shock magicka: dropped when "Skyrim elemental riders" is off
 		double      magnitudeScale{ 1.0 }; // rider magnitude = parent magnitude * scale
+		bool        replacesPrimary{ false };  // vanilla swaps the main effect (Elemental Potency, Mystic Binding)
+		std::map<std::string, FormRef> variants;  // "aimed", "aimedArea", "touch", ... (data/content/riders.json)
+
+		// The rider MGEF for a delivery: touch, aimed-with-area and aimed variants when present.
+		const FormRef& EffectFor(Range a_range, bool a_hasArea) const;
 	};
 
 	using RiderLookup = std::function<const RiderInfo*(std::string_view)>;

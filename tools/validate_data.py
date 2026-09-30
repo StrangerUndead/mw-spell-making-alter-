@@ -288,8 +288,8 @@ def validate(data_dir=DATA, formkeys=None, write_translations=False, quiet=False
         else:
             R.ok(e["area"] is True, f"{eid}: Touch/Target effect should allow area (Morrowind rule)")
         if not e["magnitude"]["has"]:
-            R.ok(e["magnitude"]["unit"] == "none" and "rankLadder" not in e or all(v == 1 for v in e.get("rankLadder", {}).values()),
-                 f"{eid}: magnitude-less effect has unit/ladder")
+            R.ok(e["magnitude"]["unit"] == "none" and all(v == 1 for v in e.get("rankLadder", {}).values()),
+                 f"{eid}: magnitude-less effect must use unit 'none' and ladder thresholds of 1")
         if e["magnitude"]["ticking"]:
             R.ok(e["duration"], f"{eid}: ticking effect without duration")
         if e["set"] == "mw":

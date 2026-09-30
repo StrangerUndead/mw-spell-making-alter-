@@ -25,6 +25,7 @@ namespace LA
 		std::string              secondAV;
 		std::string              resist;
 		std::vector<std::string> keywords;     // EditorIDs
+		std::vector<std::string> flags;        // MGEF flag names: Hostile, Recover, Detrimental, ...
 		bool                     hostile{ false };
 		bool                     detrimental{ false };
 		std::string              castingType;  // ConstantEffect | FireAndForget | Concentration
@@ -48,12 +49,17 @@ namespace LA
 	struct DiscoveryRule
 	{
 		std::string              id;
+		std::vector<std::string> alsoIds;      // unlocked by the same match (Humanoid/Creature pairs)
 		std::optional<std::string> archetype;
+		std::optional<std::string> actorValueGroup;  // "Skill": any of the 18 skill actor values
 		std::optional<std::string> actorValue;
 		std::optional<std::string> resist;
 		std::optional<bool>      hostile;
 		std::vector<std::string> keywordsAny;
 		std::vector<std::string> keywordsAll;
+		std::vector<std::string> keywordsNone;
+		std::vector<std::string> flagsAll;
+		std::vector<std::string> flagsNone;
 		std::vector<std::string> delivery;
 		std::optional<std::string> castingType;
 
@@ -75,11 +81,13 @@ namespace LA
 		bool LoadVanillaFromString(std::string_view a_json, std::vector<std::string>& a_errors);
 		bool LoadRulesFromString(std::string_view a_json, std::vector<std::string>& a_errors);
 
-		void AddLookup(const FormRef& a_form, std::string a_effectId);
+		void AddLookup(const FormRef& a_form, std::string a_effectId);  // one MGEF may unlock several ids
 		void AddRule(DiscoveryRule a_rule) { _rules.push_back(std::move(a_rule)); }
 
 		// Maps one effect: lookup table, then rules (first match wins). nullopt = unrecognized.
 		std::optional<std::string> Classify(const EffectDescriptor& a_effect) const;
+		// Every catalog id the effect unlocks (vanilla Calm unlocks Calm Humanoid and Creature).
+		std::vector<std::string>   ClassifyAll(const EffectDescriptor& a_effect) const;
 
 		// Runs Morrowind's rule over the player's spell list: only spells of type Spell count.
 		// Effects are filtered by the settings (Skyrim-only / Extended sets, pass-through).
@@ -93,7 +101,7 @@ namespace LA
 		std::size_t RuleCount() const { return _rules.size(); }
 
 	private:
-		std::unordered_map<std::string, std::string> _lookup;  // "Skyrim.esm|0x012FD0" lowercased -> id
+		std::unordered_map<std::string, std::vector<std::string>> _lookup;  // "skyrim.esm|0x012fd0" -> ids
 		std::vector<DiscoveryRule>                   _rules;
 	};
 

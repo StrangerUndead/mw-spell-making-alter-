@@ -10,6 +10,7 @@ A reference is any string (or substring, e.g. "quest:Dragonborn.esm|0x01DB3A:500
 "<Plugin>.esm|0x<6 hex digits>". Checks:
   * the (plugin, local id) pair exists in the FormKeys tables;
   * where the JSON key implies a record type (spell, vanillaEffect, npc, perk, ...), the form has that type;
+  * keyword EditorIDs in "keywords"/"keywordsAny"/"keywordsAll"/"keywordsNone" arrays exist as KYWD records;
   * editor-ID labels stored next to a reference (e.g. discovery "label", "npcLabel", "cellLabel",
     riders "labels", ranks "perkLabels") match the FormKeys EditorID.
 Exit status 0 when everything resolves, 1 otherwise.
@@ -95,7 +96,8 @@ def expected_types(path, fname):
 
 
 def check(data_dir, repo, verbose=False, out=print):
-    by_id, _ = load_index(repo)
+    by_id, by_name = load_index(repo)
+    keywords = {e for (_, t, e) in by_name if t == "Keyword"}
     errors, count = [], 0
     files = [p for p in sorted(glob.glob(os.path.join(data_dir, "**", "*.json"), recursive=True))
              if os.sep + "schema" + os.sep not in p and os.sep + "generated" + os.sep not in p]
@@ -105,6 +107,11 @@ def check(data_dir, repo, verbose=False, out=print):
         with open(path, encoding="utf-8") as f:
             doc = json.load(f)
         for jpath, parent, key, s in iter_refs(doc):
+            if len(jpath) >= 2 and jpath[-2] in ("keywords", "keywordsAny", "keywordsAll", "keywordsNone"):
+                count += 1
+                if s not in keywords:
+                    errors.append(f"{rel}:{'/'.join(map(str, jpath))}: keyword {s!r} is not a vanilla KYWD EditorID")
+                continue
             for m in REF_RX.finditer(s):
                 count += 1
                 plugin, fid = m.group(1) + ".esm", int(m.group(2), 16)

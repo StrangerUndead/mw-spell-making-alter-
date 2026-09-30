@@ -23,6 +23,9 @@ namespace LA
 			"Strength", "Intelligence", "Willpower", "Agility", "Speed", "Endurance", "Personality", "Luck"
 		};
 
+		// Median vanilla cost / Classic cost across the vanilla fits (tools/calibrate.py prints it).
+		constexpr double kVanillaToClassic = 4.273211;
+
 		std::optional<std::string> ReadFile(const std::filesystem::path& a_path)
 		{
 			std::ifstream file(a_path, std::ios::binary);
@@ -198,6 +201,19 @@ namespace LA
 			a_def.reflectable = Get<bool>(a_obj, "reflectable", true);
 			a_def.hostile = Get<bool>(a_obj, "hostile", false);
 			a_def.itemCardKey = Get<std::string>(a_obj, "itemCard", "");
+			// Skyrim-only effects have no Morrowind block. Give them a Classic base cost on the same
+			// scale as the rest of the catalog: their vanilla spell's cost divided by K (the median
+			// vanilla/Classic ratio, docs/data-notes.md), solved for B in Morrowind's formula.
+			const auto mwBlock = a_obj.find("morrowind");
+			if (mwBlock == a_obj.end() || mwBlock->is_null()) {
+				a_def.mwBaseCost = a_def.skBaseCost * kVanillaToClassic;
+				if (a_def.fitFrom && a_def.fitFrom->cost > 0) {
+					const double mag = a_def.hasMagnitude ? std::max(1.0, a_def.fitFrom->magnitude) : 1.0;
+					const double dur = a_def.hasDuration ? std::max(1.0, a_def.fitFrom->duration) : 1.0;
+					const double unit = (2.0 * mag * (dur + 1.0) + std::max(1.0, a_def.fitFrom->area)) / 40.0;
+					a_def.mwBaseCost = a_def.fitFrom->cost / kVanillaToClassic / unit;
+				}
+			}
 			for (const auto& src : Get<std::vector<std::string>>(a_obj, "sources", {})) {
 				if (auto ref = ParseFormRef(src); ref.Valid()) {
 					a_def.sources.push_back(ref);

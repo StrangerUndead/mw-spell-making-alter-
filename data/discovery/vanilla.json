@@ -27,14 +27,12 @@
     {
       "effect": "Skyrim.esm|0x082A33",
       "id": "mw.fire_damage",
-      "label": "FireDamageFFSelfArea65",
-      "example": "Fire Storm"
+      "label": "FireDamageFFSelfArea65"
     },
     {
       "effect": "Skyrim.esm|0x082A32",
       "id": "mw.fire_damage",
-      "label": "FireDamageFFSelfArea25",
-      "example": "Fire Storm"
+      "label": "FireDamageFFSelfArea25"
     },
     {
       "effect": "Skyrim.esm|0x10F7F1",
@@ -56,8 +54,7 @@
     {
       "effect": "Skyrim.esm|0x01CEA3",
       "id": "mw.frost_damage",
-      "label": "FrostDamageFFAimedArea",
-      "example": "Ice Storm"
+      "label": "FrostDamageFFAimedArea"
     },
     {
       "effect": "Skyrim.esm|0x013CAA",
@@ -74,14 +71,12 @@
     {
       "effect": "Skyrim.esm|0x066334",
       "id": "mw.frost_damage",
-      "label": "FrostDamageFFSelfArea65",
-      "example": "Blizzard"
+      "label": "FrostDamageFFSelfArea65"
     },
     {
       "effect": "Skyrim.esm|0x066335",
       "id": "mw.frost_damage",
-      "label": "FrostDamageFFSelfArea25",
-      "example": "Blizzard"
+      "label": "FrostDamageFFSelfArea25"
     },
     {
       "effect": "Skyrim.esm|0x10F7F0",
@@ -103,8 +98,7 @@
     {
       "effect": "Skyrim.esm|0x05DBAE",
       "id": "mw.shock_damage",
-      "label": "ShockDamageFFAimedArea",
-      "example": "Chain Lightning"
+      "label": "ShockDamageFFAimedArea"
     },
     {
       "effect": "Skyrim.esm|0x013CAB",
@@ -654,14 +648,12 @@
     {
       "effect": "Skyrim.esm|0x10F9B8",
       "id": "mw.rally_humanoid",
-      "label": "InfluenceConfUpFFSelfAreaSecondary",
-      "example": "Call to Arms"
+      "label": "InfluenceConfUpFFSelfAreaSecondary"
     },
     {
       "effect": "Skyrim.esm|0x10F9B8",
       "id": "mw.rally_creature",
-      "label": "InfluenceConfUpFFSelfAreaSecondary",
-      "example": "Call to Arms"
+      "label": "InfluenceConfUpFFSelfAreaSecondary"
     },
     {
       "effect": "Skyrim.esm|0x050CEA",
@@ -734,6 +726,134 @@
       "id": "mw.absorb_health",
       "label": "DLC1PCVampireAbsorbHealthFFAimed",
       "example": "Vampire Lord Drain Life"
+    }
+  ],
+  "unmapped": [
+    {
+      "effect": "Skyrim.esm|0x02113F",
+      "label": "ClairvoyanceEffect",
+      "example": "Clairvoyance",
+      "reason": "Guide archetype; no Morrowind effect"
+    },
+    {
+      "effect": "Skyrim.esm|0x0CDB75",
+      "label": "ArmorFFSelf100",
+      "example": "Dragonhide",
+      "reason": "damage reduction, not armor rating; no Morrowind effect"
+    },
+    {
+      "effect": "Skyrim.esm|0x00014C",
+      "label": "WardConcSelf0",
+      "example": "Lesser Ward",
+      "reason": "concentration ward (v1.x)"
+    },
+    {
+      "effect": "Skyrim.esm|0x05AD60",
+      "label": "WardConcSelf25",
+      "example": "Steadfast Ward",
+      "reason": "concentration ward (v1.x)"
+    },
+    {
+      "effect": "Skyrim.esm|0x05AD61",
+      "label": "WardConcSelf50",
+      "example": "Greater Ward",
+      "reason": "concentration ward (v1.x)"
+    },
+    {
+      "effect": "Skyrim.esm|0x05DB8F",
+      "label": "RuneFireFFLocation",
+      "example": "Fire Rune",
+      "reason": "rune / target-location (v1.x)"
+    },
+    {
+      "effect": "Skyrim.esm|0x06796D",
+      "label": "RuneFrostFFLocation",
+      "example": "Frost Rune",
+      "reason": "rune / target-location (v1.x)"
+    },
+    {
+      "effect": "Skyrim.esm|0x06796E",
+      "label": "RuneShockFFLocation",
+      "example": "Lightning Rune",
+      "reason": "rune / target-location (v1.x)"
+    },
+    {
+      "effect": "Dragonborn.esm|0x0177AE",
+      "label": "DLC2AshRuneFFLocation",
+      "example": "Ash Rune",
+      "reason": "rune / target-location (v1.x)"
+    },
+    {
+      "effect": "Dragonborn.esm|0x0177B8",
+      "label": "DLC2FrenzyRuneFFLocation",
+      "example": "Frenzy Rune",
+      "reason": "rune / target-location (v1.x)"
+    },
+    {
+      "effect": "Dragonborn.esm|0x01D74C",
+      "label": "DLC2PoisonRuneFFLocation",
+      "example": "Poison Rune",
+      "reason": "rune / target-location (v1.x)"
+    },
+    {
+      "effect": "Skyrim.esm|0x05312C",
+      "label": "CircleProtectionFFSelf",
+      "example": "Circle of Protection",
+      "reason": "area rune (v1.x)"
+    },
+    {
+      "effect": "Skyrim.esm|0x0E0CD0",
+      "label": "GuardianCircleFFSelf",
+      "example": "Guardian Circle",
+      "reason": "area rune (v1.x)"
+    },
+    {
+      "effect": "Dawnguard.esm|0x003F50",
+      "label": "DLC1SunDamageFFAimed",
+      "example": "Sun Fire",
+      "reason": "Sun Damage has no place in the catalog (outline)"
+    },
+    {
+      "effect": "Dawnguard.esm|0x00844B",
+      "label": "DLC1SunDamageFFAimedArea",
+      "example": "Vampire's Bane",
+      "reason": "Sun Damage has no place in the catalog (outline)"
+    },
+    {
+      "effect": "Dawnguard.esm|0x008A5C",
+      "label": "DLC1SunCloakFFSelf",
+      "example": "Stendarr's Aura",
+      "reason": "Sun Damage cloak; no catalog effect"
+    },
+    {
+      "effect": "Dawnguard.esm|0x00C601",
+      "label": "DLC01SummonSoulHorseEffect",
+      "example": "Summon Arvak",
+      "reason": "steed summon; no Morrowind effect"
+    },
+    {
+      "effect": "Dragonborn.esm|0x01772E",
+      "label": "DLC2WhirlwindCloakFFSelf",
+      "example": "Whirlwind Cloak",
+      "reason": "no Morrowind effect; pass-through candidate"
+    },
+    {
+      "effect": "Dragonborn.esm|0x01777E",
+      "label": "DLC2SummonAshGuardianHeartStone",
+      "example": "Conjure Ash Guardian",
+      "reason": "target-location guardian (v1.x)"
+    },
+    {
+      "effect": "Skyrim.esm|0x09CE2B",
+      "label": "SummonFlamingThrallFFSelf",
+      "example": "Flaming Familiar",
+      "reason": "exploding familiar; pass-through candidate"
+    },
+    {
+      "effect": "Skyrim.esm|0x0AB23C",
+      "label": "dunTrevasSpectralArrowDamageFFAimed",
+      "example": "Spectral Arrow",
+      "reason": "no Morrowind effect; pass-through candidate"
     }
   ]
 }

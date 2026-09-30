@@ -24,7 +24,7 @@ namespace LA
 		case Msg::kSpellbookFull:
 			return "SpellbookFull";
 		case Msg::kNameExists:
-			return "NameExists";
+			return "DuplicateName";
 		case Msg::kTooComplex:
 			return "TooComplex";
 		case Msg::kNeedSoulGem:

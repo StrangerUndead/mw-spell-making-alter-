@@ -96,6 +96,14 @@ namespace LA
 			info.perk = Ref(r, "perk");
 			info.elemental = Get<bool>(r, "elemental", false);
 			info.magnitudeScale = Get<double>(r, "magnitudeScale", 1.0);
+			info.replacesPrimary = Get<bool>(r, "replacesPrimary", false);
+			if (auto variants = r.find("variants"); variants != r.end() && variants->is_object()) {
+				for (const auto& [key, value] : variants->items()) {
+					if (value.is_string()) {
+						info.variants[key] = ParseFormRef(value.get<std::string>());
+					}
+				}
+			}
 			if (!info.id.empty()) {
 				_riders.push_back(std::move(info));
 			}

@@ -31,6 +31,30 @@ namespace LA
 			return std::any_of(a_effect.keywords.begin(), a_effect.keywords.end(), [&](const auto& k) { return IEquals(k, a_keyword); });
 		}
 
+		bool HasFlag(const EffectDescriptor& a_effect, std::string_view a_flag)
+		{
+			if (IEquals(a_flag, "Hostile") && a_effect.hostile) {
+				return true;
+			}
+			if (IEquals(a_flag, "Detrimental") && a_effect.detrimental) {
+				return true;
+			}
+			if (IEquals(a_flag, "HideInUI") && a_effect.hideInUI) {
+				return true;
+			}
+			return std::any_of(a_effect.flags.begin(), a_effect.flags.end(), [&](const auto& f) { return IEquals(f, a_flag); });
+		}
+
+		bool IsSkillActorValue(std::string_view a_av)
+		{
+			for (std::size_t i = 0; i < kSkyrimSkillCount; ++i) {
+				if (IEquals(a_av, Catalog::SkyrimSkillName(static_cast<int>(i)))) {
+					return true;
+				}
+			}
+			return false;
+		}
+
 		std::optional<std::string> OptString(const json& a_obj, const char* a_key)
 		{
 			if (auto it = a_obj.find(a_key); it != a_obj.end() && it->is_string()) {
@@ -65,6 +89,9 @@ namespace LA
 		if (actorValue && !IEquals(*actorValue, a_effect.actorValue)) {
 			return false;
 		}
+		if (actorValueGroup && IEquals(*actorValueGroup, "Skill") && !IsSkillActorValue(a_effect.actorValue)) {
+			return false;
+		}
 		if (resist && !IEquals(*resist, a_effect.resist)) {
 			return false;
 		}
@@ -85,12 +112,30 @@ namespace LA
 				return false;
 			}
 		}
+		for (const auto& k : keywordsNone) {
+			if (HasKeyword(a_effect, k)) {
+				return false;
+			}
+		}
+		for (const auto& f : flagsAll) {
+			if (!HasFlag(a_effect, f)) {
+				return false;
+			}
+		}
+		for (const auto& f : flagsNone) {
+			if (HasFlag(a_effect, f)) {
+				return false;
+			}
+		}
 		return true;
 	}
 
 	void Discovery::AddLookup(const FormRef& a_form, std::string a_effectId)
 	{
-		_lookup[Key(a_form)] = std::move(a_effectId);
+		auto& ids = _lookup[Key(a_form)];
+		if (std::find(ids.begin(), ids.end(), a_effectId) == ids.end()) {
+			ids.push_back(std::move(a_effectId));
+		}
 	}
 
 	bool Discovery::LoadVanillaFromString(std::string_view a_json, std::vector<std::string>& a_errors)
@@ -156,7 +201,9 @@ namespace LA
 			DiscoveryRule rule;
 			rule.id = OptString(entry, "id").value_or("");
 			const json& match = entry.contains("match") ? entry["match"] : entry;
+			rule.alsoIds = Strings(entry, "alsoIds");
 			rule.archetype = OptString(match, "archetype");
+			rule.actorValueGroup = OptString(match, "actorValueGroup");
 			rule.actorValue = OptString(match, "actorValue");
 			rule.resist = OptString(match, "resist");
 			if (auto it = match.find("hostile"); it != match.end() && it->is_boolean()) {
@@ -164,6 +211,9 @@ namespace LA
 			}
 			rule.keywordsAny = Strings(match, "keywordsAny");
 			rule.keywordsAll = Strings(match, "keywordsAll");
+			rule.keywordsNone = Strings(match, "keywordsNone");
+			rule.flagsAll = Strings(match, "flagsAll");
+			rule.flagsNone = Strings(match, "flagsNone");
 			rule.delivery = Strings(match, "delivery");
 			rule.castingType = OptString(match, "castingType");
 			if (rule.id.empty()) {
@@ -195,19 +245,30 @@ namespace LA
 		return LoadRulesFromString(*text, a_errors);
 	}
 
-	std::optional<std::string> Discovery::Classify(const EffectDescriptor& a_effect) const
+	std::vector<std::string> Discovery::ClassifyAll(const EffectDescriptor& a_effect) const
 	{
 		if (a_effect.form.Valid()) {
-			if (auto it = _lookup.find(Key(a_effect.form)); it != _lookup.end()) {
+			if (auto it = _lookup.find(Key(a_effect.form)); it != _lookup.end() && !it->second.empty()) {
 				return it->second;
 			}
 		}
 		for (const auto& rule : _rules) {
 			if (rule.Matches(a_effect)) {
-				return rule.id;
+				std::vector<std::string> ids{ rule.id };
+				ids.insert(ids.end(), rule.alsoIds.begin(), rule.alsoIds.end());
+				return ids;
 			}
 		}
-		return std::nullopt;
+		return {};
+	}
+
+	std::optional<std::string> Discovery::Classify(const EffectDescriptor& a_effect) const
+	{
+		auto ids = ClassifyAll(a_effect);
+		if (ids.empty()) {
+			return std::nullopt;
+		}
+		return ids.front();
 	}
 
 	bool Discovery::Allowed(const EffectDef& a_def, const Settings& a_settings)
@@ -294,9 +355,11 @@ namespace LA
 				if (effect.hideInUI) {
 					continue;  // riders and other hidden helper effects teach nothing
 				}
-				if (auto id = Classify(effect)) {
-					if (const auto* def = a_catalog.Find(*id); def && Allowed(*def, a_settings)) {
-						result.effects.insert(*id);
+				if (auto ids = ClassifyAll(effect); !ids.empty()) {
+					for (const auto& id : ids) {
+						if (const auto* def = a_catalog.Find(id); def && Allowed(*def, a_settings)) {
+							result.effects.insert(id);
+						}
 					}
 					continue;
 				}
